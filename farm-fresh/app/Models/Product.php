@@ -9,4 +9,12 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class Product extends Model
 {
     use HasFactory, SoftDeletes;
+
+    /**
+     * Get the product meta values.
+     */
+    public function product_metas()
+    {
+        return $this->hasMany(ProductMeta::class);
+    }
 }

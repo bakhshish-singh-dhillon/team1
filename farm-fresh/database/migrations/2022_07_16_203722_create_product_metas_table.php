@@ -15,6 +15,10 @@ return new class extends Migration
     {
         Schema::create('product_metas', function (Blueprint $table) {
             $table->id();
+            $table->bigInteger('product_id');
+            $table->string('name');
+            $table->string('value');
+            $table->softDeletes();
             $table->timestamps();
         });
     }
