@@ -33,4 +33,12 @@ class Product extends Model
     {
         return $this->hasMany(Image::class);
     }
+
+    /**
+     * Get the line items of product.
+     */
+    public function order_line_items()
+    {
+        return $this->hasMany(OrderLineItem::class);
+    }
 }

@@ -9,4 +9,12 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class Order extends Model
 {
     use HasFactory, SoftDeletes;
+
+    /**
+     * Get the line items of order.
+     */
+    public function order_line_items()
+    {
+        return $this->hasMany(OrderLineItem::class);
+    }
 }
