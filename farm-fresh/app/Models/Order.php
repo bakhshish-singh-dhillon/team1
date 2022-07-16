@@ -17,4 +17,12 @@ class Order extends Model
     {
         return $this->hasMany(OrderLineItem::class);
     }
+
+    /**
+     * Get the transaction of order.
+     */
+    public function transactions()
+    {
+        return $this->hasMany(Transaction::class);
+    }
 }
