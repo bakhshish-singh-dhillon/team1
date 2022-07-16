@@ -15,6 +15,11 @@ return new class extends Migration
     {
         Schema::create('reviews', function (Blueprint $table) {
             $table->id();
+            $table->bigInteger('user_id');
+            $table->bigInteger('product_id');
+            $table->string('review');
+            $table->string('rating');
+            $table->softDeletes();
             $table->timestamps();
         });
     }

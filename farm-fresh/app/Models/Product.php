@@ -17,4 +17,12 @@ class Product extends Model
     {
         return $this->hasMany(ProductMeta::class);
     }
+
+    /**
+     * Get the reviews od product.
+     */
+    public function reviews()
+    {
+        return $this->hasMany(Review::class);
+    }
 }
