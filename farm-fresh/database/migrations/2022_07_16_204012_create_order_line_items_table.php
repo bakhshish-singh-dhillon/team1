@@ -15,6 +15,12 @@ return new class extends Migration
     {
         Schema::create('order_line_items', function (Blueprint $table) {
             $table->id();
+            $table->bigInteger('order_id');
+            $table->bigInteger('product_id');
+            $table->decimal('unit_price',8,2);
+            $table->string('product_name');
+            $table->string('quantity');
+            $table->softDeletes();
             $table->timestamps();
         });
     }
