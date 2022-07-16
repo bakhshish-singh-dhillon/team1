@@ -18,7 +18,7 @@ return new class extends Migration
             $table->bigInteger('user_id');
             $table->bigInteger('product_id');
             $table->string('review');
-            $table->string('rating');
+            $table->integer('rating');
             $table->softDeletes();
             $table->timestamps();
         });

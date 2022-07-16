@@ -15,6 +15,9 @@ return new class extends Migration
     {
         Schema::create('images', function (Blueprint $table) {
             $table->id();
+            $table->bigInteger('product_id');
+            $table->string('url');
+            $table->softDeletes();
             $table->timestamps();
         });
     }
