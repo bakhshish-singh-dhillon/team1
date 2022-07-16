@@ -50,4 +50,12 @@ class User extends Authenticatable
     {
         return $this->hasMany(Review::class);
     }
+
+    /**
+     * Get the addresses of user.
+     */
+    public function addresses()
+    {
+        return $this->hasMany(Review::class);
+    }
 }
