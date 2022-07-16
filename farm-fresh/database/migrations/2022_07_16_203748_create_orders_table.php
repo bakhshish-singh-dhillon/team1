@@ -15,6 +15,17 @@ return new class extends Migration
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
+            $table->bigInteger('user_id');
+            $table->decimal('delivery_charges',8,2);
+            $table->decimal('gst',8,2);
+            $table->decimal('pst',8,2);
+            $table->decimal('vat',8,2);
+            $table->string('order_status');
+            $table->decimal('total',8,2);
+            $table->decimal('subtotal',8,2);
+            $table->string('billing_address');
+            $table->string('shipping_address');
+            $table->softDeletes();
             $table->timestamps();
         });
     }
