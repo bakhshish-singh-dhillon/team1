@@ -41,4 +41,13 @@ class Product extends Model
     {
         return $this->hasMany(OrderLineItem::class);
     }
+
+    /**
+     * Get the categories of product.
+     */
+    
+    public function categories()
+    {
+        return $this->belongsToMany(Category::class);
+    }
 }
