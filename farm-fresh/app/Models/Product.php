@@ -19,10 +19,18 @@ class Product extends Model
     }
 
     /**
-     * Get the reviews od product.
+     * Get the reviews of product.
      */
     public function reviews()
     {
         return $this->hasMany(Review::class);
+    }
+
+    /**
+     * Get the images of product.
+     */
+    public function images()
+    {
+        return $this->hasMany(Image::class);
     }
 }
