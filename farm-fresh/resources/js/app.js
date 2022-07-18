@@ -1,11 +1,12 @@
 require('./bootstrap');
+require('./main.js');
 
-import { createApp } from 'vue';
+// import { createApp } from 'vue';
 
-import TitleComponent from './components/index.vue';
+// import TitleComponent from './components/index.vue';
 
-const app = createApp({})
+// const app = createApp({})
 
-app.component('title-component', TitleComponent)
+// app.component('title-component', TitleComponent)
 
-app.mount('#vueRoot');
+// app.mount('#vueRoot');
