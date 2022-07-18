@@ -16,9 +16,9 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $posts = Product::latest()->paginate(10);
+        $products = Product::latest()->paginate(10);
         $categories = Category::pluck('name', 'id');
-        return view('admin/posts/index', compact('posts', 'categories'));
+        return view('products/index', compact('products', 'categories'));
     }
 
     /**
