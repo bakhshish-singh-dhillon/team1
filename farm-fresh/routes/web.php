@@ -35,6 +35,6 @@ Route::get('/admin/products/create', [AdminProductController::class, 'create']);
 // Pulkit URL Start
 
 Route::get('/about', [App\Http\Controllers\AboutController::class, 'index'])->name('about');
-Route::get('/terms', [App\Http\Controllers\AboutController::class, 'index'])->name('terms');
+Route::get('/terms', [App\Http\Controllers\TermsController::class, 'index'])->name('terms');
 
 // Pulkit URL Ends
