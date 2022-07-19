@@ -41,6 +41,10 @@ img {
     color: #000;
 }
 
+.float-right {
+    float: right;
+}
+
 a.btn {
     color: #fff;
     text-decoration: none;
@@ -61,7 +65,7 @@ a.btn:hover {
 }
 
 .card-img-top {
-    height: 125px;
+    height: 190px;
     width: auto;
     object-fit: cover;
 }
@@ -143,6 +147,27 @@ a.btn:hover {
 
     .left-part {
         border-right: 1px solid #ccc;
+    }
+}
+
+#detail {
+    .product-title {
+        border-bottom: 1px solid;
+    }
+
+    .detail-table {
+
+        th {
+            padding: 0 10px 0 0;
+        }
+
+        td {
+            padding: 10px;
+        }
+    }
+
+    select {
+        padding: 9px 20px;
     }
 }
 
