@@ -1,0 +1,44 @@
+.max-container {
+    max-width: 960px;
+    margin: 0 auto;
+    padding-top: 1px;
+}
+
+.icon {
+    height: 35px;
+    width: 35px;
+    cursor: pointer;
+}
+
+.shadow {
+    box-shadow: 0 0px 5px #333;
+}
+
+.font-md {
+    font-size: 1.2em;
+}
+
+#header_nav ul li {
+    list-style-type: none;
+    display: inline-block;
+    position: relative;
+    margin-left: 35px;
+    vertical-align: middle;
+}
+
+#header_nav ul li {
+    content: "";
+    display: block;
+    width: 0;
+    height: 0;
+    border-bottom: 2px solid transparent;
+    -webkit-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+}
+
+
+#header_nav ul li+li:hover::after {
+    width: 100%;
+    height: 100%;
+    border-bottom: 2px solid #fff;
+}
