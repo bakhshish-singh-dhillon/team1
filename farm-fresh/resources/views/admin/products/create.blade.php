@@ -67,6 +67,23 @@
                                 <span class="text-danger"> {{ $message }}</span>
                             @enderror
                         </div>
+                        <div class="form-outline mb-4 ">
+                            <label class="form-label" for="category_search">Category:
+                                <span class="text-danger">*</span>
+                            </label>
+                            <select name="category_id" class="form-control js-example-basic-single" multiple
+                                id="category_search">
+                                <option value="">Please select a category</option>
+                                @foreach ($categories as $index => $name)
+                                    <option value="{{ $index }}" @selected(old('category_id') == $index)>
+                                        {{ $name }}
+                                    </option>
+                                @endforeach
+                            </select>
+                            @error('category_id')
+                                <span class="text-danger"> {{ $message }}</span>
+                            @enderror
+                        </div>
                         <div class="additional-fields">
                             <div class="form-outline mb-4">
                                 <h2>Additional Details</h2>
@@ -98,20 +115,6 @@
                             @endif
                         </div>
 
-                        <div class="form-outline mb-4 ">
-                            <label class="form-label" for="category_search">Category</label>
-                            <select name="category_id" class="js-example-basic-single" multiple id="category_search">
-                                <option value="">Please select a category</option>
-                                @foreach ($categories as $index => $name)
-                                    <option value="{{ $index }}" @selected(old('category_id') == $index)>
-                                        {{ $name }}
-                                    </option>
-                                @endforeach
-                            </select>
-                            @error('category_id')
-                                <span class="text-danger"> {{ $message }}</span>
-                            @enderror
-                        </div>
 
                         <div class="col-md-2">
                             <div class="form-group change">

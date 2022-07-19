@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Support\Facades\Auth;
 
 class StoreProductRequest extends FormRequest
 {
@@ -13,7 +14,10 @@ class StoreProductRequest extends FormRequest
      */
     public function authorize()
     {
-        return true;
+        if (Auth::check() && Auth::user()->is_admin) {
+            return true;
+        }
+        return false;
     }
 
     /**
@@ -30,6 +34,7 @@ class StoreProductRequest extends FormRequest
             'image' => 'required|image',
             'description' => 'required',
             'measure_unit' => 'required',
+            'category_id' => 'required',
             'quantity' => 'required',
             'value.*' => 'required',
             'key.*' => 'required'
