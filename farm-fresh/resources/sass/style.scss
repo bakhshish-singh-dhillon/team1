@@ -47,6 +47,12 @@ img {
         padding: 15px;
         width: 100px;
         box-shadow: 0px 0px 14px 5px rgba(0, 0, 0, 0.30);
+        transition: all 0.1s ease-in-out;
+        cursor: pointer;
+    }
+
+    img:hover {
+        transform: scale(1.1);
     }
 }
 
@@ -74,6 +80,6 @@ img {
 
 }
 
-#footer_nav {
+#footer_nav ul {
     min-height: 53px;
 }
