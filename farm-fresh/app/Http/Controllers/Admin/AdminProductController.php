@@ -6,9 +6,20 @@ use App\Models\Product;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreProductRequest;
 use App\Http\Requests\UpdateProductRequest;
+use App\Models\Category;
 
-class ProductController extends Controller
+class AdminProductController extends Controller
 {
+    /**
+     * Instantiate a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware(['auth', 'admin']);
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -16,7 +27,9 @@ class ProductController extends Controller
      */
     public function index()
     {
-        //
+        $products = Product::latest()->paginate(10);
+        $categories = Category::pluck('name', 'id');
+        return view('admin/products/index', compact('products', 'categories'));
     }
 
     /**
@@ -26,7 +39,8 @@ class ProductController extends Controller
      */
     public function create()
     {
-        //
+        $categories = Category::pluck('name', 'id');
+        return view('admin/products/create', compact('categories'));
     }
 
     /**
