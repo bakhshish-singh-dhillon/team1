@@ -52,4 +52,4 @@
         </div>
         @include('includes.flash')
 
-        <main class="py-4">
+        <main>

@@ -1,7 +1,19 @@
+img {
+    max-width: 100%;
+    height: auto;
+}
+
 .max-container {
     max-width: 960px;
     margin: 0 auto;
     padding-top: 1px;
+}
+
+.title {
+    text-align: center;
+    font-size: 1.7em;
+    font-weight: 700;
+    color: $green;
 }
 
 .icon {
@@ -35,6 +47,7 @@
         list-style-type: none;
         display: inline-block;
         margin: 20px;
+        margin-bottom: 0;
 
         a {
             padding: 4px;
@@ -49,4 +62,8 @@
         border-bottom: 2px solid;
     }
 
+}
+
+#footer_nav {
+    min-height: 53px;
 }
