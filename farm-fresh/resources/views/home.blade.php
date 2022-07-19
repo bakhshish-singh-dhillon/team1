@@ -8,7 +8,7 @@
     <div class="max-container">
 
         <div id="category">
-            <div class="title py-3">Browse by Category</div>
+            <div class="title text-center py-3">Browse by Category</div>
 
             <div class="row py-4">
                 <div class="col-md-3 text-center">
@@ -52,7 +52,7 @@
         </div>
         <hr>
         <div id="featured">
-            <div class="title py-3">Featured Products</div>
+            <div class="title text-center py-3">Featured Products</div>
 
             <div class="row py-4">
                 @foreach($products as $prod)
@@ -68,6 +68,14 @@
 
                 @endforeach
             </div>
+        </div>
+    </div>
+
+    <div id="get_started">
+        <div class="max-container">
+            <div class="large-title green-text">Get Started</div>
+            <div class="title black-text pb-4">FarmFresh food tastes good</div>
+            <a href="/products" class="btn">View Products</a>
         </div>
     </div>
 </div>
