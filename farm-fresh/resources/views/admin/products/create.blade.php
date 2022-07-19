@@ -42,19 +42,20 @@
                             @enderror
                         </div>
                         <div class="form-outline mb-4">
-                            <label class="form-label" for="unit">Unit: <span class="text-danger">*</span></label>
-                            <input name="unit" type="text" id="unit" class="form-control"
-                                value="{{ old('unit') }}" />
-                            @error('unit')
+                            <label class="form-label" for="measure_unit">Measure Unit: <span
+                                    class="text-danger">*</span></label>
+                            <input name="measure_unit" type="text" id="measure_unit" class="form-control"
+                                value="{{ old('measure_unit') }}" />
+                            @error('measure_unit')
                                 <span class="text-danger"> {{ $message }}</span>
                             @enderror
                         </div>
                         <div class="form-outline mb-4">
-                            <label class="form-label" for="quantity_in_stock">Quantity in Stock: <span
+                            <label class="form-label" for="quantity">Quantity in Stock: <span
                                     class="text-danger">*</span></label>
-                            <input name="quantity_in_stock" type="text" id="quantity_in_stock" class="form-control"
-                                value="{{ old('quantity_in_stock') }}" />
-                            @error('quantity_in_stock')
+                            <input name="quantity" type="text" id="quantity" class="form-control"
+                                value="{{ old('quantity') }}" />
+                            @error('quantity')
                                 <span class="text-danger"> {{ $message }}</span>
                             @enderror
                         </div>
@@ -70,22 +71,24 @@
                             <div class="form-outline mb-4">
                                 <h2>Additional Details</h2>
                             </div>
+                            {{-- @dd($errors) --}}
                             @if (old('key'))
-                                @foreach (old('key') as $key => $value)
+                                {{-- @dd($errors) --}}
+                                @foreach (old('key') as $index => $key)
                                     <div class="form-outline mb-4">
                                         <label class="form-label" for="key[]">Key: <span
                                                 class="text-danger">*</span></label>
-                                        <input name="key" type="text" id="key" class="form-control"
-                                            value="{{ old('key') }}" />
-                                        @error('key')
+                                        <input name="key[]" type="text" id="key" class="form-control"
+                                            value="{{ old('key')[$index] }}" />
+                                        @error("key.$index")
                                             <span class="text-danger"> {{ $message }}</span>
                                         @enderror
 
                                         <label class="form-label" for="value[]">Value: <span
                                                 class="text-danger">*</span></label>
-                                        <input name="value" type="text" id="value" class="form-control"
-                                            value="{{ old('value') }}" />
-                                        @error('value')
+                                        <input name="value[]" type="text" id="value" class="form-control"
+                                            value="{{ old('value')[$index] }}" />
+                                        @error("value.$index")
                                             <span class="text-danger"> {{ $message }}</span>
                                         @enderror
 

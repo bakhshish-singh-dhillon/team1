@@ -6,9 +6,9 @@ jQuery(document).ready(function ($) {
         var html = `
         <div class="form-outline mb-4">
             <label class="form-label" for="key[]">Key: <span class="text-danger">*</span></label>
-            <input name="key" type="text" id="key" class="form-control" value="" />
-            <label class="form-label" for="key[]">Value: <span class="text-danger">*</span></label>
-            <input name="key" type="text" id="key" class="form-control" value="" />
+            <input name="key[]" type="text" id="key" class="form-control" value="" />
+            <label class="form-label" for="value[][]">Value: <span class="text-danger">*</span></label>
+            <input name="value[]" type="text" id="value[]" class="form-control" value="" />
             <a class="btn btn-danger remove-attribute">Remove</a>
         </div>        
         `;
