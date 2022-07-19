@@ -18,13 +18,16 @@
             <span><img src="images/twitter.png" alt="Twitter" class="tiny-icon mx-2 my-4" /></span>
             <span><img src="images/facebook.png" alt="Facebook" class="tiny-icon mx-2 my-4" /></span>
         </div>
+
+        <p><small>Copyrights &copy; FarmFresh 2022</small></p>
     </div>
 </footer>
 
 {{-- <div id="vueRoot">
             <title-component/>
         </div> --}}
-
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 </body>
 
 </html>
