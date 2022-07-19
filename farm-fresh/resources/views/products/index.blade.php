@@ -26,7 +26,9 @@
                 </div>
             </div>
             <div class="col-md-9">
-                <div class="title">All Products (4)</div>
+                <div class="title">All Products (4)
+                    <div class="float-right"><input type="text" placeholder="Search"></div>
+                </div>
                 <div class="row">
                     <div class="col-md-4 my-2">
                         <div class="card">
