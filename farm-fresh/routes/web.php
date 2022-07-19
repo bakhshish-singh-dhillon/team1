@@ -29,6 +29,7 @@ Route::get('/products', [ProductController::class, 'index'])->name('products');
 Route::get('/about', [AboutController::class, 'index'])->name('about');
 Route::get('/product/{product}', [App\Http\Controllers\ProductController::class, 'show'])->name('product');
 Route::get('/contact', [ContactController::class, 'index'])->name('contact');
+Route::post('/contact', [ContactController::class, 'store'])->name('feedback');
 
 Route::get('/admin', [AdminController::class, 'index'])->name('dashboard');
 Route::get('/admin/products', [AdminProductController::class, 'index']);
