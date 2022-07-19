@@ -29,6 +29,8 @@ class ProductController extends Controller
      */
     public function show(Product $product)
     {
-        return view('products/product-detail',  compact('product'));
+        $products = Product::latest()->take(4)->get();
+
+        return view('products/show',  compact('product', 'products'));
     }
 }
