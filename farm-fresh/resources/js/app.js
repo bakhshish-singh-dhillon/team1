@@ -1,5 +1,6 @@
 require('./bootstrap');
-require('./main.js');
+import './main.js';
+import 'select2';
 
 // import { createApp } from 'vue';
 

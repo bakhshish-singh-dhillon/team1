@@ -51,7 +51,22 @@ class AdminProductController extends Controller
      */
     public function store(StoreProductRequest $request)
     {
-        //
+        // Retrieve the validated input data...
+        $valid = $request->validated();
+
+        // if ($request->file('image')) {
+        //     $path = $request->file('image')->store('public\images');
+        // }
+
+        // $product = Product::create([
+        //     'title' => $valid['title'],
+        //     'content' => $valid['content'],
+        //     'category_id' => $valid['category_id'],
+        //     'image' => "https://picsum.photos/800/500"
+
+        // ]);
+
+        return redirect('/admin/products/create')->withSuccess('Product created successfully');
     }
 
     /**
