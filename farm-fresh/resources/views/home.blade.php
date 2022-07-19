@@ -58,6 +58,7 @@
                 @foreach($products as $prod)
                 <div class="col-md-3 px-4">
                     <div class="card product-item">
+                        @dd($prod->images)
                         <img class="card-img-top" src="images/placeholder.png" alt="Card image cap">
                         <div class="card-body">
                             <h5 class="card-title green-text text-bold">{{$prod->name}}</h5>
