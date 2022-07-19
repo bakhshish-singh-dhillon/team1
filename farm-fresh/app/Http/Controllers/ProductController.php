@@ -29,7 +29,6 @@ class ProductController extends Controller
      */
     public function show(Product $product)
     {
-        dd($product);
         return view('products/product-detail',  compact('product'));
     }
 }
