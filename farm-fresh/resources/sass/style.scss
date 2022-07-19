@@ -147,3 +147,15 @@ a.btn {
         list-style-type: none;
     }
 }
+
+.contact-info {
+    .icon-room:before {
+        content: "\e8b4";
+    }
+    .icon-phone:before {
+        content: "\f095";
+    }
+    .icon-envelope:before {
+        content: "\f0e0";
+    }
+}

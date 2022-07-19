@@ -3,7 +3,7 @@
 @section('content')
 <div class="max-container py-4 my-4">
     <div class="row align-items-stretch no-gutters contact-wrap normal-shadow">
-        <div class="col-md-7 px-4 py-4">
+        <div class="col-md-8 px-4 py-4">
             <div class="form h-100">
                 <h3>Send us a message</h3>
                 <form class="mb-5" method="post" id="contactForm" name="contactForm">
@@ -43,19 +43,19 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-md-12 form-group">
-                            <input type="submit" value="Send Message" class="btn btn-primary rounded-0 py-2 px-4">
+                        <div class="col-md-12 form-group ">
+                            <input type="submit" value="Send Message" class="btn bg-green text-white rounded-0 py-2 px-4">
                             <span class="submitting"></span>
                         </div>
                     </div>
                 </form>
-                <div id="form-message-warning mt-4"></div>
+                <!-- <div id="form-message-warning mt-4"></div>
                 <div id="form-message-success">
                     Your message was sent, thank you!
-                </div>
+                </div> -->
             </div>
         </div>
-        <div class="col-md-5 px-0">
+        <div class="col-md-4 px-0">
             <div class="contact-info h-100 px-4 bg-green text-white py-4">
                 <h3>Contact Information</h3>
                 <p class="mb-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias, magnam!</p>
@@ -76,4 +76,5 @@
             </div>
         </div>
     </div>
-    @endsection
+</div>
+@endsection
