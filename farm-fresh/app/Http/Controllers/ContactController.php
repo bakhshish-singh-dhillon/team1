@@ -13,6 +13,7 @@ class ContactController extends Controller
      */
     public function index()
     {
-        return view('products/index', compact('products', 'categories'));
+        $title = "Contact Us";
+        return view('contact/index', compact('title'));
     }
 }
