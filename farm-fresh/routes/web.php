@@ -27,6 +27,7 @@ Route::get('/home', [HomeController::class, 'index'])->name('home');
 Route::get('/products', [ProductController::class, 'index'])->name('products');
 Route::get('/about', [AboutController::class, 'index'])->name('about');
 Route::get('/product/{product}', [App\Http\Controllers\ProductController::class, 'show'])->name('product');
+Route::get('/contact', [AboutController::class, 'index'])->name('contact');
 
 Route::get('/admin', [AdminController::class, 'index'])->name('dashboard');
 Route::get('/admin/products', [AdminProductController::class, 'index']);
