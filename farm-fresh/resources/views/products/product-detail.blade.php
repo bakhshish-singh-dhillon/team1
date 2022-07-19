@@ -8,7 +8,7 @@
                 <div class="card-header">Single Product</div>
 
                 <div class="card-body">
-                    Product Details                    
+                    Product Details
                 </div>
             </div>
         </div>
