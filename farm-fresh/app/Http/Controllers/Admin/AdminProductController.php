@@ -54,6 +54,10 @@ class AdminProductController extends Controller
         // Retrieve the validated input data...
         $valid = $request->validated();
 
+        // if ($request->file('image')) {
+        //     $path = $request->file('image')->store('public\images');
+        // }
+
         // $product = Product::create([
         //     'title' => $valid['title'],
         //     'content' => $valid['content'],

@@ -1,4 +1,5 @@
-jQuery(document).ready(function ($) {
+import $ from 'jquery';
+$(document).ready(function ($) {
     $("body").on("click", ".add-more", function () {
         // var html = $(".after-add-more").first().clone();
         // //  $(html).find(".change").prepend("<label for=''>&nbsp;</label><br/><a class='btn btn-danger remove'>- Remove</a>");
@@ -22,4 +23,6 @@ jQuery(document).ready(function ($) {
     $("body").on("click", ".remove-attribute", function () {
         $(this).parents(".form-outline").remove();
     });
+
+    $('.js-example-basic-single').select2();
 });
