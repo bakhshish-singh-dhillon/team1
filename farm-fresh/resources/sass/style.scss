@@ -119,13 +119,11 @@ a.btn {
 
 #header_nav ul,
 #footer_nav ul {
-
     li {
         list-style-type: none;
         display: inline-block;
         margin: 20px;
         margin-bottom: 0;
-
         a {
             padding: 4px;
             display: block;
@@ -133,12 +131,10 @@ a.btn {
             color: #000;
         }
     }
-
     li:hover,
     li.active {
         border-bottom: 2px solid;
     }
-
 }
 
 #footer_nav ul {
