@@ -13,6 +13,10 @@ img {
     color: $green;
 }
 
+.bg-green {
+    background-color: $green;
+}
+
 .text-bold {
     font-weight: 700;
 }
@@ -84,14 +88,12 @@ a.btn {
         transition: all 0.1s ease-in-out;
         cursor: pointer;
     }
-
     img:hover {
         transform: scale(1.1);
     }
 }
 
 #featured {
-
     .product-item:after {
         content: '\A';
         position: absolute;
@@ -105,7 +107,6 @@ a.btn {
         -webkit-transition: all 0.5s;
         cursor: pointer;
     }
-
     .product-item:hover:after {
         opacity: 1;
     }
