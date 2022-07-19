@@ -23,7 +23,6 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::get('/about', [App\Http\Controllers\AboutController::class, 'index'])->name('about');
 
 Route::get('/admin', [AdminController::class, 'index'])->name('dashboard');
 Route::get('/admin/products', [AdminProductController::class, 'index']);
@@ -32,3 +31,9 @@ Route::get('/admin/products/create', [AdminProductController::class, 'create']);
 // Route::get('/admin/products/{product}/edit', [AdminProductController::class, 'edit'])->name('product-edit');
 // Route::put('/admin/products/{product}', [AdminProductController::class, 'update'])->name('product-update');
 // Route::delete('/admin/products/{product}', [AdminProductController::class, 'destroy'])->name('product-delete');
+
+// Pulkit URL Start
+
+Route::get('/about', [App\Http\Controllers\AboutController::class, 'index'])->name('about');
+
+// Pulkit URL Ends
