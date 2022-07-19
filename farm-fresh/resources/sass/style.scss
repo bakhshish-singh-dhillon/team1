@@ -48,6 +48,12 @@ a.btn {
     padding: 10px 20px;
 }
 
+a.btn:hover {
+    color: $green;
+    border: 1px solid;
+    background-color: #fff;
+}
+
 .icon {
     height: 35px;
     width: 35px;
@@ -138,6 +144,15 @@ a.btn {
     .left-part {
         border-right: 1px solid #ccc;
     }
+}
+
+.ellipsis-text {
+    height: 50px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
 }
 
 #header_nav ul,
