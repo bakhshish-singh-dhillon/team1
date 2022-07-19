@@ -28,50 +28,19 @@
             <div class="col-md-9">
                 <div class="title">All Products (4)</div>
                 <div class="row">
+                    @foreach($products as $prod)
                     <div class="col-md-4 my-2">
                         <div class="card">
-                            <img class="card-img-top" src="images/placeholder.png" alt="Card image cap">
+                            <img class="card-img-top" src="images/products/{{$prod->images()->first()->url}}" alt="{{$prod->images()->first()->url}}">
                             <div class="card-body">
-                                <h5 class="card-title">Apple</h5>
-                                <p class="card-text">$ 5 / lb</p>
-                                <p class="ellipsis-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                <h5 class="card-title">{{$prod->name}}</h5>
+                                <p class="card-text">$ {{$prod->price}} / {{$prod->measure_unit}}</p>
+                                <p class="ellipsis-text">{{$prod->description}}</p>
                                 <a href="#" class="btn">View</a>
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-4 my-2">
-                        <div class="card">
-                            <img class="card-img-top" src="images/placeholder.png" alt="Card image cap">
-                            <div class="card-body">
-                                <h5 class="card-title">Apple</h5>
-                                <p class="card-text">$ 5 / lb</p>
-                                <p class="ellipsis-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                <a href="#" class="btn">View</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4 my-2">
-                        <div class="card">
-                            <img class="card-img-top" src="images/placeholder.png" alt="Card image cap">
-                            <div class="card-body">
-                                <h5 class="card-title">Apple</h5>
-                                <p class="card-text">$ 5 / lb</p>
-                                <p class="ellipsis-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                <a href="#" class="btn">View</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4 my-2">
-                        <div class="card">
-                            <img class="card-img-top" src="images/placeholder.png" alt="Card image cap">
-                            <div class="card-body">
-                                <h5 class="card-title">Apple</h5>
-                                <p class="card-text">$ 5 / lb</p>
-                                <p class="ellipsis-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                <a href="#" class="btn">View</a>
-                            </div>
-                        </div>
-                    </div>
+                    @endforeach
                 </div>
             </div>
         </div>
