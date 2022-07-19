@@ -25,7 +25,7 @@
 
 <body>
     <div id="app">
-        <div class="shadow">
+        <div class="normal-shadow">
             <div class="max-container d-flex justify-content-between">
                 <div>
                     <a class="navbar-brand" href="{{ url('/') }}">
