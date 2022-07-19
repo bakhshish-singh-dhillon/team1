@@ -8,7 +8,17 @@
                 <div class="card-header">Products</div>
 
                 <div class="card-body">
-                    Product Listing                    
+                    <table id="" class="table table-striped">
+                        <tr>
+
+                            <th>Name</th>
+                            <th>Sku</th>
+                            <th>Price</th>
+                            <th>Quantity</th>
+                            <th>Description</th>
+
+                        </tr>
+                    </table>
                 </div>
             </div>
         </div>
