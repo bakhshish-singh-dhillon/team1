@@ -1,0 +1,52 @@
+.max-container {
+    max-width: 960px;
+    margin: 0 auto;
+    padding-top: 1px;
+}
+
+.icon {
+    height: 35px;
+    width: 35px;
+    cursor: pointer;
+}
+
+.tiny-icon {
+    height: 25px;
+    width: 25px;
+    cursor: pointer;
+}
+
+.normal-shadow {
+    box-shadow: 0px 5px 10px 5px rgba(146, 146, 146, 0.43);
+}
+
+.revert-shadow {
+    box-shadow: 0px -5px 10px 5px rgba(146, 146, 146, 0.43);
+}
+
+.font-md {
+    font-size: 1.2em;
+}
+
+#header_nav ul,
+#footer_nav ul {
+
+    li {
+        list-style-type: none;
+        display: inline-block;
+        margin: 20px;
+
+        a {
+            padding: 4px;
+            display: block;
+            text-decoration: none;
+            color: #000;
+        }
+    }
+
+    li:hover,
+    li.active {
+        border-bottom: 2px solid;
+    }
+
+}
