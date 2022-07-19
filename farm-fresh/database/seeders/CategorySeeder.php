@@ -25,5 +25,22 @@ class CategorySeeder extends Seeder
             'name' => 'eggs',
             'category_id' => '1',
         ]);
+
+        DB::table('categories')->insert([
+            'id' => '3',
+            'name' => 'produce',
+        ]);
+
+        DB::table('categories')->insert([
+            'id' => '4',
+            'name' => 'fruits',
+            'category_id' => '3',
+        ]);
+
+        DB::table('categories')->insert([
+            'id' => '5',
+            'name' => 'vegetables',
+            'category_id' => '3',
+        ]);
     }
 }
