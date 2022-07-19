@@ -15,8 +15,8 @@ class CategorySeeder extends Seeder
     {
         //
         DB::table('users')->insert([
-            'id' => '',
-            'name' => '',
+            'id' => '1',
+            'name' => 'Dairy',
             'category_id' => '',
         ]);
     }
