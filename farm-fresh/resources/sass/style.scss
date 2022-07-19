@@ -18,27 +18,24 @@
     font-size: 1.2em;
 }
 
-#header_nav ul li {
-    list-style-type: none;
-    display: inline-block;
-    position: relative;
-    margin-left: 35px;
-    vertical-align: middle;
-}
+#header_nav ul {
 
-#header_nav ul li {
-    content: "";
-    display: block;
-    width: 0;
-    height: 0;
-    border-bottom: 2px solid transparent;
-    -webkit-transition: all 0.5s ease;
-    transition: all 0.5s ease;
-}
+    li {
+        list-style-type: none;
+        display: inline-block;
+        margin: 20px;
 
+        a {
+            padding: 4px;
+            display: block;
+            text-decoration: none;
+            color: #000;
+        }
+    }
 
-#header_nav ul li+li:hover::after {
-    width: 100%;
-    height: 100%;
-    border-bottom: 2px solid #fff;
+    li:hover,
+    li.active {
+        border-bottom: 2px solid;
+    }
+
 }
