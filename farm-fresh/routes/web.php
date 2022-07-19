@@ -36,3 +36,10 @@ Route::get('/admin/products/create', [AdminProductController::class, 'create']);
 // Route::get('/admin/products/{product}/edit', [AdminProductController::class, 'edit'])->name('product-edit');
 // Route::put('/admin/products/{product}', [AdminProductController::class, 'update'])->name('product-update');
 // Route::delete('/admin/products/{product}', [AdminProductController::class, 'destroy'])->name('product-delete');
+
+// Pulkit URL Start
+
+Route::get('/about', [App\Http\Controllers\AboutController::class, 'index'])->name('about');
+Route::get('/terms', [App\Http\Controllers\TermsController::class, 'index'])->name('terms');
+
+// Pulkit URL Ends
