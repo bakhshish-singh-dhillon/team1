@@ -19,5 +19,11 @@ class CategorySeeder extends Seeder
             'id' => '1',
             'name' => 'Dairy',
         ]);
+
+        DB::table('categories')->insert([
+            'id' => '2',
+            'name' => 'eggs',
+            'category_id' => '1',
+        ]);
     }
 }
