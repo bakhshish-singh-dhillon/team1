@@ -1,4 +1,8 @@
 import $ from 'jquery';
+import jQuery from 'jquery';
+import FileUploadWithPreview from "file-upload-with-preview";
+import 'file-upload-with-preview/dist/file-upload-with-preview.min.css';;
+
 $(document).ready(function ($) {
     $("body").on("click", ".add-more", function () {
         // var html = $(".after-add-more").first().clone();
@@ -25,4 +29,5 @@ $(document).ready(function ($) {
     });
 
     $('.js-example-basic-single').select2();
+    const upload = new FileUploadWithPreview("image_upload");
 });
