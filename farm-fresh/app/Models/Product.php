@@ -11,6 +11,21 @@ class Product extends Model
     use HasFactory, SoftDeletes;
 
     /**
+     * The attributes that are mass assignable.
+     *
+     * @var array<int, string>
+     */
+    protected $fillable = [
+        'sku',
+        'name',
+        'price',
+        'measure_unit',
+        'description',
+        'quantity'
+    ];
+
+
+    /**
      * Get the product meta values.
      */
     public function product_metas()
@@ -45,7 +60,7 @@ class Product extends Model
     /**
      * Get the categories of product.
      */
-    
+
     public function categories()
     {
         return $this->belongsToMany(Category::class);
