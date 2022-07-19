@@ -65,5 +65,15 @@ class ProductSeeder extends Seeder
             'quantity' => '2'
 
         ]);
+
+        DB::table('products')->insert([
+            'sku' => 'PROD6',
+            'name' => 'Yellow Onions',
+            'price' => '2.49',
+            'description' => ' It is higher in sulfur content than the white onion, which gives it a stronger, more complex flavor.',
+            'measure_unit' => 'lbs',
+            'quantity' => '3'
+
+        ]);
     }
 }

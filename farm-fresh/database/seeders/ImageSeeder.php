@@ -75,5 +75,11 @@ class ImageSeeder extends Seeder
             'url' => 'salad.png'
 
         ]);
+
+        DB::table('images')->insert([
+            'product_id' => '6',
+            'url' => 'salad.png'
+
+        ]);
     }
 }
