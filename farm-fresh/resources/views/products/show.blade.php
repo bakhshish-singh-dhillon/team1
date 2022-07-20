@@ -6,15 +6,15 @@
     <div class="max-container py-4">
         <div class="row">
             <div class="col-md-6">
-                <img src="images/placeholder.png" alt="Pepper">
+                <img src="/images/products/{{$prod->images()->first()->url}}" alt="{{$prod->images()->first()->url}}">
             </div>
             <div class="col-md-6">
-                <div class="title product-title">Pepper</div>
+                <div class="title product-title">{{$prod->name}}</div>
 
                 <table class="detail-table">
                     <tr>
                         <th>Price:</th>
-                        <td>$ 5 /lb</td>
+                        <td>$ {{$prod->price}} / {{$prod->measure_unit}}</td>
                     </tr>
                     <tr>
                         <th>Availability:</th>
@@ -26,7 +26,7 @@
                     </tr>
                     <tr>
                         <th>Description:</th>
-                        <td>Suspendisse potenti. Pellentesque a ultricies ex, vitae feugiat urna. Donec non nunc quis risus porta sodales ut eu ligula. Aliquam commodo, mauris nec aliquet mollis, ante nisl suscipit augue, ullamcorper ultricies lorem lorem et lacus. Donec arcu tortor, laoreet eu sapien vel, fringilla blandit ligula. Maecenas et gravida erat. Etiam rhoncus eros eget ex faucibus, at euismod orci efficitur. Suspendisse potenti.</td>
+                        <td>{{$prod->description}}</td>
                     </tr>
                     <tr>
                         <th>Quantity:</th>
@@ -72,7 +72,7 @@
                 <div class="col-md-3 px-4">
                     <div class="card product-item">
 
-                        <img class="card-img-top" src="images/products/{{$prod->images()->first()->url}}" alt="{{$prod->images()->first()->url}}">
+                        <img class="card-img-top" src="/images/products/{{$prod->images()->first()->url}}" alt="{{$prod->images()->first()->url}}">
                         <div class="card-body">
                             <h5 class="card-title green-text text-bold">{{$prod->name}}</h5>
                             <p class="card-text">$ {{$prod->price}} / {{$prod->measure_unit}}</p>
