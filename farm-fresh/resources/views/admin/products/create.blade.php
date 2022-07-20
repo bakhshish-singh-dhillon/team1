@@ -26,20 +26,13 @@
                                 <span class="text-danger"> {{ $message }}</span>
                             @enderror
                         </div>
-                        <div class="form-outline mb-4">
-                            <label class="form-label" for="image">Image: <span class="text-danger">*</span></label>
-                            <input name="image" type="file" id="image" class="form-control" />
-                            @error('image')
-                                <span class="text-danger"> {{ $message }}</span>
-                            @enderror
-                        </div>
                         <div class="custom-file-container" data-upload-id="image_upload">
                             <label>Upload File
                                 <a href="javascript:void(0)" class="custom-file-container__image-clear"
                                     title="Clear Image">clear</a></label>
                             <label class="custom-file-container__custom-file">
                                 <input type="file" class="custom-file-container__custom-file__custom-file-input"
-                                    accept="*" multiple aria-label="Choose File" />
+                                    accept="*" multiple aria-label="Choose File" name="image_upload[]" />
                                 <input type="hidden" name="MAX_FILE_SIZE" value="10485760" />
                                 <span class="custom-file-container__custom-file__custom-file-control"></span>
                             </label>
@@ -79,6 +72,7 @@
                                 <span class="text-danger"> {{ $message }}</span>
                             @enderror
                         </div>
+                        {{-- @dd($errors) --}}
                         <div class="form-outline mb-4 ">
                             <label class="form-label" for="category_search">Category:
                                 <span class="text-danger">*</span>
