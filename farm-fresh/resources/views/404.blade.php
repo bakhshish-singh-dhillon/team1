@@ -12,7 +12,7 @@
                         <h1 class="head-404">This page does not exist.</h1>
                         <p>Looks like you entered a page which doesn't exist anymore.</p>
                         <p>Let's take you back to home.</p>
-                        <a href="/home" class="btn">Home</a>
+                        <a href="/home" class="btn">Go To Home</a>
                     </div>
                 </div>
             </div>
