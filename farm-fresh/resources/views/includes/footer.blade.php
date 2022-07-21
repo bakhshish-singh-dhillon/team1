@@ -23,10 +23,8 @@
     </div>
 </footer>
 
-{{-- <div id="vueRoot">
-            <title-component/>
-        </div> --}}
 </div>
+@yield('custom-js')
 </body>
 
 </html>
