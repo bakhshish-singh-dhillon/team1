@@ -12,16 +12,25 @@
                         <div class="col-md-12 form-group mb-3">
                             <label for="" class="col-form-label">Name *</label>
                             <input type="text" class="form-control" name="name" id="name" placeholder="Your name">
+                            @error('name')
+                            <span class="text-danger"> {{ $message }}</span>
+                            @enderror
                         </div>
                         <div class="col-md-12 form-group mb-3">
                             <label for="" class="col-form-label">Email *</label>
                             <input type="text" class="form-control" name="email" id="email" placeholder="Your email">
+                            @error('email')
+                            <span class="text-danger"> {{ $message }}</span>
+                            @enderror
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-md-12 form-group mb-3">
                             <label for="" class="col-form-label">Phone</label>
                             <input type="text" class="form-control" name="phone" id="phone" placeholder="Phone #">
+                            @error('phone')
+                            <span class="text-danger"> {{ $message }}</span>
+                            @enderror
                         </div>
                         <div class="col-md-12 form-group mb-3">
                             <label for="" class="col-form-label">How can we help you?</label></br>
@@ -33,6 +42,9 @@
                                 <option value="feedback">Feedback</option>
                                 <option value="other">Other</option>
                             </select>
+                            @error('category')
+                            <span class="text-danger"> {{ $message }}</span>
+                            @enderror
                         </div>
 
                         </select>
@@ -41,6 +53,9 @@
                         <div class="col-md-12 form-group mb-3">
                             <label for="message" class="col-form-label">Message *</label>
                             <textarea class="form-control" name="message" id="message" cols="30" rows="4" placeholder="Write your message"></textarea>
+                            @error('message')
+                            <span class="text-danger"> {{ $message }}</span>
+                            @enderror
                         </div>
                     </div>
                     <div class="row">

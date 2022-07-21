@@ -47,18 +47,33 @@
             </div>
         </div>
         <hr>
-        <div id="featured">
+        <div id="reviews">
 
             <div class="row">
                 <div class="title py-3 text-center">Customer Reviews</div>
                 <div class="col-md-3">
                     <p>4.3 out of 5</p>
+                    <div>
+                        <p>5 star</p>
+                        <div class="outer-box">
+
+                            <span class="bar-5"></span>
+                        </div>
+                        <p>46%</p>
+                    </div>
                 </div>
                 <div class="col-md-9">
                     <div>
-                        <!-- <p class="sub-title">Sargam Sanghani</p>
-                        <p>4 out of 5</p>
-                        <p></p> -->
+                        <div class="review-title">Sargam Sanghani</div>
+                        <div><small>Posted on 17th July, 2022</small></div>
+                        <p class="my-2">4 out of 5</p>
+                        <p>I had an amazing experience. Loved the food. It was a quick delivery. Thank you so much for your great service!</p>
+                    </div>
+                    <div>
+                        <div class="review-title">Sargam Sanghani</div>
+                        <div><small>Posted on 17th July, 2022</small></div>
+                        <p class="my-2">4 out of 5</p>
+                        <p>I had an amazing experience. Loved the food. It was a quick delivery. Thank you so much for your great service!</p>
                     </div>
                 </div>
             </div>
