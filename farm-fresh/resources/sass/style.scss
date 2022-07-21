@@ -17,6 +17,10 @@ img {
     color: $green;
 }
 
+.bg-green {
+    background-color: $green;
+}
+
 .text-bold {
     font-weight: 700;
 }
@@ -105,7 +109,6 @@ a.btn:hover {
 }
 
 #featured {
-
     .product-item:after {
         content: '\A';
         position: absolute;
@@ -118,6 +121,17 @@ a.btn:hover {
         transition: all 0.5s;
         -webkit-transition: all 0.5s;
         cursor: pointer;
+    }
+
+    .hanging-btn {
+        position: absolute;
+        top: calc(50% - 22px);
+        right: calc(50% - 37px);
+        display: none;
+    }
+
+    .product-item:hover .hanging-btn {
+        display: block;
     }
 
     .product-item:hover:after {
@@ -169,6 +183,13 @@ a.btn:hover {
     select {
         padding: 9px 20px;
     }
+
+    #reviews {
+        .review-title {
+            font-size: 1.2em;
+            font-weight: 700;
+        }
+    }
 }
 
 .ellipsis-text {
@@ -209,5 +230,19 @@ a.btn:hover {
 .termslist {
     li {
         list-style-type: none;
+    }
+}
+
+.contact-info {
+    .icon-room:before {
+        content: "\e8b4";
+    }
+
+    .icon-phone:before {
+        content: "\f095";
+    }
+
+    .icon-envelope:before {
+        content: "\f0e0";
     }
 }
