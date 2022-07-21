@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use Exception;
 use App\Mail\Email;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
+use App\Http\Requests\ContactFormRequest;
 
 class ContactController extends Controller
 {
@@ -24,21 +25,14 @@ class ContactController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ContactFormRequest $request)
     {
-        $details = [
-            'subject' => $request->category,
-            'email' => $request->email,
-            'body' => $request->message,
-            'phone' => $request->phone,
-            'name' => $request->name,
-        ];
-        Mail::to('ecom.farmfresh@gmail.com')->send(new Email($details));
-
-        // if (Mail::failures()) {
-        //     return response()->Fail('Sorry! Please try again latter');
-        // } else {
-        //     return response()->success('Great! Successfully send in your mail');
-        // }
+        $valid = $request->validated();
+        try {
+            Mail::to('ecom.farmfresh@gmail.com')->send(new Email($valid));
+        } catch (Exception $e) {
+            return redirect('/contact')->withError('Something went wrong ! Please try again');
+        }
+        return redirect('/contact')->withSuccess('Thank you for your feedback');
     }
 }
