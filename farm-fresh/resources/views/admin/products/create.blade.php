@@ -81,7 +81,7 @@
                                 id="category_search">
                                 <option value="">Please select a category</option>
                                 @foreach ($categories as $index => $name)
-                                    <option value="{{ $index }}" @selected(old('category_id') == $index)>
+                                    <option value="{{ $index }}" @if(in_array($index ,old('category_id'))) selected @endif>
                                         {{ $name }}
                                     </option>
                                 @endforeach
