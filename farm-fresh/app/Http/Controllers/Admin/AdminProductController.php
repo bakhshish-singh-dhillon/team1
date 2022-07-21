@@ -66,7 +66,7 @@ class AdminProductController extends Controller
         ]);
         if ($request->file('image_upload')) {
             foreach ($request->file('image_upload') as $file) {
-                $product->images()->create(['url' => "/storage/images/".basename($file->store('public/images'))]);
+                $product->images()->create(['url' => basename($file->store('public/images'))]);
             }
         }
         if ($request->has('key')) {
