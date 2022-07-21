@@ -106,7 +106,9 @@ class AdminProductController extends Controller
     public function edit(Product $product)
     {
         $categories = Category::pluck('name', 'id');
-        return view('admin/products/edit', compact('categories','product'));
+        $product_metas = $product->product_metas()->get()->pluck('name','value');
+        $images = $product->images()->get()->pluck('url');
+        return view('admin/products/edit', compact('categories','product','product_metas'));
     }
 
     /**

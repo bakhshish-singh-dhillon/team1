@@ -26,18 +26,7 @@
                                 <span class="text-danger"> {{ $message }}</span>
                             @enderror
                         </div>
-                        <div class="custom-file-container" data-upload-id="image_upload">
-                            <label>Upload File
-                                <a href="javascript:void(0)" class="custom-file-container__image-clear"
-                                    title="Clear Image">clear</a></label>
-                            <label class="custom-file-container__custom-file">
-                                <input type="file" class="custom-file-container__custom-file__custom-file-input"
-                                    accept="*" multiple aria-label="Choose File" name="image_upload[]" />
-                                <input type="hidden" name="MAX_FILE_SIZE" value="10485760" />
-                                <span class="custom-file-container__custom-file__custom-file-control"></span>
-                            </label>
-                            <div class="custom-file-container__image-preview"></div>
-                        </div>
+                        <div id="multi-image"><multi-image></multi-image></div>
                         <div class="form-outline mb-4">
                             <label class="form-label" for="description">Description: <span
                                     class="text-danger">*</span></label>
@@ -81,7 +70,7 @@
                                 id="category_search">
                                 <option value="">Please select a category</option>
                                 @foreach ($categories as $index => $name)
-                                    <option value="{{ $index }}" @if(in_array($index ,old('category_id'))) selected @endif>
+                                    <option value="{{ $index }}" @if(old('category_id') && in_array($index ,old('category_id'))) selected @endif>
                                         {{ $name }}
                                     </option>
                                 @endforeach

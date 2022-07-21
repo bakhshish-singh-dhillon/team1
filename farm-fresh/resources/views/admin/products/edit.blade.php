@@ -26,18 +26,7 @@
                                 <span class="text-danger"> {{ $message }}</span>
                             @enderror
                         </div>
-                        <div class="custom-file-container" data-upload-id="image_upload">
-                            <label>Upload File
-                                <a href="javascript:void(0)" class="custom-file-container__image-clear"
-                                    title="Clear Image">clear</a></label>
-                            <label class="custom-file-container__custom-file">
-                                <input type="file" class="custom-file-container__custom-file__custom-file-input"
-                                    accept="*" multiple aria-label="Choose File" name="image_upload[]" />
-                                <input type="hidden" name="MAX_FILE_SIZE" value="10485760" />
-                                <span class="custom-file-container__custom-file__custom-file-control"></span>
-                            </label>
-                            <div class="custom-file-container__image-preview"></div>
-                        </div>
+                        <div id="multi-image"><multi-image></multi-image></div>
                         <div class="form-outline mb-4">
                             <label class="form-label" for="description">Description: <span
                                     class="text-danger">*</span></label>
@@ -96,23 +85,23 @@
                                 <h2>Additional Details</h2>
                             </div>
                             {{-- @dd($errors) --}}
-                            @if (old('key'))
+                            @if (old('key', $product_metas))
                                 {{-- @dd($errors) --}}
-                                @foreach (old('key') as $index => $key)
+                                @foreach (old('key') ?? $product_metas as $key => $value)
                                     <div class="form-outline mb-4">
                                         <label class="form-label" for="key[]">Atrribute Name: <span
                                                 class="text-danger">*</span></label>
                                         <input name="key[]" type="text" id="key" class="form-control"
-                                            value="{{ old('key')[$index] }}" />
-                                        @error("key.$index")
+                                            value="{{ old('key')[$key] ?? $key }}" />
+                                        @error("key.$key")
                                             <span class="text-danger"> {{ $message }}</span>
                                         @enderror
 
                                         <label class="form-label" for="value[]">Value: <span
                                                 class="text-danger">*</span></label>
                                         <input name="value[]" type="text" id="value" class="form-control"
-                                            value="{{ old('value')[$index] }}" />
-                                        @error("value.$index")
+                                            value="{{ old('value')[$key] ?? $value }}" />
+                                        @error("value.$key")
                                             <span class="text-danger"> {{ $message }}</span>
                                         @enderror
 
