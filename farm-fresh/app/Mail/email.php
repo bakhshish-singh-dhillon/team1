@@ -10,15 +10,16 @@ use Illuminate\Queue\SerializesModels;
 class email extends Mailable
 {
     use Queueable, SerializesModels;
+    protected $detail;
 
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct($detail)
     {
-        //
+        $this->detail = $detail;
     }
 
     /**
@@ -28,6 +29,9 @@ class email extends Mailable
      */
     public function build()
     {
-        return $this->view('view.name');
+        return $this->view('view.name')
+            ->with([
+                'detail' => $this->detail,
+            ]);;
     }
 }
