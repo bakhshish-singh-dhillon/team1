@@ -54,12 +54,41 @@
                 <div class="col-md-3">
                     <p>4.3 out of 5</p>
                     <div>
-                        <p>5 star</p>
-                        <div class="outer-box">
+                        <div>
+                            <p class="m-0 mt-1"><small>5 star (46%)</small></p>
+                            <div class="outer-box">
 
-                            <span class="bar-5"></span>
+                                <div class="bar-5" style="width: 46%;"></div>
+                            </div>
                         </div>
-                        <p>46%</p>
+                        <div>
+                            <p class="m-0 mt-1"><small>4 star (46%)</small></p>
+                            <div class="outer-box">
+
+                                <div class="bar-5" style="width: 46%;"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <p class="m-0 mt-1"><small>3 star (46%)</small></p>
+                            <div class="outer-box">
+
+                                <div class="bar-5" style="width: 46%;"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <p class="m-0 mt-1"><small>2 star (46%)</small></p>
+                            <div class="outer-box">
+
+                                <div class="bar-5" style="width: 46%;"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <p class="m-0 mt-1"><small>1 star (0%)</small></p>
+                            <div class="outer-box">
+
+                                <div class="bar-5" style="width: 0%;"></div>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div class="col-md-9">
