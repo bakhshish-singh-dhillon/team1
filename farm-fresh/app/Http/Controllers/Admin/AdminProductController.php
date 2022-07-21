@@ -147,7 +147,7 @@ class AdminProductController extends Controller
         }
         if ($request->has('key')) {
             $product->product_metas()->delete();
-            foreach ($valid['key'] as $index => $value) {
+            foreach($valid['key'] as $index => $value) {
                 $product->product_metas()->create([
                     'name' => $value,
                     'value' => $valid['value'][$index]
@@ -161,7 +161,7 @@ class AdminProductController extends Controller
                 $product->categories()->attach($valid['category_id']);
             }
         }
-        return redirect('/admin/products')->withSuccess('Product Updated successfully');
+        return redirect('/admin/products')->withSuccess('Product created successfully');
     }
 
     /**
