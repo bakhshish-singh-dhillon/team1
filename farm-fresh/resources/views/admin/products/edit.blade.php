@@ -30,7 +30,7 @@
                             @enderror
                         </div>
                         <div id="multi-image">
-                            <multi-image images="{{ $images }}"></multi-image>
+                            <multi-image images="{{ $images }}" images_path="{{ $images_path }}"></multi-image>
                         </div>
                         <div class="form-outline mb-4">
                             <label class="form-label" for="description">Description: <span

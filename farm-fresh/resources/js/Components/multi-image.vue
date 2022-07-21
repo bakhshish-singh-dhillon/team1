@@ -29,11 +29,15 @@
 <script>
 import FileUploadWithPreview from "file-upload-with-preview";
 import "file-upload-with-preview/dist/file-upload-with-preview.min.css";
-import $ from 'jquery';
+import $ from "jquery";
 export default {
   name: "MultiImage",
   props: {
     images: {
+      default: null,
+      type: String,
+    },
+    images_path: {
       default: null,
       type: String,
     },
@@ -45,42 +49,31 @@ export default {
   },
   methods: {
     check() {
-      // Use the chrome inspector
       console.log(this.upload.cachedFileArray);
     },
   },
   mounted() {
+    var vue=this;
     if (this.images) {
       var images = JSON.parse(this.images);
-    }window.addEventListener(
-        "fileUploadWithPreview:imageDeleted",
-        function (e) {
-        //   console.log(e.detail.uploadId);
-          console.log(e.detail.cachedFileArray);
-        //   console.log(e.detail.addedFilesCount);
-        $('input[name="image_upload"]').val(e.detail.cachedFileArray);
-        }
-      );
-      window.addEventListener(
-        "fileUploadWithPreview:imagesAdded",
-        function (e) {
-        //   console.log(e.detail.uploadId);
-          console.log(e.detail.cachedFileArray);
-        //   console.log(e.detail.addedFilesCount);
-          console.log($('input[name="image_upload"]'));
-        $('input[name="image_upload"]').val(e.detail.cachedFileArray);
-          console.log($('input[name="image_upload"]'));
-        }
-      );
-//     $("#product_crud_form").submit( function(eventObj) {
-//       $("<input />").attr("type", "hidden")
-//           .attr("name", "something")
-//           .attr("files", this.upload.cachedFileArray)
-//           .appendTo("#product_crud_form");
-//       return true;
-//   });
+      images.forEach((item, index, arr) => {
+        arr[index] = this.images_path + arr[index];
+      });
+    }
     this.upload = new FileUploadWithPreview("image_upload", {
+      showDeleteButtonOnImages: false,
       presetFiles: images,
+    });
+    window.addEventListener(
+      "fileUploadWithPreview:imageDeleted",
+      function (e) {}
+    );
+    window.addEventListener(
+      "fileUploadWithPreview:imageMultiItemClicked",
+      function (e) {}
+    );
+    window.addEventListener("fileUploadWithPreview:imagesAdded", function (e) {
+      vue.upload.resetPreviewPanel();
     });
   },
 };
