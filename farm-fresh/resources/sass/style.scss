@@ -102,6 +102,7 @@ a.btn:hover {
         transition: all 0.1s ease-in-out;
         cursor: pointer;
     }
+
     img:hover {
         transform: scale(1.1);
     }
@@ -121,6 +122,18 @@ a.btn:hover {
         -webkit-transition: all 0.5s;
         cursor: pointer;
     }
+
+    .hanging-btn {
+        position: absolute;
+        top: calc(50% - 22px);
+        right: calc(50% - 37px);
+        display: none;
+    }
+
+    .product-item:hover .hanging-btn {
+        display: block;
+    }
+
     .product-item:hover:after {
         opacity: 1;
     }
@@ -170,6 +183,13 @@ a.btn:hover {
     select {
         padding: 9px 20px;
     }
+
+    #reviews {
+        .review-title {
+            font-size: 1.2em;
+            font-weight: 700;
+        }
+    }
 }
 
 .ellipsis-text {
@@ -217,9 +237,11 @@ a.btn:hover {
     .icon-room:before {
         content: "\e8b4";
     }
+
     .icon-phone:before {
         content: "\f095";
     }
+
     .icon-envelope:before {
         content: "\f0e0";
     }
