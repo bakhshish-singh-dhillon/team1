@@ -26,13 +26,7 @@
                                 <span class="text-danger"> {{ $message }}</span>
                             @enderror
                         </div>
-                        <div class="form-outline mb-4">
-                            <label class="form-label" for="image">Image: <span class="text-danger">*</span></label>
-                            <input name="image" type="file" id="image" class="form-control" />
-                            @error('image')
-                                <span class="text-danger"> {{ $message }}</span>
-                            @enderror
-                        </div>
+                        <div id="multi-image"><multi-image></multi-image></div>
                         <div class="form-outline mb-4">
                             <label class="form-label" for="description">Description: <span
                                     class="text-danger">*</span></label>
@@ -67,15 +61,16 @@
                                 <span class="text-danger"> {{ $message }}</span>
                             @enderror
                         </div>
+                        {{-- @dd($errors) --}}
                         <div class="form-outline mb-4 ">
                             <label class="form-label" for="category_search">Category:
                                 <span class="text-danger">*</span>
                             </label>
-                            <select name="category_id" class="form-control js-example-basic-single" multiple
+                            <select name="category_id[]" class="form-control js-example-basic-single" multiple
                                 id="category_search">
                                 <option value="">Please select a category</option>
                                 @foreach ($categories as $index => $name)
-                                    <option value="{{ $index }}" @selected(old('category_id') == $index)>
+                                    <option value="{{ $index }}" @if(old('category_id') && in_array($index ,old('category_id'))) selected @endif>
                                         {{ $name }}
                                     </option>
                                 @endforeach
@@ -93,7 +88,7 @@
                                 {{-- @dd($errors) --}}
                                 @foreach (old('key') as $index => $key)
                                     <div class="form-outline mb-4">
-                                        <label class="form-label" for="key[]">Key: <span
+                                        <label class="form-label" for="key[]">Atrribute Name: <span
                                                 class="text-danger">*</span></label>
                                         <input name="key[]" type="text" id="key" class="form-control"
                                             value="{{ old('key')[$index] }}" />
