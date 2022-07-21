@@ -132,6 +132,7 @@ a.btn:hover {
 
     .product-item:hover .hanging-btn {
         display: block;
+        z-index: 1;
     }
 
     .product-item:hover:after {
