@@ -45,7 +45,7 @@ Route::delete('/admin/products/{product}', [AdminProductController::class, 'dest
 Route::get('/about', function () {
     return view('about');
 });
-Route::get('/terms', [TermsController::class, 'index'])->name('terms');
+Route::get('/terms-and-conditions', [App\Http\Controllers\TermsController::class, 'index'])->name('terms');
 Route::get('/404', function () {
     return view('404');
 });
