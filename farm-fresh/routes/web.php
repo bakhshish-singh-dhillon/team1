@@ -36,6 +36,8 @@ Route::get('/admin/products/create', [AdminProductController::class, 'create']);
 
 Route::get('/about', [App\Http\Controllers\AboutController::class, 'index'])->name('about');
 Route::get('/terms', [App\Http\Controllers\TermsController::class, 'index'])->name('terms');
-Route::get('/404', [App\Http\Controllers\FofController::class, 'index'])->name('404');
+Route::get('/404', function () {
+    return view('404');
+});
 
 // Pulkit URL Ends
