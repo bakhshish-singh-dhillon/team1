@@ -9,7 +9,7 @@
                     <div class="card-body">
                         {{-- 404 Page Content Complete --}}
                         <img src="images/404.png" alt="404">
-                        <h1 class="404head">This page does not exist.</h1>
+                        <h1 class="head-404">This page does not exist.</h1>
                         <p>Looks like you entered a page which doesn't exist anymore.</p>
                         <p>Let's take you back to home.</p>
                         <a href="/home" class="btn">Home</a>
