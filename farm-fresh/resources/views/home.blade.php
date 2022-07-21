@@ -44,7 +44,7 @@
 
             <div class="row py-4">
 
-                @foreach($products as $prod)
+                @foreach($revProducts as $prod)
                 <div class="col-md-6">
                     <div class="text-center">
                         <img src="images/left-quote.png" alt="Left-quote">
