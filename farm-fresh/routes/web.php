@@ -32,10 +32,17 @@ Route::get('/about', [AboutController::class, 'index'])->name('about');
 Route::get('/admin', [AdminController::class, 'index'])->name('dashboard');
 Route::get('/admin/products', [AdminProductController::class, 'index']);
 Route::get('/admin/products/create', [AdminProductController::class, 'create']);
+<<<<<<< HEAD
+Route::post('/admin/products', [AdminProductController::class, 'store']);
+Route::get('/admin/products/{product}/edit', [AdminProductController::class, 'edit'])->name('product-edit');
+Route::put('/admin/products/{product}', [AdminProductController::class, 'update'])->name('product-update');
+Route::delete('/admin/products/{product}', [AdminProductController::class, 'destroy'])->name('product-delete');
+=======
 // Route::post('/admin/products', [AdminProductController::class, 'store']);
 // Route::get('/admin/products/{product}/edit', [AdminProductController::class, 'edit'])->name('product-edit');
 // Route::put('/admin/products/{product}', [AdminProductController::class, 'update'])->name('product-update');
 // Route::delete('/admin/products/{product}', [AdminProductController::class, 'destroy'])->name('product-delete');
+>>>>>>> 75f722e6460f99dadc46f8aae560efbeb9c88801
 
 // Pulkit URL Start
 

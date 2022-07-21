@@ -54,19 +54,36 @@ class AdminProductController extends Controller
         // Retrieve the validated input data...
         $valid = $request->validated();
 
-        // if ($request->file('image')) {
-        //     $path = $request->file('image')->store('public\images');
-        // }
+        $product = Product::create([
+            'sku' => $valid['sku'],
+            'name' => $valid['name'],
+            'price' => $valid['price'],
+            'description' => $valid['description'],
+            'measure_unit' => $valid['measure_unit'],
+            'category_id' => $valid['category_id'],
+            'quantity' => $valid['quantity']
 
-        // $product = Product::create([
-        //     'title' => $valid['title'],
-        //     'content' => $valid['content'],
-        //     'category_id' => $valid['category_id'],
-        //     'image' => "https://picsum.photos/800/500"
-
-        // ]);
-
-        return redirect('/admin/products/create')->withSuccess('Product created successfully');
+        ]);
+        if ($request->file('image_upload')) {
+            foreach ($request->file('image_upload') as $file) {
+                $product->images()->create(['url' => "/storage/images/".basename($file->store('public/images'))]);
+            }
+        }
+        if ($request->has('key')) {
+            foreach ($valid['key'] as $index => $value) {
+                $product->product_metas()->create([
+                    'name' => $value,
+                    'value' => $valid['value'][$index]
+                ]);
+            }
+        }
+        
+        if ($request->has('category_id')) {
+            foreach ($valid['category_id'] as $index => $value) {
+                $product->categories()->attach($valid['category_id']);
+            }
+        }
+        return redirect('/admin/products')->withSuccess('Product created successfully');
     }
 
     /**
@@ -88,7 +105,10 @@ class AdminProductController extends Controller
      */
     public function edit(Product $product)
     {
-        //
+        $categories = Category::pluck('name', 'id');
+        $product_metas = $product->product_metas()->get()->pluck('value','name');
+        $images = $product->images()->get()->pluck('url');
+        return view('admin/products/edit', compact('categories','product','product_metas','images'));
     }
 
     /**
@@ -100,7 +120,39 @@ class AdminProductController extends Controller
      */
     public function update(UpdateProductRequest $request, Product $product)
     {
-        //
+        // Retrieve the validated input data...
+        $valid = $request->validated();
+
+        $product->update([
+            'sku' => $valid['sku'],
+            'name' => $valid['name'],
+            'price' => $valid['price'],
+            'description' => $valid['description'],
+            'measure_unit' => $valid['measure_unit'],
+            'category_id' => $valid['category_id'],
+            'quantity' => $valid['quantity']
+
+        ]);
+        if ($request->file('image_upload')) {
+            foreach ($request->file('image_upload') as $file) {
+                $product->images()->create(['url' => "/storage/images/".basename($file->store('public/images'))]);
+            }
+        }
+        if ($request->has('key')) {
+            foreach ($valid['key'] as $index => $value) {
+                $product->product_metas()->create([
+                    'name' => $value,
+                    'value' => $valid['value'][$index]
+                ]);
+            }
+        }
+        
+        if ($request->has('category_id')) {
+            foreach ($valid['category_id'] as $index => $value) {
+                $product->categories()->attach($valid['category_id']);
+            }
+        }
+        return redirect('/admin/products')->withSuccess('Product created successfully');
     }
 
     /**

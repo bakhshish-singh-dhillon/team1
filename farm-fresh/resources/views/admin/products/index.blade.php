@@ -29,8 +29,8 @@
                                 <tr>
                                     <th>ID</th>
                                     <th>Title</th>
-                                    <th>Location</th>
-                                    <th>Range</th>
+                                    <th>Price</th>
+                                    <th>Quantity</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
@@ -39,8 +39,8 @@
                                     <tr>
                                         <td>{{ $product->id }}</td>
                                         <td>{{ $product->name }}</td>
-                                        <td>{{ $product->location }}</td>
-                                        <td>{{ $product->range }}</td>
+                                        <td>{{ $product->price }}</td>
+                                        <td>{{ $product->quantity }}</td>
                                         <td>
                                             <div class="btn-group">
                                                 <a class="btn btn-secondary mx-2"
