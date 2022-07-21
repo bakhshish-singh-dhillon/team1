@@ -190,6 +190,17 @@ a.btn:hover {
             font-size: 1.2em;
             font-weight: 700;
         }
+
+        .outer-box {
+            border: 1px solid $green;
+            height: 25px;
+            width: 90%;
+        }
+
+        .bar-5 {
+            background-color: $green;
+            height: 25px;
+        }
     }
 }
 
