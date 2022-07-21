@@ -51,13 +51,9 @@
             </div>
         </div>
         <hr>
-        <div id="featured">
-            <div class="title text-center py-3">Featured Products</div>
 
-            <div class="row py-4">
-                @include('includes.featureProd-loop')
-            </div>
-        </div>
+        @include('includes.featureProd-loop')
+
     </div>
 
     <div id="get_started">
