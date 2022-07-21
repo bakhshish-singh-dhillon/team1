@@ -13,10 +13,10 @@
     <div class="container">
         <div class="row">
             <div class="col-xl-6 col-lg-6 col-sm-12 m-auto">
-                <h3> Regarding - {{$detail['subject']}} </h3>
+                <h3> Regarding - {{$detail['category']}} </h3>
                 <p> <strong>User Name - </strong> {{$detail['name']}} </p>
                 <p> <strong>User Email - </strong>{{$detail['email']}} </p>
-                <p> <strong>Detail Message - </strong>{{$detail['body']}} </p>
+                <p> <strong>Detail Message - </strong>{{$detail['message']}} </p>
                 <br />
                 <br />
                 <p> Customer Feedback Form </p>
