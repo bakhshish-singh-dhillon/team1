@@ -3,6 +3,7 @@
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\AboutController;
+use App\Http\Controllers\TermsController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\AdminProductController;
@@ -41,8 +42,12 @@ Route::put('/admin/products/{product}', [AdminProductController::class, 'update'
 Route::delete('/admin/products/{product}', [AdminProductController::class, 'destroy'])->name('product-delete');
 
 // Pulkit URL Start
-
-Route::get('/about', [App\Http\Controllers\AboutController::class, 'index'])->name('about');
+Route::get('/about', function () {
+    return view('about');
+});
 Route::get('/terms-and-conditions', [App\Http\Controllers\TermsController::class, 'index'])->name('terms');
+Route::get('/404', function () {
+    return view('404');
+});
 
 // Pulkit URL Ends
