@@ -10,6 +10,21 @@ class Review extends Model
 {
     use HasFactory, SoftDeletes;
 
+
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array<int, string>
+     */
+    protected $fillable = [
+        'user_id',
+        'product_id',
+        'review',
+        'rating'
+
+    ];
+
+
     /**
      * Get the User of the review.
      */
