@@ -39,7 +39,7 @@
                                 <option value="5">5</option>
                             </select>
 
-                            <a href="" class="btn">Add to Cart</a>
+                            <a href="{{ route('add-to-cart', ['product' => $prod->id]) }}" class="btn">Add to Cart</a>
                         </td>
                     </tr>
                 </table>

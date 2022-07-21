@@ -43,7 +43,7 @@ Route::put('/admin/products/{product}', [AdminProductController::class, 'update'
 Route::delete('/admin/products/{product}', [AdminProductController::class, 'destroy'])->name('product-delete');
 
 //Cart Urls
-Route::get('cart', [CartController::class, 'index'])->name('cart');
+// Route::get('cart', [CartController::class, 'index'])->name('cart');
 Route::get('add-to-cart/{product}', [CartController::class, 'add'])->name('add-to-cart');
 //Cart Urls End
 
