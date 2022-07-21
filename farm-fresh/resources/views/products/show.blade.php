@@ -52,7 +52,10 @@
             <div class="row">
                 <div class="title py-3 text-center">Customer Reviews</div>
                 <div class="col-md-3">
-                    <p>4.3 out of 5</p>
+                    <p>4.3 out of 5
+                        <small>(40 ratings)</small>
+                    </p>
+
                     <div>
                         <div>
                             <p class="m-0 mt-1"><small>5 star (46%)</small></p>
