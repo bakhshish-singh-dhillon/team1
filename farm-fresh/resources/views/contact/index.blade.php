@@ -6,7 +6,8 @@
         <div class="col-md-8 px-4 py-4">
             <div class="form h-100">
                 <h3>Send us a message</h3>
-                <form class="mb-5" method="post" id="contactForm" name="contactForm">
+                <form class="mb-5" action="/contact" method="post" id="contactForm" name="contactForm">
+                    @csrf
                     <div class="row">
                         <div class="col-md-12 form-group mb-3">
                             <label for="" class="col-form-label">Name *</label>
