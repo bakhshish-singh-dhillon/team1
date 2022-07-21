@@ -279,22 +279,12 @@ a.btn:hover {
             height: 90vh;
         }
 
-        .banner-box:before {
-            position: absolute;
-            content: "";
-            top: 0;
-            left: 0;
-            height: 100%;
-            width: 100%;
-            background: rgba(0, 0, 0, 0.25);
-            z-index: 2;
-        }
-
         input[type=search] {
             background: none;
             border: 3px solid #fff;
             padding: 10px;
             width: 100%;
+            color: #fff;
         }
 
         input[type=search]::placeholder {
