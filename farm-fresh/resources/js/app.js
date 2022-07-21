@@ -1,11 +1,14 @@
 require('./bootstrap');
+import $ from 'jquery';
 import './main.js';
 import 'select2';
+import { createApp } from 'vue';
+import MultiImage from './components/multi-image.vue';
 
 
 /** Multi Image vue component */
-import { createApp } from 'vue';
-import MultiImage from './components/multi-image.vue';
-const multi_image = createApp({})
-multi_image.component('multi-image', MultiImage)
-multi_image.mount('#multi-image');
+if ($("#multi-image").length) {
+    const multi_image = createApp({})
+    multi_image.component('multi-image', MultiImage)
+    multi_image.mount('#multi-image');
+}
