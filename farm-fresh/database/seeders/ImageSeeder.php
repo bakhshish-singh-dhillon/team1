@@ -81,5 +81,36 @@ class ImageSeeder extends Seeder
             'url' => 'yellowon.png'
 
         ]);
+
+        DB::table('images')->insert([
+            'product_id' => '7',
+            'url' => 'tomato.png'
+
+        ]);
+        DB::table('images')->insert([
+            'product_id' => '8',
+            'url' => 'iceberg.png'
+
+        ]);
+        DB::table('images')->insert([
+            'product_id' => '9',
+            'url' => 'lemon.png'
+
+        ]);
+        DB::table('images')->insert([
+            'product_id' => '10',
+            'url' => 'couliflower.png'
+
+        ]);
+        DB::table('images')->insert([
+            'product_id' => '11',
+            'url' => 'broccoli.png'
+
+        ]);
+        DB::table('images')->insert([
+            'product_id' => '12',
+            'url' => 'cantaloupe.png'
+
+        ]);
     }
 }
