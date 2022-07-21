@@ -55,18 +55,34 @@ class AdminProductController extends Controller
         $valid = $request->validated();
 
         $product = Product::create([
-            'title' => $valid['title'],
-            'content' => $valid['content'],
+            'sku' => $valid['sku'],
+            'name' => $valid['name'],
+            'price' => $valid['price'],
+            'description' => $valid['description'],
+            'measure_unit' => $valid['measure_unit'],
             'category_id' => $valid['category_id'],
-            'image' => "https://picsum.photos/800/500"
+            'quantity' => $valid['quantity']
 
         ]);
         if ($request->file('image_upload')) {
             foreach ($request->file('image_upload') as $file) {
-                $path[] = $file->store('public\images');
+                $product->images()->create(['url' => $file->store('public/images')]);
             }
         }
-
+        if ($request->has('key')) {
+            foreach ($valid['key'] as $index => $value) {
+                $product->product_metas()->create([
+                    'name' => $value,
+                    'value' => $valid['value'][$index]
+                ]);
+            }
+        }
+        
+        if ($request->has('category_id')) {
+            foreach ($valid['category_id'] as $index => $value) {
+                $product->categories()->attach($valid['category_id']);
+            }
+        }
         return redirect('/admin/products/create')->withSuccess('Product created successfully');
     }
 

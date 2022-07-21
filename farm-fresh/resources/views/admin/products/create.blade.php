@@ -77,7 +77,7 @@
                             <label class="form-label" for="category_search">Category:
                                 <span class="text-danger">*</span>
                             </label>
-                            <select name="category_id" class="form-control js-example-basic-single" multiple
+                            <select name="category_id[]" class="form-control js-example-basic-single" multiple
                                 id="category_search">
                                 <option value="">Please select a category</option>
                                 @foreach ($categories as $index => $name)
@@ -99,7 +99,7 @@
                                 {{-- @dd($errors) --}}
                                 @foreach (old('key') as $index => $key)
                                     <div class="form-outline mb-4">
-                                        <label class="form-label" for="key[]">Key: <span
+                                        <label class="form-label" for="key[]">Atrribute Name: <span
                                                 class="text-danger">*</span></label>
                                         <input name="key[]" type="text" id="key" class="form-control"
                                             value="{{ old('key')[$index] }}" />

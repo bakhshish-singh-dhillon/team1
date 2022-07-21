@@ -30,7 +30,7 @@ class StoreProductRequest extends FormRequest
         return [
             'sku' => 'required',
             'name' => 'required',
-            'price' => 'required',
+            'price' => 'required|numeric',
             'image_upload.*' => 'required|image',
             'description' => 'required',
             'measure_unit' => 'required',
