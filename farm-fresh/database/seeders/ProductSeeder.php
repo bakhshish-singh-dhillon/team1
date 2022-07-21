@@ -75,5 +75,65 @@ class ProductSeeder extends Seeder
             'quantity' => '3'
 
         ]);
+
+        DB::table('products')->insert([
+            'sku' => 'PROD7',
+            'name' => 'Tomato Vine',
+            'price' => '2.33',
+            'description' => 'Tomatoes are excellent when used fresh in salads, but they can also be roasted or used in many tomato-based recipes.',
+            'measure_unit' => 'lbs',
+            'quantity' => '2'
+
+        ]);
+
+        DB::table('products')->insert([
+            'sku' => 'PROD8',
+            'name' => 'Lattuce Iceberg',
+            'price' => '1.79',
+            'description' => 'Iceberg (or crisphead) lettuce is a round, tightly-packed head of pale green leaves. It has a crisp texture and a mild flavour and is mainly used fresh.',
+            'measure_unit' => 'lbs',
+            'quantity' => '3'
+
+        ]);
+
+        DB::table('products')->insert([
+            'sku' => 'PROD9',
+            'name' => 'Lemon',
+            'price' => '0.99',
+            'description' => 'Lemons have a bright yellow peel and can vary in size depending on the variety. This citrus fruit produces a tart, acidic juice that will add flavour to your salad dressings, beverages, and marinades.',
+            'measure_unit' => 'lbs',
+            'quantity' => '3'
+
+        ]);
+
+        DB::table('products')->insert([
+            'sku' => 'PROD10',
+            'name' => 'Couliflower',
+            'price' => '3.99',
+            'description' => 'Cauliflower is a cruciferous vegetable that comes in a tight cluster of florets surrounded by crisp green leaves. It is normally white but also comes in green, purple, and orange.',
+            'measure_unit' => 'lbs',
+            'quantity' => '3'
+
+        ]);
+
+        DB::table('products')->insert([
+            'sku' => 'PROD11',
+            'name' => 'Broccoli',
+            'price' => '1.99',
+            'description' => 'Broccoli is a cruciferous vegetable that comes in a tight cluster of florets on top of firm, edible stalks. It is deep green in colour.',
+            'measure_unit' => 'lbs',
+            'quantity' => '3'
+
+        ]);
+
+        DB::table('products')->insert([
+            'sku' => 'PROD12',
+            'name' => 'Cantaloupe',
+            'price' => '3.99',
+            'description' => 'Cantaloupes have a greyish-beige skin with a raised netting overtop. The flesh is pale orange, juicy, and sweet. When ripe, cantaloupes are fragrant and yield to pressure at the blossom end.',
+            'measure_unit' => 'lbs',
+            'quantity' => '3'
+
+        ]);
     }
 }

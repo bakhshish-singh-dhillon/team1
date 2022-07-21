@@ -10,6 +10,8 @@ class Image extends Model
 {
     use HasFactory, SoftDeletes;
 
+    protected $fillable = ['url'];
+
     /**
      * Get the product for image.
      */
