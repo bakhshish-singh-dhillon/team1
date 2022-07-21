@@ -266,3 +266,66 @@ a.btn:hover {
         font-weight: 700;
     }
 }
+
+#home {
+    #banner {
+
+        .banner-box {
+            position: relative;
+            background: url("../../public/images/main-bg.jpg") 50% no-repeat fixed;
+            -webkit-background-size: cover;
+            background-size: cover;
+            width: 100%;
+            height: 90vh;
+        }
+
+        .banner-box:before {
+            position: absolute;
+            content: "";
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.25);
+            z-index: 2;
+        }
+
+        input[type=search] {
+            background: none;
+            border: 3px solid #fff;
+            padding: 10px;
+            width: 100%;
+        }
+
+        input[type=search]::placeholder {
+            /* Chrome, Firefox, Opera, Safari 10.1+ */
+            color: #fff;
+            opacity: 1;
+            /* Firefox */
+        }
+
+        :-ms-input-placeholder {
+            /* Internet Explorer 10-11 */
+            color: #fff;
+        }
+
+        ::-ms-input-placeholder {
+            /* Microsoft Edge */
+            color: #fff;
+        }
+
+        .content {
+            z-index: 2;
+            position: absolute;
+            text-align: center;
+            top: 30vh;
+            left: 35vw;
+
+            .tagline {
+                color: #fff;
+                font-weight: 700;
+                font-size: 3.5em;
+            }
+        }
+    }
+}
