@@ -17,6 +17,7 @@
         multiple
         aria-label="Choose File"
         name="image_upload[]"
+        id="custom_image_uploader"
       />
       <input type="hidden" name="MAX_FILE_SIZE" value="10485760" />
       <span
@@ -64,17 +65,10 @@ export default {
       showDeleteButtonOnImages: false,
       presetFiles: images,
     });
-    window.addEventListener(
-      "fileUploadWithPreview:imageDeleted",
-      function (e) {}
-    );
-    window.addEventListener(
-      "fileUploadWithPreview:imageMultiItemClicked",
-      function (e) {}
-    );
-    window.addEventListener("fileUploadWithPreview:imagesAdded", function (e) {
-      vue.upload.resetPreviewPanel();
-    });
+    $("#custom_image_uploader").click(function(){
+        vue.upload.clearPreviewPanel();
+        console.log('clicked');
+    })
   },
 };
 </script>
