@@ -7,7 +7,7 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 
-class email extends Mailable
+class Email extends Mailable
 {
     use Queueable, SerializesModels;
     protected $detail;
@@ -29,9 +29,10 @@ class email extends Mailable
      */
     public function build()
     {
-        return $this->view('view.name')
+        return $this->subject($this->detail->subject)
+            ->view('feedbackEmail')
             ->with([
                 'detail' => $this->detail,
-            ]);;
+            ]);
     }
 }
