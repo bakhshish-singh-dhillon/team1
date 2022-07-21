@@ -31,8 +31,8 @@ class ContactController extends Controller
         try {
             Mail::to('ecom.farmfresh@gmail.com')->send(new Email($valid));
         } catch (Exception $e) {
-            return redirect('/contact')->withSuccess('Something went wrong ! Please try again');
+            return redirect('/contact')->withError('Something went wrong ! Please try again');
         }
-        return redirect('/contact')->withError('Thank you for your feedback');
+        return redirect('/contact')->withSuccess('Thank you for your feedback');
     }
 }
