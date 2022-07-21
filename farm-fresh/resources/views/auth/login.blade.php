@@ -4,10 +4,10 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-8">
-                <div class="card">
+                <div class="card ">
                     <div class="bg-green text-white card-header">{{ __('Login') }}</div>
 
-                    <div class="card-body">
+                    <div class="card-body py-4">
                         <form method="POST" action="{{ route('login') }}">
                             @csrf
 
@@ -60,7 +60,7 @@
 
                             <div class="row mb-0">
                                 <div class="col-md-8 offset-md-4">
-                                    <button type="submit" class="btn btn-primary">
+                                    <button type="submit" class="py-2 bg-green text-white btn btn-dark">
                                         {{ __('Login') }}
                                     </button>
 
