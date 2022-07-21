@@ -42,8 +42,12 @@ Route::put('/admin/products/{product}', [AdminProductController::class, 'update'
 Route::delete('/admin/products/{product}', [AdminProductController::class, 'destroy'])->name('product-delete');
 
 // Pulkit URL Start
-
-Route::get('/about', [AboutController::class, 'index'])->name('about');
-Route::get('/terms', [TermsController::class, 'index'])->name('terms');
+Route::get('/about', function () {
+    return view('about');
+});
+Route::get('/terms-and-conditions', [App\Http\Controllers\TermsController::class, 'index'])->name('terms');
+Route::get('/404', function () {
+    return view('404');
+});
 
 // Pulkit URL Ends
