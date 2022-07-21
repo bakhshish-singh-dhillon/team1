@@ -28,22 +28,42 @@
 </template>
 <script>
 import FileUploadWithPreview from "file-upload-with-preview";
-import 'file-upload-with-preview/dist/file-upload-with-preview.min.css';;
+import "file-upload-with-preview/dist/file-upload-with-preview.min.css";
 export default {
-  name: 'MultiImage',
-  data () {
+  name: "MultiImage",
+  props: {
+    images: {
+      default: null,
+      type: String,
+    },
+  },
+  data() {
     return {
-      upload: null
-    }
+      upload: null,
+    };
   },
   methods: {
-    check () {
+    check() {
       // Use the chrome inspector
-      console.log(this.upload.cachedFileArray)
-    }
+      console.log(this.upload.cachedFileArray);
+    },
   },
-  mounted () {
-    this.upload = new FileUploadWithPreview('image_upload')
-  }
+  mounted() {
+    if (this.images) {
+      var images = JSON.parse(this.images);
+      window.addEventListener(
+        "fileUploadWithPreview:imageDeleted",
+        function (e) {
+          console.log(e.detail.uploadId);
+          console.log(e.detail.cachedFileArray);
+          console.log(e.detail.addedFilesCount);
+        }
+      );
+    }
+    // console.log(JSON.parse(this.images));
+    this.upload = new FileUploadWithPreview("image_upload", {
+      presetFiles: images,
+    });
+  },
 };
 </script>

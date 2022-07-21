@@ -66,7 +66,7 @@ class AdminProductController extends Controller
         ]);
         if ($request->file('image_upload')) {
             foreach ($request->file('image_upload') as $file) {
-                $product->images()->create(['url' => $file->store('public/images')]);
+                $product->images()->create(['url' => "/storage/images/".basename($file->store('public/images'))]);
             }
         }
         if ($request->has('key')) {
@@ -83,7 +83,7 @@ class AdminProductController extends Controller
                 $product->categories()->attach($valid['category_id']);
             }
         }
-        return redirect('/admin/products/create')->withSuccess('Product created successfully');
+        return redirect('/admin/products')->withSuccess('Product created successfully');
     }
 
     /**
@@ -106,9 +106,9 @@ class AdminProductController extends Controller
     public function edit(Product $product)
     {
         $categories = Category::pluck('name', 'id');
-        $product_metas = $product->product_metas()->get()->pluck('name','value');
+        $product_metas = $product->product_metas()->get()->pluck('value','name');
         $images = $product->images()->get()->pluck('url');
-        return view('admin/products/edit', compact('categories','product','product_metas'));
+        return view('admin/products/edit', compact('categories','product','product_metas','images'));
     }
 
     /**
@@ -123,7 +123,7 @@ class AdminProductController extends Controller
         // Retrieve the validated input data...
         $valid = $request->validated();
 
-        $product = Product::create([
+        $product->update([
             'sku' => $valid['sku'],
             'name' => $valid['name'],
             'price' => $valid['price'],
@@ -135,7 +135,7 @@ class AdminProductController extends Controller
         ]);
         if ($request->file('image_upload')) {
             foreach ($request->file('image_upload') as $file) {
-                $product->images()->create(['url' => $file->store('public/images')]);
+                $product->images()->create(['url' => "/storage/images/".basename($file->store('public/images'))]);
             }
         }
         if ($request->has('key')) {
@@ -152,7 +152,7 @@ class AdminProductController extends Controller
                 $product->categories()->attach($valid['category_id']);
             }
         }
-        return redirect('/admin/products/create')->withSuccess('Product created successfully');
+        return redirect('/admin/products')->withSuccess('Product created successfully');
     }
 
     /**

@@ -8,12 +8,15 @@
             </div>
             <div class="card-body">
                 <div class="mx-auto container" style="width: 500px;">
-                    <form action="/admin/products" method="POST" enctype="multipart/form-data">
+                    <form action="{{ route('product-update', ['product' => $product->id]) }}" method="POST"
+                        enctype="multipart/form-data">
                         @csrf
+                        @method('PUT')
+                        <input type="hidden" name="id" value="{{ $product->id }}" />
                         <div class="form-outline mb-4">
                             <label class="form-label" for="sku">Sku: <span class="text-danger">*</span></label>
                             <input name="sku" type="text" id="sku" class="form-control"
-                                value="{{ old('sku',$product->sku) }}" />
+                                value="{{ old('sku', $product->sku) }}" />
                             @error('sku')
                                 <span class="text-danger"> {{ $message }}</span>
                             @enderror
@@ -21,16 +24,18 @@
                         <div class="form-outline mb-4">
                             <label class="form-label" for="name">Name: <span class="text-danger">*</span> </label>
                             <input name="name" type="text" id="name" class="form-control"
-                                value="{{ old('name',$product->name) }}" />
+                                value="{{ old('name', $product->name) }}" />
                             @error('name')
                                 <span class="text-danger"> {{ $message }}</span>
                             @enderror
                         </div>
-                        <div id="multi-image"><multi-image></multi-image></div>
+                        <div id="multi-image">
+                            <multi-image images="{{ $images }}"></multi-image>
+                        </div>
                         <div class="form-outline mb-4">
                             <label class="form-label" for="description">Description: <span
                                     class="text-danger">*</span></label>
-                            <textarea class="form-control" name="description" id="description" cols="30" rows="10">{{ old('description',$product->description) }}</textarea>
+                            <textarea class="form-control" name="description" id="description" cols="30" rows="10">{{ old('description', $product->description) }}</textarea>
                             @error('description')
                                 <span class="text-danger"> {{ $message }}</span>
                             @enderror
@@ -39,7 +44,7 @@
                             <label class="form-label" for="measure_unit">Measure Unit: <span
                                     class="text-danger">*</span></label>
                             <input name="measure_unit" type="text" id="measure_unit" class="form-control"
-                                value="{{ old('measure_unit',$product->measure_unit) }}" />
+                                value="{{ old('measure_unit', $product->measure_unit) }}" />
                             @error('measure_unit')
                                 <span class="text-danger"> {{ $message }}</span>
                             @enderror
@@ -48,7 +53,7 @@
                             <label class="form-label" for="quantity">Quantity in Stock: <span
                                     class="text-danger">*</span></label>
                             <input name="quantity" type="text" id="quantity" class="form-control"
-                                value="{{ old('quantity',$product->quantity) }}" />
+                                value="{{ old('quantity', $product->quantity) }}" />
                             @error('quantity')
                                 <span class="text-danger"> {{ $message }}</span>
                             @enderror
@@ -56,7 +61,7 @@
                         <div class="form-outline mb-4">
                             <label class="form-label" for="price">Price: <span class="text-danger">*</span></label>
                             <input name="price" type="text" id="price" class="form-control"
-                                value="{{ old('price',$product->price) }}" />
+                                value="{{ old('price', $product->price) }}" />
                             @error('price')
                                 <span class="text-danger"> {{ $message }}</span>
                             @enderror
@@ -71,7 +76,11 @@
                                 id="category_search">
                                 <option value="">Please select a category</option>
                                 @foreach ($categories as $index => $name)
-                                    <option value="{{ $index }}" @if(in_array($index ,old('category_id',$product->categories()->get()->pluck('id')->toArray()))) selected @endif >
+                                    <option value="{{ $index }}" @if (in_array(
+                                        $index,
+                                        old(
+                                            'category_id',
+                                            $product->categories()->get()->pluck('id')->toArray()))) selected @endif>
                                         {{ $name }}
                                     </option>
                                 @endforeach
