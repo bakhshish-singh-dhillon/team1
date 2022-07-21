@@ -64,6 +64,7 @@
                             <h5 class="card-title green-text text-bold">{{$prod->name}}</h5>
                             <p class="card-text">$ {{$prod->price}} / {{$prod->measure_unit}}</p>
                         </div>
+                        <a href="" class="btn hanging-btn">View</a>
                     </div>
                 </div>
 

@@ -120,6 +120,17 @@ a.btn:hover {
         cursor: pointer;
     }
 
+    .hanging-btn {
+        position: absolute;
+        top: calc(50% - 22px);
+        right: calc(50% - 37px);
+        display: none;
+    }
+
+    .product-item:hover .hanging-btn {
+        display: block;
+    }
+
     .product-item:hover:after {
         opacity: 1;
     }
@@ -168,6 +179,13 @@ a.btn:hover {
 
     select {
         padding: 9px 20px;
+    }
+
+    #reviews {
+        .review-title {
+            font-size: 1.2em;
+            font-weight: 700;
+        }
     }
 }
 
