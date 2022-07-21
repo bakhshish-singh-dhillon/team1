@@ -16,7 +16,7 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $products = Product::latest()->paginate(10);
+        $products = Product::latest()->paginate(9);
         $categories = Category::pluck('name', 'id');
         return view('products/index', compact('products', 'categories'));
     }
@@ -27,8 +27,11 @@ class ProductController extends Controller
      * @param  \App\Models\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function show(Product $product)
+    public function show(Product $product, $id)
     {
-        return view('products/product-detail',  compact('product'));
+        $products = Product::latest()->take(4)->get();
+
+        $prod = Product::find($id);
+        return view('products/show',  compact('product', 'products', 'prod'));
     }
 }
