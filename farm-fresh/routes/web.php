@@ -3,6 +3,7 @@
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\AboutController;
+use App\Http\Controllers\TermsController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\AdminProductController;
@@ -44,7 +45,7 @@ Route::delete('/admin/products/{product}', [AdminProductController::class, 'dest
 Route::get('/about', function () {
     return view('about');
 });
-Route::get('/terms', [App\Http\Controllers\TermsController::class, 'index'])->name('terms');
+Route::get('/terms', [TermsController::class, 'index'])->name('terms');
 Route::get('/404', function () {
     return view('404');
 });
