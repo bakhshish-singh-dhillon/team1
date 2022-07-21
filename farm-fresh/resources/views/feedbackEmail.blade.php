@@ -13,14 +13,13 @@
     <div class="container">
         <div class="row">
             <div class="col-xl-6 col-lg-6 col-sm-12 m-auto">
-                <h3> Send Email in Laravel 8 Using Gmail </h3>
-                <p> Hey, </p>
-                <p> Welcome to Programming Fields </p>
-                <p> This is a basic demo for sending email in Laravel 8 using Gmail SMTP </p>
+                <h3> Regarding - {{$detail['subject']}} </h3>
+                <p> <strong>User Name - </strong> {{$detail['name']}} </p>
+                <p> <strong>User Email - </strong>{{$detail['email']}} </p>
+                <p> <strong>Detail Message - </strong>{{$detail['body']}} </p>
                 <br />
                 <br />
-                <p> Best Regards</p>
-                <p> Team, Programming Fields </p>
+                <p> Customer Feedback Form </p>
             </div>
         </div>
     </div>
