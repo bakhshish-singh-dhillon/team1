@@ -33,13 +33,12 @@ class ContactController extends Controller
             'phone' => $request->phone,
             'name' => $request->name,
         ];
+        Mail::to('ecom.farmfresh@gmail.com')->send(new Email($details));
 
-        Mail::to('receiver-email-id')->send(new Email($details));
-
-        if (Mail::failures()) {
-            return response()->Fail('Sorry! Please try again latter');
-        } else {
-            return response()->success('Great! Successfully send in your mail');
-        }
+        // if (Mail::failures()) {
+        //     return response()->Fail('Sorry! Please try again latter');
+        // } else {
+        //     return response()->success('Great! Successfully send in your mail');
+        // }
     }
 }
