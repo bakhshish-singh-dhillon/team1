@@ -9,6 +9,7 @@ class CartController extends Controller
 {
     public function add(Product $product)
     {
+
         $cart = session()->get('cart', []);
 
         if (isset($cart[$product->id])) {
