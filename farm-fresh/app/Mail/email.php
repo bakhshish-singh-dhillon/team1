@@ -29,7 +29,7 @@ class Email extends Mailable
      */
     public function build()
     {
-        return $this->subject($this->detail['subject'])
+        return $this->subject($this->detail['category'])
             ->view('feedbackEmail')
             ->with([
                 'detail' => $this->detail,
