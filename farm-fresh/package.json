@@ -22,6 +22,7 @@
         "vue-loader": "^17.0.0"
     },
     "dependencies": {
+        "file-upload-with-preview": "^4.3.0",
         "jquery": "^3.6.0",
         "select2": "^4.1.0-rc.0",
         "vue": "^3.2.36"

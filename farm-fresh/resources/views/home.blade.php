@@ -57,8 +57,9 @@
             <div class="row py-4">
                 @foreach($products as $prod)
                 <div class="col-md-3 px-4">
-                    <div class="card product-item">
-                        <img class="card-img-top" src="images/placeholder.png" alt="Card image cap">
+                    <div class="card product-item shadow">
+
+                        <img class="card-img-top" src="images/products/{{$prod->images()->first()->url}}" alt="{{$prod->images()->first()->url}}">
                         <div class="card-body">
                             <h5 class="card-title green-text text-bold">{{$prod->name}}</h5>
                             <p class="card-text">$ {{$prod->price}} / {{$prod->measure_unit}}</p>

@@ -18,67 +18,98 @@ class ImageSeeder extends Seeder
     {
         DB::table('images')->insert([
             'product_id' => '1',
-            'url' => 'salad.png'
+            'url' => 'apple.png'
 
         ]);
 
         DB::table('images')->insert([
             'product_id' => '1',
-            'url' => 'salad.png'
+            'url' => 'apple.png'
 
         ]);
 
         DB::table('images')->insert([
             'product_id' => '2',
-            'url' => 'salad.png'
+            'url' => 'banana.png'
 
         ]);
 
         DB::table('images')->insert([
             'product_id' => '2',
-            'url' => 'salad.png'
+            'url' => 'banana.png'
 
         ]);
 
         DB::table('images')->insert([
             'product_id' => '3',
-            'url' => 'salad.png'
+            'url' => 'strawberry.png'
 
         ]);
 
         DB::table('images')->insert([
             'product_id' => '3',
-            'url' => 'salad.png'
+            'url' => 'strawberry.png'
 
         ]);
 
         DB::table('images')->insert([
             'product_id' => '4',
-            'url' => 'salad.png'
+            'url' => 'engcuc.png'
 
         ]);
 
         DB::table('images')->insert([
             'product_id' => '4',
-            'url' => 'salad.png'
+            'url' => 'engcuc.png'
 
         ]);
 
         DB::table('images')->insert([
             'product_id' => '5',
-            'url' => 'salad.png'
+            'url' => 'cs.png'
 
         ]);
 
         DB::table('images')->insert([
             'product_id' => '5',
-            'url' => 'salad.png'
+            'url' => 'cs.png'
 
         ]);
 
         DB::table('images')->insert([
             'product_id' => '6',
-            'url' => 'salad.png'
+            'url' => 'yellowon.png'
+
+        ]);
+
+        DB::table('images')->insert([
+            'product_id' => '7',
+            'url' => 'tomato.png'
+
+        ]);
+        DB::table('images')->insert([
+            'product_id' => '8',
+            'url' => 'iceberg.png'
+
+        ]);
+        DB::table('images')->insert([
+            'product_id' => '9',
+            'url' => 'lemon.png'
+
+        ]);
+        DB::table('images')->insert([
+            'product_id' => '10',
+            'url' => 'couliflower.png'
+
+        ]);
+        DB::table('images')->insert([
+            'product_id' => '11',
+            'url' => 'broccoli.png'
+
+        ]);
+        DB::table('images')->insert([
+            'product_id' => '12',
+            'url' => 'cantaloupe.png'
 
         ]);
     }

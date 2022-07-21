@@ -26,8 +26,9 @@ Auth::routes();
 
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 Route::get('/products', [ProductController::class, 'index'])->name('products');
+Route::get('/products/show/{id}', [ProductController::class, 'show'])->name('product');
+
 Route::get('/about', [AboutController::class, 'index'])->name('about');
-Route::get('/product/{product}', [App\Http\Controllers\ProductController::class, 'show'])->name('product');
 Route::get('/contact', [ContactController::class, 'index'])->name('contact');
 Route::post('/contact', [ContactController::class, 'store'])->name('contact-submit');
 
@@ -35,9 +36,9 @@ Route::get('/admin', [AdminController::class, 'index'])->name('dashboard');
 Route::get('/admin/products', [AdminProductController::class, 'index']);
 Route::get('/admin/products/create', [AdminProductController::class, 'create']);
 Route::post('/admin/products', [AdminProductController::class, 'store']);
-// Route::get('/admin/products/{product}/edit', [AdminProductController::class, 'edit'])->name('product-edit');
-// Route::put('/admin/products/{product}', [AdminProductController::class, 'update'])->name('product-update');
-// Route::delete('/admin/products/{product}', [AdminProductController::class, 'destroy'])->name('product-delete');
+Route::get('/admin/products/{product}/edit', [AdminProductController::class, 'edit'])->name('product-edit');
+Route::put('/admin/products/{product}', [AdminProductController::class, 'update'])->name('product-update');
+Route::delete('/admin/products/{product}', [AdminProductController::class, 'destroy'])->name('product-delete');
 
 // Pulkit URL Start
 

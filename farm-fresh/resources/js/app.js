@@ -2,12 +2,10 @@ require('./bootstrap');
 import './main.js';
 import 'select2';
 
-// import { createApp } from 'vue';
 
-// import TitleComponent from './components/index.vue';
-
-// const app = createApp({})
-
-// app.component('title-component', TitleComponent)
-
-// app.mount('#vueRoot');
+/** Multi Image vue component */
+import { createApp } from 'vue';
+import MultiImage from './components/multi-image.vue';
+const multi_image = createApp({})
+multi_image.component('multi-image', MultiImage)
+multi_image.mount('#multi-image');
