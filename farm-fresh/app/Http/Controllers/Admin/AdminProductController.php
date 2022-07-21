@@ -163,6 +163,11 @@ class AdminProductController extends Controller
      */
     public function destroy(Product $product)
     {
-        //
+        if ($product->delete()) {
+            session()->flash('success', 'Mountain deleted successfully');
+            return redirect('/admin/products');
+        }
+        session()->flash('error', 'Sorry, Unable to create new mountain');
+        return redirect('/admin/products');
     }
 }
