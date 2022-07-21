@@ -3,7 +3,16 @@
 @section('content')
 
 <div id="home">
-    <img src="images/main-bg.jpg" alt="Home" />
+    <div id="banner">
+        <div class="banner-box">
+            <div class="container">
+                <div class="content">
+                    <p class="tagline"> Eat. Fresh. Daily. </p>
+                    <input type="search" placeholder="Search" />
+                </div>
+            </div>
+        </div>
+    </div>
 
     <div class="max-container">
 
