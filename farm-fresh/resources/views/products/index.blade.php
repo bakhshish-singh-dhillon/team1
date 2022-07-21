@@ -38,7 +38,7 @@
                                 <h5 class="card-title">{{$prod->name}}</h5>
                                 <p class="card-text">$ {{$prod->price}} / {{$prod->measure_unit}}</p>
                                 <p class="ellipsis-text">{{$prod->description}}</p>
-                                <a href="#" class="btn">View</a>
+                                <a href="/products/show/{{$prod->id}}" class="btn">View</a>
                             </div>
                         </div>
                     </div>

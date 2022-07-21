@@ -27,10 +27,11 @@ class ProductController extends Controller
      * @param  \App\Models\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function show(Product $product)
+    public function show(Product $product, $id)
     {
         $products = Product::latest()->take(4)->get();
 
-        return view('products/show',  compact('product', 'products'));
+        $prod = Product::find($id);
+        return view('products/show',  compact('product', 'products', 'prod'));
     }
 }
