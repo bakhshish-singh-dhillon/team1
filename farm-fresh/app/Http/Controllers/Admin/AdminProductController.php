@@ -135,7 +135,7 @@ class AdminProductController extends Controller
         ]);
         if ($request->file('image_upload')) {
             foreach ($request->file('image_upload') as $file) {
-                $product->images()->create(['url' => "/storage/images/".basename($file->store('public/images'))]);
+                $product->images()->create(['url' => basename($file->store('public/images'))]);
             }
         }
         if ($request->has('key')) {
@@ -163,6 +163,11 @@ class AdminProductController extends Controller
      */
     public function destroy(Product $product)
     {
-        //
+        if ($product->delete()) {
+            session()->flash('success', 'Mountain deleted successfully');
+            return redirect('/admin/products');
+        }
+        session()->flash('error', 'Sorry, Unable to create new mountain');
+        return redirect('/admin/products');
     }
 }
