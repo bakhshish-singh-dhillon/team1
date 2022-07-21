@@ -46,10 +46,14 @@
 
                 <div>
                     <span><img src="/images/user.png" alt="User" class="icon mx-2 my-4" /></span>
-                    <span>
-                        <img src="/images/shopping-cart.png" alt="Cart" class="icon mx-2 my-4" />
-                        {{ session()->has('cart') ? count(session()->get('cart')) : '' }}
-                    </span>
+
+                    <a href="{{ route('cart') }}">
+                        <span>
+                            <img src="/images/shopping-cart.png" alt="Cart" class="icon mx-2 my-4" />
+                            {{ session()->has('cart') ? count(session()->get('cart')) : '' }}
+                        </span>
+                    </a>
+
                     <span><img src="/images/power.png" alt="Logout" class="icon mx-2 my-4" /></span>
                 </div>
 

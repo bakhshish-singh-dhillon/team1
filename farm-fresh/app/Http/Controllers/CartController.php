@@ -7,7 +7,12 @@ use App\Models\Product;
 
 class CartController extends Controller
 {
+    public function index()
+    {
+        return view('cart');
+    }
 
+    
     public function add(Product $product)
     {
 
