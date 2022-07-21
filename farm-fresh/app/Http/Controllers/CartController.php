@@ -3,10 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Product;
+use App\Models\Product;
 
 class CartController extends Controller
 {
+
     public function add(Product $product)
     {
 
@@ -23,7 +24,7 @@ class CartController extends Controller
         }
 
         session()->put('cart', $cart);
-        return redirect()->withSuccess('success', 'Product added to cart successfully!');
+        return redirect()->back()->withSuccess('Product added to cart successfully!');
     }
 
 }
