@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Mail\Email;
+use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 
@@ -33,12 +34,11 @@ class ContactController extends Controller
             'phone' => $request->phone,
             'name' => $request->name,
         ];
-        Mail::to('ecom.farmfresh@gmail.com')->send(new Email($details));
-
-        // if (Mail::failures()) {
-        //     return response()->Fail('Sorry! Please try again latter');
-        // } else {
-        //     return response()->success('Great! Successfully send in your mail');
-        // }
+        try {
+            Mail::to('ecom.farmfresh@gmail.com')->send(new Email($details));
+        } catch (Exception $e) {
+            return redirect('/contact')->withSuccess('Something went wrong ! Please try again');
+        }
+        return redirect('/contact')->withError('Thank you for your feedback');
     }
 }
