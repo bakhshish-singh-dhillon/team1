@@ -17,6 +17,10 @@ img {
     color: $green;
 }
 
+.bg-green {
+    background-color: $green;
+}
+
 .text-bold {
     font-weight: 700;
 }
@@ -98,14 +102,12 @@ a.btn:hover {
         transition: all 0.1s ease-in-out;
         cursor: pointer;
     }
-
     img:hover {
         transform: scale(1.1);
     }
 }
 
 #featured {
-
     .product-item:after {
         content: '\A';
         position: absolute;
@@ -119,7 +121,6 @@ a.btn:hover {
         -webkit-transition: all 0.5s;
         cursor: pointer;
     }
-
     .product-item:hover:after {
         opacity: 1;
     }
@@ -209,5 +210,17 @@ a.btn:hover {
 .termslist {
     li {
         list-style-type: none;
+    }
+}
+
+.contact-info {
+    .icon-room:before {
+        content: "\e8b4";
+    }
+    .icon-phone:before {
+        content: "\f095";
+    }
+    .icon-envelope:before {
+        content: "\f0e0";
     }
 }

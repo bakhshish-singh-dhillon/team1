@@ -3,6 +3,7 @@
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\AboutController;
+use App\Http\Controllers\ContactController;
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\AdminProductController;
 use Illuminate\Support\Facades\Auth;
@@ -28,6 +29,8 @@ Route::get('/products', [ProductController::class, 'index'])->name('products');
 Route::get('/products/show/{id}', [ProductController::class, 'show'])->name('product');
 
 Route::get('/about', [AboutController::class, 'index'])->name('about');
+Route::get('/contact', [ContactController::class, 'index'])->name('contact');
+Route::post('/contact', [ContactController::class, 'store'])->name('contact-submit');
 
 Route::get('/admin', [AdminController::class, 'index'])->name('dashboard');
 Route::get('/admin/products', [AdminProductController::class, 'index']);
