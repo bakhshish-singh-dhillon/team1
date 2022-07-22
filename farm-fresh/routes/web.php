@@ -7,6 +7,7 @@ use App\Http\Controllers\TermsController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\AdminProductController;
+use App\Http\Controllers\CartController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -40,6 +41,11 @@ Route::post('/admin/products', [AdminProductController::class, 'store']);
 Route::get('/admin/products/{product}/edit', [AdminProductController::class, 'edit'])->name('product-edit');
 Route::put('/admin/products/{product}', [AdminProductController::class, 'update'])->name('product-update');
 Route::delete('/admin/products/{product}', [AdminProductController::class, 'destroy'])->name('product-delete');
+
+//Cart Urls
+Route::get('cart', [CartController::class, 'index'])->name('cart');
+Route::get('add-to-cart/{product}', [CartController::class, 'add'])->name('add-to-cart');
+//Cart Urls End
 
 // Pulkit URL Start
 Route::get('/about', function () {

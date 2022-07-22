@@ -8,7 +8,7 @@
             </div>
             <div class="card-body">
                 <div class="mx-auto container" style="width: 500px;">
-                    <form action="{{ route('product-update', ['product' => $product->id]) }}" method="POST"
+                    <form action="{{ route('product-update', ['product' => $product->id]) }}" method="POST" id="product_crud_form"
                         enctype="multipart/form-data">
                         @csrf
                         @method('PUT')
@@ -30,7 +30,7 @@
                             @enderror
                         </div>
                         <div id="multi-image">
-                            <multi-image images="{{ $images }}"></multi-image>
+                            <multi-image images="{{ $images }}" images_path="{{ $images_path }}"></multi-image>
                         </div>
                         <div class="form-outline mb-4">
                             <label class="form-label" for="description">Description: <span
