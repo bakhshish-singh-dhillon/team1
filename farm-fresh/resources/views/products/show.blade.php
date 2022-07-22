@@ -95,18 +95,18 @@
                     </div>
                 </div>
                 <div class="col-md-9">
+
+                    @foreach($reviews as $review)
                     <div>
                         <div class="review-title">Sargam Sanghani</div>
                         <div><small>Posted on 17th July, 2022</small></div>
-                        <p class="my-2">4 out of 5</p>
-                        <p>I had an amazing experience. Loved the food. It was a quick delivery. Thank you so much for your great service!</p>
+                        <p class="my-2">{{$review->rating}} out of 5</p>
+
+                        <p>{{$review->review}}</p>
+                        <!-- <p>I had an amazing experience. Loved the food. It was a quick delivery. Thank you so much for your great service!</p> -->
                     </div>
-                    <div>
-                        <div class="review-title">Sargam Sanghani</div>
-                        <div><small>Posted on 17th July, 2022</small></div>
-                        <p class="my-2">4 out of 5</p>
-                        <p>I had an amazing experience. Loved the food. It was a quick delivery. Thank you so much for your great service!</p>
-                    </div>
+
+                    @endforeach
                 </div>
             </div>
         </div>
