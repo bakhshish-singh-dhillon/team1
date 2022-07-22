@@ -49,6 +49,14 @@ img {
     float: right;
 }
 
+.error-message {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    border-left: 5px solid;
+    min-width: 500px;
+}
+
 a.btn {
     color: #fff;
     text-decoration: none;
