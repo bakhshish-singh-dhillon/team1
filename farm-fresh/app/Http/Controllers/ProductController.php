@@ -32,7 +32,8 @@ class ProductController extends Controller
     public function show(Product $product)
     {
         $products = Product::latest()->take(4)->get();
-        $avgRating = $product->reviews->avg('rating');
+
+        $avgRating = number_format((float)$product->reviews->avg('rating'), 2, '.', '');
 
         return view('products/show',  compact('product', 'products', 'avgRating'));
     }
