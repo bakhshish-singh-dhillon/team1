@@ -3,7 +3,16 @@
 @section('content')
 
 <div id="home">
-    <img src="images/main-bg.jpg" alt="Home" />
+    <div id="banner">
+        <div class="banner-box">
+            <div class="container">
+                <div class="content">
+                    <p class="tagline"> Eat. Fresh. Daily. </p>
+                    <input type="search" placeholder="Search" />
+                </div>
+            </div>
+        </div>
+    </div>
 
     <div class="max-container">
 
@@ -34,43 +43,24 @@
             <div class="sub-title text-center green-text">We provide better food to our customers every day</div>
 
             <div class="row py-4">
+
+                @foreach($revProducts as $prod)
                 <div class="col-md-6">
                     <div class="text-center">
                         <img src="images/left-quote.png" alt="Left-quote">
                         <p>Saniya said</p>
-                        <p>I had an amazing experience. Loved the food. It was a quick delivery. Thank you so much for your great service!</p>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="text-center">
-                        <img src="images/left-quote.png" alt="Left-quote">
-                        <p>Mahira said</p>
-                        <p>I had an amazing experience. Loved the food. It was a quick delivery. Thank you so much for your great service!</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <hr>
-        <div id="featured">
-            <div class="title text-center py-3">Featured Products</div>
 
-            <div class="row py-4">
-                @foreach($products as $prod)
-                <div class="col-md-3 px-4">
-                    <div class="card product-item shadow">
-
-                        <img class="card-img-top" src="images/products/{{$prod->images()->first()->url}}" alt="{{$prod->images()->first()->url}}">
-                        <div class="card-body">
-                            <h5 class="card-title green-text text-bold">{{$prod->name}}</h5>
-                            <p class="card-text">$ {{$prod->price}} / {{$prod->measure_unit}}</p>
-                        </div>
-                        <a href="" class="btn hanging-btn">View</a>
+                        <p>{{$prod->reviews()->first()->review}}</p>
                     </div>
                 </div>
 
                 @endforeach
             </div>
         </div>
+        <hr>
+
+        @include('includes.featureProd-loop')
+
     </div>
 
     <div id="get_started">

@@ -3,9 +3,11 @@
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\AboutController;
+use App\Http\Controllers\TermsController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\AdminProductController;
+use App\Http\Controllers\CartController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -40,9 +42,18 @@ Route::get('/admin/products/{product}/edit', [AdminProductController::class, 'ed
 Route::put('/admin/products/{product}', [AdminProductController::class, 'update'])->name('product-update');
 Route::delete('/admin/products/{product}', [AdminProductController::class, 'destroy'])->name('product-delete');
 
-// Pulkit URL Start
+//Cart Urls
+Route::get('cart', [CartController::class, 'index'])->name('cart');
+Route::get('add-to-cart/{product}', [CartController::class, 'add'])->name('add-to-cart');
+//Cart Urls End
 
-Route::get('/about', [App\Http\Controllers\AboutController::class, 'index'])->name('about');
-Route::get('/terms', [App\Http\Controllers\TermsController::class, 'index'])->name('terms');
+// Pulkit URL Start
+Route::get('/about', function () {
+    return view('about');
+});
+Route::get('/terms-and-conditions', [App\Http\Controllers\TermsController::class, 'index'])->name('terms');
+Route::get('/404', function () {
+    return view('404');
+});
 
 // Pulkit URL Ends

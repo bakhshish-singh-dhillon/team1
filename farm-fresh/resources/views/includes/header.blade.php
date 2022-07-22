@@ -31,11 +31,13 @@
                     <a class="navbar-brand" href="{{ url('/') }}">
                         <picture>
                             <!-- Desktop logo -->
-                            <source media="(min-width: 768px)" srcset="images/logo-100.png 1x, images/logo-200.png 2x" />
+                            <source media="(min-width: 768px)"
+                                srcset="/images/logo-100.png 1x, images/logo-200.png 2x" />
                             <!-- Mobile logo -->
-                            <source media="(max-width: 767px)" srcset="images/logo-50.png 1x, images/logo-100.png 2x, images/logo-200.png 3x" />
+                            <source media="(max-width: 767px)"
+                                srcset="/images/logo-50.png 1x, images/logo-100.png 2x, images/logo-200.png 3x" />
                             <!-- Logo by default -->
-                            <img src="images/logo-100.png" width="100" height="100" alt="Farm Fresh" />
+                            <img src="/images/logo-100.png" width="100" height="100" alt="Farm Fresh" />
                         </picture>
                     </a>
                 </div>
@@ -43,9 +45,16 @@
                 @include('includes.nav')
 
                 <div>
-                    <span><img src="images/user.png" alt="User" class="icon mx-2 my-4" /></span>
-                    <span><img src="images/shopping-cart.png" alt="Cart" class="icon mx-2 my-4" /></span>
-                    <span><img src="images/power.png" alt="Logout" class="icon mx-2 my-4" /></span>
+                    <span><img src="/images/user.png" alt="User" class="icon mx-2 my-4" /></span>
+
+                    <a href="{{ route('cart') }}">
+                        <span>
+                            <img src="/images/shopping-cart.png" alt="Cart" class="icon mx-2 my-4" />
+                            {{ session()->has('cart') ? count(session()->get('cart')) : '' }}
+                        </span>
+                    </a>
+
+                    <span><img src="/images/power.png" alt="Logout" class="icon mx-2 my-4" /></span>
                 </div>
 
             </div>

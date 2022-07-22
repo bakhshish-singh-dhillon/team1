@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreProductRequest;
 use App\Http\Requests\UpdateProductRequest;
 use App\Models\Category;
+use Illuminate\Support\Facades\Storage;
 
 class AdminProductController extends Controller
 {
@@ -134,12 +135,19 @@ class AdminProductController extends Controller
 
         ]);
         if ($request->file('image_upload')) {
+            foreach ($product->images()->get() as $file) {
+                if(Storage::exists('public/images/'.$file->url)){
+                    Storage::delete('public/images/'.$file->url);
+                }
+            }
+            $product->images()->delete();
             foreach ($request->file('image_upload') as $file) {
                 $product->images()->create(['url' => basename($file->store('public/images'))]);
             }
         }
         if ($request->has('key')) {
-            foreach ($valid['key'] as $index => $value) {
+            $product->product_metas()->delete();
+            foreach($valid['key'] as $index => $value) {
                 $product->product_metas()->create([
                     'name' => $value,
                     'value' => $valid['value'][$index]
@@ -149,6 +157,7 @@ class AdminProductController extends Controller
         
         if ($request->has('category_id')) {
             foreach ($valid['category_id'] as $index => $value) {
+                $product->categories()->detach();
                 $product->categories()->attach($valid['category_id']);
             }
         }
@@ -164,10 +173,10 @@ class AdminProductController extends Controller
     public function destroy(Product $product)
     {
         if ($product->delete()) {
-            session()->flash('success', 'Mountain deleted successfully');
+            session()->flash('success', 'Product deleted successfully');
             return redirect('/admin/products');
         }
-        session()->flash('error', 'Sorry, Unable to create new mountain');
+        session()->flash('error', 'Sorry, Unable to create new product');
         return redirect('/admin/products');
     }
 }

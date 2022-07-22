@@ -5,7 +5,7 @@
         <div id="footer_nav">
             <ul>
                 <li><a href="/">Home</a></li>
-                <li><a href="/products">Terms & Conditions</a></li>
+                <li><a href="/terms-and-conditions">Terms & Conditions</a></li>
                 <li><a href="/about">About</a></li>
                 <li><a href="/contact">Contact</a></li>
                 <li><a href="/privacy-policy">Privacy Policy</a></li>
@@ -23,10 +23,8 @@
     </div>
 </footer>
 
-{{-- <div id="vueRoot">
-            <title-component/>
-        </div> --}}
 </div>
+@yield('custom-js')
 </body>
 
 </html>

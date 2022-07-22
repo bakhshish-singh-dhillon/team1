@@ -6,7 +6,7 @@
     <div class="max-container py-4">
         <div class="row">
             <div class="col-md-6">
-                <img src="/images/products/{{$prod->images()->first()->url}}" alt="{{$prod->images()->first()->url}}">
+                <img src="{{$images_path.$prod->images()->first()->url}}" alt="{{$prod->images()->first()->url}}">
             </div>
             <div class="col-md-6">
                 <div class="title product-title">{{$prod->name}}</div>
@@ -39,7 +39,7 @@
                                 <option value="5">5</option>
                             </select>
 
-                            <a href="" class="btn">Add to Cart</a>
+                            <a href="{{ route('add-to-cart', ['product' => $prod->id]) }}" class="btn">Add to Cart</a>
                         </td>
                     </tr>
                 </table>
@@ -47,42 +47,73 @@
             </div>
         </div>
         <hr>
-        <div id="featured">
+        <div id="reviews">
 
             <div class="row">
                 <div class="title py-3 text-center">Customer Reviews</div>
                 <div class="col-md-3">
-                    <p>4.3 out of 5</p>
+                    <p>4.3 out of 5
+                        <small>(40 ratings)</small>
+                    </p>
+
+                    <div>
+                        <div>
+                            <p class="m-0 mt-1"><small>5 star (46%)</small></p>
+                            <div class="outer-box">
+
+                                <div class="bar-5" style="width: 46%;"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <p class="m-0 mt-1"><small>4 star (46%)</small></p>
+                            <div class="outer-box">
+
+                                <div class="bar-5" style="width: 46%;"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <p class="m-0 mt-1"><small>3 star (46%)</small></p>
+                            <div class="outer-box">
+
+                                <div class="bar-5" style="width: 46%;"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <p class="m-0 mt-1"><small>2 star (46%)</small></p>
+                            <div class="outer-box">
+
+                                <div class="bar-5" style="width: 46%;"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <p class="m-0 mt-1"><small>1 star (0%)</small></p>
+                            <div class="outer-box">
+
+                                <div class="bar-5" style="width: 0%;"></div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <div class="col-md-9">
+
+                    @foreach($reviews as $review)
                     <div>
-                        <!-- <p class="sub-title">Sargam Sanghani</p>
-                        <p>4 out of 5</p>
-                        <p></p> -->
+                        <div class="review-title">Sargam Sanghani</div>
+                        <div><small>Posted on 17th July, 2022</small></div>
+                        <p class="my-2">{{$review->rating}} out of 5</p>
+
+                        <p>{{$review->review}}</p>
+                        <!-- <p>I had an amazing experience. Loved the food. It was a quick delivery. Thank you so much for your great service!</p> -->
                     </div>
+
+                    @endforeach
                 </div>
             </div>
         </div>
         <hr>
-        <div id="featured">
-            <div class="title text-center py-3">Featured Products</div>
 
-            <div class="row py-4">
-                @foreach($products as $prod)
-                <div class="col-md-3 px-4">
-                    <div class="card product-item">
+        @include('includes.featureProd-loop')
 
-                        <img class="card-img-top" src="/images/products/{{$prod->images()->first()->url}}" alt="{{$prod->images()->first()->url}}">
-                        <div class="card-body">
-                            <h5 class="card-title green-text text-bold">{{$prod->name}}</h5>
-                            <p class="card-text">$ {{$prod->price}} / {{$prod->measure_unit}}</p>
-                        </div>
-                    </div>
-                </div>
-
-                @endforeach
-            </div>
-        </div>
     </div>
 </div>
 @endsection
