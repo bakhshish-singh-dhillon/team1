@@ -14,6 +14,6 @@ class CategoryController extends Controller
      */
     public static function index()
     {
-        return $categoriesList = Category::all();
+        return $categoriesList = Category::with('children')->get();
     }
 }
