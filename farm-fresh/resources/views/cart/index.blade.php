@@ -38,19 +38,19 @@
 
                             <tr>
                                 <td colspan="4" class="v-title">Subtotal</td>
-                                <td>&#8377; {{ $bill['subtotal'] }} </td>
+                                <td>&#8377;{{ $bill['subtotal'] }} </td>
                             </tr>
                             <tr>
                                 <td colspan="4" class="v-title">PST</td>
-                                <td>&#8377; {{ $bill['pst'] }} </td>
+                                <td>&#8377;{{ $bill['pst'] }} </td>
                             </tr>
                             <tr>
                                 <td colspan="4" class="v-title">GST</td>
-                                <td>&#8377; {{ $bill['gst'] }} </td>
+                                <td>&#8377;{{ $bill['gst'] }} </td>
                             </tr>
                             <tr>
                                 <td colspan="4" class="v-title">Total</td>
-                                <td>&#8377; {{ $bill['total'] }} </td>
+                                <td>&#8377;{{ $bill['total'] }} </td>
                             </tr>
                         </tbody>
                     </table>
