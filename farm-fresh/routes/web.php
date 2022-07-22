@@ -45,7 +45,10 @@ Route::delete('/admin/products/{product}', [AdminProductController::class, 'dest
 //Cart Urls
 Route::get('cart', [CartController::class, 'index'])->name('cart');
 Route::get('add-to-cart/{product}', [CartController::class, 'add'])->name('add-to-cart');
-Route::delete('remove-cart-item', [ProductController::class, 'remove'])->name('remove-cart-item');
+Route::delete('remove-cart-item/{product}', [CartController::class, 'remove'])->name('remove-cart-item');
+Route::delete('clear-cart', [CartController::class, 'clear'])->name('clear-cart');
+// Route::get('checkout', [CartController::class, 'index'])->name('checkout');
+// Route::post('checkout', [CartController::class, 'index'])->name('cart');
 //Cart Urls End
 
 // Pulkit URL Start

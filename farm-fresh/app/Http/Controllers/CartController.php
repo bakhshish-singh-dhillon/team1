@@ -9,36 +9,32 @@ class CartController extends Controller
 {
     public function index()
     {
-        if (session()->has('cart')) {
+        if (session()->has('cart') && count(session()->get('cart')) !== 0) {
             $bill['subtotal'] = array_sum(array_column(session()->get('cart'), 'line_price'));
             $bill['gst'] = 0.05 * $bill['subtotal'];
             $bill['pst'] = 0.07 * $bill['subtotal'];
             $bill['total'] = $bill['subtotal'] + $bill['pst'] + $bill['gst'];
             return view('cart.index', compact('bill'));
         }
-        return redirect()->back()->withError('Cart is empty');
+        return back()->withError('Cart is empty');
     }
 
 
-    public function add(Product $product)
+    public function add(Product $product, Request $request)
     {
 
         $cart = session()->get('cart', []);
 
-        if (isset($cart[$product->id])) {
-            $cart[$product->id]['quantity']++;
-            $cart[$product->id]['line_price'] = $cart[$product->id]['price'] * $cart[$product->id]['quantity'];
-        } else {
-            $cart[$product->id] = [
-                "quantity" => 1,
-                "name" => $product->name,
-                "price" => $product->price,
-                "line_price" => $product->price
-            ];
-        }
+        $cart[$product->id] = [
+            "quantity" => $request->quantity,
+            "name" => $product->name,
+            "price" => $product->price,
+            "line_price" => $product->price * $request->quantity
+        ];
+
 
         session()->put('cart', $cart);
-        return redirect()->back()->withSuccess('Product added to cart successfully!');
+        return back()->withSuccess('Product added to cart successfully!');
     }
 
     public function remove(Product $product)
@@ -49,7 +45,17 @@ class CartController extends Controller
                 unset($cart[$product->id]);
                 session()->put('cart', $cart);
             }
-            session()->back()->withSuccess('Product removed successfully');
+            if (count(session()->get('cart')) === 0){
+                return redirect('/')->withError('Cart is empty');   
+            }
+            return back()->withSuccess('Product removed successfully');
         }
+    }
+
+    
+    public function clear()
+    {
+        session()->forget('cart');
+        return redirect('/')->withError('Cart is empty');
     }
 }
