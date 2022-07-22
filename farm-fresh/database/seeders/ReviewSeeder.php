@@ -16,34 +16,34 @@ class ReviewSeeder extends Seeder
     public function run()
     {
         DB::table('reviews')->insert([
-            'user_id' => '1',
+            'user_id' => '3',
             'product_id' => '1',
-            'review' => 'I had an amazing experience. Loved the food. It was a quick delivery. Thank you so much for your great service!',
-            'rating' => '3.5'
+            'review' => 'Very bad experience !!',
+            'rating' => '1.5'
 
         ]);
 
         DB::table('reviews')->insert([
             'user_id' => '2',
             'product_id' => '1',
-            'review' => 'I had an amazing experience. Loved the food. It was a quick delivery. Thank you so much for your great service!',
-            'rating' => '3.5'
+            'review' => 'Perfect to get everyting at once!',
+            'rating' => '4.5'
 
         ]);
 
         DB::table('reviews')->insert([
             'user_id' => '3',
             'product_id' => '2',
-            'review' => 'I had an amazing experience. Loved the food. It was a quick delivery. Thank you so much for your great service!',
+            'review' => 'Delievered on time! Everything was fresh!',
             'rating' => '3.5'
 
         ]);
 
         DB::table('reviews')->insert([
-            'user_id' => '3',
+            'user_id' => '2',
             'product_id' => '3',
-            'review' => 'I had an amazing experience. Loved the food. It was a quick delivery. Thank you so much for your great service!',
-            'rating' => '4'
+            'review' => 'Overriped strwberries!',
+            'rating' => '3.5'
 
         ]);
 
