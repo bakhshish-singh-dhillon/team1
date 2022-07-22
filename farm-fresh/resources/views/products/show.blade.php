@@ -40,7 +40,7 @@
                         <td id="quantity" class="d-flex">
                             <div class="d-flex">
                                 <i id="plus" class="fa-solid fa-plus"></i>
-                                <input type="text" name="qty" class="qty" maxlength="12" value="0" class="input-text qty" />
+                                <input type="text" name="qty" class="qty" maxlength="12" value="1" class="input-text qty" />
                                 <i id="minus" class="fa-solid fa-minus"></i>
                             </div>
                             <a href="{{ route('add-to-cart', ['product' => $product->id]) }}" class="btn">Add to Cart</a>
