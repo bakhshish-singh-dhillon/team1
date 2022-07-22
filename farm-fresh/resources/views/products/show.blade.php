@@ -58,6 +58,7 @@
                     </p>
 
                     <div>
+
                         <div>
                             <p class="m-0 mt-1"><small>5 star (46%)</small></p>
                             <div class="outer-box">
