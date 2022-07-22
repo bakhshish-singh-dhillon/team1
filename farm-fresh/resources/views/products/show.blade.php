@@ -26,10 +26,7 @@
                     </tr>
                     <tr>
                         <th>Rating:</th>
-                        @foreach($product->reviews()->get() as $review)
-                        <td>{{($review->rating)}}</td>
-                        @endforeach
-                        <td>4.5 out of 5</td>
+                        <td>{{$avgRating}} out of 5</td>
                     </tr>
                     <tr>
                         <th>Description:</th>
@@ -56,8 +53,8 @@
             <div class="row">
                 <div class="title py-3 text-center">Customer Reviews</div>
                 <div class="col-md-3">
-                    <p>4.3 out of 5
-                        <small>(40 ratings)</small>
+                    <p>{{$avgRating}} out of 5
+                        <small>({{count($product->reviews()->get())}} ratings)</small>
                     </p>
 
                     <div>

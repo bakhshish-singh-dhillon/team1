@@ -32,6 +32,8 @@ class ProductController extends Controller
     public function show(Product $product)
     {
         $products = Product::latest()->take(4)->get();
-        return view('products/show',  compact('product', 'products'));
+        $avgRating = $product->reviews->avg('rating');
+
+        return view('products/show',  compact('product', 'products', 'avgRating'));
     }
 }
