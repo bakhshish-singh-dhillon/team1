@@ -43,20 +43,18 @@
             <div class="sub-title text-center green-text">We provide better food to our customers every day</div>
 
             <div class="row py-4">
+
+                @foreach($revProducts as $prod)
                 <div class="col-md-6">
                     <div class="text-center">
                         <img src="images/left-quote.png" alt="Left-quote">
                         <p>Saniya said</p>
-                        <p>I had an amazing experience. Loved the food. It was a quick delivery. Thank you so much for your great service!</p>
+
+                        <p>{{$prod->reviews()->first()->review}}</p>
                     </div>
                 </div>
-                <div class="col-md-6">
-                    <div class="text-center">
-                        <img src="images/left-quote.png" alt="Left-quote">
-                        <p>Mahira said</p>
-                        <p>I had an amazing experience. Loved the food. It was a quick delivery. Thank you so much for your great service!</p>
-                    </div>
-                </div>
+
+                @endforeach
             </div>
         </div>
         <hr>
