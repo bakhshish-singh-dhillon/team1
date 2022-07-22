@@ -21,4 +21,24 @@ $(document).ready(function ($) {
     });
 
     $('.js-example-basic-single').select2();
+
+    var incrementPlus;
+    var decrementMinus;
+
+    var buttonPlus = $("#plus");
+    var buttonMinus = $("#minus");
+
+    var incrementPlus = buttonPlus.click(function () {
+        // alert("hello");
+        var $n = $(".qty");
+        $n.val(Number($n.val()) + 1);
+    });
+
+    var decrementMinus = buttonMinus.click(function () {
+        var $n = $(".qty");
+        var amount = Number($n.val());
+        if (amount > 0) {
+            $n.val(amount - 1);
+        }
+    });
 });
