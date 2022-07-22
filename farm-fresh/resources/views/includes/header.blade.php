@@ -31,11 +31,9 @@
                     <a class="navbar-brand" href="{{ url('/') }}">
                         <picture>
                             <!-- Desktop logo -->
-                            <source media="(min-width: 768px)"
-                                srcset="/images/logo-100.png 1x, images/logo-200.png 2x" />
+                            <source media="(min-width: 768px)" srcset="/images/logo-100.png 1x, /images/logo-200.png 2x" />
                             <!-- Mobile logo -->
-                            <source media="(max-width: 767px)"
-                                srcset="/images/logo-50.png 1x, images/logo-100.png 2x, images/logo-200.png 3x" />
+                            <source media="(max-width: 767px)" srcset="/images/logo-50.png 1x, /images/logo-100.png 2x, /images/logo-200.png 3x" />
                             <!-- Logo by default -->
                             <img src="/images/logo-100.png" width="100" height="100" alt="Farm Fresh" />
                         </picture>
