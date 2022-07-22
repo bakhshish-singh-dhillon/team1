@@ -29,13 +29,9 @@ class ProductController extends Controller
      * @param  \App\Models\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function show(Product $product, $id)
+    public function show(Product $product)
     {
         $products = Product::latest()->take(4)->get();
-        $reviews = Review::where('product_id', "{$id}")->latest()->take(4)->get();
-        $users = User::get();
-
-        $prod = Product::find($id);
-        return view('products/show',  compact('product', 'products', 'prod', 'reviews', 'users'));
+        return view('products/show',  compact('product', 'products'));
     }
 }
