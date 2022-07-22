@@ -24,7 +24,7 @@ class ReviewSeeder extends Seeder
         ]);
 
         DB::table('reviews')->insert([
-            'user_id' => '1',
+            'user_id' => '2',
             'product_id' => '1',
             'review' => 'I had an amazing experience. Loved the food. It was a quick delivery. Thank you so much for your great service!',
             'rating' => '3.5'
@@ -32,7 +32,7 @@ class ReviewSeeder extends Seeder
         ]);
 
         DB::table('reviews')->insert([
-            'user_id' => '1',
+            'user_id' => '3',
             'product_id' => '2',
             'review' => 'I had an amazing experience. Loved the food. It was a quick delivery. Thank you so much for your great service!',
             'rating' => '3.5'
@@ -40,7 +40,7 @@ class ReviewSeeder extends Seeder
         ]);
 
         DB::table('reviews')->insert([
-            'user_id' => '2',
+            'user_id' => '3',
             'product_id' => '3',
             'review' => 'I had an amazing experience. Loved the food. It was a quick delivery. Thank you so much for your great service!',
             'rating' => '4'
@@ -48,7 +48,7 @@ class ReviewSeeder extends Seeder
         ]);
 
         DB::table('reviews')->insert([
-            'user_id' => '3',
+            'user_id' => '4',
             'product_id' => '4',
             'review' => 'I had an amazing experience. Loved the food. It was a quick delivery. Thank you so much for your great service!',
             'rating' => '3.5'
@@ -56,7 +56,7 @@ class ReviewSeeder extends Seeder
         ]);
 
         DB::table('reviews')->insert([
-            'user_id' => '2',
+            'user_id' => '4',
             'product_id' => '4',
             'review' => 'I had an amazing experience. Loved the food. It was a quick delivery. Thank you so much for your great service!',
             'rating' => '4.5'
@@ -64,7 +64,7 @@ class ReviewSeeder extends Seeder
         ]);
 
         DB::table('reviews')->insert([
-            'user_id' => '1',
+            'user_id' => '4',
             'product_id' => '4',
             'review' => 'I had an amazing experience. Loved the food. It was a quick delivery. Thank you so much for your great service!',
             'rating' => '5'
