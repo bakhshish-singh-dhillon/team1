@@ -57,8 +57,9 @@ class ProductController extends Controller
      */
     public function getProductsBySearch(Request $request)
     {
-        if (request('search')) {
-            $products = Product::where('name', 'like', '%' . request('search') . '%')->get();
+        if ($request->search) {
+            $products = Product::where('description', 'like', '%' . $request->search . '%')
+                ->orWhere('name', 'like', '%' . $request->search . '%')->get();
             $categories = Category::whereNull('category_id')->get();
             return view('products/index', compact('products', 'categories'));
         }

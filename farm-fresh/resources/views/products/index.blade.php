@@ -30,7 +30,7 @@
                 <div class="title">All Products ({{count($products)}})
                     <div class="float-right">
                         <form action="{{route('products-by-search',[])}}" method="get" autocomplete="off" novalidate>
-                            <input type="hidden" name="p" value="products">
+                            @csrf
                             <input class="search" type="text" placeholder="Search" name="search" maxlength="255" />&nbsp;
                             <input type="submit" hidden value="search" />
                         </form>
