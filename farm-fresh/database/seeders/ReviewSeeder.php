@@ -48,9 +48,9 @@ class ReviewSeeder extends Seeder
         ]);
 
         DB::table('reviews')->insert([
-            'user_id' => '4',
+            'user_id' => '3',
             'product_id' => '4',
-            'review' => 'I had an amazing experience. Loved the food. It was a quick delivery. Thank you so much for your great service!',
+            'review' => 'Sweet cucumbers!',
             'rating' => '3.5'
 
         ]);
@@ -58,15 +58,15 @@ class ReviewSeeder extends Seeder
         DB::table('reviews')->insert([
             'user_id' => '4',
             'product_id' => '4',
-            'review' => 'I had an amazing experience. Loved the food. It was a quick delivery. Thank you so much for your great service!',
-            'rating' => '4.5'
+            'review' => 'Bad experiene with deleivery',
+            'rating' => '1.5'
 
         ]);
 
         DB::table('reviews')->insert([
-            'user_id' => '4',
+            'user_id' => '5',
             'product_id' => '4',
-            'review' => 'I had an amazing experience. Loved the food. It was a quick delivery. Thank you so much for your great service!',
+            'review' => 'I had an amazing experience.',
             'rating' => '5'
 
         ]);
