@@ -324,3 +324,39 @@ a.btn:hover {
         }
     }
 }
+
+#admin_sidebar {
+    height: 100vh;
+    background-color: slategrey;
+
+    ul.side-bar {
+        li {
+            list-style-type: none;
+        }
+
+        .menu-item {
+
+            border-bottom: 1px solid #ccc;
+
+            a {
+                color: #fff;
+                text-decoration: none;
+                padding: 10px;
+                display: inline-block;
+                width: 100%;
+            }
+
+            a:hover {
+                font-size: 1.1em;
+            }
+        }
+    }
+
+    .home-logo {
+        font-size: 1.5em;
+        color: #fff;
+        font-weight: 700;
+        text-decoration: none;
+        display: block;
+    }
+}
