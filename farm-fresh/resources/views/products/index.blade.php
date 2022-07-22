@@ -17,7 +17,7 @@
                         @foreach($categories as $cat)
                         <li><a href=""><strong>{{$cat->name}}</strong></a>
                             <ul class="">
-                                @foreach($cat->children as $child)
+                                @foreach($cat->children()->get() as $child)
                                 <li><a href="">{{$child->name}}</a></li>
                                 @endforeach
                             </ul>

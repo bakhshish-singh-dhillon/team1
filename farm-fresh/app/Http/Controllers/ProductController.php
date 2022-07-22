@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Review;
 use App\Models\Product;
+use App\Models\Category;
 use App\Http\Requests\StoreProductRequest;
 use App\Http\Requests\UpdateProductRequest;
 
@@ -17,8 +18,7 @@ class ProductController extends Controller
     public function index()
     {
         $products = Product::latest()->paginate(9);
-        // $categories = Category::pluck('name', 'id');
-        $categories = CategoryController::index();
+        $categories = Category::whereNull('category_id')->get();
         return view('products/index', compact('products', 'categories'));
     }
 
