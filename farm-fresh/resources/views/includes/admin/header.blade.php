@@ -23,8 +23,10 @@
 </head>
 
 <body>
-    <div id="app">
+    <div id="admin">
         @include('includes.flash')
-        @include('includes.admin.sidebar')
-
-        <main class="py-4">
+        <div class="row m-0 p-0">
+            <div class="col-md-2" id="admin_sidebar">
+                @include('includes.admin.sidebar')
+            </div>
+            <div class="col-md-10">

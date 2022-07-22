@@ -325,38 +325,72 @@ a.btn:hover {
     }
 }
 
-#admin_sidebar {
-    height: 100vh;
-    background-color: slategrey;
+#admin {
 
-    ul.side-bar {
-        li {
-            list-style-type: none;
-        }
-
-        .menu-item {
-
-            border-bottom: 1px solid #ccc;
-
-            a {
-                color: #fff;
-                text-decoration: none;
-                padding: 10px;
-                display: inline-block;
-                width: 100%;
-            }
-
-            a:hover {
-                font-size: 1.05em;
-            }
-        }
+    .heading {
+        font-size: 1.5em;
+        font-weight: 700;
+        padding: 20px 0;
     }
 
-    .home-logo {
-        font-size: 1.5em;
+    .blue-bg {
+        background-color: #459EE3;
         color: #fff;
-        font-weight: 700;
-        text-decoration: none;
-        display: block;
+    }
+
+    .pink-bg {
+        background-color: #FA638A;
+        color: #fff;
+    }
+
+    .green-bg {
+        background-color: #3EC8A6;
+        color: #fff;
+    }
+
+    .orange-bg {
+        background-color: #FFAC4D;
+        color: #fff;
+    }
+
+    .symbol {
+        font-size: 1.6em;
+    }
+
+    #admin_sidebar {
+        height: 100vh;
+        background-color: slategrey;
+
+
+        ul.side-bar {
+            li {
+                list-style-type: none;
+            }
+
+            .menu-item {
+
+                border-bottom: 1px solid #ccc;
+
+                a {
+                    color: #fff;
+                    text-decoration: none;
+                    padding: 10px;
+                    display: inline-block;
+                    width: 100%;
+                }
+
+                a:hover {
+                    font-size: 1.05em;
+                }
+            }
+        }
+
+        .home-logo {
+            font-size: 1.5em;
+            color: #fff;
+            font-weight: 700;
+            text-decoration: none;
+            display: block;
+        }
     }
 }
