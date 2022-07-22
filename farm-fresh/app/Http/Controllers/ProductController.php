@@ -36,4 +36,15 @@ class ProductController extends Controller
         $prod = Product::find($id);
         return view('products/show',  compact('product', 'products', 'prod', 'reviews'));
     }
+
+    /**
+     * Display a listing of the products by category.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function getProductsByCategory($category_id)
+    {
+        $products = Product::latest()->paginate(9);
+        return view('products/index', compact('products'));
+    }
 }
