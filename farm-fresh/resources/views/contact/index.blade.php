@@ -77,16 +77,14 @@
                 <p class="mb-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias, magnam!</p>
                 <ul class="list-unstyled">
                     <li class="d-flex">
-                        <span class="wrap-icon icon-room mr-3"></span>
+                        <i class="fa-solid fa-location-dot px-3 py-1"></i>
                         <span class="text">9757 Aspen Lane South Richmond Hill, NY 11419</span>
                     </li>
                     <li class="d-flex">
-                        <span class="wrap-icon icon-phone mr-3"></span>
-                        <span class="text">+1 (291) 939 9321</span>
+                        <i class="fa-solid fa-phone px-3 py-1"></i> <span class="text">+1 (291) 939 9321</span>
                     </li>
                     <li class="d-flex">
-                        <span class="wrap-icon icon-envelope mr-3"></span>
-                        <span class="text"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="355c5b535a75584c425057465c41501b565a58">[email&#160;protected]</a></span>
+                        <i class="fa-solid fa-envelope px-3 py-1"></i> <span class="text"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="355c5b535a75584c425057465c41501b565a58">[email&#160;protected]</a></span>
                     </li>
                 </ul>
             </div>

@@ -49,6 +49,14 @@ img {
     float: right;
 }
 
+.error-message {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    border-left: 5px solid;
+    min-width: 500px;
+}
+
 a.btn {
     color: #fff;
     text-decoration: none;
@@ -315,4 +323,26 @@ a.btn:hover {
             }
         }
     }
+}
+
+
+/****************** Detail page ******************/
+
+
+#quantity div {
+    margin-right: 20px;
+    margin-top: 10px;
+}
+
+#quantity div i.fa-solid {
+    margin-right: 10px;
+    margin-left: 10px;
+    margin-top: 5px;
+    cursor: pointer;
+}
+
+#quantity input.qty {
+    width: 40px;
+    height: 30px;
+    text-align: center;
 }
