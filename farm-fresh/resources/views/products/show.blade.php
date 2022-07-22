@@ -98,6 +98,7 @@
 
                     @foreach($reviews as $review)
                     <div>
+
                         <div class="review-title">Sargam Sanghani</div>
                         <div><small>Posted on 17th July, 2022</small></div>
                         <p class="my-2">{{$review->rating}} out of 5</p>
