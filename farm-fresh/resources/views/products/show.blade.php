@@ -26,6 +26,9 @@
                     </tr>
                     <tr>
                         <th>Rating:</th>
+                        @foreach($product->reviews()->get() as $review)
+                        <td>{{($review->rating)}}</td>
+                        @endforeach
                         <td>4.5 out of 5</td>
                     </tr>
                     <tr>
@@ -34,15 +37,12 @@
                     </tr>
                     <tr>
                         <th>Quantity:</th>
-                        <td>
-                            <select name="quantity" id="quantity">
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
-                                <option value="4">4</option>
-                                <option value="5">5</option>
-                            </select>
-
+                        <td id="quantity" class="d-flex">
+                            <div class="d-flex">
+                                <i id="plus" class="fa-solid fa-plus"></i>
+                                <input type="text" name="qty" class="qty" maxlength="12" value="0" class="input-text qty" />
+                                <i id="minus" class="fa-solid fa-minus"></i>
+                            </div>
                             <a href="{{ route('add-to-cart', ['product' => $product->id]) }}" class="btn">Add to Cart</a>
                         </td>
                     </tr>
@@ -121,4 +121,5 @@
 
     </div>
 </div>
+
 @endsection
