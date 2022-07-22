@@ -12,12 +12,13 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
+    <script src="https://kit.fontawesome.com/b23be4ec12.js" crossorigin="anonymous"></script>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
-    <link rel="icon" href="images/logo-50.png" />
+    <link rel="icon" href="/images/logo-50.png" />
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('sass/style.scss') }}" rel="stylesheet">
@@ -45,7 +46,7 @@
                 <div>
                     <span><img src="/images/user.png" alt="User" class="icon mx-2 my-4" /></span>
 
-                    <a href="{{ route('cart') }}">
+                    <a href="{{ route('cart') }}" class="text-decoration-none">
                         <span>
                             <img src="/images/shopping-cart.png" alt="Cart" class="icon mx-2 my-4" />
                             {{ session()->has('cart') ? count(session()->get('cart')) : '' }}
