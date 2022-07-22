@@ -11,7 +11,7 @@ use App\Http\Requests\UpdateProductRequest;
 class ProductController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Display a listing of the products.
      *
      * @return \Illuminate\Http\Response
      */
@@ -23,7 +23,7 @@ class ProductController extends Controller
     }
 
     /**
-     * Display the specified resource.
+     * Display the specified product.
      *
      * @param  \App\Models\Product  $product
      * @return \Illuminate\Http\Response
