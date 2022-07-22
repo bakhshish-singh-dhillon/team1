@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use App\Models\Review;
 use App\Models\Product;
 use App\Models\Category;
@@ -32,8 +33,9 @@ class ProductController extends Controller
     {
         $products = Product::latest()->take(4)->get();
         $reviews = Review::where('product_id', "{$id}")->latest()->take(4)->get();
-        // var_dump($reviews);
+        $users = User::get();
+
         $prod = Product::find($id);
-        return view('products/show',  compact('product', 'products', 'prod', 'reviews'));
+        return view('products/show',  compact('product', 'products', 'prod', 'reviews', 'users'));
     }
 }
