@@ -56,5 +56,6 @@ Route::get('/terms-and-conditions', [App\Http\Controllers\TermsController::class
 Route::get('/404', function () {
     return view('404');
 });
+Route::get('/admin/users', [AdminUserController::class, 'index']);
 
 // Pulkit URL Ends
