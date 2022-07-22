@@ -23,7 +23,7 @@ class UsersTableSeeder extends Seeder
             'email' => 'admin@team1.uwpace.ca',
             'password' => bcrypt('admin'),
             'is_admin' => true
-          
+
         ]);
         DB::table('users')->insert([
             'first_name' => 'Customer',
@@ -31,8 +31,34 @@ class UsersTableSeeder extends Seeder
             'email' => 'user@team1.uwpace.ca',
             'password' => bcrypt('user'),
             'is_admin' => false
-          
+
         ]);
-       
+
+        DB::table('users')->insert([
+            'first_name' => 'Jhon',
+            'last_name' => 'Davie',
+            'email' => 'jhon@gmail.com',
+            'password' => bcrypt('user'),
+            'is_admin' => false
+
+        ]);
+
+        DB::table('users')->insert([
+            'first_name' => 'Mike',
+            'last_name' => 'Rollie',
+            'email' => 'mike@gmail.com',
+            'password' => bcrypt('user'),
+            'is_admin' => false
+
+        ]);
+
+        DB::table('users')->insert([
+            'first_name' => 'Shawn',
+            'last_name' => 'merrelle',
+            'email' => 'shawn@gmail.com',
+            'password' => bcrypt('user'),
+            'is_admin' => false
+
+        ]);
     }
 }
