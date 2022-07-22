@@ -101,12 +101,10 @@
                         <div class="review-title">Sargam Sanghani</div>
                         <div><small>Posted on 17th July, 2022</small></div>
                         <p class="my-2">{{$review->rating}} out of 5</p>
-
                         <p>{{$review->review}}</p>
-                        <!-- <p>I had an amazing experience. Loved the food. It was a quick delivery. Thank you so much for your great service!</p> -->
                     </div>
-
                     @endforeach
+
                 </div>
             </div>
         </div>
