@@ -28,9 +28,9 @@ Auth::routes();
 
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 Route::get('/products', [ProductController::class, 'index'])->name('products');
-Route::get('/products/show/{id}', [ProductController::class, 'show'])->name('product');
 Route::get('/products/{category}/category', [ProductController::class, 'getProductsByCategory'])->name('products-by-category');
 Route::get('/products/search', [ProductController::class, 'getProductsBySearch'])->name('products-by-search');
+Route::get('/products/show/{product}', [ProductController::class, 'show'])->name('product');
 
 Route::get('/about', [AboutController::class, 'index'])->name('about');
 Route::get('/contact', [ContactController::class, 'index'])->name('contact');
@@ -47,7 +47,10 @@ Route::delete('/admin/products/{product}', [AdminProductController::class, 'dest
 //Cart Urls
 Route::get('cart', [CartController::class, 'index'])->name('cart');
 Route::get('add-to-cart/{product}', [CartController::class, 'add'])->name('add-to-cart');
-Route::delete('remove-cart-item', [ProductController::class, 'remove'])->name('remove-cart-item');
+Route::delete('remove-cart-item/{product}', [CartController::class, 'remove'])->name('remove-cart-item');
+Route::delete('clear-cart', [CartController::class, 'clear'])->name('clear-cart');
+// Route::get('checkout', [CartController::class, 'index'])->name('checkout');
+// Route::post('checkout', [CartController::class, 'index'])->name('cart');
 //Cart Urls End
 
 // Pulkit URL Start

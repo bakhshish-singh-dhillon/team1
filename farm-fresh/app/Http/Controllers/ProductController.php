@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use App\Models\Review;
 use App\Models\Product;
 use App\Models\Category;
@@ -29,13 +30,13 @@ class ProductController extends Controller
      * @param  \App\Models\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function show(Product $product, $id)
+    public function show(Product $product)
     {
         $products = Product::latest()->take(4)->get();
-        $reviews = Review::where('product_id', "{$id}")->latest()->take(4)->get();
-        // var_dump($reviews);
-        $prod = Product::find($id);
-        return view('products/show',  compact('product', 'products', 'prod', 'reviews'));
+
+        $avgRating = number_format((float)$product->reviews->avg('rating'), 2, '.', '');
+
+        return view('products/show',  compact('product', 'products', 'avgRating'));
     }
 
     /**

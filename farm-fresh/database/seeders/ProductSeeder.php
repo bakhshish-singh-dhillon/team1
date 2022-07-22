@@ -52,7 +52,7 @@ class ProductSeeder extends Seeder
             'price' => '1.49',
             'description' => 'English (or hothouse) cucumbers are cylindrical green-skinned fruit with a crisp white flesh and edible seeds. English cucumbers are typically enjoyed raw and can be peeled or eaten with the skin on.',
             'measure_unit' => 'lbs',
-            'quantity' => '3'
+            'quantity' => '0'
 
         ]);
 
@@ -62,7 +62,7 @@ class ProductSeeder extends Seeder
             'price' => '2.99',
             'description' => 'Celery has a cluster of pale green leaved ribs surrounding a heart (inner ribs). Trimmed celery leaves can be used as a garnish or added to a mixed greens salad.',
             'measure_unit' => 'lbs',
-            'quantity' => '2'
+            'quantity' => '0'
 
         ]);
 

@@ -49,6 +49,14 @@ img {
     float: right;
 }
 
+.error-message {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    border-left: 5px solid;
+    min-width: 500px;
+}
+
 a.btn {
     color: #fff;
     text-decoration: none;
@@ -315,4 +323,95 @@ a.btn:hover {
             }
         }
     }
+}
+
+#admin {
+
+    .heading {
+        font-size: 1.5em;
+        font-weight: 700;
+        padding: 20px 0;
+    }
+
+    .blue-bg {
+        background-color: #459EE3;
+        color: #fff;
+    }
+
+    .pink-bg {
+        background-color: #FA638A;
+        color: #fff;
+    }
+
+    .green-bg {
+        background-color: #3EC8A6;
+        color: #fff;
+    }
+
+    .orange-bg {
+        background-color: #FFAC4D;
+        color: #fff;
+    }
+
+    .symbol {
+        font-size: 1.6em;
+    }
+
+    #admin_sidebar {
+        height: 100vh;
+        background-color: slategrey;
+
+
+        ul.side-bar {
+            li {
+                list-style-type: none;
+            }
+
+            .menu-item {
+
+                border-bottom: 1px solid #ccc;
+
+                a {
+                    color: #fff;
+                    text-decoration: none;
+                    padding: 10px;
+                    display: inline-block;
+                    width: 100%;
+                }
+
+                a:hover {
+                    font-size: 1.05em;
+                }
+            }
+        }
+
+        .home-logo {
+            font-size: 1.5em;
+            color: #fff;
+            font-weight: 700;
+            text-decoration: none;
+            display: block;
+        }
+    }
+}
+
+/****************** Detail page ******************/
+
+
+#quantity div {
+    margin-right: 20px;
+    margin-top: 10px;
+}
+
+#quantity div i.fa-solid {
+    margin-right: 10px;
+    margin-left: 10px;
+    margin-top: 5px;
+    cursor: pointer;
+}
+
+#quantity input.qty {
+    width: 40px;
+    height: 30px;
+    text-align: center;
 }
