@@ -45,6 +45,7 @@ Route::delete('/admin/products/{product}', [AdminProductController::class, 'dest
 //Cart Urls
 Route::get('cart', [CartController::class, 'index'])->name('cart');
 Route::get('add-to-cart/{product}', [CartController::class, 'add'])->name('add-to-cart');
+Route::delete('remove-cart-item', [ProductController::class, 'remove'])->name('remove-cart-item');
 //Cart Urls End
 
 // Pulkit URL Start
