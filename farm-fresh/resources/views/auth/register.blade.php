@@ -7,7 +7,9 @@
 
             <div class="card">
                 <div class="bg-green card-header text-white">{{ __('Register') }}</div>
-                <div class="card-body py-5">
+                <div class="card-body py-5" style="background-image: linear-gradient(to bottom, rgba(255,255,255,0.9), rgba(255,255,255,0.9)),
+  url('images/register-bg.jpg'); padding-top: 130px !important;
+            height: 100vh; background-repeat: no-repeat ; background-position: top center;">
                     <form method="POST" action="{{ route('register') }}">
                         @csrf
 
