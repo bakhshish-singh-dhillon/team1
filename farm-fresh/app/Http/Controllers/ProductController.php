@@ -42,9 +42,10 @@ class ProductController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function getProductsByCategory($category_id)
+    public function getProductsByCategory(Category $category)
     {
-        $products = Product::latest()->paginate(9);
-        return view('products/index', compact('products'));
+        $products = $category->products()->paginate(9);
+        $categories = Category::whereNull('category_id')->get();
+        return view('products/index', compact('products', 'categories'));
     }
 }

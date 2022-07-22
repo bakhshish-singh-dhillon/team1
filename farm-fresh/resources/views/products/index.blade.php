@@ -12,7 +12,7 @@
                 <div class="category-list">
                     <ul class="p-0">
                         <li>
-                            <a href="" class="my-2"><strong>All Products</strong></a>
+                            <a href="{{route('products', [])}}" class="my-2"><strong>All Products</strong></a>
                         </li>
                         @foreach($categories as $cat)
                         <li><a href="{{route('products-by-category',['category'=>$cat->id])}}"><strong>{{$cat->name}}</strong></a>
@@ -23,20 +23,19 @@
                             </ul>
                         </li>
                         @endforeach
-                        <!-- <li><a href=""><strong>Fruits</strong></a>
-                            <ul class="">
-                                <li><a href="">Tropical</a></li>
-                                <li><a href="">Berries</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="" class="my-2"><strong>Veggies</strong></a></li>
-                        <li><a href="" class="my-2"><strong>Dairy Products</strong></a></li> -->
                     </ul>
                 </div>
             </div>
             <div class="col-md-9">
-                <div class="title">All Products (4)
-                    <div class="float-right"><input type="text" placeholder="Search"></div>
+                <div class="title">All Products ({{count($products)}})
+                    <!-- <div class="float-right"><input type="text" placeholder="Search"></div> -->
+                    <div class="float-right">
+                        <form action="?p=products" method="get" autocomplete="off" novalidate>
+                            <input type="hidden" name="p" value="products">
+                            <input class="search" type="text" placeholder="Search" name="search" maxlength="255" />&nbsp;
+                            <input type="submit" hidden value="search" />
+                        </form>
+                    </div>
                 </div>
                 <div class="row">
                     @foreach($products as $prod)
