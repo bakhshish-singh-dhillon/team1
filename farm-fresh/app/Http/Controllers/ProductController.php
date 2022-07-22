@@ -7,6 +7,7 @@ use App\Models\Product;
 use App\Models\Category;
 use App\Http\Requests\StoreProductRequest;
 use App\Http\Requests\UpdateProductRequest;
+use Illuminate\Http\Request;
 
 class ProductController extends Controller
 {
@@ -47,5 +48,21 @@ class ProductController extends Controller
         $products = $category->products()->paginate(9);
         $categories = Category::whereNull('category_id')->get();
         return view('products/index', compact('products', 'categories'));
+    }
+
+    /**
+     * Display a listing of the products by search.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function getProductsBySearch(Request $request)
+    {
+        if (request('search')) {
+            $products = Product::where('name', 'like', '%' . request('search') . '%')->get();
+            $categories = Category::whereNull('category_id')->get();
+            return view('products/index', compact('products', 'categories'));
+        }
+
+        return redirect('/products');
     }
 }
