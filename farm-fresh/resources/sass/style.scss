@@ -220,6 +220,7 @@ a.btn:hover {
         display: inline-block;
         margin: 20px;
         margin-bottom: 0;
+        border-bottom: 2px solid transparent;
 
         a {
             padding: 4px;
@@ -231,12 +232,8 @@ a.btn:hover {
 
     li:hover,
     li.active {
-        border-bottom: 2px solid;
+        border-bottom: 2px solid #000;
     }
-}
-
-#footer_nav ul {
-    min-height: 53px;
 }
 
 .termslist {
@@ -279,22 +276,12 @@ a.btn:hover {
             height: 90vh;
         }
 
-        .banner-box:before {
-            position: absolute;
-            content: "";
-            top: 0;
-            left: 0;
-            height: 100%;
-            width: 100%;
-            background: rgba(0, 0, 0, 0.25);
-            z-index: 2;
-        }
-
         input[type=search] {
             background: none;
             border: 3px solid #fff;
             padding: 10px;
             width: 100%;
+            color: #fff;
         }
 
         input[type=search]::placeholder {

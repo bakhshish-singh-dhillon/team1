@@ -4,9 +4,9 @@
 <div class="max-container py-4 my-4">
     <div class="row align-items-stretch no-gutters contact-wrap normal-shadow">
         <div class="col-md-8 px-4 py-4">
-            <div class="form h-100">
+            <div>
                 <h3>Send us a message</h3>
-                <form class="mb-5" action="/contact" method="post" id="contactForm" name="contactForm">
+                <form action="/contact" method="post" id="contactForm" name="contactForm">
                     @csrf
                     <div class="row">
                         <div class="col-md-12 form-group mb-3">

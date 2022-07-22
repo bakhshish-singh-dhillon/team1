@@ -19,7 +19,7 @@
             <span><img src="images/facebook.png" alt="Facebook" class="tiny-icon m-2 my-3" /></span>
         </div>
 
-        <p class="pb-2"><small>Copyrights &copy; FarmFresh 2022</small></p>
+        <p class="pb-2 m-0"><small>Copyrights &copy; FarmFresh 2022</small></p>
     </div>
 </footer>
 
