@@ -18,7 +18,8 @@ class ProductController extends Controller
     public function index()
     {
         $products = Product::latest()->paginate(9);
-        $categories = Category::pluck('name', 'id');
+        // $categories = Category::pluck('name', 'id');
+        $categories = CategoryController::index();
         return view('products/index', compact('products', 'categories'));
     }
 

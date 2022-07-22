@@ -12,9 +12,8 @@ class CategoryController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public static function index()
     {
-        $categoriesList = Category::all();
-        return view('products/index', compact('categoriesList'));
+        return $categoriesList = Category::all();
     }
 }

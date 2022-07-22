@@ -14,14 +14,22 @@
                         <li>
                             <a href="" class="my-2"><strong>All Products</strong></a>
                         </li>
-                        <li><a href=""><strong>Fruits</strong></a>
+                        @foreach($categories as $cat)
+                        <li><a href=""><strong>{{$cat->name}}</strong></a>
+                            <ul class="">
+                                <li><a href="">Tropical</a></li>
+                                <li><a href="">Berries</a></li>
+                            </ul>
+                        </li>
+                        @endforeach
+                        <!-- <li><a href=""><strong>Fruits</strong></a>
                             <ul class="">
                                 <li><a href="">Tropical</a></li>
                                 <li><a href="">Berries</a></li>
                             </ul>
                         </li>
                         <li><a href="" class="my-2"><strong>Veggies</strong></a></li>
-                        <li><a href="" class="my-2"><strong>Dairy Products</strong></a></li>
+                        <li><a href="" class="my-2"><strong>Dairy Products</strong></a></li> -->
                     </ul>
                 </div>
             </div>
