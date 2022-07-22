@@ -8,7 +8,7 @@
             </div>
             <div class="card-body">
                 <div class="mx-auto container" style="width: 500px;">
-                    <form action="/admin/products" method="POST" enctype="multipart/form-data">
+                    <form action="/admin/products" method="POST" enctype="multipart/form-data"  id="product_crud_form">
                         @csrf
                         <div class="form-outline mb-4">
                             <label class="form-label" for="sku">Sku: <span class="text-danger">*</span></label>

@@ -17,6 +17,7 @@
         multiple
         aria-label="Choose File"
         name="image_upload[]"
+        id="custom_image_uploader"
       />
       <input type="hidden" name="MAX_FILE_SIZE" value="10485760" />
       <span
@@ -29,10 +30,15 @@
 <script>
 import FileUploadWithPreview from "file-upload-with-preview";
 import "file-upload-with-preview/dist/file-upload-with-preview.min.css";
+import $ from "jquery";
 export default {
   name: "MultiImage",
   props: {
     images: {
+      default: null,
+      type: String,
+    },
+    images_path: {
       default: null,
       type: String,
     },
@@ -44,26 +50,25 @@ export default {
   },
   methods: {
     check() {
-      // Use the chrome inspector
       console.log(this.upload.cachedFileArray);
     },
   },
   mounted() {
+    var vue=this;
     if (this.images) {
       var images = JSON.parse(this.images);
-      window.addEventListener(
-        "fileUploadWithPreview:imageDeleted",
-        function (e) {
-          console.log(e.detail.uploadId);
-          console.log(e.detail.cachedFileArray);
-          console.log(e.detail.addedFilesCount);
-        }
-      );
+      images.forEach((item, index, arr) => {
+        arr[index] = this.images_path + arr[index];
+      });
     }
-    // console.log(JSON.parse(this.images));
     this.upload = new FileUploadWithPreview("image_upload", {
+      showDeleteButtonOnImages: false,
       presetFiles: images,
     });
+    $("#custom_image_uploader").click(function(){
+        vue.upload.clearPreviewPanel();
+        console.log('clicked');
+    })
   },
 };
 </script>
