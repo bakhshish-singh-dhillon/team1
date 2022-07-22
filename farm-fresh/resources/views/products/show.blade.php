@@ -6,19 +6,23 @@
     <div class="max-container py-4">
         <div class="row">
             <div class="col-md-6">
-                <img src="{{$images_path.$prod->images()->first()->url}}" alt="{{$prod->images()->first()->url}}">
+                <img src="{{$images_path.$product->images()->first()->url}}" alt="{{$product->images()->first()->url}}">
             </div>
             <div class="col-md-6">
-                <div class="title product-title">{{$prod->name}}</div>
+                <div class="title product-title">{{$product->name}}</div>
 
                 <table class="detail-table">
                     <tr>
                         <th>Price:</th>
-                        <td>$ {{$prod->price}} / {{$prod->measure_unit}}</td>
+                        <td>$ {{$product->price}} / {{$product->measure_unit}}</td>
                     </tr>
                     <tr>
                         <th>Availability:</th>
+                        @if((int)$product->quantity == 0)
+                        <td>Out of Stock</td>
+                        @else
                         <td>In Stock</td>
+                        @endif
                     </tr>
                     <tr>
                         <th>Rating:</th>
@@ -26,7 +30,7 @@
                     </tr>
                     <tr>
                         <th>Description:</th>
-                        <td>{{$prod->description}}</td>
+                        <td>{{$product->description}}</td>
                     </tr>
                     <tr>
                         <th>Quantity:</th>
@@ -39,7 +43,7 @@
                                 <option value="5">5</option>
                             </select>
 
-                            <a href="{{ route('add-to-cart', ['product' => $prod->id]) }}" class="btn">Add to Cart</a>
+                            <a href="{{ route('add-to-cart', ['product' => $product->id]) }}" class="btn">Add to Cart</a>
                         </td>
                     </tr>
                 </table>
@@ -96,14 +100,15 @@
                 </div>
                 <div class="col-md-9">
 
-                    @foreach($reviews as $review)
+                    @foreach($product->reviews()->get() as $review)
                     <div>
-                        <div class="review-title">Sargam Sanghani</div>
+
+                        <div class="review-title">{{$review->user->first_name}} {{$review->user->last_name}} </div>
                         <div><small>Posted on 17th July, 2022</small></div>
                         <p class="my-2">{{$review->rating}} out of 5</p>
 
                         <p>{{$review->review}}</p>
-                        <!-- <p>I had an amazing experience. Loved the food. It was a quick delivery. Thank you so much for your great service!</p> -->
+
                     </div>
 
                     @endforeach
