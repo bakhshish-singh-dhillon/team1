@@ -13,10 +13,10 @@
         </div>
 
         <div>
-            <span><img src="images/youtube.png" alt="Youtube" class="tiny-icon m-2 my-3" /></span>
-            <span><img src="images/instagram.png" alt="Instagram" class="tiny-icon m-2 my-3" /></span>
-            <span><img src="images/twitter.png" alt="Twitter" class="tiny-icon m-2 my-3" /></span>
-            <span><img src="images/facebook.png" alt="Facebook" class="tiny-icon m-2 my-3" /></span>
+            <span><img src="/images/youtube.png" alt="Youtube" class="tiny-icon m-2 my-3" /></span>
+            <span><img src="/images/instagram.png" alt="Instagram" class="tiny-icon m-2 my-3" /></span>
+            <span><img src="/images/twitter.png" alt="Twitter" class="tiny-icon m-2 my-3" /></span>
+            <span><img src="/images/facebook.png" alt="Facebook" class="tiny-icon m-2 my-3" /></span>
         </div>
 
         <p class="pb-2 m-0"><small>Copyrights &copy; FarmFresh 2022</small></p>
