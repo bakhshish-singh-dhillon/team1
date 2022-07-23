@@ -35,8 +35,8 @@
                     <tr>
                         <th>Quantity:</th>
                         <td id="quantity" class="d-flex">
-                            <form action="{{ route('add-to-cart', ['product' => $product->id]) }}" method="get">
-                                <div class="d-flex">
+                            <form class="d-flex" action="{{ route('add-to-cart', ['product' => $product->id]) }}" method="get">
+                                <div>
                                     <i id="plus" class="fa-solid fa-plus"></i>
                                     <input type="text" name="qty" class="qty" maxlength="12" value="1" class="input-text qty" />
                                     <i id="minus" class="fa-solid fa-minus"></i>
