@@ -103,6 +103,11 @@
                     </div>
                     <div class="col-md-9">
 
+                        @if(count($product->reviews()->get()) == 0)
+                        <p>We found 0 matching reviews</p>
+                        <p>Be the first!</p>
+                        <button class="btn">Write a review</button>
+                        @else
                         @foreach ($product->reviews()->get() as $review)
                         <div>
 
@@ -115,6 +120,9 @@
 
                         </div>
                         @endforeach
+                        @endif
+
+
                     </div>
 
                 </div>
