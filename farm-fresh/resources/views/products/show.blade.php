@@ -57,6 +57,13 @@
                 <div class="row">
                     <div class="title py-3 text-center">Customer Reviews</div>
                     <div class="col-md-3">
+
+                        @if(count($product->reviews()->get()) == 0)
+                        <p>{{$avgRating}} out of 5
+                            <small>({{count($product->reviews()->get())}} ratings)</small>
+                        </p>
+
+                        @else
                         <p>{{$avgRating}} out of 5
                             <small>({{count($product->reviews()->get())}} ratings)</small>
                         </p>
@@ -100,6 +107,7 @@
                                 </div>
                             </div>
                         </div>
+                        @endif
                     </div>
                     <div class="col-md-9">
 
