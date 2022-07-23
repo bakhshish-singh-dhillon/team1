@@ -17,26 +17,46 @@
     <div class="max-container">
 
         <div id="category">
+
             <div class="title text-center py-3">Browse by Category</div>
 
             <div class="row py-4">
                 <div class="col-md-3 text-center">
-                    <img src="images/salad.png" alt="All Products" />
-                    <p class="p-2 text-center">All Products</p>
+                    <a href="{{route('products', [])}}" class="my-2">
+                        <img src="images/salad.png" alt="All Products" />
+                    </a>
+                    <p class="p-2 text-center"><strong>All Products</strong>
+
+                    </p>
+                </div>
+
+                <div class="col-md-3 text-center">
+                    <a href="{{route('products-by-category',['category'=>$categories[1]->id])}}">
+                        <img src="images/cabbage.png" alt="Vegetables" />
+                    </a>
+                    <p class="p-2 text-center"> <strong>{{$categories[1]->name}}</strong>
+
+                    </p>
                 </div>
                 <div class="col-md-3 text-center">
-                    <img src="images/cabbage.png" alt="Vegetables" />
-                    <p class="p-2 text-center">Vegetables</p>
+                    <a href="{{route('products-by-category',['category'=>$categories[2]->id])}}">
+                        <img src="images/fruit.png" alt="Fruits" />
+                    </a>
+                    <p class="p-2 text-center"><strong>{{$categories[2]->name}}</strong>
+
+                    </p>
                 </div>
                 <div class="col-md-3 text-center">
-                    <img src="images/fruit.png" alt="Fruits" />
-                    <p class="p-2 text-center">Fruits</p>
+                    <a href="{{route('products-by-category',['category'=>$categories[0]->id])}}">
+                        <img src="images/dairy-products.png" alt="Dairy Products" />
+                    </a>
+                    <p class="p-2 text-center"><strong>{{$categories[0]->name}}</strong>
+
+                    </p>
                 </div>
-                <div class="col-md-3 text-center">
-                    <img src="images/dairy-products.png" alt="Dairy Products" />
-                    <p class="p-2 text-center">Dairy Products</p>
-                </div>
+
             </div>
+
         </div>
         <hr>
         <div id="reviews">
@@ -44,16 +64,14 @@
 
             <div class="row py-4">
 
-                @foreach($revProducts as $prod)
+                @foreach($reviews as $topReview)
                 <div class="col-md-6">
                     <div class="text-center">
                         <img src="images/left-quote.png" alt="Left-quote">
-                        <p>Saniya said</p>
-
-                        <p>{{$prod->reviews()->first()->review}}</p>
+                        <p>{{$topReview->user->first_name}} Says</p>
+                        <p>{{$topReview->review}}</p>
                     </div>
                 </div>
-
                 @endforeach
             </div>
         </div>
