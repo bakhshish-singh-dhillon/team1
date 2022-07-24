@@ -65,6 +65,10 @@ Route::delete('clear-cart', [CartController::class, 'clear'])->name('clear-cart'
 // Route::post('checkout', [CartController::class, 'index'])->name('cart');
 //Cart Urls End
 
+//Admin Category Urls
+Route::post('/admin/categories', [AdminProductController::class, 'index']);
+//Admin CAtegory Urls end
+
 // Pulkit URL Start
 Route::get('/about', function () {
     return view('about');
