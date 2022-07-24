@@ -36,7 +36,7 @@
                             <tr>
                                 <td>{{ $cat->id }}</td>
                                 <td>{{ $cat->name }}</td>
-                                <td>{{ $cat->category_id }}</td>
+                                <td>{{ null == $cat->parent ? "NA" : $cat->parent->name}}</td>
                                 <td>
                                     <div class="btn-group">
                                         <a class="btn btn-secondary mx-2" href="{{ route('product-edit', ['product' => $cat->id]) }}">Edit</a>
