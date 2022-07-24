@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use App\Models\Image;
+use App\Models\Review;
 use App\Models\Product;
+use App\Models\Category;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -26,8 +29,8 @@ class HomeController extends Controller
     public function index()
     {
         $products = Product::latest()->take(4)->get();
-
-        $revProducts = Product::latest()->take(2)->get();
-        return view('home', compact('products', 'revProducts'));
+        $reviews = Review::where('rating', '5')->latest()->take(2)->get();
+        $categories = Category::whereNull('category_id')->get();
+        return view('home', compact('products', 'categories', 'reviews'));
     }
 }

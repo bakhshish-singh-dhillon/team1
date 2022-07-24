@@ -16,25 +16,25 @@ class CategoryProductSeeder extends Seeder
     public function run()
     {
         DB::table('category_product')->insert([
-            'category_id' => '1',
+            'category_id' => '3',
             'product_id' => '1'
 
         ]);
 
         DB::table('category_product')->insert([
-            'category_id' => '1',
+            'category_id' => '9',
             'product_id' => '2'
 
         ]);
 
         DB::table('category_product')->insert([
-            'category_id' => '1',
+            'category_id' => '10',
             'product_id' => '3'
 
         ]);
 
         DB::table('category_product')->insert([
-            'category_id' => '2',
+            'category_id' => '13',
             'product_id' => '4'
 
         ]);
@@ -46,25 +46,25 @@ class CategoryProductSeeder extends Seeder
         ]);
 
         DB::table('category_product')->insert([
-            'category_id' => '3',
+            'category_id' => '12',
             'product_id' => '6'
 
         ]);
 
         DB::table('category_product')->insert([
-            'category_id' => '3',
+            'category_id' => '2',
             'product_id' => '7'
 
         ]);
 
         DB::table('category_product')->insert([
-            'category_id' => '2',
+            'category_id' => '11',
             'product_id' => '8'
 
         ]);
 
         DB::table('category_product')->insert([
-            'category_id' => '3',
+            'category_id' => '2',
             'product_id' => '9'
 
         ]);
@@ -76,13 +76,13 @@ class CategoryProductSeeder extends Seeder
         ]);
 
         DB::table('category_product')->insert([
-            'category_id' => '1',
+            'category_id' => '11',
             'product_id' => '11'
 
         ]);
 
         DB::table('category_product')->insert([
-            'category_id' => '2',
+            'category_id' => '14',
             'product_id' => '12'
 
         ]);

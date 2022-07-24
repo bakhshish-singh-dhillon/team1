@@ -37,7 +37,7 @@ $(document).ready(function ($) {
     var decrementMinus = buttonMinus.click(function () {
         var $n = $(".qty");
         var amount = Number($n.val());
-        if (amount > 0) {
+        if (amount > 1) {
             $n.val(amount - 1);
         }
     });
