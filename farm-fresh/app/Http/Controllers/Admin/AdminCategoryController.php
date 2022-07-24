@@ -6,7 +6,7 @@ use App\Models\Category;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-class CategoryController extends Controller
+class AdminCategoryController extends Controller
 {
     /**
      * Instantiate a new controller instance.
@@ -25,7 +25,7 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        $products = Category::latest()->paginate(10);
+        $categories = Category::latest()->paginate(10);
         return view('admin/categories/index', compact('categories'));
     }
 }

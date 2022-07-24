@@ -27,26 +27,23 @@
                         <thead class="bg-light ">
                             <tr>
                                 <th>ID</th>
-                                <th>Title</th>
-                                <th>Price</th>
-                                <th>Quantity</th>
-                                <th>Action</th>
+                                <th>Name</th>
+                                <th>Parent</th>
                             </tr>
                         </thead>
                         <tbody class="">
-                            @foreach ($products as $product)
+                            @foreach ($categories as $cat)
                             <tr>
-                                <td>{{ $product->id }}</td>
-                                <td>{{ $product->name }}</td>
-                                <td>{{ $product->price }}</td>
-                                <td>{{ $product->quantity }}</td>
+                                <td>{{ $cat->id }}</td>
+                                <td>{{ $cat->name }}</td>
+                                <td>{{ $cat->category_id }}</td>
                                 <td>
                                     <div class="btn-group">
-                                        <a class="btn btn-secondary mx-2" href="{{ route('product-edit', ['product' => $product->id]) }}">Edit</a>
-                                        <form method="post" action="{{ route('product-delete', ['product' => $product->id]) }}">
+                                        <a class="btn btn-secondary mx-2" href="{{ route('product-edit', ['product' => $cat->id]) }}">Edit</a>
+                                        <form method="post" action="{{ route('product-delete', ['product' => $cat->id]) }}">
                                             @csrf
                                             @method('DELETE')
-                                            <input type="hidden" name="id" value="{{ $product->id }}" />
+                                            <input type="hidden" name="id" value="{{ $cat->id }}" />
                                             <button class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this post?')">Delete</button>
                                         </form>
                                     </div>
@@ -58,7 +55,7 @@
 
                     <div class="pagination content-center">
 
-                        {!! $products->links('pagination::bootstrap-5') !!}
+                        {!! $categories->links('pagination::bootstrap-5') !!}
 
                     </div>
                 </div>

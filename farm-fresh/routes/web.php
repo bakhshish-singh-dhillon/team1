@@ -7,6 +7,7 @@ use App\Http\Controllers\TermsController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\AdminProductController;
+use App\Http\Controllers\Admin\AdminCategoryController;
 use App\Http\Controllers\Admin\AdminOrderController;
 use App\Http\Controllers\CartController;
 use Illuminate\Support\Facades\Auth;
@@ -66,7 +67,7 @@ Route::delete('clear-cart', [CartController::class, 'clear'])->name('clear-cart'
 //Cart Urls End
 
 //Admin Category Urls
-Route::post('/admin/categories', [AdminProductController::class, 'index']);
+Route::get('/admin/categories', [AdminCategoryController::class, 'index']);
 //Admin CAtegory Urls end
 
 // Pulkit URL Start
