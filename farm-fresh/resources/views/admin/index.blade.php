@@ -50,4 +50,14 @@
     </div>
 </div>
 
+<div class="row">
+    <div class="col-md-6">
+        <div id="chart_div" style="width: 100%; height: 500px;"></div>
+    </div>
+    <div class="col-md-6">
+        <div id="piechart_3d" style="width: 100%; height: 500px;"></div>
+    </div>
+</div>
+
+
 @endsection
