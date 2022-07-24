@@ -54,7 +54,7 @@ Route::get('/admin/orders/create', [AdminOrderController::class, 'create']);
 Route::post('/admin/orders', [AdminOrderController::class, 'store']);
 Route::get('/admin/orders/{order}/edit', [AdminOrderController::class, 'edit'])->name('order-edit');
 Route::put('/admin/orders/{order}', [AdminOrderController::class, 'update'])->name('order-update');
-Route::delete('/admin/orders/{order}', [AdminProAdminOrderControllerductController::class, 'destroy'])->name('order-delete');
+Route::delete('/admin/orders/{order}', [AdminOrderController::class, 'destroy'])->name('order-delete');
 
 //Cart Urls
 Route::get('cart', [CartController::class, 'index'])->name('cart');
