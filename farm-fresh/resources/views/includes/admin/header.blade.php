@@ -59,8 +59,10 @@
                 }
             };
 
-            var chart = new google.visualization.AreaChart(document.getElementById('chart_div'));
-            chart.draw(data, options);
+            if (document.getElementById('chart_div')) {
+                var chart = new google.visualization.AreaChart(document.getElementById('chart_div'));
+                chart.draw(data, options);
+            }
         }
 
         google.charts.setOnLoadCallback(drawPieChart);
@@ -79,8 +81,10 @@
                 colors: ['#15C2D2', '#FDA738', '#e86f4a']
             };
 
-            var chart = new google.visualization.PieChart(document.getElementById('piechart_3d'));
-            chart.draw(data, options);
+            if (document.getElementById('piechart_3d')) {
+                var chart = new google.visualization.PieChart(document.getElementById('piechart_3d'));
+                chart.draw(data, options);
+            }
         }
     </script>
 </head>
