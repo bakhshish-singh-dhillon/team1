@@ -81,5 +81,6 @@ Route::get('/404', function () {
 });
 Route::get('/admin/users', [AdminUserController::class, 'index']);
 Route::delete('/admin/users/{user}', [AdminUserController::class, 'destroy'])->name('user-delete');
+Route::get('/admin/reviews', [AdminReviewController::class, 'index']);
 
 // Pulkit URL Ends
