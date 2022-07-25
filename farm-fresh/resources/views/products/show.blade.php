@@ -38,7 +38,7 @@
                             <form class="d-flex" action="{{ route('add-to-cart', ['product' => $product->id]) }}" method="get">
                                 <div>
                                     <i id="plus" class="fa-solid fa-plus"></i>
-                                    <input type="text" name="qty" class="qty" maxlength="12" value="1" class="input-text qty" />
+                                    <input type="text" name="qty" class="qty" maxlength="12" value="1" class="input-text qty" disabled />
                                     <i id="minus" class="fa-solid fa-minus"></i>
                                 </div>
 
@@ -125,7 +125,7 @@
                         <p>Be the first!</p>
                         <button class="btn">Write a review</button>
                         @else
-                        @foreach ($product->reviews()->get() as $review)
+                        @foreach ($reviews as $review)
                         <div>
 
                             <div class="review-title">{{ $review->user->first_name }} {{ $review->user->last_name }}
@@ -137,8 +137,13 @@
 
                         </div>
                         @endforeach
-                        @endif
 
+                        @endif
+                        <div class="pagination content-center justify-content-center">
+
+                            {!! $reviews->links() !!}
+
+                        </div>
 
                     </div>
 
