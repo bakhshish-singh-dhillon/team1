@@ -9,6 +9,7 @@ use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\AdminProductController;
 use App\Http\Controllers\Admin\AdminCategoryController;
 use App\Http\Controllers\Admin\AdminUserController;
+use App\Http\Controllers\Admin\AdminReviewController;
 use App\Http\Controllers\Admin\AdminOrderController;
 use App\Http\Controllers\CartController;
 use Illuminate\Support\Facades\Auth;
@@ -81,5 +82,7 @@ Route::get('/404', function () {
 });
 Route::get('/admin/users', [AdminUserController::class, 'index']);
 Route::delete('/admin/users/{user}', [AdminUserController::class, 'destroy'])->name('user-delete');
+Route::get('/admin/reviews', [AdminReviewController::class, 'index']);
+Route::delete('/admin/reviews/{review}', [AdminReviewController::class, 'destroy'])->name('review-delete');
 
 // Pulkit URL Ends
