@@ -28,4 +28,12 @@ class AdminUserController extends Controller
         $users = User::latest()->paginate(10);
         return view('admin/users/index', compact('users'));
     }
+
+    public function destroy(User $user)
+    {
+        if ($user->delete()) {
+            session()->flash('success', 'User deleted successfully');
+            return redirect('/admin/users');
+        }
+    }
 }
