@@ -10,6 +10,6 @@
 @endif
 @if (session()->has('error'))
 <div class="alert alert-danger error-message">
-    <i class="fa-solid fa-circle-exclamation mx-2"></i> {{ session('error') }}
+    <i class="fa-solid fa-circle-exclamation mx-2"></i> {{ session('error') }} <span><i class="fa-solid fa-xmark float-right"></i></span>
 </div>
 @endif
