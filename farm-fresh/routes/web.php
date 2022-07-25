@@ -7,6 +7,7 @@ use App\Http\Controllers\TermsController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\AdminProductController;
+use App\Http\Controllers\Admin\AdminCategoryController;
 use App\Http\Controllers\Admin\AdminUserController;
 use App\Http\Controllers\Admin\AdminOrderController;
 use App\Http\Controllers\CartController;
@@ -65,6 +66,10 @@ Route::delete('clear-cart', [CartController::class, 'clear'])->name('clear-cart'
 // Route::get('checkout', [CartController::class, 'index'])->name('checkout');
 // Route::post('checkout', [CartController::class, 'index'])->name('cart');
 //Cart Urls End
+
+//Admin Category Urls
+Route::get('/admin/categories', [AdminCategoryController::class, 'index']);
+//Admin Category Urls end
 
 // Pulkit URL Start
 Route::get('/about', function () {
