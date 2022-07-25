@@ -8,6 +8,7 @@ use App\Http\Controllers\ContactController;
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\AdminProductController;
 use App\Http\Controllers\Admin\AdminCategoryController;
+use App\Http\Controllers\Admin\AdminUserController;
 use App\Http\Controllers\Admin\AdminOrderController;
 use App\Http\Controllers\CartController;
 use Illuminate\Support\Facades\Auth;
@@ -55,7 +56,7 @@ Route::get('/admin/orders/create', [AdminOrderController::class, 'create']);
 Route::post('/admin/orders', [AdminOrderController::class, 'store']);
 Route::get('/admin/orders/{order}/edit', [AdminOrderController::class, 'edit'])->name('order-edit');
 Route::put('/admin/orders/{order}', [AdminOrderController::class, 'update'])->name('order-update');
-Route::delete('/admin/orders/{order}', [AdminProAdminOrderControllerductController::class, 'destroy'])->name('order-delete');
+Route::delete('/admin/orders/{order}', [AdminOrderController::class, 'destroy'])->name('order-delete');
 
 //Cart Urls
 Route::get('cart', [CartController::class, 'index'])->name('cart');
@@ -68,7 +69,7 @@ Route::delete('clear-cart', [CartController::class, 'clear'])->name('clear-cart'
 
 //Admin Category Urls
 Route::get('/admin/categories', [AdminCategoryController::class, 'index']);
-//Admin CAtegory Urls end
+//Admin Category Urls end
 
 // Pulkit URL Start
 Route::get('/about', function () {
@@ -78,5 +79,7 @@ Route::get('/terms-and-conditions', [App\Http\Controllers\TermsController::class
 Route::get('/404', function () {
     return view('404');
 });
+Route::get('/admin/users', [AdminUserController::class, 'index']);
+Route::delete('/admin/users/{user}', [AdminUserController::class, 'destroy'])->name('user-delete');
 
 // Pulkit URL Ends
