@@ -11,7 +11,7 @@
                 <div class="card-body">
                     <div class="d-flex justify-content-between mb-2">
                         <!-- Button trigger modal -->
-                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="Create">Create Category</button>
+                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#categoryModal" data-bs-whatever="Create">Create Category</button>
 
 
                         <div>
@@ -56,24 +56,36 @@
                         </tbody>
                     </table>
                     <!-- Button trigger modal -->
-                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo">Open modal for @mdo</button>
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#categoryModal" data-bs-whatever="@mdo">Open modal for @mdo</button>
 
-                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal fade" id="categoryModal" tabindex="-1" aria-labelledby="categoryModalLabel" aria-hidden="true">
                         <div class="modal-dialog modal-dialog-centered">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalLabel">New message</h5>
+                                    <h5 class="modal-title" id="categoryModalLabel">New message</h5>
                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                 </div>
                                 <div class="modal-body">
                                     <form>
                                         <div class="mb-3">
-                                            <label for="recipient-name" class="col-form-label">Recipient:</label>
-                                            <input type="text" class="form-control" id="recipient-name">
+                                            <label for="category-name" class="col-form-label">Category Name:</label>
+                                            <input type="text" class="form-control" id="category-name">
                                         </div>
-                                        <div class="mb-3">
-                                            <label for="message-text" class="col-form-label">Message:</label>
-                                            <textarea class="form-control" id="message-text"></textarea>
+                                        <div class="form-outline mb-4 ">
+                                            <label class="form-label" for="category_search">Parent Category:
+                                                <span class="text-danger">*</span>
+                                            </label>
+                                            <select name="category_id[]" class="form-control js-example-basic-single">
+                                                <option value="">Please select a category</option>
+                                                @foreach ($categories as $index => $name)
+                                                <option value="{{ $index }}" @if(old('category_id') && in_array($index ,old('category_id'))) selected @endif>
+                                                    {{ $name }}
+                                                </option>
+                                                @endforeach
+                                            </select>
+                                            @error('category_id')
+                                            <span class="text-danger"> {{ $message }}</span>
+                                            @enderror
                                         </div>
                                     </form>
                                 </div>
