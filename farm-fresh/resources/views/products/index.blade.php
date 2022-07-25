@@ -51,13 +51,14 @@
                     </div>
                     @endforeach
                 </div>
+                <div class="pagination content-center justify-content-center">
+
+                    {!! $products->links('pagination::bootstrap-5') !!}
+
+                </div>
 
             </div>
-            <div class="pagination content-center">
 
-                {!! $products->links('pagination::bootstrap-5') !!}
-
-            </div>
         </div>
     </div>
 </div>
