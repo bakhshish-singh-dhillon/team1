@@ -400,4 +400,9 @@ button.btn:hover {
 
 .select2-container {
     z-index: 1200;
+    width: 20px;
+}
+
+.select2-selection__rendered {
+    width: 150px !important;
 }

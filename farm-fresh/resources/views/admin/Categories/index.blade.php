@@ -66,7 +66,9 @@
                                 <div class="modal-body">
                                     <form>
                                         <div class="mb-3">
-                                            <label for="category-name" class="col-form-label">Category Name:</label>
+                                            <label for="category-name" class="col-form-label">Category Name:
+                                                <span class="text-danger">*</span>
+                                            </label>
                                             <input type="text" class="form-control" id="category-name">
                                         </div>
                                         <div class="form-outline mb-4 ">
@@ -74,7 +76,7 @@
                                                 <span class="text-danger">*</span>
                                             </label>
                                             <select name="category_id[]" class="form-control js-example-basic-single">
-                                                <option value="">Please select a category</option>
+                                                <option value="">select parent</option>
                                                 @foreach ($parentCategories as $index => $name)
                                                 <option value="{{ $index }}" @if(old('category_id') && in_array($index ,old('category_id'))) selected @endif>
                                                     {{ $name->name }}
