@@ -4,6 +4,7 @@ import './main.js';
 import 'select2';
 import { createApp } from 'vue';
 import MultiImage from './components/multi-image.vue';
+import AdminCategoryModal from './components/admin-category-modal.vue';
 
 
 /** Multi Image vue component */
