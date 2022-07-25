@@ -67,43 +67,52 @@
                         <p>{{$avgRating}} out of 5
                             <small>({{count($product->reviews()->get())}} ratings)</small>
                         </p>
-
                         <div>
                             <div>
                                 <div>
-                                    <p class="m-0 mt-1"><small>5 star (46%)</small></p>
+                                    @if($perFives >= 0 )
+                                    <p class="m-0 mt-1"><small>5 star ({{$perFives ?? 0}}%)</small></p>
                                     <div class="outer-box">
 
-                                        <div class="bar-5" style="width: 46%;"></div>
+                                        <div class="bar-5" style="width: {{$perFives ?? 0}}%;"></div>
                                     </div>
+                                    @endif
                                 </div>
                                 <div>
-                                    <p class="m-0 mt-1"><small>4 star (46%)</small></p>
+                                    @if($perFours >= 0)
+                                    <p class="m-0 mt-1"><small>4 star ({{$perFours ?? 0}}%)</small></p>
                                     <div class="outer-box">
 
-                                        <div class="bar-5" style="width: 46%;"></div>
+                                        <div class="bar-5" style="width: {{$perFours ?? 0}}%;"></div>
                                     </div>
+                                    @endif
                                 </div>
                                 <div>
-                                    <p class="m-0 mt-1"><small>3 star (46%)</small></p>
+                                    @if($perThrees >= 0)
+                                    <p class="m-0 mt-1"><small>3 star ({{$perThrees ?? 0}}%)</small></p>
                                     <div class="outer-box">
 
-                                        <div class="bar-5" style="width: 46%;"></div>
+                                        <div class="bar-5" style="width: {{$perThrees ?? 0}}%;"></div>
                                     </div>
+                                    @endif
                                 </div>
                                 <div>
-                                    <p class="m-0 mt-1"><small>2 star (46%)</small></p>
+                                    @if($perTwos >= 0)
+                                    <p class="m-0 mt-1"><small>2 star ({{$perTwos ?? 0}}%)</small></p>
                                     <div class="outer-box">
 
-                                        <div class="bar-5" style="width: 46%;"></div>
+                                        <div class="bar-5" style="width: {{$perTwos ?? 0}}%;"></div>
                                     </div>
+                                    @endif
                                 </div>
                                 <div>
-                                    <p class="m-0 mt-1"><small>1 star (0%)</small></p>
+                                    @if($perOnes >= 0)
+                                    <p class="m-0 mt-1"><small>1 star ({{$perOnes ?? 0}}%)</small></p>
                                     <div class="outer-box">
 
-                                        <div class="bar-5" style="width: 0%;"></div>
+                                        <div class="bar-5" style="width: {{$perOnes ?? 0}}%;"></div>
                                     </div>
+                                    @endif
                                 </div>
                             </div>
                         </div>
