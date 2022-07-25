@@ -36,7 +36,37 @@ class ProductController extends Controller
 
         $avgRating = number_format((float)$product->reviews->avg('rating'), 2, '.', '');
 
-        return view('products/show',  compact('product', 'products', 'avgRating'));
+        $ones = count($product->reviews()->where('rating', '1')->get());
+        $twos = count($product->reviews()->where('rating', '2')->get());
+        $threes = count($product->reviews()->where('rating', '3')->get());
+        $fours = count($product->reviews()->where('rating', '4')->get());
+        $fives = count($product->reviews()->where('rating', '5')->get());
+
+        if (count($product->reviews()->get()) > 0) {
+            $perOnes = number_format((float)$ones / (count($product->reviews()->get())) * 100);
+            $perTwos = number_format((float)$twos / (count($product->reviews()->get())) * 100);
+            $perThrees = number_format((float)$threes / (count($product->reviews()->get())) * 100);
+            $perFours = number_format((float)$fours / (count($product->reviews()->get())) * 100);
+            $perFives = number_format((float)$fives / (count($product->reviews()->get())) * 100);
+        } else {
+            $perOnes = 0;
+            $perTwos = 0;
+            $perThrees = 0;
+            $perFours = 0;
+            $perFives = 0;
+        }
+
+        return view('products/show',  compact(
+            'product',
+            'products',
+            'avgRating',
+            'perOnes',
+            'perTwos',
+            'perThrees',
+            'perFours',
+            'perFives'
+
+        ));
     }
 
     /**
