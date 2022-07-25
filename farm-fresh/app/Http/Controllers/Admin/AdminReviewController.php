@@ -28,4 +28,12 @@ class AdminReviewController extends Controller
         $reviews = Review::latest()->paginate(10);
         return view('admin/reviews/index', compact('reviews'));
     }
+
+    public function destroy(Review $review)
+    {
+        if ($review->delete()) {
+            session()->flash('success', 'review deleted successfully');
+            return redirect('/admin/reviews');
+        }
+    }
 }
