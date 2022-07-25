@@ -8,6 +8,7 @@ use App\Http\Controllers\ContactController;
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\AdminProductController;
 use App\Http\Controllers\Admin\AdminUserController;
+use App\Http\Controllers\Admin\AdminOrderController;
 use App\Http\Controllers\CartController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -37,6 +38,8 @@ Route::get('/about', [AboutController::class, 'index'])->name('about');
 Route::get('/contact', [ContactController::class, 'index'])->name('contact');
 Route::post('/contact', [ContactController::class, 'store'])->name('contact-submit');
 
+// Admin Product List
+
 Route::get('/admin', [AdminController::class, 'index'])->name('dashboard');
 Route::get('/admin/products', [AdminProductController::class, 'index']);
 Route::get('/admin/products/create', [AdminProductController::class, 'create']);
@@ -44,6 +47,15 @@ Route::post('/admin/products', [AdminProductController::class, 'store']);
 Route::get('/admin/products/{product}/edit', [AdminProductController::class, 'edit'])->name('product-edit');
 Route::put('/admin/products/{product}', [AdminProductController::class, 'update'])->name('product-update');
 Route::delete('/admin/products/{product}', [AdminProductController::class, 'destroy'])->name('product-delete');
+
+// Admin Order List
+
+Route::get('/admin/orders', [AdminOrderController::class, 'index']);
+Route::get('/admin/orders/create', [AdminOrderController::class, 'create']);
+Route::post('/admin/orders', [AdminOrderController::class, 'store']);
+Route::get('/admin/orders/{order}/edit', [AdminOrderController::class, 'edit'])->name('order-edit');
+Route::put('/admin/orders/{order}', [AdminOrderController::class, 'update'])->name('order-update');
+Route::delete('/admin/orders/{order}', [AdminOrderController::class, 'destroy'])->name('order-delete');
 
 //Cart Urls
 Route::get('cart', [CartController::class, 'index'])->name('cart');
