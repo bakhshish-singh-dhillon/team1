@@ -7,6 +7,7 @@ use App\Http\Controllers\TermsController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\AdminProductController;
+use App\Http\Controllers\Admin\AdminUserController;
 use App\Http\Controllers\Admin\AdminOrderController;
 use App\Http\Controllers\CartController;
 use Illuminate\Support\Facades\Auth;
@@ -73,5 +74,7 @@ Route::get('/terms-and-conditions', [App\Http\Controllers\TermsController::class
 Route::get('/404', function () {
     return view('404');
 });
+Route::get('/admin/users', [AdminUserController::class, 'index']);
+Route::delete('/admin/users/{user}', [AdminUserController::class, 'destroy'])->name('user-delete');
 
 // Pulkit URL Ends
