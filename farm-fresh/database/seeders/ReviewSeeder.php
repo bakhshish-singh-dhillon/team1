@@ -70,5 +70,26 @@ class ReviewSeeder extends Seeder
             'rating' => '5'
 
         ]);
+        DB::table('reviews')->insert([
+            'user_id' => '5',
+            'product_id' => '4',
+            'review' => 'Disappointed!!',
+            'rating' => '1'
+
+        ]);
+        DB::table('reviews')->insert([
+            'user_id' => '5',
+            'product_id' => '4',
+            'review' => 'Good Quality',
+            'rating' => '2'
+
+        ]);
+        DB::table('reviews')->insert([
+            'user_id' => '5',
+            'product_id' => '4',
+            'review' => 'Wonderfull!',
+            'rating' => '5'
+
+        ]);
     }
 }
