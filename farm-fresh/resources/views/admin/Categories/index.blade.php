@@ -56,8 +56,6 @@
                         </tbody>
                     </table>
                     <!-- Button trigger modal -->
-                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#categoryModal" data-bs-whatever="@mdo">Open modal for @mdo</button>
-
                     <div class="modal fade" id="categoryModal" tabindex="-1" aria-labelledby="categoryModalLabel" aria-hidden="true">
                         <div class="modal-dialog modal-dialog-centered">
                             <div class="modal-content">
@@ -77,9 +75,9 @@
                                             </label>
                                             <select name="category_id[]" class="form-control js-example-basic-single">
                                                 <option value="">Please select a category</option>
-                                                @foreach ($categories as $index => $name)
+                                                @foreach ($parentCategories as $index => $name)
                                                 <option value="{{ $index }}" @if(old('category_id') && in_array($index ,old('category_id'))) selected @endif>
-                                                    {{ $name }}
+                                                    {{ $name->name }}
                                                 </option>
                                                 @endforeach
                                             </select>
@@ -91,7 +89,7 @@
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                    <button type="button" class="btn btn-primary">Send message</button>
+                                    <button type="button" class="btn btn-primary">Create</button>
                                 </div>
                             </div>
                         </div>

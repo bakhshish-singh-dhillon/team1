@@ -72,7 +72,6 @@ button.btn:hover {
     background-color: #fff;
 }
 
-
 .icon {
     height: 35px;
     width: 35px;
@@ -113,7 +112,6 @@ button.btn:hover {
         transition: all 0.1s ease-in-out;
         cursor: pointer;
     }
-
     img:hover {
         transform: scale(1.1);
     }
@@ -133,19 +131,16 @@ button.btn:hover {
         -webkit-transition: all 0.5s;
         cursor: pointer;
     }
-
     .hanging-btn {
         position: absolute;
         top: calc(50% - 22px);
         right: calc(50% - 37px);
         display: none;
     }
-
     .product-item:hover .hanging-btn {
         display: block;
         z-index: 1;
     }
-
     .product-item:hover:after {
         opacity: 1;
     }
@@ -161,7 +156,6 @@ button.btn:hover {
     .category-list {
         li {
             list-style-type: none;
-
             a {
                 text-decoration: none;
                 padding: 5px 20px;
@@ -170,7 +164,6 @@ button.btn:hover {
             }
         }
     }
-
     .left-part {
         border-right: 1px solid #ccc;
     }
@@ -180,34 +173,27 @@ button.btn:hover {
     .product-title {
         border-bottom: 1px solid;
     }
-
     .detail-table {
-
         th {
             padding: 0 10px 0 0;
         }
-
         td {
             padding: 10px;
         }
     }
-
     select {
         padding: 9px 20px;
     }
-
     #reviews {
         .review-title {
             font-size: 1.2em;
             font-weight: 700;
         }
-
         .outer-box {
             border: 1px solid $green;
             height: 25px;
             width: 90%;
         }
-
         .bar-5 {
             background-color: $green;
             height: 25px;
@@ -232,7 +218,6 @@ button.btn:hover {
         margin: 20px;
         margin-bottom: 0;
         border-bottom: 2px solid transparent;
-
         a {
             padding: 4px;
             display: block;
@@ -240,7 +225,6 @@ button.btn:hover {
             color: #000;
         }
     }
-
     li:hover,
     li.active {
         border-bottom: 2px solid #000;
@@ -257,11 +241,9 @@ button.btn:hover {
     .icon-room:before {
         content: "\e8b4";
     }
-
     .icon-phone:before {
         content: "\f095";
     }
-
     .icon-envelope:before {
         content: "\f0e0";
     }
@@ -269,7 +251,6 @@ button.btn:hover {
 
 .head-404 {
     color: rgb(173, 166, 166);
-
     p {
         font-weight: 700;
     }
@@ -277,7 +258,6 @@ button.btn:hover {
 
 #home {
     #banner {
-
         .banner-box {
             position: relative;
             background: url("../../public/images/main-bg.jpg") 50% no-repeat fixed;
@@ -286,7 +266,6 @@ button.btn:hover {
             width: 100%;
             height: 90vh;
         }
-
         input[type=search] {
             background: none;
             border: 3px solid #fff;
@@ -294,31 +273,26 @@ button.btn:hover {
             width: 100%;
             color: #fff;
         }
-
         input[type=search]::placeholder {
             /* Chrome, Firefox, Opera, Safari 10.1+ */
             color: #fff;
             opacity: 1;
             /* Firefox */
         }
-
-        :-ms-input-placeholder {
+         :-ms-input-placeholder {
             /* Internet Explorer 10-11 */
             color: #fff;
         }
-
-        ::-ms-input-placeholder {
+         ::-ms-input-placeholder {
             /* Microsoft Edge */
             color: #fff;
         }
-
         .content {
             z-index: 2;
             position: absolute;
             text-align: center;
             top: 30vh;
             left: 35vw;
-
             .tagline {
                 color: #fff;
                 font-weight: 700;
@@ -329,51 +303,39 @@ button.btn:hover {
 }
 
 #admin {
-
     .heading {
         font-size: 1.5em;
         font-weight: 700;
         padding: 20px 0;
     }
-
     .blue-bg {
         background-color: #459EE3;
         color: #fff;
     }
-
     .pink-bg {
         background-color: #FA638A;
         color: #fff;
     }
-
     .green-bg {
         background-color: #3EC8A6;
         color: #fff;
     }
-
     .orange-bg {
         background-color: #FFAC4D;
         color: #fff;
     }
-
     .symbol {
         font-size: 1.6em;
     }
-
     #admin_sidebar {
         height: 100vh;
         background-color: slategrey;
-
-
         ul.side-bar {
             li {
                 list-style-type: none;
             }
-
             .menu-item {
-
                 border-bottom: 1px solid #ccc;
-
                 a {
                     color: #fff;
                     text-decoration: none;
@@ -381,13 +343,11 @@ button.btn:hover {
                     display: inline-block;
                     width: 100%;
                 }
-
                 a:hover {
                     font-size: 1.05em;
                 }
             }
         }
-
         .home-logo {
             font-size: 1.5em;
             color: #fff;
@@ -398,21 +358,18 @@ button.btn:hover {
     }
 }
 
+
 /****************** Detail page ******************/
 
-
 #quantity {
-
     input.qty {
         width: 40px;
         height: 30px;
         text-align: center;
     }
-
     div {
         margin-right: 20px;
         margin-top: 10px;
-
         i.fa-solid {
             margin-right: 10px;
             margin-left: 10px;
@@ -421,6 +378,7 @@ button.btn:hover {
         }
     }
 }
+
 
 /****************** Home page ******************/
 
@@ -438,4 +396,8 @@ button.btn:hover {
     div.pagination {
         margin-top: 50px;
     }
+}
+
+.select2-container {
+    z-index: 1200;
 }
