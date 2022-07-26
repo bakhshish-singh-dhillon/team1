@@ -22,9 +22,18 @@ class ProductController extends Controller
     {
         $products = Product::latest()->paginate(9);
         $categories = Category::whereNull('category_id')->get();
+        // $this->getChildRecusrion($categories);
+        // die;
         return view('products/index', compact('products', 'categories'));
     }
 
+    public function getChildRecusrion($categories)
+    {
+        foreach ($categories as $cat) {
+            dump($cat->name);
+            $this->getChildRecusrion($cat->children()->get());
+        }
+    }
     /**
      * Display the specified product.
      *
@@ -85,8 +94,10 @@ class ProductController extends Controller
             $query->whereIn('categories.id', array_merge($category->children->pluck('id')->toArray(), [$category->id]));
         })->paginate(9);
         $categories = Category::whereNull('category_id')->get();
+
         return view('products/index', compact('products', 'categories'));
     }
+
 
     /**
      * Display a listing of the products by search.
