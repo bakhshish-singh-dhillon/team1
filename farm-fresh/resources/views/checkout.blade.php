@@ -44,7 +44,7 @@
                             </tr>
                         </tbody>
                     </table>
-                    <div id="address_handler">
+                    <div id="user-addresses">
                         <user-addresses></user-addresses>
                     </div>
                 </div>
