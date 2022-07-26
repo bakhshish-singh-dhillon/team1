@@ -55,7 +55,6 @@ $(document).ready(function ($) {
         modal.find('.modal-body input').val(recipient)
     })
     // Pravindra Category Modal
-<<<<<<< HEAD
 
 
     //Dhara : Close alert on click 
@@ -65,7 +64,6 @@ $(document).ready(function ($) {
     });
 
 
-=======
     const categoryModal = document.getElementById('categoryModal')
 
     if (categoryModal) {
@@ -105,5 +103,4 @@ $(document).ready(function ($) {
     }
 
     // Pravindra Category Modal
->>>>>>> 01dccbbce5fa7993adec80b4fc996690cf17a1e1
 });
