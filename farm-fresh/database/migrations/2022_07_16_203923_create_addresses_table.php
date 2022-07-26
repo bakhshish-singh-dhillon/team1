@@ -18,6 +18,7 @@ return new class extends Migration
             $table->bigInteger('user_id');
             $table->string('address_type');
             $table->string('address');
+            $table->string('city');
             $table->string('province');
             $table->string('country');
             $table->string('postal_code');
