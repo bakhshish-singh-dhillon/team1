@@ -47,10 +47,13 @@ $(document).ready(function($) {
             $('.js-example-basic-single').select2();
             const button = event.relatedTarget
             const recipient = button.getAttribute('data-bs-whatever')
+            const name = button.getAttribute('data-bs-name')
+            const parentId = button.getAttribute('data-bs-parent')
             const modalTitle = categoryModal.querySelector('.modal-title')
             const modalBodyInput = categoryModal.querySelector('.modal-body input')
 
             modalTitle.textContent = `${recipient} Category`
+
         })
         // Pravindra Category Modal
 });

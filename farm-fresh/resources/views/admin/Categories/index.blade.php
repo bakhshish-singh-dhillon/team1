@@ -12,8 +12,6 @@
                     <div class="d-flex justify-content-between mb-2">
                         <!-- Button trigger modal -->
                         <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#categoryModal" data-bs-whatever="Create">Create Category</button>
-
-
                         <div>
                             <form method="get" action="/admin/products/">
                                 <div class="btn-group">
@@ -42,13 +40,10 @@
                                 <td>{{ null == $cat->parent ? "NA" : $cat->parent->name}}</td>
                                 <td>
                                     <div class="btn-group">
-                                        <a class="btn btn-secondary mx-2" href="{{ route('product-edit', ['product' => $cat->id]) }}">Edit</a>
-                                        <form method="post" action="{{ route('product-delete', ['product' => $cat->id]) }}">
-                                            @csrf
-                                            @method('DELETE')
-                                            <input type="hidden" name="id" value="{{ $cat->id }}" />
-                                            <button class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this post?')">Delete</button>
-                                        </form>
+                                        <!-- Button trigger modal -->
+
+                                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#categoryModal" data-bs-whatever="Edit" data-bs-name="{{$cat->name}}" data-bs-parent="{{null == $cat->parent ? null : $cat->parent->id}}">Edit</button>
+
                                     </div>
                                 </td>
                             </tr>
