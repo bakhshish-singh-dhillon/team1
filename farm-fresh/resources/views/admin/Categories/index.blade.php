@@ -42,7 +42,7 @@
                                     <div class="btn-group">
                                         <!-- Button trigger modal -->
 
-                                        <button type="button" class="btn btn-primary" id="edit_category" data-bs-toggle="modal" data-bs-target="#categoryModal" data-bs-whatever="Edit" data-bs-name="{{$cat->name}}" data-bs-parent="{{null == $cat->parent ? null : $cat->parent->id}}">Edit</button>
+                                        <button type="button" class="btn btn-primary" id="edit_category" data-bs-toggle="modal" data-bs-target="#categoryModal" data-bs-whatever="Edit" data-bs-id="{{$cat->id}}" data-bs-name="{{$cat->name}}" data-bs-parent="{{null == $cat->parent ? null : $cat->parent->id}}">Edit</button>
 
                                     </div>
                                 </td>
@@ -55,11 +55,11 @@
                         <div class="modal-dialog modal-dialog-centered">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <h5 class="modal-title" id="categoryModalLabel">New message</h5>
+                                    <h5 class="modal-title" id="categoryModalLabel"></h5>
                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                 </div>
                                 <div class="modal-body">
-                                    <form action="/admin/categories" method="POST">
+                                    <form id="category_form" action="/admin/categories" method="POST">
                                         @csrf
                                         <div class="mb-3">
                                             <label for="category-name" class="col-form-label">Category Name:
@@ -74,7 +74,7 @@
                                             <select name="category_id" id="category_id" class="form-control js-example-basic-single">
                                                 <option value="">select parent</option>
                                                 @foreach ($parentCategories as $index => $name)
-                                                <option value="{{ $name->id }}" @if(old('category_id') && in_array($index ,old('category_id'))) selected @endif>
+                                                <option value="{{ $name->id }}">
                                                     {{ $name->name }}
                                                 </option>
                                                 @endforeach
@@ -84,7 +84,7 @@
                                             @enderror
                                         </div>
                                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                        <button type="submit" class="btn btn-primary">Create</button>
+                                        <button type="submit" id="submit_btn" class="btn btn-primary">Create</button>
                                     </form>
                                 </div>
 

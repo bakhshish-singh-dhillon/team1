@@ -52,13 +52,18 @@ $(document).ready(function($) {
             parentId = 0;
         }
         const name = button.getAttribute('data-bs-name')
+        const id = button.getAttribute('data-bs-id')
         const modalBodyInput = categoryModal.querySelector('.modal-body #category-name')
         modalBodyInput.value = name
         document.getElementById('category_id').getElementsByTagName('option')[parentId].selected = 'selected';
         $('.js-example-basic-single').select2();
-
         const recipient = button.getAttribute('data-bs-whatever')
-
+        if (recipient == "Edit") {
+            document.getElementById("category_form").action = "/admin/categories/" + id;
+            document.getElementById("submit_btn").innerHTML = "Update";
+        } else {
+            document.getElementById("submit_btn").innerHTML = "Create";
+        }
         const modalTitle = categoryModal.querySelector('#categoryModalLabel');
         ``
         modalTitle.textContent = `${recipient} Category`
@@ -69,3 +74,4 @@ $(document).ready(function($) {
 
     // Pravindra Category Modal
 });
+s
