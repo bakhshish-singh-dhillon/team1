@@ -68,18 +68,14 @@
                     <p>No additional information provided!</p>
                     @else
 
-                    <table id="metaTable" class="table table-bordered data-table ">
-                        <thead class="thead-dark">
-                            <tr>
-                                <th scope="col">Name</th>
-                                <th scope="col">Value</th>
-                            </tr>
-                        </thead>
+                    <table id="metaTable" class="table ">
+
                         <tbody>
 
                             @foreach ($product->product_metas as $meta)
                             <tr>
-                                <td>{{$meta->name}}</td>
+                                <td><strong>{{$meta->name}}</strong></td>
+
                                 <td>{{$meta->value}}</td>
                             </tr>
                             @endforeach
