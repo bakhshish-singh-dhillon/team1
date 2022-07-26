@@ -6,17 +6,17 @@
         <div class="col-md-10">
             <div class="card">
                 <div class="card-header">
-                    <h1 class="h1">Show Categories</h1>
+                    <h1 class="h1">Categories</h1>
                 </div>
                 <div class="card-body">
                     <div class="d-flex justify-content-between mb-2">
                         <!-- Button trigger modal -->
                         <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#categoryModal" data-bs-whatever="Create">Create Category</button>
                         <div>
-                            <form method="get" action="/admin/products/">
+                            <form method="get" action="/admin/categories/search">
                                 <div class="btn-group">
                                     @csrf
-                                    <input class="form-control w-96" type="search" name="search" placeholder="Search by id, name, range or location" value="{{ app('request')->input('search') }}" />
+                                    <input class="form-control w-96" type="search" name="search" placeholder="Search by name" value="{{ app('request')->input('search') }}" />
                                     <button class="btn btn-success">Search</button>
                                 </div>
                             </form>
@@ -33,6 +33,9 @@
                             </tr>
                         </thead>
                         <tbody class="">
+                            @if(count($categories)==0)
+                            <tr colspan="4">No results found!</tr>
+                            @endif
                             @foreach ($categories as $cat)
                             <tr>
                                 <td>{{ $cat->id }}</td>
@@ -42,13 +45,20 @@
                                     <div class="btn-group">
                                         <!-- Button trigger modal -->
 
-                                        <button type="button" class="btn btn-primary mr-2" id="edit_category" data-bs-toggle="modal" data-bs-target="#categoryModal" data-bs-whatever="Edit" data-bs-id="{{$cat->id}}" data-bs-name="{{$cat->name}}" data-bs-parent="{{null == $cat->parent ? null : $cat->parent->id}}">Edit</button>
+                                        <button type="button" class="btn btn-primary mr-4" id="edit_category" data-bs-toggle="modal" data-bs-target="#categoryModal" data-bs-whatever="Edit" data-bs-id="{{$cat->id}}" data-bs-name="{{$cat->name}}" data-bs-parent="{{null == $cat->parent ? null : $cat->parent->id}}">Edit</button>
 
+                                        <form method="post" action="{{ route('cat-delete', ['category' => $cat->id]) }}">
+                                            @csrf
+                                            @method('DELETE')
+                                            <input type="hidden" name="id" value="{{ $cat->id }}" />
+                                            <button class="btn btn-danger " onclick="return confirm('Are you sure you want to delete this category?')">Delete</button>
+                                        </form>
 
                                     </div>
                                 </td>
                             </tr>
                             @endforeach
+
                         </tbody>
                     </table>
                     <!-- Button trigger modal -->
@@ -60,17 +70,19 @@
                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                 </div>
                                 <div class="modal-body">
-                                    <form id="category_form" action="/admin/categories" method="POST">
+                                    <form id="category_form" action="" method="POST">
                                         @csrf
                                         <div class="mb-3">
                                             <label for="category-name" class="col-form-label">Category Name:
                                                 <span class="text-danger">*</span>
                                             </label>
                                             <input type="text" class="form-control" id="category-name" name="category-name">
+                                            @error('category-name')
+                                            <span class="text-danger"> {{ $message }}</span>
+                                            @enderror
                                         </div>
                                         <div class="form-outline mb-4 ">
                                             <label class="form-label" for="category_search">Parent Category:
-                                                <span class="text-danger">*</span>
                                             </label>
                                             <select name="category_id" id="category_id" class="form-control js-example-basic-single">
                                                 <option value="">select parent</option>

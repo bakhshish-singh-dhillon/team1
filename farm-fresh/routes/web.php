@@ -72,6 +72,8 @@ Route::delete('clear-cart', [CartController::class, 'clear'])->name('clear-cart'
 Route::get('/admin/categories', [AdminCategoryController::class, 'index']);
 Route::post('/admin/categories', [AdminCategoryController::class, 'store']);
 Route::put('/admin/categories/{category}', [AdminCategoryController::class, 'update'])->name('category-update');
+Route::delete('/admin/categories/{category}', [AdminCategoryController::class, 'destroy'])->name('cat-delete');
+Route::get('admin/categories/search', [AdminCategoryController::class, 'getCategoryBySearch'])->name('category-by-search');
 //Admin Category Urls end
 
 // Pulkit URL Start
