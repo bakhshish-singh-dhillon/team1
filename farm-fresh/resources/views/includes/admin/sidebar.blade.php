@@ -24,6 +24,11 @@
         <a href="/admin/transaction-logs"><i class="fa-solid fa-money-check-dollar px-2"></i>Transaction Logs</a>
     </li>
     <li class="menu-item">
-        <a href="/admin/transaction-logs"><i class="fa-solid fa-power-off px-2"></i></i>Log Out</a>
+        <a href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">
+            <i class="fa-solid fa-power-off px-2"></i></i>Log Out
+        </a>
+        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+            @csrf
+        </form>
     </li>
 </ul>
