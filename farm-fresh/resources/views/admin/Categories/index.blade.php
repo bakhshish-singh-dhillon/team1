@@ -13,17 +13,19 @@
                         <!-- Button trigger modal -->
                         <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#categoryModal" data-bs-whatever="Create">Create Category</button>
                         <div>
-                            <form method="get" action="/admin/categories/">
+                            <form method="get" action="/admin/categories/search">
                                 <div class="btn-group">
                                     @csrf
-                                    <input class="form-control w-96" type="search" name="search" placeholder="Search by id, name, range or location" value="{{ app('request')->input('search') }}" />
+                                    <input class="form-control w-96" type="search" name="search" placeholder="Search by name" value="{{ app('request')->input('search') }}" />
                                     <button class="btn btn-success">Search</button>
                                 </div>
                             </form>
 
                         </div>
                     </div>
-
+                    @if(count($categories)==0)
+                    <tr colspan="4">No results found!</tr>
+                    @else
                     <table class="table align-middle mb-0 bg-white">
                         <thead class="bg-light ">
                             <tr>
@@ -55,8 +57,10 @@
                                 </td>
                             </tr>
                             @endforeach
+
                         </tbody>
                     </table>
+                    @endif
                     <!-- Button trigger modal -->
                     <div class="modal fade" id="categoryModal" tabindex="-1" aria-labelledby="categoryModalLabel" aria-hidden="true">
                         <div class="modal-dialog modal-dialog-centered">
