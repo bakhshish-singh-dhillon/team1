@@ -48,6 +48,9 @@ $(document).ready(function($) {
         const button = event.relatedTarget
         var parentId = 0;
         parentId = button.getAttribute('data-bs-parent')
+        if (parentId == "" || undefined == parentId || null == parentId) {
+            parentId = 0;
+        }
         const name = button.getAttribute('data-bs-name')
         const modalBodyInput = categoryModal.querySelector('.modal-body #category-name')
         modalBodyInput.value = name
@@ -56,9 +59,8 @@ $(document).ready(function($) {
 
         const recipient = button.getAttribute('data-bs-whatever')
 
-        const modalTitle = categoryModal.querySelector('.modal-title')
-
-
+        const modalTitle = categoryModal.querySelector('#categoryModalLabel');
+        ``
         modalTitle.textContent = `${recipient} Category`
 
 
