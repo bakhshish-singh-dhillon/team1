@@ -19,18 +19,16 @@
                     <tr>
                         <th>Availability:</th>
                         @if((int)$product->quantity == 0)
-                        <td>Out of Stock</td>
+                        <td><i class="fa-solid fa-circle-xmark text-danger"></i>
+                            Out of Stock</td>
                         @else
-                        <td>In Stock</td>
+                        <td><i class="fa-solid fa-circle-check mx-2 text-success"></i>
+                            In Stock</td>
                         @endif
                     </tr>
                     <tr>
                         <th>Rating:</th>
                         <td>{{$avgRating}} out of 5</td>
-                    </tr>
-                    <tr>
-                        <th>Description:</th>
-                        <td>{{$product->description}}</td>
                     </tr>
                     <tr>
                         <th>Quantity:</th>
@@ -60,13 +58,35 @@
 
                 <!-- Tab content -->
                 <div id="Description" style="display: block;" class="tabcontent">
-                    <h3>Description</h3>
-                    <p>Description is the capital city of England.</p>
+
+                    <p>{{$product->description}}</p>
                 </div>
 
                 <div id="Additional Info" class="tabcontent">
-                    <h3>Additional Info</h3>
-                    <p>Additional Info is the capital of France.</p>
+
+                    @if(sizeof($product->product_metas) == 0)
+                    <p>No additional information provided!</p>
+                    @else
+
+                    <table id="metaTable" class="table table-bordered data-table ">
+                        <thead class="thead-dark">
+                            <tr>
+                                <th scope="col">Name</th>
+                                <th scope="col">Value</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                            @foreach ($product->product_metas as $meta)
+                            <tr>
+                                <td>{{$meta->name}}</td>
+                                <td>{{$meta->value}}</td>
+                            </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+                    @endif
+
                 </div>
 
                 <hr>
@@ -155,42 +175,43 @@
                             <p>{{ $review->review }}</p>
 
                         </div>
+
                         @endforeach
+                        <div class="d-flex justify-content-between mb-2">
+                            <a class="btn btn-primary mb-1" href="/reviews/create" role="button">Add a review</a>
+                            <div>
+                                @endif
+                                <div class="pagination content-center justify-content-center">
 
-                        @endif
-                        <div class="pagination content-center justify-content-center">
+                                    {!! $reviews->links() !!}
 
-                            {!! $reviews->links() !!}
-
+                                </div>
+                            </div>
                         </div>
-
+                        <hr>
                     </div>
 
+                    @include('includes.featureProd-loop')
                 </div>
-                <hr>
             </div>
-
-            @include('includes.featureProd-loop')
         </div>
-    </div>
-</div>
-@endsection
+        @endsection
 
-@section('custom-js')
+        @section('custom-js')
 
-<script>
-    function changeTab(evt, cityName) {
-        var i, tabcontent, tablinks;
-        tabcontent = document.getElementsByClassName("tabcontent");
-        for (i = 0; i < tabcontent.length; i++) {
-            tabcontent[i].style.display = "none";
-        }
-        tablinks = document.getElementsByClassName("tablinks");
-        for (i = 0; i < tablinks.length; i++) {
-            tablinks[i].className = tablinks[i].className.replace(" active", "");
-        }
-        document.getElementById(cityName).style.display = "block";
-        evt.currentTarget.className += " active";
-    }
-</script>
-@endsection
+        <script>
+            function changeTab(evt, cityName) {
+                var i, tabcontent, tablinks;
+                tabcontent = document.getElementsByClassName("tabcontent");
+                for (i = 0; i < tabcontent.length; i++) {
+                    tabcontent[i].style.display = "none";
+                }
+                tablinks = document.getElementsByClassName("tablinks");
+                for (i = 0; i < tablinks.length; i++) {
+                    tablinks[i].className = tablinks[i].className.replace(" active", "");
+                }
+                document.getElementById(cityName).style.display = "block";
+                evt.currentTarget.className += " active";
+            }
+        </script>
+        @endsection
