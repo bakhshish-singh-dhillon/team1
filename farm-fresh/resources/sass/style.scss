@@ -449,6 +449,10 @@ button.btn:hover {
     width: 150px !important;
 }
 
+.capitalization {
+    text-transform: capitalize;
+}
+
 .tab {
     overflow: hidden;
     border: 1px solid #ccc;
