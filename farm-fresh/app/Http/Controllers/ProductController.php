@@ -36,6 +36,8 @@ class ProductController extends Controller
 
         $avgRating = number_format((float)$product->reviews->avg('rating'), 2, '.', '');
 
+        $reviews = $product->reviews()->simplePaginate(3);
+
         $ones = count($product->reviews()->where('rating', '1')->get());
         $twos = count($product->reviews()->where('rating', '2')->get());
         $threes = count($product->reviews()->where('rating', '3')->get());
@@ -59,6 +61,7 @@ class ProductController extends Controller
         return view('products/show',  compact(
             'product',
             'products',
+            'reviews',
             'avgRating',
             'perOnes',
             'perTwos',
