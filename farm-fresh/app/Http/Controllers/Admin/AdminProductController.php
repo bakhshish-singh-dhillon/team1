@@ -161,7 +161,7 @@ class AdminProductController extends Controller
                 $product->categories()->attach($valid['category_id']);
             }
         }
-        return redirect('/admin/products')->withSuccess('Product created successfully');
+        return redirect('/admin/products')->withSuccess('Product updated successfully');
     }
 
     /**
