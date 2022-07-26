@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\AboutController;
 use App\Http\Controllers\TermsController;
 use App\Http\Controllers\ContactController;
@@ -35,7 +36,7 @@ Route::get('/products', [ProductController::class, 'index'])->name('products');
 Route::get('/products/{category}/category', [ProductController::class, 'getProductsByCategory'])->name('products-by-category');
 Route::get('/products/search', [ProductController::class, 'getProductsBySearch'])->name('products-by-search');
 Route::get('/products/show/{product}', [ProductController::class, 'show'])->name('product');
-
+Route::get('/reviews/create', [ReviewController::class, 'create']);
 Route::get('/about', [AboutController::class, 'index'])->name('about');
 Route::get('/contact', [ContactController::class, 'index'])->name('contact');
 Route::post('/contact', [ContactController::class, 'store'])->name('contact-submit');
