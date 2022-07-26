@@ -43,17 +43,27 @@ $(document).ready(function($) {
     });
     // Pravindra Category Modal
     const categoryModal = document.getElementById('categoryModal')
+
     categoryModal.addEventListener('show.bs.modal', event => {
-            $('.js-example-basic-single').select2();
-            const button = event.relatedTarget
-            const recipient = button.getAttribute('data-bs-whatever')
-            const name = button.getAttribute('data-bs-name')
-            const parentId = button.getAttribute('data-bs-parent')
-            const modalTitle = categoryModal.querySelector('.modal-title')
-            const modalBodyInput = categoryModal.querySelector('.modal-body input')
+        const button = event.relatedTarget
+        var parentId = 0;
+        parentId = button.getAttribute('data-bs-parent')
+        const name = button.getAttribute('data-bs-name')
+        const modalBodyInput = categoryModal.querySelector('.modal-body #category-name')
+        modalBodyInput.value = name
+        document.getElementById('category_id').getElementsByTagName('option')[parentId].selected = 'selected';
+        $('.js-example-basic-single').select2();
 
-            modalTitle.textContent = `${recipient} Category`
+        const recipient = button.getAttribute('data-bs-whatever')
 
-        })
-        // Pravindra Category Modal
+        const modalTitle = categoryModal.querySelector('.modal-title')
+
+
+        modalTitle.textContent = `${recipient} Category`
+
+
+
+    })
+
+    // Pravindra Category Modal
 });
