@@ -82,12 +82,14 @@ $(document).ready(function($) {
                 document.getElementById("submit_btn").innerHTML = "Update";
                 var put_method = document.createElement('input');
                 put_method.type = 'hidden';
+                put_method.id = '_method';
                 put_method.value = 'PUT';
                 put_method.name = '_method';
                 document.getElementById("category_form").appendChild(put_method);
             } else {
                 document.getElementById("submit_btn").innerHTML = "Create";
                 document.getElementById("category_form").action = "/admin/categories";
+                document.getElementById("_method").remove();
             }
             const name = button.getAttribute('data-bs-name')
 

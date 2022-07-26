@@ -8,6 +8,7 @@ use App\Models\Product;
 use App\Models\Category;
 use App\Http\Requests\StoreProductRequest;
 use App\Http\Requests\UpdateProductRequest;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\Request;
 
 class ProductController extends Controller
@@ -79,7 +80,10 @@ class ProductController extends Controller
      */
     public function getProductsByCategory(Category $category)
     {
-        $products = $category->products()->paginate(9);
+        // $products = $category->products()->paginate(9);
+        $products = Product::whereHas('categories', function (Builder $query) use ($category) {
+            $query->whereIn('categories.id', array_merge($category->children->pluck('id')->toArray(), [$category->id]));
+        })->paginate(9);
         $categories = Category::whereNull('category_id')->get();
         return view('products/index', compact('products', 'categories'));
     }
