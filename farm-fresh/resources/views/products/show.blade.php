@@ -52,6 +52,25 @@
 
             </div>
             <hr>
+            <div>
+                <div class="tab">
+                    <button class="tablinks active" onclick="changeTab(event, 'Description')">Description</button>
+                    <button class="tablinks" onclick="changeTab(event, 'Additional Info')">Additional Info</button>
+                </div>
+
+                <!-- Tab content -->
+                <div id="Description" style="display: block;" class="tabcontent">
+                    <h3>Description</h3>
+                    <p>Description is the capital city of England.</p>
+                </div>
+
+                <div id="Additional Info" class="tabcontent">
+                    <h3>Additional Info</h3>
+                    <p>Additional Info is the capital of France.</p>
+                </div>
+
+                <hr>
+            </div>
             <div id="reviews">
 
                 <div class="row">
@@ -155,4 +174,23 @@
         </div>
     </div>
 </div>
+@endsection
+
+@section('custom-js')
+
+<script>
+    function changeTab(evt, cityName) {
+        var i, tabcontent, tablinks;
+        tabcontent = document.getElementsByClassName("tabcontent");
+        for (i = 0; i < tabcontent.length; i++) {
+            tabcontent[i].style.display = "none";
+        }
+        tablinks = document.getElementsByClassName("tablinks");
+        for (i = 0; i < tablinks.length; i++) {
+            tablinks[i].className = tablinks[i].className.replace(" active", "");
+        }
+        document.getElementById(cityName).style.display = "block";
+        evt.currentTarget.className += " active";
+    }
+</script>
 @endsection

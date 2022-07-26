@@ -55,6 +55,7 @@ $(document).ready(function ($) {
         modal.find('.modal-body input').val(recipient)
     })
     // Pravindra Category Modal
+<<<<<<< HEAD
 
 
     //Dhara : Close alert on click 
@@ -64,4 +65,45 @@ $(document).ready(function ($) {
     });
 
 
+=======
+    const categoryModal = document.getElementById('categoryModal')
+
+    if (categoryModal) {
+        categoryModal.addEventListener('show.bs.modal', event => {
+            const button = event.relatedTarget
+            var parentId = 0;
+            parentId = button.getAttribute('data-bs-parent')
+            if (parentId == "" || undefined == parentId || null == parentId) {
+                parentId = 0;
+            }
+            const id = button.getAttribute('data-bs-id')
+            const recipient = button.getAttribute('data-bs-whatever')
+            if (recipient == "Edit") {
+                document.getElementById("category_form").action = "/admin/categories/" + id;
+                document.getElementById("submit_btn").innerHTML = "Update";
+                var put_method = document.createElement('input');
+                put_method.type = 'hidden';
+                put_method.value = 'PUT';
+                put_method.name = '_method';
+                document.getElementById("category_form").appendChild(put_method);
+            } else {
+                document.getElementById("submit_btn").innerHTML = "Create";
+            }
+            const name = button.getAttribute('data-bs-name')
+
+            const modalBodyInput = categoryModal.querySelector('.modal-body #category-name')
+            modalBodyInput.value = name
+            document.getElementById('category_id').getElementsByTagName('option')[parentId].selected = 'selected';
+            $('.js-example-basic-single').select2();
+
+            const modalTitle = categoryModal.querySelector('#categoryModalLabel');
+            ``
+            modalTitle.textContent = `${recipient} Category`
+
+
+        });
+    }
+
+    // Pravindra Category Modal
+>>>>>>> 01dccbbce5fa7993adec80b4fc996690cf17a1e1
 });
