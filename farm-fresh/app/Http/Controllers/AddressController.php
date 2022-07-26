@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Pacewdd\Bx\_5bx;
 
 class AddressController extends Controller
@@ -24,7 +25,8 @@ class AddressController extends Controller
             $bill['gst'] = 0.05 * $bill['subtotal'];
             $bill['pst'] = 0.07 * $bill['subtotal'];
             $bill['total'] = $bill['subtotal'] + $bill['pst'] + $bill['gst'];
-            return view('checkout_steps.addresses', compact('bill'));
+            $addresses = Auth::user()->addresses;
+            return view('checkout_steps.addresses', compact('bill','addresses'));
         }
         return back()->withError('Cart is empty');
     }
