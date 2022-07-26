@@ -42,7 +42,8 @@
                                     <div class="btn-group">
                                         <!-- Button trigger modal -->
 
-                                        <button type="button" class="btn btn-primary" id="edit_category" data-bs-toggle="modal" data-bs-target="#categoryModal" data-bs-whatever="Edit" data-bs-id="{{$cat->id}}" data-bs-name="{{$cat->name}}" data-bs-parent="{{null == $cat->parent ? null : $cat->parent->id}}">Edit</button>
+                                        <button type="button" class="btn btn-primary mr-2" id="edit_category" data-bs-toggle="modal" data-bs-target="#categoryModal" data-bs-whatever="Edit" data-bs-id="{{$cat->id}}" data-bs-name="{{$cat->name}}" data-bs-parent="{{null == $cat->parent ? null : $cat->parent->id}}">Edit</button>
+
 
                                     </div>
                                 </td>

@@ -51,27 +51,32 @@ $(document).ready(function($) {
         if (parentId == "" || undefined == parentId || null == parentId) {
             parentId = 0;
         }
-        const name = button.getAttribute('data-bs-name')
         const id = button.getAttribute('data-bs-id')
-        const modalBodyInput = categoryModal.querySelector('.modal-body #category-name')
-        modalBodyInput.value = name
-        document.getElementById('category_id').getElementsByTagName('option')[parentId].selected = 'selected';
-        $('.js-example-basic-single').select2();
         const recipient = button.getAttribute('data-bs-whatever')
         if (recipient == "Edit") {
             document.getElementById("category_form").action = "/admin/categories/" + id;
             document.getElementById("submit_btn").innerHTML = "Update";
+            var put_method = document.createElement('input');
+            put_method.type = 'hidden';
+            put_method.value = 'PUT';
+            put_method.name = '_method';
+            document.getElementById("category_form").appendChild(put_method);
         } else {
             document.getElementById("submit_btn").innerHTML = "Create";
         }
+        const name = button.getAttribute('data-bs-name')
+
+        const modalBodyInput = categoryModal.querySelector('.modal-body #category-name')
+        modalBodyInput.value = name
+        document.getElementById('category_id').getElementsByTagName('option')[parentId].selected = 'selected';
+        $('.js-example-basic-single').select2();
+
         const modalTitle = categoryModal.querySelector('#categoryModalLabel');
         ``
         modalTitle.textContent = `${recipient} Category`
-
 
 
     })
 
     // Pravindra Category Modal
 });
-s
