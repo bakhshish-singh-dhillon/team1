@@ -65,6 +65,8 @@ Route::get('add-to-cart/{product}', [CartController::class, 'add'])->name('add-t
 Route::delete('remove-cart-item/{product}', [CartController::class, 'remove'])->name('remove-cart-item');
 Route::delete('clear-cart', [CartController::class, 'clear'])->name('clear-cart');
 Route::get('choose-addresses', [AddressController::class, 'index'])->name('choose-addresses');
+Route::post('choose-addresses', [AddressController::class, 'store'])->name('store-addresses');
+Route::put('choose-addresses', [AddressController::class, 'update'])->name('update-addresses');
 // Route::post('checkout', [CartController::class, 'index'])->name('cart');
 //Checkout Steps End
 

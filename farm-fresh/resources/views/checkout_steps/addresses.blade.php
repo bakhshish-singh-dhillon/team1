@@ -45,8 +45,11 @@
                         </tbody>
                     </table>
                     <div id="user-addresses">
-                        <form action="/contact" method="post" id="contactForm" name="contactForm">
+                        <form action="{{ route('store-addresses', ['product' => $product->id]) }}" method="POST" id="product_crud_form"
+                            enctype="multipart/form-data">
                             @csrf
+                            @method('PUT')
+                            <input type="hidden" name="id" value="{{ $product->id }}" />
                             <div class="row">
                               <div class="col-md-6">
                                 <h2>Billing Address</h2>
@@ -63,7 +66,7 @@
                                       v-model="message"
                                     />
                                     @error('billing_address_type')
-                                    <span class="text-danger"> {{ $message }}</span>
+                                    <span class="text-danger"> {{ $message }} </span>
                                     @enderror
                                   </div>
                                   <div class="col-md-12 form-group mb-3">
