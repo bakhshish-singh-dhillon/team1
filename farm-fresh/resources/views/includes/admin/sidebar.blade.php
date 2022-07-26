@@ -24,6 +24,9 @@
         <a href="/admin/transaction-logs"><i class="fa-solid fa-money-check-dollar px-2"></i>Transaction Logs</a>
     </li>
     <li class="menu-item">
+        <a href="/"><i class="fa-solid fa-house-user px-2"></i>User Dashboard</a>
+    </li>
+    <li class="menu-item">
         <a href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">
             <i class="fa-solid fa-power-off px-2"></i></i>Log Out
         </a>
