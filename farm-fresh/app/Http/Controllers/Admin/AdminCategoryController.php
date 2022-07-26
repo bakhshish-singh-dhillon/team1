@@ -72,4 +72,34 @@ class AdminCategoryController extends Controller
         ]);
         return redirect('/admin/categories')->withSuccess('Category updated successfully');
     }
+
+    /**
+     * Remove the specified category from storage.
+     *
+     * @param  \App\Models\Category  $category
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy(Category $category)
+    {
+        if ($category->delete()) {
+            return redirect('/admin/categories')->withSuccess('Category deleted successfully');
+        }
+        return redirect('/admin/categories')->withError('Something wrong! Please try again');
+    }
+
+    /**
+     * Display a listing of the categories by search.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function getCategoryBySearch(Request $request)
+    {
+        if ($request->search) {
+            $parentCategories = Category::all();
+            $categories = Category::where('name', 'like', '%' . $request->search . '%')->paginate(9);
+            return view('admin/Categories/index', compact('categories', 'parentCategories'));
+        }
+
+        return redirect('admin/categories');
+    }
 }

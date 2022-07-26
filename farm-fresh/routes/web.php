@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\AboutController;
 use App\Http\Controllers\TermsController;
 use App\Http\Controllers\ContactController;
@@ -35,7 +36,7 @@ Route::get('/products', [ProductController::class, 'index'])->name('products');
 Route::get('/products/{category}/category', [ProductController::class, 'getProductsByCategory'])->name('products-by-category');
 Route::get('/products/search', [ProductController::class, 'getProductsBySearch'])->name('products-by-search');
 Route::get('/products/show/{product}', [ProductController::class, 'show'])->name('product');
-
+Route::get('/reviews/create', [ReviewController::class, 'create']);
 Route::get('/about', [AboutController::class, 'index'])->name('about');
 Route::get('/contact', [ContactController::class, 'index'])->name('contact');
 Route::post('/contact', [ContactController::class, 'store'])->name('contact-submit');
@@ -72,6 +73,8 @@ Route::delete('clear-cart', [CartController::class, 'clear'])->name('clear-cart'
 Route::get('/admin/categories', [AdminCategoryController::class, 'index']);
 Route::post('/admin/categories', [AdminCategoryController::class, 'store']);
 Route::put('/admin/categories/{category}', [AdminCategoryController::class, 'update'])->name('category-update');
+Route::delete('/admin/categories/{category}', [AdminCategoryController::class, 'destroy'])->name('cat-delete');
+Route::get('admin/categories/search', [AdminCategoryController::class, 'getCategoryBySearch'])->name('category-by-search');
 //Admin Category Urls end
 
 // Pulkit URL Start

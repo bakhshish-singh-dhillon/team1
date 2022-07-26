@@ -219,6 +219,12 @@ button.btn:hover {
     z-index: 1;
 }
 
+#metaTable {
+    width: 50%;
+
+    margin: 0 auto;
+}
+
 .ellipsis-text {
     height: 50px;
     text-overflow: ellipsis;
@@ -447,6 +453,10 @@ button.btn:hover {
 
 .select2-selection__rendered {
     width: 150px !important;
+}
+
+.capitalization {
+    text-transform: capitalize;
 }
 
 .tab {
