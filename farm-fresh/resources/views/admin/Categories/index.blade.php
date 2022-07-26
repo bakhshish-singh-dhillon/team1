@@ -43,7 +43,14 @@
                                         <!-- Button trigger modal -->
 
                                         <button type="button" class="btn btn-primary mr-2" id="edit_category" data-bs-toggle="modal" data-bs-target="#categoryModal" data-bs-whatever="Edit" data-bs-id="{{$cat->id}}" data-bs-name="{{$cat->name}}" data-bs-parent="{{null == $cat->parent ? null : $cat->parent->id}}">Edit</button>
-
+                                        <div class="btn-group">
+                                            <form method="post" action="{{ route('cat-delete', ['cartegory' => $cat->id]) }}">
+                                                @csrf
+                                                @method('DELETE')
+                                                <input type="hidden" name="id" value="{{ $cat->id }}" />
+                                                <button class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this category?')">Delete</button>
+                                            </form>
+                                        </div>
 
                                     </div>
                                 </td>
