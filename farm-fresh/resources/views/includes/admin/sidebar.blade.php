@@ -18,7 +18,7 @@
         <a href="/admin/categories"><i class="fa-solid fa-folder-tree px-2"></i>Categories</a>
     </li>
     <li class="menu-item">
-        <a href="/admin/reviews"><i class="fa-solid fa-folder-tree px-2"></i>Reviews</a>
+        <a href="/admin/reviews"><i class="fas fa-comments px-2"></i></i>Reviews</a>
     </li>
     <li class="menu-item">
         <a href="/admin/transaction-logs"><i class="fa-solid fa-money-check-dollar px-2"></i>Transaction Logs</a>
