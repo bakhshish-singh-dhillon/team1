@@ -19,7 +19,7 @@
                     <tr>
                         <th>Availability:</th>
                         @if((int)$product->quantity == 0)
-                        <td><i class="fa-solid fa-circle-xmark text-danger"></i>
+                        <td><i class="fa-solid fa-circle-xmark mx-2 text-danger"></i>
                             Out of Stock</td>
                         @else
                         <td><i class="fa-solid fa-circle-check mx-2 text-success"></i>
