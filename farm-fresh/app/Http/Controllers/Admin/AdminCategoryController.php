@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Models\Product;
 use App\Models\Category;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -26,6 +27,49 @@ class AdminCategoryController extends Controller
     public function index()
     {
         $categories = Category::latest()->paginate(10);
-        return view('admin/categories/index', compact('categories'));
+        $parentCategories = Category::all();
+        return view('admin/categories/index', compact('categories', 'parentCategories'));
+    }
+
+    /**
+     * Store a newly created category in storage.
+     *
+     * @param  \App\Http\Requests\StoreProductRequest  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(Request $request)
+    {
+        // Retrieve the validated input data...
+        $valid = $request->validate([
+            'category-name' => 'required',
+        ]);
+        $category = Category::create([
+            'name' => $valid['category-name'],
+            'category_id' => $request['category_id'],
+
+        ]);
+        return redirect('/admin/categories')->withSuccess('Category created successfully');
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \App\Http\Requests\UpdateProductRequest  $request
+     * @param  \App\Models\Product  $product
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $request, Category $category)
+    {
+        // Retrieve the validated input data...
+        $valid = $request->validate([
+            'category-name' => 'required',
+        ]);
+
+        $category->update([
+            'name' => $valid['category-name'],
+            'category_id' => $request['category_id'],
+
+        ]);
+        return redirect('/admin/categories')->withSuccess('Category updated successfully');
     }
 }
