@@ -64,21 +64,22 @@
                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                 </div>
                                 <div class="modal-body">
-                                    <form>
+                                    <form action="/admin/categories" method="POST">
+                                        @csrf
                                         <div class="mb-3">
                                             <label for="category-name" class="col-form-label">Category Name:
                                                 <span class="text-danger">*</span>
                                             </label>
-                                            <input type="text" class="form-control" id="category-name">
+                                            <input type="text" class="form-control" id="category-name" name="category-name">
                                         </div>
                                         <div class="form-outline mb-4 ">
                                             <label class="form-label" for="category_search">Parent Category:
                                                 <span class="text-danger">*</span>
                                             </label>
-                                            <select name="category_id[]" class="form-control js-example-basic-single">
+                                            <select name="category_id" class="form-control js-example-basic-single">
                                                 <option value="">select parent</option>
                                                 @foreach ($parentCategories as $index => $name)
-                                                <option value="{{ $index }}" @if(old('category_id') && in_array($index ,old('category_id'))) selected @endif>
+                                                <option value="{{ $name->id }}" @if(old('category_id') && in_array($index ,old('category_id'))) selected @endif>
                                                     {{ $name->name }}
                                                 </option>
                                                 @endforeach
@@ -87,12 +88,11 @@
                                             <span class="text-danger"> {{ $message }}</span>
                                             @enderror
                                         </div>
+                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                        <button type="submit" class="btn btn-primary">Create</button>
                                     </form>
                                 </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                    <button type="button" class="btn btn-primary">Create</button>
-                                </div>
+
                             </div>
                         </div>
                     </div>
