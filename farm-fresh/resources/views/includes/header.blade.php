@@ -21,7 +21,6 @@
     <link rel="icon" href="/images/logo-50.png" />
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <link href="{{ asset('sass/style.scss') }}" rel="stylesheet">
 </head>
 
 <body>
