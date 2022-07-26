@@ -13,7 +13,7 @@
                         <!-- Button trigger modal -->
                         <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#categoryModal" data-bs-whatever="Create">Create Category</button>
                         <div>
-                            <form method="get" action="/admin/products/">
+                            <form method="get" action="/admin/categories/">
                                 <div class="btn-group">
                                     @csrf
                                     <input class="form-control w-96" type="search" name="search" placeholder="Search by id, name, range or location" value="{{ app('request')->input('search') }}" />

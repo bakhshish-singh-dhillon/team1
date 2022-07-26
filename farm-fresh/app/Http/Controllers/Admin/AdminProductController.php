@@ -78,7 +78,7 @@ class AdminProductController extends Controller
                 ]);
             }
         }
-        
+
         if ($request->has('category_id')) {
             foreach ($valid['category_id'] as $index => $value) {
                 $product->categories()->attach($valid['category_id']);
@@ -107,9 +107,9 @@ class AdminProductController extends Controller
     public function edit(Product $product)
     {
         $categories = Category::pluck('name', 'id');
-        $product_metas = $product->product_metas()->get()->pluck('value','name');
+        $product_metas = $product->product_metas()->get()->pluck('value', 'name');
         $images = $product->images()->get()->pluck('url');
-        return view('admin/products/edit', compact('categories','product','product_metas','images'));
+        return view('admin/products/edit', compact('categories', 'product', 'product_metas', 'images'));
     }
 
     /**
@@ -136,8 +136,8 @@ class AdminProductController extends Controller
         ]);
         if ($request->file('image_upload')) {
             foreach ($product->images()->get() as $file) {
-                if(Storage::exists('public/images/'.$file->url)){
-                    Storage::delete('public/images/'.$file->url);
+                if (Storage::exists('public/images/' . $file->url)) {
+                    Storage::delete('public/images/' . $file->url);
                 }
             }
             $product->images()->delete();
@@ -147,14 +147,14 @@ class AdminProductController extends Controller
         }
         if ($request->has('key')) {
             $product->product_metas()->delete();
-            foreach($valid['key'] as $index => $value) {
+            foreach ($valid['key'] as $index => $value) {
                 $product->product_metas()->create([
                     'name' => $value,
                     'value' => $valid['value'][$index]
                 ]);
             }
         }
-        
+
         if ($request->has('category_id')) {
             foreach ($valid['category_id'] as $index => $value) {
                 $product->categories()->detach();
