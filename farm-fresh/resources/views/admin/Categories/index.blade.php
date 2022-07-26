@@ -6,7 +6,7 @@
         <div class="col-md-10">
             <div class="card">
                 <div class="card-header">
-                    <h1 class="h1">Show Categories</h1>
+                    <h1 class="h1">Categories</h1>
                 </div>
                 <div class="card-body">
                     <div class="d-flex justify-content-between mb-2">
