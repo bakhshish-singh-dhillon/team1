@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Models\User;
+use App\Models\Review;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class AdminUserController extends Controller
+class AdminReviewController extends Controller
 {
     /**
      * Instantiate a new controller instance.
@@ -25,15 +25,15 @@ class AdminUserController extends Controller
      */
     public function index()
     {
-        $users = User::latest()->paginate(10);
-        return view('admin/users/index', compact('users'));
+        $reviews = Review::latest()->paginate(10);
+        return view('admin/reviews/index', compact('reviews'));
     }
 
-    public function destroy(User $user)
+    public function destroy(Review $review)
     {
-        if ($user->delete()) {
-            session()->flash('success', 'User deleted successfully');
-            return redirect('/admin/users');
+        if ($review->delete()) {
+            session()->flash('success', 'review deleted successfully');
+            return redirect('/admin/reviews');
         }
     }
 }

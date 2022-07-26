@@ -38,7 +38,7 @@
                             <form class="d-flex" action="{{ route('add-to-cart', ['product' => $product->id]) }}" method="get">
                                 <div>
                                     <i id="plus" class="fa-solid fa-plus"></i>
-                                    <input type="text" name="qty" class="qty" maxlength="12" value="1" class="input-text qty" />
+                                    <input type="text" name="qty" class="qty" maxlength="12" value="1" class="input-text qty" disabled />
                                     <i id="minus" class="fa-solid fa-minus"></i>
                                 </div>
 
@@ -67,43 +67,52 @@
                         <p>{{$avgRating}} out of 5
                             <small>({{count($product->reviews()->get())}} ratings)</small>
                         </p>
-
                         <div>
                             <div>
                                 <div>
-                                    <p class="m-0 mt-1"><small>5 star (46%)</small></p>
+                                    @if($perFives >= 0 )
+                                    <p class="m-0 mt-1"><small>5 star ({{$perFives ?? 0}}%)</small></p>
                                     <div class="outer-box">
 
-                                        <div class="bar-5" style="width: 46%;"></div>
+                                        <div class="bar-5" style="width: {{$perFives ?? 0}}%;"></div>
                                     </div>
+                                    @endif
                                 </div>
                                 <div>
-                                    <p class="m-0 mt-1"><small>4 star (46%)</small></p>
+                                    @if($perFours >= 0)
+                                    <p class="m-0 mt-1"><small>4 star ({{$perFours ?? 0}}%)</small></p>
                                     <div class="outer-box">
 
-                                        <div class="bar-5" style="width: 46%;"></div>
+                                        <div class="bar-5" style="width: {{$perFours ?? 0}}%;"></div>
                                     </div>
+                                    @endif
                                 </div>
                                 <div>
-                                    <p class="m-0 mt-1"><small>3 star (46%)</small></p>
+                                    @if($perThrees >= 0)
+                                    <p class="m-0 mt-1"><small>3 star ({{$perThrees ?? 0}}%)</small></p>
                                     <div class="outer-box">
 
-                                        <div class="bar-5" style="width: 46%;"></div>
+                                        <div class="bar-5" style="width: {{$perThrees ?? 0}}%;"></div>
                                     </div>
+                                    @endif
                                 </div>
                                 <div>
-                                    <p class="m-0 mt-1"><small>2 star (46%)</small></p>
+                                    @if($perTwos >= 0)
+                                    <p class="m-0 mt-1"><small>2 star ({{$perTwos ?? 0}}%)</small></p>
                                     <div class="outer-box">
 
-                                        <div class="bar-5" style="width: 46%;"></div>
+                                        <div class="bar-5" style="width: {{$perTwos ?? 0}}%;"></div>
                                     </div>
+                                    @endif
                                 </div>
                                 <div>
-                                    <p class="m-0 mt-1"><small>1 star (0%)</small></p>
+                                    @if($perOnes >= 0)
+                                    <p class="m-0 mt-1"><small>1 star ({{$perOnes ?? 0}}%)</small></p>
                                     <div class="outer-box">
 
-                                        <div class="bar-5" style="width: 0%;"></div>
+                                        <div class="bar-5" style="width: {{$perOnes ?? 0}}%;"></div>
                                     </div>
+                                    @endif
                                 </div>
                             </div>
                         </div>
@@ -116,7 +125,7 @@
                         <p>Be the first!</p>
                         <button class="btn">Write a review</button>
                         @else
-                        @foreach ($product->reviews()->get() as $review)
+                        @foreach ($reviews as $review)
                         <div>
 
                             <div class="review-title">{{ $review->user->first_name }} {{ $review->user->last_name }}
@@ -128,8 +137,13 @@
 
                         </div>
                         @endforeach
-                        @endif
 
+                        @endif
+                        <div class="pagination content-center justify-content-center">
+
+                            {!! $reviews->links() !!}
+
+                        </div>
 
                     </div>
 
