@@ -63,6 +63,7 @@ $(document).ready(function($) {
             document.getElementById("category_form").appendChild(put_method);
         } else {
             document.getElementById("submit_btn").innerHTML = "Create";
+            document.getElementById("category_form").action = "/admin/categories";
         }
         const name = button.getAttribute('data-bs-name')
 

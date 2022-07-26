@@ -23,9 +23,7 @@
 
                         </div>
                     </div>
-                    @if(count($categories)==0)
-                    <tr colspan="4">No results found!</tr>
-                    @else
+
                     <table class="table align-middle mb-0 bg-white">
                         <thead class="bg-light ">
                             <tr>
@@ -35,6 +33,9 @@
                             </tr>
                         </thead>
                         <tbody class="">
+                            @if(count($categories)==0)
+                            <tr colspan="4">No results found!</tr>
+                            @endif
                             @foreach ($categories as $cat)
                             <tr>
                                 <td>{{ $cat->id }}</td>
@@ -60,7 +61,6 @@
 
                         </tbody>
                     </table>
-                    @endif
                     <!-- Button trigger modal -->
                     <div class="modal fade" id="categoryModal" tabindex="-1" aria-labelledby="categoryModalLabel" aria-hidden="true">
                         <div class="modal-dialog modal-dialog-centered">
@@ -70,17 +70,19 @@
                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                 </div>
                                 <div class="modal-body">
-                                    <form id="category_form" action="/admin/categories" method="POST">
+                                    <form id="category_form" action="" method="POST">
                                         @csrf
                                         <div class="mb-3">
                                             <label for="category-name" class="col-form-label">Category Name:
                                                 <span class="text-danger">*</span>
                                             </label>
                                             <input type="text" class="form-control" id="category-name" name="category-name">
+                                            @error('category-name')
+                                            <span class="text-danger"> {{ $message }}</span>
+                                            @enderror
                                         </div>
                                         <div class="form-outline mb-4 ">
                                             <label class="form-label" for="category_search">Parent Category:
-                                                <span class="text-danger">*</span>
                                             </label>
                                             <select name="category_id" id="category_id" class="form-control js-example-basic-single">
                                                 <option value="">select parent</option>
