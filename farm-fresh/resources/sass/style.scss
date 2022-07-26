@@ -215,6 +215,10 @@ button.btn:hover {
     }
 }
 
+#admin .alert {
+    z-index: 1;
+}
+
 .ellipsis-text {
     height: 50px;
     text-overflow: ellipsis;
