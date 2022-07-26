@@ -19,7 +19,8 @@
                         <tbody>
                             @foreach (session()->get('cart') as $index => $product)
                                 <tr>
-                                    <td><a href="{{route('product',['product'=>$index])}}">{{ $product['name'] }}</a> </td>
+                                    <td><a href="{{ route('product', ['product' => $index]) }}">{{ $product['name'] }}</a>
+                                    </td>
                                     <td>$ {{ $product['price'] }}</td>
                                     <td>{{ $product['quantity'] }}</td>
                                     <td>{{ $product['line_price'] }}</td>
@@ -59,10 +60,7 @@
                             @method('DELETE')
                             <input type="submit" class="button" name="submit" value="Clear Cart">
                         </form>
-                        <form action="/checkout" method="post">
-                            @csrf
-                            <input type="submit" class="button" name="submit" value="Checkout">
-                        </form>
+                        <a class="submit" href="/choose-addresses" method="post">Choose Address</a>
                     </div>
                 </div>
             </div>

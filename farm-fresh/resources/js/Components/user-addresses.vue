@@ -157,9 +157,28 @@
   </form>
 </template>
 <script>
+import $ from "jquery";
 export default {
-  setup: () => ({
-    title: "Vue Component initialised",
-  }),
+  name: "UserAddresses",
+  props: {
+    images: {
+      default: null,
+      type: String,
+    },
+    images_path: {
+      default: null,
+      type: String,
+    },
+  },
+  data() {
+    return {
+      upload: null,
+    };
+  },
+  methods: {
+  },
+  mounted() {
+    var vue=this;
+  },
 };
 </script>

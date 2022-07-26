@@ -3,6 +3,7 @@
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\AboutController;
+use App\Http\Controllers\AddressController;
 use App\Http\Controllers\TermsController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\Admin\AdminController;
@@ -58,14 +59,14 @@ Route::get('/admin/orders/{order}/edit', [AdminOrderController::class, 'edit'])-
 Route::put('/admin/orders/{order}', [AdminOrderController::class, 'update'])->name('order-update');
 Route::delete('/admin/orders/{order}', [AdminOrderController::class, 'destroy'])->name('order-delete');
 
-//Cart Urls
+//Checkout Steps Urls
 Route::get('cart', [CartController::class, 'index'])->name('cart');
 Route::get('add-to-cart/{product}', [CartController::class, 'add'])->name('add-to-cart');
 Route::delete('remove-cart-item/{product}', [CartController::class, 'remove'])->name('remove-cart-item');
 Route::delete('clear-cart', [CartController::class, 'clear'])->name('clear-cart');
-// Route::get('checkout', [CartController::class, 'index'])->name('checkout');
+Route::get('choose-addresses', [AddressController::class, 'index'])->name('choose-addresses');
 // Route::post('checkout', [CartController::class, 'index'])->name('cart');
-//Cart Urls End
+//Checkout Steps End
 
 //Admin Category Urls
 Route::get('/admin/categories', [AdminCategoryController::class, 'index']);

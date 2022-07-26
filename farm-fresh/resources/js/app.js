@@ -4,6 +4,7 @@ import './main.js';
 import 'select2';
 import { createApp } from 'vue';
 import MultiImage from './components/multi-image.vue';
+import UserAddresses from './components/user-addresses.vue';
 
 /** Multi Image vue component */
 if ($("#multi-image").length) {
@@ -15,6 +16,6 @@ if ($("#multi-image").length) {
 /** Address vue component */
 if ($("#user-addresses").length) {
     const user_addresses = createApp({})
-    user_addresses.component('user-addresses', MultiImage)
+    user_addresses.component('user-addresses', UserAddresses)
     user_addresses.mount('#user-addresses');
 }

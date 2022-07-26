@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Pacewdd\Bx\_5bx;
 
-class CheckoutController extends Controller
+class AddressController extends Controller
 {
     /**
      * Instantiate a new controller instance.
@@ -24,7 +24,7 @@ class CheckoutController extends Controller
             $bill['gst'] = 0.05 * $bill['subtotal'];
             $bill['pst'] = 0.07 * $bill['subtotal'];
             $bill['total'] = $bill['subtotal'] + $bill['pst'] + $bill['gst'];
-            return view('checkout', compact('bill'));
+            return view('checkout_steps.addresses', compact('bill'));
         }
         return back()->withError('Cart is empty');
     }
