@@ -72,4 +72,18 @@ class AdminCategoryController extends Controller
         ]);
         return redirect('/admin/categories')->withSuccess('Category updated successfully');
     }
+
+    /**
+     * Remove the specified category from storage.
+     *
+     * @param  \App\Models\Category  $category
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy(Category $category)
+    {
+        if ($category->delete()) {
+            return redirect('/admin/categories')->withSuccess('Category deleted successfully');
+        }
+        return redirect('/admin/categories')->withError('Something wrong! Please try again');
+    }
 }
