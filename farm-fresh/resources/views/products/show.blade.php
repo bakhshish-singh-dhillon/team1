@@ -19,18 +19,16 @@
                     <tr>
                         <th>Availability:</th>
                         @if((int)$product->quantity == 0)
-                        <td>Out of Stock</td>
+                        <td><i class="fa-solid fa-circle-xmark text-danger"></i>
+                            Out of Stock</td>
                         @else
-                        <td>In Stock</td>
+                        <td><i class="fa-solid fa-circle-check mx-2 text-success"></i>
+                            In Stock</td>
                         @endif
                     </tr>
                     <tr>
                         <th>Rating:</th>
                         <td>{{$avgRating}} out of 5</td>
-                    </tr>
-                    <tr>
-                        <th>Description:</th>
-                        <td>{{$product->description}}</td>
                     </tr>
                     <tr>
                         <th>Quantity:</th>
@@ -60,8 +58,8 @@
 
                 <!-- Tab content -->
                 <div id="Description" style="display: block;" class="tabcontent">
-                    <h3>Description</h3>
-                    <p>Description is the capital city of England.</p>
+
+                    <p>{{$product->description}}</p>
                 </div>
 
                 <div id="Additional Info" class="tabcontent">
@@ -163,9 +161,7 @@
                             {!! $reviews->links() !!}
 
                         </div>
-
                     </div>
-
                 </div>
                 <hr>
             </div>
