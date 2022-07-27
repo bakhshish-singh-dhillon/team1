@@ -52,6 +52,10 @@ class AddressController extends Controller
             'postal_code' => $valid["billing_postal_code"],
             'phone' => $valid["billing_phone"]
         ];
+        Auth::user()->addresses()->updateOrCreate(
+            ['id' => $request->get("billing_address_id") ?? null],
+            $billing_address
+        );
 
         $shipping_address = [
             'address_type' => $valid["shipping_address_name"],
@@ -62,6 +66,10 @@ class AddressController extends Controller
             'postal_code' => $valid["shipping_postal_code"],
             'phone' => $valid["shipping_phone"]
         ];
+        Auth::user()->addresses()->updateOrCreate(
+            ['id' => $request->get("shipping_address_id") ?? null],
+            $shipping_address
+        );
         // $product = Product::create([
         //     'sku' => $valid['sku'],
         //     'name' => $valid['name'],
