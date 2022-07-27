@@ -25,4 +25,12 @@ class Order extends Model
     {
         return $this->hasMany(Transaction::class);
     }
+
+    /**
+     * Get the user of the order.
+     */
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }

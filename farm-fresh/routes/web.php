@@ -68,6 +68,7 @@ Route::delete('clear-cart', [CartController::class, 'clear'])->name('clear-cart'
 Route::get('choose-addresses', [AddressController::class, 'index'])->name('choose-addresses');
 Route::post('choose-addresses', [AddressController::class, 'store'])->name('store-addresses');
 Route::get('checkout', [CheckoutController::class, 'index'])->name('checkout');
+Route::post('checkout', [CheckoutController::class, 'process_payment'])->name('process-payment');
 // Route::put('choose-addresses', [AddressController::class, 'update'])->name('update-addresses');
 //Checkout Steps End
 

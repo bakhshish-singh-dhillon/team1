@@ -46,7 +46,7 @@
                             </tr>
                         </tbody>
                     </table>
-                    <form action="{{ route('checkout') }}" method="POST" id="checkout_form"
+                    <form action="{{ route('process-payment') }}" method="POST" id="checkout_form"
                         enctype="multipart/form-data">
                         @csrf
                         <div class="row">
@@ -54,14 +54,19 @@
                                 <h2>Payment Details</h2>
                                 <div class="my-3">
                                     <div class="form-check">
-                                        <input id="credit" name="paymentMethod" type="radio" class="form-check-input"
+                                        <input id="credit" name="card_type" type="radio" class="form-check-input" value="visa"
                                             checked="" required="">
-                                        <label class="form-check-label" for="credit">Credit card</label>
+                                        <label class="form-check-label" for="credit">Visa</label>
                                     </div>
                                     <div class="form-check">
-                                        <input id="debit" name="paymentMethod" type="radio" class="form-check-input"
+                                        <input id="debit" name="card_type" type="radio" value="mastercard" class="form-check-input"
                                             required="">
-                                        <label class="form-check-label" for="debit">Debit card</label>
+                                        <label class="form-check-label" for="debit">Master Card</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input id="debit" name="card_type" type="radio" value="amex" class="form-check-input"
+                                            required="">
+                                        <label class="form-check-label" for="debit">American Express</label>
                                     </div>
                                 </div>
                                 <div class="row">
@@ -82,18 +87,18 @@
                                         @enderror
                                     </div>
                                     <div class="col-md-6 form-group mb-3">
-                                        <label for="card-number" class="col-form-label">Expiration</label>
-                                        <input type="text" class="form-control" name="card_number" id="card-number"
+                                        <label for="card-exp" class="col-form-label">Expiration</label>
+                                        <input type="text" class="form-control" name="card_exp" id="card-exp"
                                             placeholder="" />
-                                        @error('card_number')
+                                        @error('card_exp')
                                             <span class="text-danger"> {{ $message }} </span>
                                         @enderror
                                     </div>
                                     <div class="col-md-6 form-group mb-3">
-                                        <label for="card-number" class="col-form-label">CVV</label>
-                                        <input type="text" class="form-control" name="card_number" id="card-number"
+                                        <label for="card-cvv" class="col-form-label">CVV</label>
+                                        <input type="text" class="form-control" name="card_cvv" id="card-cvv"
                                             placeholder="" />
-                                        @error('card_number')
+                                        @error('card_cvv')
                                             <span class="text-danger"> {{ $message }} </span>
                                         @enderror
                                     </div>
