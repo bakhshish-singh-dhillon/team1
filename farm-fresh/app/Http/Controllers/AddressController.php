@@ -52,10 +52,6 @@ class AddressController extends Controller
             'postal_code' => $valid["billing_postal_code"],
             'phone' => $valid["billing_phone"]
         ];
-        Auth::user()->addresses()->updateOrCreate(
-            ['id' => $request->get("billing_address_id") ?? null],
-            $billing_address
-        );
 
         $shipping_address = [
             'address_type' => $valid["shipping_address_name"],
@@ -66,29 +62,19 @@ class AddressController extends Controller
             'postal_code' => $valid["shipping_postal_code"],
             'phone' => $valid["shipping_phone"]
         ];
+
+        Auth::user()->addresses()->updateOrCreate(
+            ['id' => $request->get("billing_address_id") ?? null],
+            $billing_address
+        );
         Auth::user()->addresses()->updateOrCreate(
             ['id' => $request->get("shipping_address_id") ?? null],
             $shipping_address
         );
-        // $product = Product::create([
-        //     'sku' => $valid['sku'],
-        //     'name' => $valid['name'],
-        //     'price' => $valid['price'],
-        //     'description' => $valid['description'],
-        //     'measure_unit' => $valid['measure_unit'],
-        //     'category_id' => $valid['category_id'],
-        //     'quantity' => $valid['quantity']
 
-        // ]);
-        // if ($request->has('key')) {
-        //     foreach ($valid['key'] as $index => $value) {
-        //         $product->product_metas()->create([
-        //             'name' => $value,
-        //             'value' => $valid['value'][$index]
-        //         ]);
-        //     }
-        // }
-        // return redirect('/admin/products')->withSuccess('Product created successfully');
-        return redirect()->back()->withSuccess('Addresses updated');
+        session()->put('shipping_address', json_encode($shipping_address));
+        session()->put('billing_address', json_encode($billing_address));
+
+        return redirect('/checkout')->withSuccess('Addresses added');
     }
 }

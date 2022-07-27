@@ -5,7 +5,7 @@
         <div class="row justify-content-center text-center">
             <div class="col-md-8">
                 <div class="card">
-                    <h1>Checkout</h1>
+                    <h1>Order Addresses</h1>
 
                     <table>
                         <thead>
