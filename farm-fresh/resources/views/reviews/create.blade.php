@@ -10,7 +10,17 @@
             <div class="mx-auto container" style="width: 500px;">
                 <form action="/products/show" method="POST" enctype="multipart/form-data" id="add_review_form">
                     @csrf
-
+                    <div class="form-group">
+                        <label for="sel1">Rate the product:</label>
+                        <select class="form-control" id="sel1">
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                            <option>5</option>
+                        </select>
+                    </div>
+                    <br />
                     <div class="form-outline mb-4">
                         <label class="form-label" for="description">Review:</label>
                         <textarea class="form-control" name="review" id="review" cols="30" rows="10"></textarea>
@@ -18,7 +28,6 @@
                         <span class="text-danger"> {{ $message }}</span>
                         @enderror
                     </div>
-
                     <button class="btn btn-primary">Publish</button>
                 </form>
             </div>
