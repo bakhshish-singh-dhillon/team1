@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreCheckoutAddressesRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Pacewdd\Bx\_5bx;
@@ -26,8 +27,10 @@ class AddressController extends Controller
             $bill['pst'] = 0.07 * $bill['subtotal'];
             $bill['total'] = $bill['subtotal'] + $bill['pst'] + $bill['gst'];
             $addresses = Auth::user()->addresses;
-            return view('checkout_steps.addresses', compact('bill','addresses'));
+            return view('checkout_steps.addresses', compact('bill', 'addresses'));
         }
         return back()->withError('Cart is empty');
     }
+
+    
 }
