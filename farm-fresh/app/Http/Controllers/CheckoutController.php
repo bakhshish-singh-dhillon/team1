@@ -57,10 +57,10 @@ class CheckoutController extends Controller
 
 
         $order = Auth::user()->orders()->create([
-            'delivery_charges' => "",
+            'delivery_charges' => 0.00,
             'gst' => $bill['gst'],
             'pst' => $bill['pst'],
-            'vat' => "",
+            'vat' => 0.00,
             'order_status' => "Pending",
             'total' => $bill['total'],
             'subtotal' => $bill['subtotal'],
@@ -73,9 +73,9 @@ class CheckoutController extends Controller
         foreach($cart as $key=>$item){
             $order->order_line_items()->create([
                 'product_id' => $key,
-                'unit_price' => $item->unit_price,
-                'product_name' => $item->name,
-                'quantity' => $item->quantity
+                'unit_price' => $item["price"],
+                'product_name' => $item["name"],
+                'quantity' => $item["quantity"]
             ]);
         }
 

@@ -10,6 +10,13 @@ class OrderLineItem extends Model
 {
     use HasFactory, SoftDeletes;
 
+    protected $fillable = [
+        'product_id',
+        'unit_price',
+        'product_name',
+        'quantity'
+    ];
+
     /**
      * Get the order for line item.
      */

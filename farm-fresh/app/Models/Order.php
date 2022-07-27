@@ -10,6 +10,20 @@ class Order extends Model
 {
     use HasFactory, SoftDeletes;
 
+    protected $fillable = [
+        'delivery_charges',
+        'gst',
+        'pst',
+        'vat',
+        'order_status',
+        'total',
+        'subtotal',
+        'billing_address',
+        'shipping_address',
+        'auth_code',
+        'transaction_status'
+    ];
+
     /**
      * Get the line items of order.
      */
