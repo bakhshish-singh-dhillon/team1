@@ -46,7 +46,7 @@
                             </tr>
                         </tbody>
                     </table>
-                    <div id="user-addresses" data-addresses="{{ json_encode($addresses) }}">
+                    <div id="user-addresses" data-addresses="{{ $addresses?json_encode($addresses):json_encode([]) }}">
                         <form action="{{ route('store-addresses') }}" method="POST" id="address_form"
                             enctype="multipart/form-data">
                             @csrf
@@ -67,7 +67,7 @@
 
                                         <input type="radio" class="btn-check" name="billing-address-options"
                                             value="add-new" id="billing-address-add-new" autocomplete="off"
-                                            v-model="billing_address_id">
+                                            v-model="billing_address_id" checked="checked">
                                         <label class="btn btn-outline-primary" for="billing-address-add-new">Add New</label>
                                     </div>
                                     <div class="row">
@@ -148,7 +148,7 @@
 
                                         <input type="radio" class="btn-check" name="shipping-address-options"
                                             value="add-new" id="shipping-address-add-new" autocomplete="off"
-                                            v-model="shipping_address_id">
+                                            v-model="shipping_address_id" checked="checked">
                                         <label class="btn btn-outline-primary" for="shipping-address-add-new">Add
                                             New</label>
                                     </div>

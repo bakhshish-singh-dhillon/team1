@@ -13,7 +13,7 @@ if ($("#user-addresses").length) {
         },
         data() {
             return {
-                my_addresses: JSON.parse(this.addresses),
+                my_addresses: "",
                 billing_address_id : '',
                 shipping_address_id : '',
                 billing_address: {
@@ -87,26 +87,8 @@ if ($("#user-addresses").length) {
             }
         },
         mounted() {
-            console.log(this.my_addresses);
-            if (this.my_addresses) {
-                this.billing_address = {
-                    address_type: this.my_addresses[0].address_type,
-                    address: this.my_addresses[0].address,
-                    city: this.my_addresses[0].city,
-                    province: this.my_addresses[0].province,
-                    country: this.my_addresses[0].country,
-                    postal_code: this.my_addresses[0].postal_code,
-                    phone: this.my_addresses[0].phone
-                }
-                this.shipping_address = {
-                    address_type: this.my_addresses[0].address_type,
-                    address: this.my_addresses[0].address,
-                    city: this.my_addresses[0].city,
-                    province: this.my_addresses[0].province,
-                    country: this.my_addresses[0].country,
-                    postal_code: this.my_addresses[0].postal_code,
-                    phone: this.my_addresses[0].phone
-                }
+            if (JSON.parse(this.addresses)) {
+                this.my_addresses = JSON.parse(this.addresses)
             }
         }
     }, { ...mountEl.dataset }).mount('#user-addresses');
