@@ -50,22 +50,22 @@
                         <form action="{{ route('store-addresses') }}" method="POST" id="address_form"
                             enctype="multipart/form-data">
                             @csrf
-                            <input type="hidden" name="billing-address-id" :value="my_addresses[billing_address_id].id" v-if="billing_address_id && billing_address_id !== 'add-new'"/>
-                            <input type="hidden" name="shipping-address-id" :value="my_addresses[shipping_address_id].id" v-if="shipping_address_id && shipping_address_id !== 'add-new'"/>
+                            <input type="hidden" name="billing_address_id" :value="my_addresses[billing_address_id].id" v-if="billing_address_id && billing_address_id !== 'add-new'"/>
+                            <input type="hidden" name="shipping_address_id" :value="my_addresses[shipping_address_id].id" v-if="shipping_address_id && shipping_address_id !== 'add-new'"/>
                             <div class="row">
                                 <div class="col-md-6">
                                     <h2>Billing Address</h2>
 
                                     <div class="radio-billing-addresses">
                                         @foreach ($addresses as $key => $address)
-                                            <input type="radio" class="btn-check" name="billing-address-options"
+                                            <input type="radio" class="btn-check" name="billing_address_options"
                                                 value="{{ $key }}" id="billing-address-{{ $key }}"
                                                 autocomplete="off" v-model="billing_address_id">
                                             <label class="btn btn-outline-primary"
                                                 for="billing-address-{{ $key }}">{{ $address->address }}</label>
                                         @endforeach
 
-                                        <input type="radio" class="btn-check" name="billing-address-options"
+                                        <input type="radio" class="btn-check" name="billing_address_options"
                                             value="add-new" id="billing-address-add-new" autocomplete="off"
                                             v-model="billing_address_id" checked="checked">
                                         <label class="btn btn-outline-primary" for="billing-address-add-new">Add New</label>
@@ -139,14 +139,14 @@
 
                                     <div class="radio-shipping-addresses">
                                         @foreach ($addresses as $key => $address)
-                                            <input type="radio" class="btn-check" name="shipping-address-options"
+                                            <input type="radio" class="btn-check" name="shipping_address_options"
                                                 value="{{ $key }}" id="shipping-address-{{ $key }}"
                                                 autocomplete="off" v-model="shipping_address_id">
                                             <label class="btn btn-outline-primary"
                                                 for="shipping-address-{{ $key }}">{{ $address->address }}</label>
                                         @endforeach
 
-                                        <input type="radio" class="btn-check" name="shipping-address-options"
+                                        <input type="radio" class="btn-check" name="shipping_address_options"
                                             value="add-new" id="shipping-address-add-new" autocomplete="off"
                                             v-model="shipping_address_id" checked="checked">
                                         <label class="btn btn-outline-primary" for="shipping-address-add-new">Add
