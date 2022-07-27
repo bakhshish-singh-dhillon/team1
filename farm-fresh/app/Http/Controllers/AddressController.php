@@ -10,7 +10,8 @@ use Pacewdd\Bx\_5bx;
 class AddressController extends Controller
 {
     /**
-     * Instantiate a new controller instance.
+     * Instantiate controller instance.
+     * Only logged in user can access this page
      *
      * @return void
      */
