@@ -63,9 +63,9 @@
                 </div>
 
                 <div id="Additional Info" class="tabcontent">
-                    <div class="col-md-2">
+                    <div class="col-md-4 text-start">
                         @if(sizeof($product->product_metas) == 0)
-                        <p>No additional information provided!</p>
+                        <p class="text-left">No additional information provided!</p>
                         @else
 
                         <table id="metaTable" class="detail-table">
@@ -74,7 +74,7 @@
 
                                 @foreach ($product->product_metas as $meta)
                                 <tr>
-                                    <td><strong>{{$meta->name}}:</strong></td>
+                                    <td class="font-weight-bold">{{$meta->name}}:</td>
 
                                     <td>{{$meta->value}}</td>
                                 </tr>
