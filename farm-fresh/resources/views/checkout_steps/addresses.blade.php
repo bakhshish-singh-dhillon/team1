@@ -46,12 +46,12 @@
                             </tr>
                         </tbody>
                     </table>
-                    <div id="user-addresses" data-addresses="{{ $addresses?json_encode($addresses):json_encode([]) }}">
+                    <div id="user-addresses" data-addresses="{{ $addresses?json_encode($addresses):json_encode([]) }}" data-old_inputs="{{ Session::getOldInput()?json_encode(Session::getOldInput()):json_encode([]) }}">
                         <form action="{{ route('store-addresses') }}" method="POST" id="address_form"
                             enctype="multipart/form-data">
                             @csrf
-                            <input type="hidden" name="billing_address_id" :value="my_addresses[billing_address_id].id" v-if="billing_address_id && billing_address_id !== 'add-new'"/>
-                            <input type="hidden" name="shipping_address_id" :value="my_addresses[shipping_address_id].id" v-if="shipping_address_id && shipping_address_id !== 'add-new'"/>
+                            <input type="hidden" name="billing_address_id" :value="user_addresses[billing_address_id].id" v-if="billing_address_id && billing_address_id !== 'add-new'"/>
+                            <input type="hidden" name="shipping_address_id" :value="user_addresses[shipping_address_id].id" v-if="shipping_address_id && shipping_address_id !== 'add-new'"/>
                             <div class="row">
                                 <div class="col-md-6">
                                     <h2>Billing Address</h2>
@@ -73,10 +73,10 @@
                                     <div class="row">
                                         <div class="col-md-12 form-group mb-3">
                                             <label for="" class="col-form-label">Address Name</label>
-                                            <input type="text" class="form-control" name="billing_address_type"
+                                            <input type="text" class="form-control" name="billing_address_name"
                                                 id="billing_address_type" placeholder=""
                                                 v-model="billing_address.address_type" />
-                                            @error('billing_address_type')
+                                            @error('billing_address_name')
                                                 <span class="text-danger"> {{ $message }} </span>
                                             @enderror
                                         </div>
@@ -154,11 +154,11 @@
                                     </div>
                                     <div class="row">
                                         <div class="col-md-12 form-group mb-3">
-                                            <label for="" class="col-form-label">Address Type</label>
-                                            <input type="text" class="form-control" name="shipping_address_type"
+                                            <label for="" class="col-form-label">Address Name</label>
+                                            <input type="text" class="form-control" name="shipping_address_name"
                                                 id="shipping_address_type" placeholder=""
                                                 v-model="shipping_address.address_type" />
-                                            @error('shipping_address_type')
+                                            @error('shipping_address_name')
                                                 <span class="text-danger"> {{ $message }}</span>
                                             @enderror
                                         </div>

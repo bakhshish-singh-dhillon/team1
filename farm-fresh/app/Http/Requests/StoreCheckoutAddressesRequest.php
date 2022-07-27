@@ -28,14 +28,14 @@ class StoreCheckoutAddressesRequest extends FormRequest
     public function rules()
     {
         return [
-            "billing_address_type" => "required",
+            "billing_address_name" => "required",
             "billing_address" => "required",
             "billing_city" => "required",
             "billing_province" => "required",
             "billing_country" => "required",
             "billing_postal_code" => "required",
             "billing_phone" => "required",
-            "shipping_address_type" => "required",
+            "shipping_address_name" => "required",
             "shipping_address" => "required",
             "shipping_city" => "required",
             "shipping_province" => "required",
