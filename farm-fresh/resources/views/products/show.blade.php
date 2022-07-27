@@ -19,7 +19,7 @@
                     <tr>
                         <th>Availability:</th>
                         @if((int)$product->quantity == 0)
-                        <td><i class="fa-solid fa-circle-xmark text-danger"></i>
+                        <td><i class="fa-solid fa-circle-xmark mx-2 text-danger"></i>
                             Out of Stock</td>
                         @else
                         <td><i class="fa-solid fa-circle-check mx-2 text-success"></i>
@@ -63,26 +63,26 @@
                 </div>
 
                 <div id="Additional Info" class="tabcontent">
+                    <div class="col-md-4 text-start">
+                        @if(sizeof($product->product_metas) == 0)
+                        <p class="text-left">No additional information provided!</p>
+                        @else
 
-                    @if(sizeof($product->product_metas) == 0)
-                    <p>No additional information provided!</p>
-                    @else
+                        <table id="metaTable" class="detail-table">
 
-                    <table id="metaTable" class="table ">
+                            <tbody>
 
-                        <tbody>
+                                @foreach ($product->product_metas as $meta)
+                                <tr>
+                                    <td class="font-weight-bold">{{$meta->name}}:</td>
 
-                            @foreach ($product->product_metas as $meta)
-                            <tr>
-                                <td><strong>{{$meta->name}}</strong></td>
-
-                                <td>{{$meta->value}}</td>
-                            </tr>
-                            @endforeach
-                        </tbody>
-                    </table>
-                    @endif
-
+                                    <td>{{$meta->value}}</td>
+                                </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
+                        @endif
+                    </div>
                 </div>
 
                 <hr>
