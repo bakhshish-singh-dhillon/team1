@@ -12,6 +12,7 @@ use App\Http\Controllers\Admin\AdminCategoryController;
 use App\Http\Controllers\Admin\AdminUserController;
 use App\Http\Controllers\Admin\AdminOrderController;
 use App\Http\Controllers\CartController;
+use App\Http\Controllers\CheckoutController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -66,7 +67,7 @@ Route::delete('remove-cart-item/{product}', [CartController::class, 'remove'])->
 Route::delete('clear-cart', [CartController::class, 'clear'])->name('clear-cart');
 Route::get('choose-addresses', [AddressController::class, 'index'])->name('choose-addresses');
 Route::post('choose-addresses', [AddressController::class, 'store'])->name('store-addresses');
-Route::post('checkout', [CheckoutController::class, 'index'])->name('checkout');
+Route::get('checkout', [CheckoutController::class, 'index'])->name('checkout');
 // Route::put('choose-addresses', [AddressController::class, 'update'])->name('update-addresses');
 //Checkout Steps End
 
@@ -78,7 +79,7 @@ Route::get('/admin/categories', [AdminCategoryController::class, 'index']);
 Route::get('/about', function () {
     return view('about');
 });
-Route::get('/terms-and-conditions', [App\Http\Controllers\TermsController::class, 'index'])->name('terms');
+Route::get('/terms-and-conditions', [TermsController::class, 'index'])->name('terms');
 Route::get('/404', function () {
     return view('404');
 });
