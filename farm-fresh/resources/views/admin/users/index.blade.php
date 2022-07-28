@@ -20,7 +20,7 @@
 
                 </div>
             </div>
-
+            <span class="title ">{{$title}} ({{ count($users) }})</span>
             <table class="table align-middle mb-0 bg-white">
                 <thead class="bg-light ">
                     <tr>
