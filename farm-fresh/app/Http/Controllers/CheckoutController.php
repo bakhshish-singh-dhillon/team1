@@ -47,8 +47,8 @@ class CheckoutController extends Controller
         }
 
         $cart = session()->get('cart');
-        
-        
+
+
         $bill['subtotal'] = array_sum(array_column($cart, 'line_price'));
         $bill['gst'] = 0.05 * $bill['subtotal'];
         $bill['pst'] = 0.07 * $bill['subtotal'];
@@ -66,11 +66,11 @@ class CheckoutController extends Controller
             'subtotal' => $bill['subtotal'],
             'billing_address' => json_encode(session()->get('billing_address')),
             'shipping_address' => json_encode(session()->get('shipping_address')),
-            'auth_code' => "",
+            'auth_code' => "NA",
             'transaction_status' => "incomplete",
         ]);
 
-        foreach($cart as $key=>$item){
+        foreach ($cart as $key => $item) {
             $order->order_line_items()->create([
                 'product_id' => $key,
                 'unit_price' => $item["price"],
@@ -81,31 +81,42 @@ class CheckoutController extends Controller
 
         try {
 
+            // You need your login and API key to begin
+            // login_id:  2021081  
+            // api_key: a88c8843898e4daad5646322ca06f14d
             $transaction = new _5bx('2021081', 'a88c8843898e4daad5646322ca06f14d');
             $transaction->amount($bill['total']);
-            $transaction->card_num($valid['card_number']); 
+            $transaction->card_num($valid['card_number']);
             $transaction->exp_date($valid['card_exp']);
-            $transaction->cvv($valid['card_cvv']); 
-            $transaction->ref_num($order->id); 
+            $transaction->cvv($valid['card_cvv']);
+            $transaction->ref_num($order->id);
             $transaction->card_type($valid['card_type']);
 
-            $response = $transaction->authorize_and_capture(); 
+            $response = $transaction->authorize_and_capture();
 
             if ($response->transaction_response->response_code == '1') {
-                // Your transaction was authorized... 
-                echo "Success! Authorization Code: " .
-                    $response->transaction_response->auth_code;
+                $order->auth_code = $response->transaction_response->auth_code;
+                $order->transaction_status = "Successful";
+                $order->save();
+                $order->transactions()->create([
+                    "cc_num" => substr($valid['card_number'], -4),
+                    "payment_transaction_id" => $response->transaction_response->trans_id,
+                    "status" => $response->result_code,
+                    "response" => json_encode($response)
+                ]);
             } elseif (count($response->transaction_response->errors)) {
-                foreach ($response->transaction_response->errors as $error) {
-                    echo $error . '<br />';
-                }
+                $order->transaction_status = "Successful";
+                $order->save();
+                $order->transactions()->create([
+                    "cc_num" => substr($valid['card_number'], -4),
+                    "payment_transaction_id" => $response->transaction_response->trans_id,
+                    "status" => $response->result_code,
+                    "response" => json_encode($response)
+                ]);
             }
         } catch (Exception $e) {
             die($e->getMessage());
         }
-        // You need your login and API key to begin
-        // login_id:  2021081  
-        // api_key: a88c8843898e4daad5646322ca06f14d
 
         dd($response);
     }
