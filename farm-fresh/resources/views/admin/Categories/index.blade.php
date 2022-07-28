@@ -16,7 +16,7 @@
                             <form method="get" action="/admin/categories/search">
                                 <div class="btn-group">
                                     @csrf
-                                    <input class="form-control w-96" type="search" name="search" placeholder="Search by name" value="{{ app('request')->input('search') }}" />
+                                    <input class="form-control w-96" type="search" name="search" placeholder="Search by name or id" value="{{ app('request')->input('search') }}" />
                                     <button class="btn btn-success">Search</button>
                                 </div>
                             </form>
