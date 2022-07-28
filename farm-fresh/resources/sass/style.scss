@@ -215,10 +215,6 @@ button.btn:hover {
     }
 }
 
-#admin .alert {
-    z-index: 1;
-}
-
 .alertClose {
     cursor: pointer;
 }
@@ -342,10 +338,19 @@ button.btn:hover {
 }
 
 #admin {
+
+    .search-bar {
+        min-width: 300px;
+    }
+
     .heading {
         font-size: 1.5em;
         font-weight: 700;
         padding: 20px 0;
+    }
+
+    .alert {
+        z-index: 1;
     }
 
     .blue-bg {
