@@ -40,12 +40,8 @@ class AdminCategoryController extends Controller
      */
     public function store(Request $request)
     {
-        // Retrieve the validated input data...
-        $valid = $request->validate([
-            'category-name' => 'required',
-        ]);
         $category = Category::create([
-            'name' => $valid['category-name'],
+            'name' => $request['category-name'],
             'category_id' => $request['category_id'],
 
         ]);

@@ -74,7 +74,7 @@
                                         @csrf
                                         <div class="mb-3">
                                             <label for="category-name" class="col-form-label">Category Name:
-                                                <span class="text-danger">*</span>
+                                                <span class="text-danger" id="required">*</span>
                                             </label>
                                             <input type="text" class="form-control" id="category-name" name="category-name">
                                             @error('category-name')
