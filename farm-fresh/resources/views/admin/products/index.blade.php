@@ -12,14 +12,13 @@
                     <div class="d-flex justify-content-between mb-2">
                         <a class="btn btn-primary mb-1" href="/admin/products/create" role="button">Create</a>
                         <div>
-                            <form method="get" action="/admin/products/">
+                            <form method="get" action="{{ route('admin-get-products', []) }}">
                                 <div class="btn-group">
                                     @csrf
-                                    <input class="form-control w-96" type="search" name="search" placeholder="Search by id, name, range or location" value="{{ app('request')->input('search') }}" />
+                                    <input class="form-control w-96" type="search" name="search" placeholder="Search by id, title or price" value="{{ app('request')->input('search') }}" />
                                     <button class="btn btn-success">Search</button>
                                 </div>
                             </form>
-
                         </div>
                     </div>
 
@@ -34,6 +33,9 @@
                             </tr>
                         </thead>
                         <tbody class="">
+                            @if(count($products)==0)
+                            <tr colspan="4">No results found!</tr>
+                            @endif
                             @foreach ($products as $product)
                             <tr>
                                 <td>{{ $product->id }}</td>

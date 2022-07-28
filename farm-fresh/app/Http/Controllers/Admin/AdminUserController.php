@@ -23,9 +23,16 @@ class AdminUserController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $users = User::latest()->paginate(10);
+        if ($request->search) {
+            $users = User::where('first_name', 'like', '%' . $request->search . '%')
+                ->orWhere('last_name', 'like', '%' . $request->search . '%')
+                ->orWhere('id', 'like', '%' . $request->search . '%')
+                ->orWhere('email', 'like', '%' . $request->search . '%')->paginate(9);
+        } else {
+            $users = User::latest()->paginate(10);
+        }
         return view('admin/users/index', compact('users'));
     }
 

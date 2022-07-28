@@ -96,7 +96,8 @@ class AdminCategoryController extends Controller
     {
         if ($request->search) {
             $parentCategories = Category::all();
-            $categories = Category::where('name', 'like', '%' . $request->search . '%')->paginate(9);
+            $categories = Category::where('name', 'like', '%' . $request->search . '%')
+                ->orWhere('id', 'like', '%' . $request->search . '%')->paginate(9);
             return view('admin/Categories/index', compact('categories', 'parentCategories'));
         }
 

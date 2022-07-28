@@ -8,6 +8,7 @@ use App\Http\Requests\StoreProductRequest;
 use App\Http\Requests\UpdateProductRequest;
 use App\Models\Category;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Http\Request;
 
 class AdminProductController extends Controller
 {
@@ -26,10 +27,16 @@ class AdminProductController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $products = Product::latest()->paginate(10);
-        $categories = Category::pluck('name', 'id');
+        if ($request->search) {
+            $products = Product::where('price', 'like', '%' . $request->search . '%')
+                ->orWhere('name', 'like', '%' . $request->search . '%')->paginate(9);
+            $categories = Category::whereNull('category_id')->get();
+        } else {
+            $products = Product::latest()->paginate(10);
+            $categories = Category::pluck('name', 'id');
+        }
         return view('admin/products/index', compact('products', 'categories'));
     }
 
