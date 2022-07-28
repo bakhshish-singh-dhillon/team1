@@ -49,6 +49,23 @@
                             use certain features of our website or mobile application. A cookie generally allows a website
                             to remember your actions or preference for a certain period of time.
                         </p>
+                        <h2>Data</h2>
+                        <p>
+                            includes non-personal information, personal information and sensitive personal information about
+                            you, which either directly or indirectly in combination with other information, could allow you
+                            to be identified when you visit our stores, website and/or mobile application.
+                        </p>
+                        <h2>CHANGES TO THIS PRIVACY NOTICE</h2>
+                        <p>
+                            Our business changes constantly and our Privacy Notice will change also. We may e-mail periodic
+                            reminders of our notices and conditions, unless you have instructed us not to, but you should
+                            check our website and mobile application frequently to see recent changes. The updated version
+                            will be effective as soon as it is accessible. Any changes will be immediately posted on our
+                            website and mobile application and you are deemed to have accepted the terms of the updated
+                            Privacy Notice on your first use of our website or mobile application or first purchase of the
+                            products and/or services following the alterations. We encourage you to review this Privacy
+                            Notice frequently to be informed of how we are protecting your information.
+                        </p>
                     </div>
                 </div>
             </div>
