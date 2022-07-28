@@ -4,6 +4,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\AboutController;
+use App\Http\Controllers\AddressController;
 use App\Http\Controllers\TermsController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\Admin\AdminController;
@@ -13,6 +14,7 @@ use App\Http\Controllers\Admin\AdminUserController;
 use App\Http\Controllers\Admin\AdminReviewController;
 use App\Http\Controllers\Admin\AdminOrderController;
 use App\Http\Controllers\CartController;
+use App\Http\Controllers\CheckoutController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -60,14 +62,18 @@ Route::get('/admin/orders/{order}/edit', [AdminOrderController::class, 'edit'])-
 Route::put('/admin/orders/{order}', [AdminOrderController::class, 'update'])->name('order-update');
 Route::delete('/admin/orders/{order}', [AdminOrderController::class, 'destroy'])->name('order-delete');
 
-//Cart Urls
+//Checkout Steps Urls
 Route::get('cart', [CartController::class, 'index'])->name('cart');
 Route::get('add-to-cart/{product}', [CartController::class, 'add'])->name('add-to-cart');
 Route::delete('remove-cart-item/{product}', [CartController::class, 'remove'])->name('remove-cart-item');
 Route::delete('clear-cart', [CartController::class, 'clear'])->name('clear-cart');
-// Route::get('checkout', [CartController::class, 'index'])->name('checkout');
-// Route::post('checkout', [CartController::class, 'index'])->name('cart');
-//Cart Urls End
+Route::get('choose-addresses', [AddressController::class, 'index'])->name('choose-addresses');
+Route::post('choose-addresses', [AddressController::class, 'store'])->name('store-addresses');
+Route::get('checkout', [CheckoutController::class, 'index'])->name('checkout');
+Route::post('checkout', [CheckoutController::class, 'process_payment'])->name('process-payment');
+Route::get('thank-you', [CheckoutController::class, 'thank_you'])->name('thank-you');
+// Route::put('choose-addresses', [AddressController::class, 'update'])->name('update-addresses');
+//Checkout Steps End
 
 //Admin Category Urls
 Route::get('/admin/categories', [AdminCategoryController::class, 'index']);
@@ -81,7 +87,7 @@ Route::get('admin/categories/search', [AdminCategoryController::class, 'getCateg
 Route::get('/about', function () {
     return view('about');
 });
-Route::get('/terms-and-conditions', [App\Http\Controllers\TermsController::class, 'index'])->name('terms');
+Route::get('/terms-and-conditions', [TermsController::class, 'index'])->name('terms');
 Route::get('/404', function () {
     return view('404');
 });

@@ -11,6 +11,22 @@ class Address extends Model
     use HasFactory, SoftDeletes;
 
     /**
+     * The attributes that are mass assignable.
+     *
+     * @var array<int, string>
+     */
+    protected $fillable = [
+        'user_id',
+        'address_type',
+        'address',
+        'city',
+        'province',
+        'country',
+        'postal_code',
+        'phone'
+    ];
+
+    /**
      * Get the User of the address.
      */
     public function users()
