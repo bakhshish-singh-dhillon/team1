@@ -3,9 +3,10 @@
 namespace App\Http\Controllers;
 
 use Exception;
+use Pacewdd\Bx\_5bx;
+use App\Models\Order;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Pacewdd\Bx\_5bx;
 
 class CheckoutController extends Controller
 {
@@ -31,9 +32,10 @@ class CheckoutController extends Controller
         }
         return back()->withError('Cart is empty');
     }
-    public function thank_you(Request $request)
+    public function thank_you(Order $order)
     {
-        return view('thank-you');
+
+        //return view('thank-you');
     }
 
     public function process_payment(Request $request)

@@ -30,10 +30,12 @@ class AdminUserController extends Controller
                 ->orWhere('last_name', 'like', '%' . $request->search . '%')
                 ->orWhere('id', 'like', '%' . $request->search . '%')
                 ->orWhere('email', 'like', '%' . $request->search . '%')->paginate(9);
+            $title = "Searching for " . $request->search;
         } else {
             $users = User::latest()->paginate(10);
+            $title = "All Users";
         }
-        return view('admin/users/index', compact('users'));
+        return view('admin/users/index', compact('users', 'title'));
     }
 
     public function destroy(User $user)
