@@ -9,7 +9,6 @@
                     <h1 class="h1">Users</h1>
                 </div>
                 <div class="card-body">
-
                     <form method="get" action="/admin/users/">
                         <div class="btn-group">
                             @csrf
@@ -17,14 +16,13 @@
                             <button class="btn btn-success">Search</button>
                         </div>
                     </form>
-
                 </div>
             </div>
-
+            <span class="title ">{{$title}} ({{ count($users) }})</span>
             <table class="table align-middle mb-0 bg-white">
                 <thead class="bg-light ">
                     <tr>
-                        <th>ID</th>
+                        <th>I</th>
                         <th>First Name</th>
                         <th>Last Name</th>
                         <th>Email</th>

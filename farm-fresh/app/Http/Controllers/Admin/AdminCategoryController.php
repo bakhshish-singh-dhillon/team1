@@ -28,7 +28,8 @@ class AdminCategoryController extends Controller
     {
         $categories = Category::latest()->paginate(10);
         $parentCategories = Category::all();
-        return view('admin/categories/index', compact('categories', 'parentCategories'));
+        $title = "All Categories";
+        return view('admin/categories/index', compact('categories', 'parentCategories', 'title'));
     }
 
     /**
@@ -39,12 +40,8 @@ class AdminCategoryController extends Controller
      */
     public function store(Request $request)
     {
-        // Retrieve the validated input data...
-        $valid = $request->validate([
-            'category-name' => 'required',
-        ]);
         $category = Category::create([
-            'name' => $valid['category-name'],
+            'name' => $request['category-name'],
             'category_id' => $request['category_id'],
 
         ]);
@@ -98,7 +95,8 @@ class AdminCategoryController extends Controller
             $parentCategories = Category::all();
             $categories = Category::where('name', 'like', '%' . $request->search . '%')
                 ->orWhere('id', 'like', '%' . $request->search . '%')->paginate(9);
-            return view('admin/Categories/index', compact('categories', 'parentCategories'));
+            $title = "Searching for " . $request->search;
+            return view('admin/Categories/index', compact('categories', 'parentCategories', 'title'));
         }
 
         return redirect('admin/categories');
