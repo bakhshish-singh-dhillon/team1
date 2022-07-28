@@ -7,7 +7,7 @@
 <div class="card">
     <div class="card-body">
         <div class="d-flex justify-content-between mb-2">
-            <a class="btn btn-primary mb-1" href="/admin/orders/create" role="button">Create</a>
+            <a class="btn btn-primary mb-1" href="/admin/orders/create" role="button"><i class="fa-solid fa-plus mx-1"></i>Create</a>
             <div>
                 <form method="get" action="/admin/orders/">
                     <div class="btn-group">
