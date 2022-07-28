@@ -14,7 +14,7 @@ class CartController extends Controller
             $bill['gst'] = 0.05 * $bill['subtotal'];
             $bill['pst'] = 0.07 * $bill['subtotal'];
             $bill['total'] = $bill['subtotal'] + $bill['pst'] + $bill['gst'];
-            return view('cart.index', compact('bill'));
+            return view('checkout_steps.cart', compact('bill'));
         }
         return back()->withError('Cart is empty');
     }

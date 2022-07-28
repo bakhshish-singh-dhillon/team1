@@ -25,6 +25,8 @@ return new class extends Migration
             $table->decimal('subtotal',8,2);
             $table->string('billing_address');
             $table->string('shipping_address');
+            $table->string('auth_code');
+            $table->string('transaction_status');
             $table->softDeletes();
             $table->timestamps();
         });
