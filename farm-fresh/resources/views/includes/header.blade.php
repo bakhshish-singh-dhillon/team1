@@ -21,7 +21,6 @@
     <link rel="icon" href="/images/logo-50.png" />
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <link href="{{ asset('sass/style.scss') }}" rel="stylesheet">
 </head>
 
 <body>
@@ -53,7 +52,15 @@
                         </span>
                     </a>
 
-                    <span><img src="/images/power.png" alt="Logout" class="icon mx-2 my-4" /></span>
+                    <span>
+                        <a href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">
+                            <img src="/images/power.png" alt="Logout" class="icon mx-2 my-4" />
+                        </a>
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                            @csrf
+                        </form>
+
+                    </span>
                 </div>
 
             </div>

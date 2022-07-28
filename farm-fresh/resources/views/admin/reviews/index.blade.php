@@ -6,14 +6,14 @@
         <div class="col-md-10">
             <div class="card">
                 <div class="card-header">
-                    <h1 class="h1">Users</h1>
+                    <h1 class="h1">Reviews</h1>
                 </div>
                 <div class="card-body">
 
-                    <form method="get" action="/admin/users/">
+                    <form method="get" action="/admin/reviews/">
                         <div class="btn-group">
                             @csrf
-                            <input class="form-control w-96" type="search" name="search" placeholder="Search by id, name or email" value="{{ app('request')->input('search') }}" />
+                            <input class="form-control w-96" type="search" name="search" placeholder="Search by id, name or rating" value="{{ app('request')->input('search') }}" />
                             <button class="btn btn-success">Search</button>
                         </div>
                     </form>
@@ -25,28 +25,26 @@
                 <thead class="bg-light ">
                     <tr>
                         <th>ID</th>
-                        <th>First Name</th>
-                        <th>Last Name</th>
-                        <th>Email</th>
+                        <th>Review</th>
+                        <th>Rating</th>
                         <th>Action</th>
                     </tr>
                 </thead>
                 <tbody class="">
-                    @if(count($users)==0)
+                    @if(count($reviews)==0)
                     <tr colspan="4">No results found!</tr>
                     @endif
-                    @foreach ($users as $user)
+                    @foreach ($reviews as $review)
                     <tr>
-                        <td>{{ $user->id }}</td>
-                        <td>{{ $user->first_name }}</td>
-                        <td>{{ $user->last_name }}</td>
-                        <td>{{ $user->email }}</td>
+                        <td>{{ $review->id }}</td>
+                        <td>{{ $review->review }}</td>
+                        <td>{{ $review->rating }}</td>
                         <td>
                             <div class="btn-group">
-                                <form method="post" action="{{ route('user-delete', ['user' => $user->id]) }}">
+                                <form method="post" action="{{ route('review-delete', ['review' => $review->id]) }}">
                                     @csrf
                                     @method('DELETE')
-                                    <input type="hidden" name="id" value="{{ $user->id }}" />
+                                    <input type="hidden" name="id" value="{{ $review->id }}" />
                                     <button class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this post?')">Delete</button>
                                 </form>
                             </div>
@@ -58,7 +56,7 @@
 
             <div class="pagination content-center">
 
-                {!! $users->links('pagination::bootstrap-5') !!}
+                {!! $reviews->links('pagination::bootstrap-5') !!}
 
             </div>
         </div>

@@ -23,9 +23,16 @@ class AdminOrderController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $orders = Order::latest()->paginate(10);
+        if ($request->search) {
+            $orders = Order::where('id', 'like', '%' . $request->search . '%')
+                ->orWhere('billing_address', 'like', '%' . $request->search . '%')
+                ->orWhere('shipping_address', 'like', '%' . $request->search . '%')
+                ->orWhere('subtotal', 'like', '%' . $request->search . '%')->paginate(9);
+        } else {
+            $orders = Order::latest()->paginate(10);
+        }
         return view('admin/orders/index', compact('orders'));
     }
 }

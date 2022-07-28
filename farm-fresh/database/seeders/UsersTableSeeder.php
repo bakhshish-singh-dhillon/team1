@@ -26,9 +26,9 @@ class UsersTableSeeder extends Seeder
 
         ]);
         DB::table('users')->insert([
-            'first_name' => 'Customer',
+            'first_name' => 'Silk',
             'last_name' => 'Doe',
-            'email' => 'user@team1.uwpace.ca',
+            'email' => 'silk@gmail.com',
             'password' => bcrypt('user'),
             'is_admin' => false
 
@@ -56,6 +56,95 @@ class UsersTableSeeder extends Seeder
             'first_name' => 'Shawn',
             'last_name' => 'merrelle',
             'email' => 'shawn@gmail.com',
+            'password' => bcrypt('user'),
+            'is_admin' => false
+
+        ]);
+
+        DB::table('users')->insert([
+            'first_name' => 'Narendra',
+            'last_name' => 'Modi',
+            'email' => 'narendra@gmail.com',
+            'password' => bcrypt('user'),
+            'is_admin' => false
+
+        ]);
+
+        DB::table('users')->insert([
+            'first_name' => 'Marry',
+            'last_name' => 'Kom',
+            'email' => 'marry@gmail.com',
+            'password' => bcrypt('user'),
+            'is_admin' => false
+
+        ]);
+
+        DB::table('users')->insert([
+            'first_name' => 'Cyber',
+            'last_name' => 'Crime',
+            'email' => 'cyber@gmail.com',
+            'password' => bcrypt('user'),
+            'is_admin' => false
+
+        ]);
+
+        DB::table('users')->insert([
+            'first_name' => 'Honey',
+            'last_name' => 'Bee',
+            'email' => 'honey@gmail.com',
+            'password' => bcrypt('user'),
+            'is_admin' => false
+
+        ]);
+
+        DB::table('users')->insert([
+            'first_name' => 'Dhara',
+            'last_name' => 'Patel',
+            'email' => 'dhara@gmail.com',
+            'password' => bcrypt('user'),
+            'is_admin' => false
+
+        ]);
+
+        DB::table('users')->insert([
+            'first_name' => 'Sargam',
+            'last_name' => 'Sanghani',
+            'email' => 'sargam@gmail.com',
+            'password' => bcrypt('user'),
+            'is_admin' => false
+
+        ]);
+        DB::table('users')->insert([
+            'first_name' => 'Pulkit',
+            'last_name' => 'Bardwaj',
+            'email' => 'pulkit@gmail.com',
+            'password' => bcrypt('user'),
+            'is_admin' => false
+
+        ]);
+
+        DB::table('users')->insert([
+            'first_name' => 'Pravindra',
+            'last_name' => 'Singh',
+            'email' => 'pravindra@gmail.com',
+            'password' => bcrypt('user'),
+            'is_admin' => false
+
+        ]);
+
+        DB::table('users')->insert([
+            'first_name' => 'Harry',
+            'last_name' => 'Singh',
+            'email' => 'harry@gmail.com',
+            'password' => bcrypt('user'),
+            'is_admin' => false
+
+        ]);
+
+        DB::table('users')->insert([
+            'first_name' => 'Bakhshish',
+            'last_name' => 'Singh',
+            'email' => 'bakhshish@gmail.com',
             'password' => bcrypt('user'),
             'is_admin' => false
 

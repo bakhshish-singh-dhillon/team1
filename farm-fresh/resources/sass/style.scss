@@ -72,7 +72,6 @@ button.btn:hover {
     background-color: #fff;
 }
 
-
 .icon {
     height: 35px;
     width: 35px;
@@ -182,7 +181,6 @@ button.btn:hover {
     }
 
     .detail-table {
-
         th {
             padding: 0 10px 0 0;
         }
@@ -204,15 +202,31 @@ button.btn:hover {
 
         .outer-box {
             border: 1px solid $green;
-            height: 25px;
+            height: 20px;
+            box-sizing: content-box;
             width: 90%;
+            background-color: #eee;
         }
 
         .bar-5 {
             background-color: $green;
-            height: 25px;
+            height: 20px;
         }
     }
+}
+
+#admin .alert {
+    z-index: 1;
+}
+
+.alertClose {
+    cursor: pointer;
+}
+
+#metaTable {
+    width: 50%;
+
+    margin: 0 auto;
 }
 
 .ellipsis-text {
@@ -277,7 +291,6 @@ button.btn:hover {
 
 #home {
     #banner {
-
         .banner-box {
             position: relative;
             background: url("../../public/images/main-bg.jpg") 50% no-repeat fixed;
@@ -329,7 +342,6 @@ button.btn:hover {
 }
 
 #admin {
-
     .heading {
         font-size: 1.5em;
         font-weight: 700;
@@ -364,14 +376,12 @@ button.btn:hover {
         height: 100vh;
         background-color: slategrey;
 
-
         ul.side-bar {
             li {
                 list-style-type: none;
             }
 
             .menu-item {
-
                 border-bottom: 1px solid #ccc;
 
                 a {
@@ -398,11 +408,10 @@ button.btn:hover {
     }
 }
 
+
 /****************** Detail page ******************/
 
-
 #quantity {
-
     input.qty {
         width: 40px;
         height: 30px;
@@ -422,6 +431,7 @@ button.btn:hover {
     }
 }
 
+
 /****************** Home page ******************/
 
 #category {
@@ -438,4 +448,48 @@ button.btn:hover {
     div.pagination {
         margin-top: 50px;
     }
+}
+
+.select2-container {
+    z-index: 1200;
+    width: 20px;
+}
+
+.select2-selection__rendered {
+    width: 150px !important;
+}
+
+.capitalization {
+    text-transform: capitalize;
+}
+
+.tab {
+    overflow: hidden;
+    border: 1px solid #ccc;
+}
+
+/* Style the buttons that are used to open the tab content */
+.tab button {
+    box-shadow: inset 0 -5px 7px #c4c4c4;
+    float: left;
+    border: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    transition: 0.3s;
+    color: #777;
+}
+
+/* Create an active/current tablink class */
+.tab button.active {
+    background-color: inherit;
+    box-shadow: none;
+    color: #000;
+}
+
+/* Style the tab content */
+.tabcontent {
+    display: none;
+    padding: 6px 12px;
+    border: 1px solid #ccc;
+    border-top: none;
 }

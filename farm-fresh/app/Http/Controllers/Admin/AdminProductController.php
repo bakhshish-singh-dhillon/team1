@@ -8,6 +8,7 @@ use App\Http\Requests\StoreProductRequest;
 use App\Http\Requests\UpdateProductRequest;
 use App\Models\Category;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Http\Request;
 
 class AdminProductController extends Controller
 {
@@ -26,10 +27,16 @@ class AdminProductController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $products = Product::latest()->paginate(10);
-        $categories = Category::pluck('name', 'id');
+        if ($request->search) {
+            $products = Product::where('price', 'like', '%' . $request->search . '%')
+                ->orWhere('name', 'like', '%' . $request->search . '%')->paginate(9);
+            $categories = Category::whereNull('category_id')->get();
+        } else {
+            $products = Product::latest()->paginate(10);
+            $categories = Category::pluck('name', 'id');
+        }
         return view('admin/products/index', compact('products', 'categories'));
     }
 
@@ -78,7 +85,7 @@ class AdminProductController extends Controller
                 ]);
             }
         }
-        
+
         if ($request->has('category_id')) {
             foreach ($valid['category_id'] as $index => $value) {
                 $product->categories()->attach($valid['category_id']);
@@ -107,9 +114,9 @@ class AdminProductController extends Controller
     public function edit(Product $product)
     {
         $categories = Category::pluck('name', 'id');
-        $product_metas = $product->product_metas()->get()->pluck('value','name');
+        $product_metas = $product->product_metas()->get()->pluck('value', 'name');
         $images = $product->images()->get()->pluck('url');
-        return view('admin/products/edit', compact('categories','product','product_metas','images'));
+        return view('admin/products/edit', compact('categories', 'product', 'product_metas', 'images'));
     }
 
     /**
@@ -136,8 +143,8 @@ class AdminProductController extends Controller
         ]);
         if ($request->file('image_upload')) {
             foreach ($product->images()->get() as $file) {
-                if(Storage::exists('public/images/'.$file->url)){
-                    Storage::delete('public/images/'.$file->url);
+                if (Storage::exists('public/images/' . $file->url)) {
+                    Storage::delete('public/images/' . $file->url);
                 }
             }
             $product->images()->delete();
@@ -147,21 +154,21 @@ class AdminProductController extends Controller
         }
         if ($request->has('key')) {
             $product->product_metas()->delete();
-            foreach($valid['key'] as $index => $value) {
+            foreach ($valid['key'] as $index => $value) {
                 $product->product_metas()->create([
                     'name' => $value,
                     'value' => $valid['value'][$index]
                 ]);
             }
         }
-        
+
         if ($request->has('category_id')) {
             foreach ($valid['category_id'] as $index => $value) {
                 $product->categories()->detach();
                 $product->categories()->attach($valid['category_id']);
             }
         }
-        return redirect('/admin/products')->withSuccess('Product created successfully');
+        return redirect('/admin/products')->withSuccess('Product updated successfully');
     }
 
     /**

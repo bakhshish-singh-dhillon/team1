@@ -22,6 +22,8 @@ $(document).ready(function($) {
 
     $('.js-example-basic-single').select2();
 
+    // Dhara to add products into the cart (counter for products)
+
     var incrementPlus;
     var decrementMinus;
 
@@ -41,6 +43,7 @@ $(document).ready(function($) {
             $n.val(amount - 1);
         }
     });
+
     // Pravindra Category Modal
     $('#exampleModal').on('show.bs.modal', function(event) {
             var button = $(event.relatedTarget) // Button that triggered the modal
@@ -52,4 +55,54 @@ $(document).ready(function($) {
             modal.find('.modal-body input').val(recipient)
         })
         // Pravindra Category Modal
+
+
+    //Dhara : Close alert on click 
+    var hide = $(".alertClose").click(function() {
+        $(".alert").hide();
+
+    });
+
+
+    const categoryModal = document.getElementById('categoryModal')
+
+    if (categoryModal) {
+
+        categoryModal.addEventListener('show.bs.modal', event => {
+            const button = event.relatedTarget
+            var parentId = 0;
+            parentId = button.getAttribute('data-bs-parent')
+            if (parentId == "" || undefined == parentId || null == parentId) {
+                parentId = 0;
+            }
+            const id = button.getAttribute('data-bs-id')
+            const recipient = button.getAttribute('data-bs-whatever')
+            if (recipient == "Edit") {
+                document.getElementById("category_form").action = "/admin/categories/" + id;
+                document.getElementById("submit_btn").innerHTML = "Update";
+                var put_method = document.createElement('input');
+                put_method.type = 'hidden';
+                put_method.id = '_method';
+                put_method.value = 'PUT';
+                put_method.name = '_method';
+                document.getElementById("category_form").appendChild(put_method);
+            } else {
+                document.getElementById("submit_btn").innerHTML = "Create";
+                document.getElementById("category_form").action = "/admin/categories";
+                document.getElementById("_method").remove();
+            }
+            const name = button.getAttribute('data-bs-name')
+
+            const modalBodyInput = categoryModal.querySelector('.modal-body #category-name')
+            modalBodyInput.value = name
+            document.getElementById('category_id').getElementsByTagName('option')[parentId].selected = 'selected';
+            $('.js-example-basic-single').select2();
+
+            const modalTitle = categoryModal.querySelector('#categoryModalLabel');
+            ``
+            modalTitle.textContent = `${recipient} Category`
+
+
+        });
+    }
 });
