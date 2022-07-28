@@ -15,11 +15,10 @@
                             <form method="get" action="/admin/products/">
                                 <div class="btn-group">
                                     @csrf
-                                    <input class="form-control w-96" type="search" name="search" placeholder="Search by id, name, range or location" value="{{ app('request')->input('search') }}" />
+                                    <input class="form-control w-96" type="search" name="search" placeholder="Search by id, title or price" value="{{ app('request')->input('search') }}" />
                                     <button class="btn btn-success">Search</button>
                                 </div>
                             </form>
-
                         </div>
                     </div>
 
