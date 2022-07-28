@@ -215,10 +215,6 @@ button.btn:hover {
     }
 }
 
-.alertClose {
-    cursor: pointer;
-}
-
 #metaTable {
     width: 50%;
 
@@ -364,6 +360,14 @@ button.btn:hover {
         color: $blue;
         border: 1px solid;
         background-color: #fff;
+    }
+
+    button.btn-danger {
+        background-color: $red;
+    }
+
+    button.btn-danger:hover {
+        color: $red;
     }
 
     .pagination {
