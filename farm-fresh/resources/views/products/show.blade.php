@@ -34,9 +34,10 @@
                         <th>Quantity:</th>
                         <td id="quantity" class="d-flex">
                             <form class="d-flex" action="{{ route('add-to-cart', ['product' => $product->id]) }}" method="get">
+                                @csrf
                                 <div>
                                     <i id="plus" class="fa-solid fa-plus"></i>
-                                    <input type="text" name="quantity" class="qty" maxlength="12" value="1" class="input-text qty" disabled/>
+                                    <input type="text" name="quantity" class="qty" maxlength="12" value="1" class="input-text qty" />
                                     <i id="minus" class="fa-solid fa-minus"></i>
                                 </div>
 
@@ -158,7 +159,7 @@
                         @if(count($product->reviews()->get()) == 0)
                         <p>We found 0 matching reviews</p>
                         <p>Be the first!</p>
-                        <button class="btn">Write a review</button>
+
                         @else
                         @foreach ($reviews as $review)
                         <div>
@@ -173,41 +174,87 @@
                         </div>
 
                         @endforeach
-                        <div class="d-flex justify-content-between mb-2">
-                            <a class="btn btn-primary mb-1" href="/reviews/create" role="button">Add a review</a>
-                            <div>
-                                @endif
-                                <div class="pagination content-center justify-content-center">
 
-                                    {!! $reviews->links() !!}
+                        @endif
 
+
+                        <div>
+                            <div class="card">
+                                <div class="card-header">
+                                    <h4 class="h4">Write a review</h4>
+                                </div>
+                                <div class="card-body">
+                                    <div class="">
+                                        <form action="{{route('store-product-review', ['product'=>$product->id])}}" method="POST" id="add_review_form">
+                                            @csrf
+
+                                            <table class="w-100">
+                                                <tr>
+                                                    <td class="px-2 w-25"><label for="sel1">Rate the product:</label></td>
+                                                    <td class="py-2"><select name="rating" class="form-control" id="sel1">
+                                                            <option value="">Select star rating</option>
+                                                            <option value="1">1</option>
+                                                            <option value="2">2</option>
+                                                            <option value="3">3</option>
+                                                            <option value="4">4</option>
+                                                            <option value="5">5</option>
+                                                        </select>
+                                                        @error('rating')
+                                                        <span class="text-danger"> {{ $message }}</span>
+                                                        @enderror
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="px-2"> <label for="description">Review:</label>
+                                                    </td>
+                                                    <td><textarea class="form-control" name="review" id="review" rows="2"></textarea>
+                                                        @error('review')
+                                                        <span class="text-danger"> {{ $message }}</span>
+                                                        @enderror
+                                                    </td>
+                                                </tr>
+                                            </table>
+
+                                            <button class="btn">Publish</button>
+                                        </form>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                        <hr>
+
+
+
+                        <div class="pagination content-center justify-content-center">
+
+                            {!! $reviews->links() !!}
+
+                        </div>
                     </div>
-
-                    @include('includes.featureProd-loop')
                 </div>
+                <hr>
             </div>
+
+            @include('includes.featureProd-loop')
         </div>
-        @endsection
+    </div>
+</div>
+@endsection
 
-        @section('custom-js')
+@section('custom-js')
 
-        <script>
-            function changeTab(evt, cityName) {
-                var i, tabcontent, tablinks;
-                tabcontent = document.getElementsByClassName("tabcontent");
-                for (i = 0; i < tabcontent.length; i++) {
-                    tabcontent[i].style.display = "none";
-                }
-                tablinks = document.getElementsByClassName("tablinks");
-                for (i = 0; i < tablinks.length; i++) {
-                    tablinks[i].className = tablinks[i].className.replace(" active", "");
-                }
-                document.getElementById(cityName).style.display = "block";
-                evt.currentTarget.className += " active";
-            }
-        </script>
-        @endsection
+<script>
+    function changeTab(evt, cityName) {
+        var i, tabcontent, tablinks;
+        tabcontent = document.getElementsByClassName("tabcontent");
+        for (i = 0; i < tabcontent.length; i++) {
+            tabcontent[i].style.display = "none";
+        }
+        tablinks = document.getElementsByClassName("tablinks");
+        for (i = 0; i < tablinks.length; i++) {
+            tablinks[i].className = tablinks[i].className.replace(" active", "");
+        }
+        document.getElementById(cityName).style.display = "block";
+        evt.currentTarget.className += " active";
+    }
+</script>
+@endsection

@@ -22,7 +22,10 @@ class CartController extends Controller
 
     public function add(Product $product, Request $request)
     {
-
+        
+        $valid = $request->validate([
+            'quantity' => 'required|max:10',
+        ]);
         $cart = session()->get('cart', []);
 
         $cart[$product->id] = [

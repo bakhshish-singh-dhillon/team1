@@ -30,9 +30,11 @@ class AdminOrderController extends Controller
                 ->orWhere('billing_address', 'like', '%' . $request->search . '%')
                 ->orWhere('shipping_address', 'like', '%' . $request->search . '%')
                 ->orWhere('subtotal', 'like', '%' . $request->search . '%')->paginate(9);
+            $title = "Searching for " . $request->search;
         } else {
             $orders = Order::latest()->paginate(10);
+            $title = "All Orders";
         }
-        return view('admin/orders/index', compact('orders'));
+        return view('admin/orders/index', compact('orders', 'title'));
     }
 }

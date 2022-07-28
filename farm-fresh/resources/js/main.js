@@ -44,30 +44,24 @@ $(document).ready(function($) {
         }
     });
 
-    // Pravindra Category Modal
-    $('#exampleModal').on('show.bs.modal', function(event) {
-            var button = $(event.relatedTarget) // Button that triggered the modal
-            var recipient = button.data('whatever') // Extract info from data-* attributes
-                // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
-                // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
-            var modal = $(this)
-            modal.find('.modal-title').text('New message to ' + recipient)
-            modal.find('.modal-body input').val(recipient)
-        })
-        // Pravindra Category Modal
-
-
     //Dhara : Close alert on click 
     var hide = $(".alertClose").click(function() {
         $(".alert").hide();
 
     });
 
-
+    document.getElementById('category_form').addEventListener('submit', function(evt) {
+            evt.preventDefault();
+            if (document.getElementById('category-name').value == "") {
+                document.getElementById('required').innerHTML = "Category name is required!";
+            } else {
+                document.getElementById('category_form').submit();
+            }
+        })
+        // Pravindra Category Modal
     const categoryModal = document.getElementById('categoryModal')
 
     if (categoryModal) {
-
         categoryModal.addEventListener('show.bs.modal', event => {
             const button = event.relatedTarget
             var parentId = 0;
@@ -89,7 +83,9 @@ $(document).ready(function($) {
             } else {
                 document.getElementById("submit_btn").innerHTML = "Create";
                 document.getElementById("category_form").action = "/admin/categories";
-                document.getElementById("_method").remove();
+                if (null != document.getElementById("_method")) {
+                    document.getElementById("_method").remove();
+                }
             }
             const name = button.getAttribute('data-bs-name')
 
@@ -105,4 +101,6 @@ $(document).ready(function($) {
 
         });
     }
+
+    // Pravindra Category Modal End
 });
