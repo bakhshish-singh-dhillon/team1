@@ -95,5 +95,7 @@ Route::get('/admin/users', [AdminUserController::class, 'index']);
 Route::delete('/admin/users/{user}', [AdminUserController::class, 'destroy'])->name('user-delete');
 Route::get('/admin/reviews', [AdminReviewController::class, 'index']);
 Route::delete('/admin/reviews/{review}', [AdminReviewController::class, 'destroy'])->name('review-delete');
-
+Route::get('/privacy', function () {
+    return view('pravicy');
+});
 // Pulkit URL Ends
