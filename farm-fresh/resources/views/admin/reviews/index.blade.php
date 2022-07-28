@@ -13,7 +13,7 @@
                     <form method="get" action="/admin/reviews/">
                         <div class="btn-group">
                             @csrf
-                            <input class="form-control w-96" type="search" name="search" placeholder="Search by id, name, range or location" value="{{ app('request')->input('search') }}" />
+                            <input class="form-control w-96" type="search" name="search" placeholder="Search by id, name or rating" value="{{ app('request')->input('search') }}" />
                             <button class="btn btn-success">Search</button>
                         </div>
                     </form>
@@ -31,6 +31,9 @@
                     </tr>
                 </thead>
                 <tbody class="">
+                    @if(count($reviews)==0)
+                    <tr colspan="4">No results found!</tr>
+                    @endif
                     @foreach ($reviews as $review)
                     <tr>
                         <td>{{ $review->id }}</td>

@@ -23,9 +23,16 @@ class AdminReviewController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $reviews = Review::latest()->paginate(10);
+
+        if ($request->search) {
+            $reviews = Review::where('id', 'like', '%' . $request->search . '%')
+                ->orWhere('review', 'like', '%' . $request->search . '%')
+                ->orWhere('rating', 'like', '%' . $request->search . '%')->paginate(9);
+        } else {
+            $reviews = Review::latest()->paginate(10);
+        }
         return view('admin/reviews/index', compact('reviews'));
     }
 
