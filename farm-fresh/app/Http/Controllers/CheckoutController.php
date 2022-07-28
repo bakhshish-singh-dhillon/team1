@@ -31,6 +31,10 @@ class CheckoutController extends Controller
         }
         return back()->withError('Cart is empty');
     }
+    public function thank_you(Request $request)
+    {
+        return view('thank-you');
+    }
 
     public function process_payment(Request $request)
     {
@@ -104,8 +108,9 @@ class CheckoutController extends Controller
                     "status" => $response->result_code,
                     "response" => json_encode($response)
                 ]);
+                return redirect('/thank-you')->withSuccess('Order Placed Successfully');
             } elseif (count($response->transaction_response->errors)) {
-                $order->transaction_status = "Successful";
+                $order->transaction_status = "Failed";
                 $order->save();
                 $order->transactions()->create([
                     "cc_num" => substr($valid['card_number'], -4),
@@ -113,11 +118,12 @@ class CheckoutController extends Controller
                     "status" => $response->result_code,
                     "response" => json_encode($response)
                 ]);
+                return back()->withError('Payment Unsuccessfull');
             }
         } catch (Exception $e) {
-            die($e->getMessage());
+            return back()->withError('Payment Unsuccessfull');
         }
 
-        dd($response);
+        return back()->withError('Payment Unsuccessfull');
     }
 }
