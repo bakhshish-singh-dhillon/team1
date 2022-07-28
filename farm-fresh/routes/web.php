@@ -44,13 +44,12 @@ Route::post('/contact', [ContactController::class, 'store'])->name('contact-subm
 // Admin Product List
 
 Route::get('/admin', [AdminController::class, 'index'])->name('dashboard');
-Route::get('/admin/products', [AdminProductController::class, 'index']);
+Route::get('/admin/products', [AdminProductController::class, 'index'])->name('admin-get-products');
 Route::get('/admin/products/create', [AdminProductController::class, 'create']);
 Route::post('/admin/products', [AdminProductController::class, 'store']);
 Route::get('/admin/products/{product}/edit', [AdminProductController::class, 'edit'])->name('product-edit');
 Route::put('/admin/products/{product}', [AdminProductController::class, 'update'])->name('product-update');
 Route::delete('/admin/products/{product}', [AdminProductController::class, 'destroy'])->name('product-delete');
-Route::get('admin/products/search', [AdminProductController::class, 'getProductsBySearch'])->name('product-by-search');
 
 // Admin Order List
 

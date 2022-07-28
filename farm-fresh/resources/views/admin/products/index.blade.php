@@ -12,7 +12,7 @@
                     <div class="d-flex justify-content-between mb-2">
                         <a class="btn btn-primary mb-1" href="/admin/products/create" role="button">Create</a>
                         <div>
-                            <form method="get" action="/admin/products/">
+                            <form method="get" action="{{ route('admin-get-products', []) }}">
                                 <div class="btn-group">
                                     @csrf
                                     <input class="form-control w-96" type="search" name="search" placeholder="Search by id, title or price" value="{{ app('request')->input('search') }}" />
