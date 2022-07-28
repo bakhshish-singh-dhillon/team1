@@ -33,6 +33,9 @@
                             </tr>
                         </thead>
                         <tbody class="">
+                            @if(count($products)==0)
+                            <tr colspan="4">No results found!</tr>
+                            @endif
                             @foreach ($products as $product)
                             <tr>
                                 <td>{{ $product->id }}</td>

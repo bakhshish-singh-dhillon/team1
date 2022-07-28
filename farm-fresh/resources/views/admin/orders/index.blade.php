@@ -15,7 +15,7 @@
                             <form method="get" action="/admin/orders/">
                                 <div class="btn-group">
                                     @csrf
-                                    <input class="form-control w-96" type="search" name="search" placeholder="Search by id, name, range or location" value="{{ app('request')->input('search') }}" />
+                                    <input class="form-control w-96" type="search" name="search" placeholder="Search by id, status, subtotal or address" value="{{ app('request')->input('search') }}" />
                                     <button class="btn btn-success">Search</button>
                                 </div>
                             </form>
@@ -34,6 +34,9 @@
                             </tr>
                         </thead>
                         <tbody class="">
+                            @if(count($orders)==0)
+                            <tr colspan="4">No results found!</tr>
+                            @endif
                             @foreach ($orders as $order)
                             <tr>
                                 <td>{{ $order->id }}</td>

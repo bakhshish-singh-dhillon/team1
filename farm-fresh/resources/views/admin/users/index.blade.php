@@ -32,6 +32,9 @@
                     </tr>
                 </thead>
                 <tbody class="">
+                    @if(count($users)==0)
+                    <tr colspan="4">No results found!</tr>
+                    @endif
                     @foreach ($users as $user)
                     <tr>
                         <td>{{ $user->id }}</td>
