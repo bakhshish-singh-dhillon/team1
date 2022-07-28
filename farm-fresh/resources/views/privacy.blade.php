@@ -35,6 +35,20 @@
                                 California's Consumer Protection Act and California Online Privacy Protection Act
                             </li>
                         </ul>
+                        <h2>
+                            Cookie Policy
+                        </h2>
+                        <p>
+                            A cookie is a small file with information that your browser stores on your device. Information
+                            in this file is typically shared with the owner of the site in addition to potential partners
+                            and third parties to that business. The collection of this information may be used in the
+                            function of the site and/or to improve your experience
+                        </p>
+                        <p>
+                            a small file placed on your device by our website or mobile application when you either visit or
+                            use certain features of our website or mobile application. A cookie generally allows a website
+                            to remember your actions or preference for a certain period of time.
+                        </p>
                     </div>
                 </div>
             </div>
