@@ -7,7 +7,7 @@
             <div class="row">
                 <div class="col-md-6">
                     <img src="{{ $images_path . $product->images()->first()->url }}"
-                        alt="{{ $product->images()->first()->url }}">
+                        alt="{{ $product->name }}">
                 </div>
                 <div class="col-md-6">
                     <div class="title product-title">{{ $product->name }}</div>
