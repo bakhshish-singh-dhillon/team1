@@ -27,7 +27,7 @@
                         <th>ID</th>
                         <th>Review</th>
                         <th>Rating</th>
-                        <th>Action</th>
+                        <th>Actions</th>
                     </tr>
                 </thead>
                 <tbody class="">

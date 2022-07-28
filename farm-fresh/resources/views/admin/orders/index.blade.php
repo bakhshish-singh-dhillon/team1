@@ -2,23 +2,23 @@
 
 @section('content')
 
-<div class="title black-text py-3">Orders</div>
 
+<div class="d-flex justify-content-between mb-2 my-3">
+    <div class="title black-text">Orders</div>
+
+    <div class="d-flex">
+        <form method="get" action="/admin/orders/">
+            <div class="btn-group mx-2">
+                @csrf
+                <input class="form-control search-bar" type="search" name="search" placeholder="Search by id, status, subtotal or address" value="{{ app('request')->input('search') }}" />
+                <button class="btn btn-success"><i class="fas fa-search"></i></button>
+            </div>
+        </form>
+        <a class="btn btn-primary" href="/admin/orders/create" role="button"><i class="fa-solid fa-plus mx-1"></i>Create</a>
+    </div>
+</div>
 <div class="card">
     <div class="card-body">
-        <div class="d-flex justify-content-between mb-2">
-            <a class="btn btn-primary mb-1" href="/admin/orders/create" role="button"><i class="fa-solid fa-plus mx-1"></i>Create</a>
-            <div>
-                <form method="get" action="/admin/orders/">
-                    <div class="btn-group">
-                        @csrf
-                        <input class="form-control search-bar" type="search" name="search" placeholder="Search by id, status, subtotal or address" value="{{ app('request')->input('search') }}" />
-                        <button class="btn btn-success"><i class="fas fa-search"></i></button>
-                    </div>
-                </form>
-
-            </div>
-        </div>
 
         <table class="table align-middle mb-0 bg-white">
             <thead class="bg-light ">
