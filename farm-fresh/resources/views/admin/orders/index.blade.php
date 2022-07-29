@@ -20,14 +20,14 @@
 <div class="card">
     <div class="card-body">
 
-        <table class="table align-middle mb-0 bg-white">
+        <table class="table align-middle mb-0 bg-white w-100">
             <thead class="bg-light ">
                 <tr>
                     <th>#</th>
                     <th>Date</th>
                     <th>Status</th>
                     <th>Total</th>
-
+                    <th class="w100">Actions</th>
 
                 </tr>
             </thead>
@@ -47,7 +47,7 @@
 
                     <td>
                         <div class="btn-group">
-                            <a class="btn btn-secondary mx-2" href="{{ route('order-edit', ['order' => $order->id]) }}">Edit</a>
+                            <a class="btn btn-secondary mx-2" href="{{ route('order-edit', ['order' => $order->id]) }}"><i class="fa-solid fa-pencil"></i></a>
                             <form method="post" action="{{ route('order-delete', ['order' => $order->id]) }}">
                                 @csrf
                                 @method('DELETE')

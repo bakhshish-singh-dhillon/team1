@@ -6,10 +6,15 @@
     <div class="max-container py-4">
         <div class="row">
             <div class="col-md-6">
+                {{-- <ul id="product-gallery">
+                    <li>
+                        <img src="{{ $images_path . $product->images()->first()->url }}" alt="{{ $product->name }}"> </li>
+
+                </ul> --}}
                 <div id="product-gallery">
                     {{-- <ul class="slides">
-                            @foreach ($product->images as $image)
-                                <li data-thumb="{{ $images_path . $image->url }}" alt="{{ $product->name }}">
+                                @foreach ($product->images as $image)
+                                    <li data-thumb="{{ $images_path . $image->url }}" alt="{{ $product->name }}">
                     <img src="{{ $images_path . $image->url }}" alt="{{ $product->name }}" />
                     </li>
                     @endforeach
@@ -37,11 +42,6 @@
                     </div>
 
                 </div>
-                {{-- <ul id="product-gallery">
-                        <li>
-                            <img src="{{ $images_path . $product->images()->first()->url }}" alt="{{ $product->name }}"> </li>
-
-                </ul> --}}
             </div>
             <div class="col-md-6">
                 <div class="title product-title">{{ $product->name }}</div>
@@ -67,13 +67,13 @@
                     </tr>
                     <tr>
                         <th>Quantity:</th>
-                        <td id="quantity" class="d-flex">
+                        <td id="quantity" class="d-flex user-select-none">
                             <form class="d-flex" action="{{ route('add-to-cart', ['product' => $product->id]) }}" method="get">
                                 @csrf
                                 <div>
-                                    <i id="plus" class="fa-solid fa-plus"></i>
-                                    <input type="text" name="quantity" class="qty" maxlength="12" value="1" class="input-text qty" />
-                                    <i id="minus" class="fa-solid fa-minus"></i>
+                                    <i id="plus" class="fa-solid fa-plus m-0 p-2"></i>
+                                    <input type="text" name="quantity" class="qty" maxlength="12" value="1" class="input-text qty" disabled="disabled" />
+                                    <i id="minus" class="fa-solid fa-minus m-0 p-2"></i>
                                 </div>
                                 @if((int)$product->quantity == 0)
                                 <button type="submit" class="btn" disabled>Add to Cart </button>
@@ -201,7 +201,6 @@
                         @else
                         @foreach ($reviews as $review)
                         <div>
-
                             <div class="review-title">{{ $review->user->first_name }} {{ $review->user->last_name }}
                             </div>
                             <div><small>Posted on 17th July, 2022</small></div>

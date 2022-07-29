@@ -48,7 +48,7 @@
                     <a href="{{ route('cart') }}" class="text-decoration-none">
                         <span>
                             <img src="/images/shopping-cart.png" alt="Cart" class="icon mx-2 my-4" />
-                            {{ session()->has('cart') ? count(session()->get('cart')) : '' }}
+                            <span> {{ session()->has('cart') ? count(session()->get('cart')) : '' }} </span>
                         </span>
                     </a>
 
