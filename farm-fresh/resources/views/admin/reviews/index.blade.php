@@ -23,7 +23,7 @@
             <table class="table align-middle mb-0 bg-white">
                 <thead class="bg-light ">
                     <tr>
-                        <th>ID</th>
+                        <th>#</th>
                         <th>Review</th>
                         <th>Rating</th>
                         <th>Action</th>
