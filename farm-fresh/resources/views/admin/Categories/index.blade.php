@@ -1,7 +1,7 @@
 @extends('layouts/admin/app')
 
 @section('content')
-<div class="mx-auto container ">
+<div class="mx-auto container my-4">
     <div class="row justify-content-center">
         <div class="col-md-10">
             <div class="card">
@@ -23,7 +23,7 @@
 
                         </div>
                     </div>
-                    <span class="title ">{{$title}} ({{ count($categories) }})</span>
+                    <span class="title ">{{ $title }} ({{ count($categories) }})</span>
                     <table class="table align-middle mb-0 bg-white">
                         <thead class="bg-light ">
                             <tr>
@@ -33,19 +33,19 @@
                             </tr>
                         </thead>
                         <tbody class="">
-                            @if(count($categories)==0)
+                            @if (count($categories) == 0)
                             <tr colspan="4">No results found!</tr>
                             @endif
                             @foreach ($categories as $cat)
                             <tr>
                                 <td>{{ $cat->id }}</td>
                                 <td>{{ $cat->name }}</td>
-                                <td>{{ null == $cat->parent ? "NA" : $cat->parent->name}}</td>
+                                <td>{{ null == $cat->parent ? 'NA' : $cat->parent->name }}</td>
                                 <td>
                                     <div class="btn-group">
                                         <!-- Button trigger modal -->
 
-                                        <button type="button" class="btn btn-primary mr-4" id="edit_category" data-bs-toggle="modal" data-bs-target="#categoryModal" data-bs-whatever="Edit" data-bs-id="{{$cat->id}}" data-bs-name="{{$cat->name}}" data-bs-parent="{{null == $cat->parent ? null : $cat->parent->id}}">Edit</button>
+                                        <button type="button" class="btn btn-primary mr-4" id="edit_category" data-bs-toggle="modal" data-bs-target="#categoryModal" data-bs-whatever="Edit" data-bs-id="{{ $cat->id }}" data-bs-name="{{ $cat->name }}" data-bs-parent="{{ null == $cat->parent ? null : $cat->parent->id }}">Edit</button>
 
                                         <form method="post" action="{{ route('cat-delete', ['category' => $cat->id]) }}">
                                             @csrf
@@ -105,7 +105,7 @@
                         </div>
                     </div>
 
-                    <div class="pagination justify-content-center py-2">
+                    <div class="pagination content-center">
 
                         {!! $categories->links('pagination::bootstrap-5') !!}
 
