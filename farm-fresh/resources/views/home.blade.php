@@ -9,7 +9,7 @@
                     <p class="tagline"> Eat. Fresh. Daily. </p>
                     <div>
                         <form method="get" action="{{ route('products-by-search', []) }}">
-                            <div class="btn-group">
+                            <div>
                                 @csrf
                                 <input class="form-control w-96" type="search" name="search" placeholder="Search products" value="{{ app('request')->input('search') }}" />
                                 <button hidden class="btn btn-success">Search</button>

@@ -53,7 +53,12 @@ $(document).ready(function () {
 $(document).ready(function () {
     (function ($) {
         $('#featured-slider').owlCarousel({
-            items: 4
+            autoplay: true,
+            autoplayTimeout: 2000,
+            items: 4,
+            dots: false,
+            loop: true,
+            nav: false,
         });
     })(jQuery);
 });

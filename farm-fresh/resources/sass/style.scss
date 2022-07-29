@@ -360,7 +360,7 @@ button.btn:hover {
 
 #admin {
 
-    .custom-file-container__image-preview.custom-file-container__image-preview--active {
+    .custom-file-container__image-preview {
         height: 188px;
     }
 
@@ -574,5 +574,13 @@ ul.li_size {
         .owl-stage {
             display: flex;
         }
+    }
+
+    .owl-nav {
+        text-align: center;
+    }
+
+    .owl-dots {
+        display: none;
     }
 }

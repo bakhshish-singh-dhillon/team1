@@ -91,5 +91,12 @@ class ReviewSeeder extends Seeder
             'rating' => '5'
 
         ]);
+        DB::table('reviews')->insert([
+            'user_id' => '6',
+            'product_id' => '4',
+            'review' => 'nice!',
+            'rating' => '5'
+
+        ]);
     }
 }
