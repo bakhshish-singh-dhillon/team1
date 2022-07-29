@@ -8,6 +8,7 @@ import MultiImage from './components/multi-image.vue';
 import './user-addresses.js';
 window.jQuery = window.$ = $;
 import 'flexslider';
+import 'owl.carousel';
 
 /** Multi Image vue component */
 if ($("#multi-image").length) {
@@ -29,7 +30,7 @@ $(document).ready(function () {
             controlNav: false,
             animationLoop: false,
             slideshow: false,
-            touch : true,
+            touch: true,
             sync: "#gallery-slides"
         });
         $('#gallery-slides').flexslider({
@@ -37,10 +38,22 @@ $(document).ready(function () {
             controlNav: false,
             animationLoop: false,
             slideshow: false,
-            touch : true,
+            touch: true,
             itemWidth: 100,
             itemMargin: 5,
             asNavFor: '#gallery'
         });
     }
+
+    // if ($("#featured-slider").length) {
+    //     $('#featured-slider').owlCarousel()({
+    //     });
+    // }
+});
+$(document).ready(function () {
+    (function ($) {
+        $('#featured-slider').owlCarousel({
+            items: 4
+        });
+    })(jQuery);
 });

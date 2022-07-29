@@ -1,9 +1,9 @@
 <div id="featured">
     <div class="title text-center py-3">Featured Products</div>
 
-    <div class="row py-4">
+    <div class="py-4" id="featured-slider">
         @foreach($products as $prod)
-        <div class="col-md-3 px-4">
+        <div class="px-2">
 
             <div class="card product-item shadow">
 
