@@ -54,6 +54,7 @@ Route::get('/admin/products/{product}/edit', [AdminProductController::class, 'ed
 Route::put('/admin/products/{product}', [AdminProductController::class, 'update'])->name('product-update');
 Route::delete('/admin/products/{product}', [AdminProductController::class, 'destroy'])->name('product-delete');
 
+Route::delete('/admin/orders/{order}', [AdminOrderController::class, 'destroy'])->name('order-delete');
 // Admin Order List
 
 Route::get('/admin/orders', [AdminOrderController::class, 'index']);
