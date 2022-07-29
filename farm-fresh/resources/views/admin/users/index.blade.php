@@ -47,7 +47,7 @@
                                 @csrf
                                 @method('DELETE')
                                 <input type="hidden" name="id" value="{{ $user->id }}" />
-                                <button class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this post?')"><i class="fa-solid fa-trash-can"></i></button>
+                                <button class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this post?')"><i class="fa-solid fa-ban"></i></button>
                             </form>
                         </div>
                     </td>
