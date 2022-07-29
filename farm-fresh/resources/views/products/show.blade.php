@@ -6,22 +6,37 @@
         <div class="max-container py-4">
             <div class="row">
                 <div class="col-md-6">
-                    <div class="product-gallery">
-                        <ul class="slides">
-                          <li data-thumb="{{ $images_path . $product->images()->first()->url }}" alt="{{ $product->name }}">
-                            <img src="{{ $images_path . $product->images()->first()->url }}" alt="{{ $product->name }}" />
-                          </li>
-                          <li data-thumb="{{ $images_path . $product->images()->first()->url }}" alt="{{ $product->name }}">
-                            <img src="{{ $images_path . $product->images()->first()->url }}" alt="{{ $product->name }}" />
-                          </li>
-                          <li data-thumb="{{ $images_path . $product->images()->first()->url }}" alt="{{ $product->name }}">
-                            <img src="{{ $images_path . $product->images()->first()->url }}" alt="{{ $product->name }}" />
-                          </li>
-                          <li data-thumb="{{ $images_path . $product->images()->first()->url }}" alt="{{ $product->name }}">
-                            <img src="{{ $images_path . $product->images()->first()->url }}" alt="{{ $product->name }}" />
-                          </li>
-                        </ul>
-                      </div>
+                    <div id="product-gallery">
+                        {{-- <ul class="slides">
+                            @foreach ($product->images as $image)
+                                <li data-thumb="{{ $images_path . $image->url }}" alt="{{ $product->name }}">
+                                    <img src="{{ $images_path . $image->url }}" alt="{{ $product->name }}" />
+                                </li>
+                            @endforeach
+                        </ul> --}}
+
+                        <div id="gallery" >
+                            <ul class="slides">
+                                @foreach ($product->images as $image)
+                                    <li>
+                                        <img src="{{ $images_path . $image->url }}" alt="{{ $product->name }}" />
+                                    </li>
+                                @endforeach
+                            </ul>
+
+                        </div>
+                        <div id="gallery-slides" class="flexslider">
+                            <ul class="slides">
+                                @foreach ($product->images as $image)
+                                    <li>
+                                        <img src="{{ $images_path . $image->url }}" alt="{{ $product->name }}" />
+                                    </li>
+                                @endforeach
+                            </ul>
+
+                        </div>
+
+                    </div>
                     {{-- <ul id="product-gallery">
                         <li>
                             <img src="{{ $images_path . $product->images()->first()->url }}" alt="{{ $product->name }}">

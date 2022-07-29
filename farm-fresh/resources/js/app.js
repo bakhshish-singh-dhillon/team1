@@ -17,10 +17,30 @@ if ($("#multi-image").length) {
 }
 
 $(document).ready(function () {
-    if ($(".product-gallery").length) {
-        $('.product-gallery').flexslider({
+    if ($("#product-gallery").length) {
+        // $('#product-gallery').flexslider({
+        //     animation: "slide",
+        //     controlNav: "thumbnails",
+        //     maxItems:4
+        // });
+
+        $('#gallery').flexslider({
             animation: "slide",
-            controlNav: "thumbnails"
+            controlNav: false,
+            animationLoop: false,
+            slideshow: false,
+            touch : true,
+            sync: "#gallery-slides"
+        });
+        $('#gallery-slides').flexslider({
+            animation: "slide",
+            controlNav: false,
+            animationLoop: false,
+            slideshow: false,
+            touch : true,
+            itemWidth: 100,
+            itemMargin: 5,
+            asNavFor: '#gallery'
         });
     }
 });
