@@ -33,7 +33,7 @@ class AdminUserController extends Controller
             $title = "Searching for " . $request->search;
         } else {
             $users = User::latest()->paginate(10);
-            $title = "All Users";
+            $title = "Users";
         }
         return view('admin/users/index', compact('users', 'title'));
     }

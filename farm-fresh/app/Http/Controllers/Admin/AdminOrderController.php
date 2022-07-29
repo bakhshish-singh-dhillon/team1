@@ -33,7 +33,7 @@ class AdminOrderController extends Controller
             $title = "Searching for " . $request->search;
         } else {
             $orders = Order::latest()->paginate(10);
-            $title = "All Orders";
+            $title = "Orders";
         }
         return view('admin/orders/index', compact('orders', 'title'));
     }

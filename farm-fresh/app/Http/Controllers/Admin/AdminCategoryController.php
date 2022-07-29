@@ -28,7 +28,7 @@ class AdminCategoryController extends Controller
     {
         $categories = Category::latest()->paginate(10);
         $parentCategories = Category::all();
-        $title = "All Categories";
+        $title = "Categories";
         return view('admin/categories/index', compact('categories', 'parentCategories', 'title'));
     }
 
