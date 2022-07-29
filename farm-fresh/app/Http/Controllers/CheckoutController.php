@@ -113,8 +113,13 @@ class CheckoutController extends Controller
                 session()->forget('cart');
                 session()->forget('shipping_address');
                 session()->forget('billing_address');
-                return redirect('/thank-you')->withSuccess('Order Placed Successfully');
-            } elseif (count($response->transaction_response->errors)) {
+                // var_dump($order->order_line_items->products);
+                // foreach ($order->order_line_items->products as $product) {
+                //     $product->quantity = $product->quantity - $cart[$product->id]['quantity'];
+                //     $product->save();
+                // }
+                return redirect('/thank-you/' . $order->id)->withSuccess('Order Placed Successfully');
+            } elseif ($response->transaction_response->errors) {
                 $order->transaction_status = "Failed";
                 $order->save();
                 $order->transactions()->create([
