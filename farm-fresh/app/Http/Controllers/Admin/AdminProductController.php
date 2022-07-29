@@ -33,11 +33,13 @@ class AdminProductController extends Controller
             $products = Product::where('price', 'like', '%' . $request->search . '%')
                 ->orWhere('name', 'like', '%' . $request->search . '%')->paginate(9);
             $categories = Category::whereNull('category_id')->get();
+            $title = "Searching for " . $request->search;
         } else {
             $products = Product::latest()->paginate(10);
             $categories = Category::pluck('name', 'id');
+            $title = "All Products";
         }
-        return view('admin/products/index', compact('products', 'categories'));
+        return view('admin/products/index', compact('products', 'categories', 'title'));
     }
 
     /**
