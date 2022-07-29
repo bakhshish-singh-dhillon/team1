@@ -566,3 +566,13 @@ ul.li_size {
         font-size: 14px;
     }
 }
+
+#featured-slider {
+    .owl-stage-outer {
+        overflow: hidden;
+
+        .owl-stage {
+            display: flex;
+        }
+    }
+}

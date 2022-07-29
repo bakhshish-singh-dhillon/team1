@@ -45,8 +45,15 @@ $(document).ready(function () {
         });
     }
 
-    if ($("#featured-slider").length) {
-        $('#featured-slider').owlCarousel()({
+    // if ($("#featured-slider").length) {
+    //     $('#featured-slider').owlCarousel()({
+    //     });
+    // }
+});
+$(document).ready(function () {
+    (function ($) {
+        $('#featured-slider').owlCarousel({
+            items: 4
         });
-    }
+    })(jQuery);
 });
