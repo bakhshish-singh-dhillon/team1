@@ -37,7 +37,7 @@ class AdminProductController extends Controller
         } else {
             $products = Product::latest()->paginate(10);
             $categories = Category::pluck('name', 'id');
-            $title = "All Products";
+            $title = "Products";
         }
         return view('admin/products/index', compact('products', 'categories', 'title'));
     }
