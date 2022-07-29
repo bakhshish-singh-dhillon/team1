@@ -112,5 +112,10 @@ class ImageSeeder extends Seeder
             'url' => 'cantaloupe.png'
 
         ]);
+        DB::table('images')->insert([
+            'product_id' => '13',
+            'url' => 'redpep.png'
+
+        ]);
     }
 }

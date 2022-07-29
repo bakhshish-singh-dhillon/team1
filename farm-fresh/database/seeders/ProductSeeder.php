@@ -135,5 +135,15 @@ class ProductSeeder extends Seeder
             'quantity' => '3'
 
         ]);
+
+        DB::table('products')->insert([
+            'sku' => 'PROD13',
+            'name' => 'Red Pepper',
+            'price' => '3.49',
+            'description' => 'Red bell peppers start with green skin but are left to ripen longer, giving them their bright red skin and sweet, fruity flavor.',
+            'measure_unit' => 'lbs',
+            'quantity' => '23'
+
+        ]);
     }
 }
