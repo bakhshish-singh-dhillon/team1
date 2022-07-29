@@ -22,5 +22,7 @@ class DatabaseSeeder extends Seeder
         $this->call(ReviewSeeder::class);
         $this->call(AddressSeeder::class);
         $this->call(OrderSeeder::class);
+        $this->call(TransactionSeeder::class);
+        $this->call(LineItemSeeder::class);
     }
 }
