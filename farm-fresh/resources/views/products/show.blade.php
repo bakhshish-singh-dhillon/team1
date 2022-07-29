@@ -6,13 +6,29 @@
         <div class="max-container py-4">
             <div class="row">
                 <div class="col-md-6">
-                    <ul id="product-gallery">
+                    <div class="product-gallery">
+                        <ul class="slides">
+                          <li data-thumb="{{ $images_path . $product->images()->first()->url }}" alt="{{ $product->name }}">
+                            <img src="{{ $images_path . $product->images()->first()->url }}" alt="{{ $product->name }}" />
+                          </li>
+                          <li data-thumb="{{ $images_path . $product->images()->first()->url }}" alt="{{ $product->name }}">
+                            <img src="{{ $images_path . $product->images()->first()->url }}" alt="{{ $product->name }}" />
+                          </li>
+                          <li data-thumb="{{ $images_path . $product->images()->first()->url }}" alt="{{ $product->name }}">
+                            <img src="{{ $images_path . $product->images()->first()->url }}" alt="{{ $product->name }}" />
+                          </li>
+                          <li data-thumb="{{ $images_path . $product->images()->first()->url }}" alt="{{ $product->name }}">
+                            <img src="{{ $images_path . $product->images()->first()->url }}" alt="{{ $product->name }}" />
+                          </li>
+                        </ul>
+                      </div>
+                    {{-- <ul id="product-gallery">
                         <li>
                             <img src="{{ $images_path . $product->images()->first()->url }}" alt="{{ $product->name }}">
 
                         </li>
 
-                    </ul>
+                    </ul> --}}
                 </div>
                 <div class="col-md-6">
                     <div class="title product-title">{{ $product->name }}</div>
