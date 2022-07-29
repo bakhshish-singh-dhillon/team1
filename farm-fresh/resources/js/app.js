@@ -1,7 +1,9 @@
 require('./bootstrap');
 import $ from 'jquery';
+import jQuery from 'jquery';
 import './main.js';
 import 'select2';
+import 'flexslider';
 import { createApp } from 'vue';
 import MultiImage from './components/multi-image.vue';
 import './user-addresses.js';
@@ -13,3 +15,5 @@ if ($("#multi-image").length) {
     multi_image.mount('#multi-image');
 }
 
+if($("#product-gallery").length){
+}

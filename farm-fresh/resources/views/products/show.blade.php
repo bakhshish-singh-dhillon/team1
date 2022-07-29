@@ -6,8 +6,13 @@
         <div class="max-container py-4">
             <div class="row">
                 <div class="col-md-6">
-                    <img src="{{ $images_path . $product->images()->first()->url }}"
-                        alt="{{ $product->name }}">
+                    <ul id="product-gallery">
+                        <li>
+                            <img src="{{ $images_path . $product->images()->first()->url }}" alt="{{ $product->name }}">
+
+                        </li>
+
+                    </ul>
                 </div>
                 <div class="col-md-6">
                     <div class="title product-title">{{ $product->name }}</div>
