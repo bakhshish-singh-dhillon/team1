@@ -22,7 +22,7 @@ class ProductController extends Controller
     {
         $products = Product::latest()->paginate(9);
         $categories = Category::whereNull('category_id')->get();
-        $title = "All Products";
+        $title = "Products";
         return view('products/index', compact('products', 'categories', 'title'));
     }
 
@@ -86,8 +86,8 @@ class ProductController extends Controller
             $query->whereIn('categories.id', array_merge($category->children->pluck('id')->toArray(), [$category->id]));
         })->paginate(9);
         $categories = Category::whereNull('category_id')->get();
-
-        return view('products/index', compact('products', 'categories'));
+        $title = "Category : " . $category->name;
+        return view('products/index', compact('products', 'categories', 'title'));
     }
 
 

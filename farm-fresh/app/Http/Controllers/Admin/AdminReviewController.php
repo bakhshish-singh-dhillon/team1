@@ -33,7 +33,7 @@ class AdminReviewController extends Controller
             $title = "Searching for '" . $request->search . "'";
         } else {
             $reviews = Review::latest()->paginate(10);
-            $title = "All Reviews";
+            $title = "Reviews";
         }
         return view('admin/reviews/index', compact('reviews', 'title'));
     }

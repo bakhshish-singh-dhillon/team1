@@ -2,15 +2,19 @@ import $ from 'jquery';
 
 $(document).ready(function($) {
     $("body").on("click", ".add-more", function() {
-        var html = `
-        <div class="form-outline mb-4">
-            <label class="form-label" for="key[]">Attribute Name: <span class="text-danger">*</span></label>
-            <input name="key[]" type="text" id="key" class="form-control" value="" />
-            <label class="form-label" for="value[][]">Value: <span class="text-danger">*</span></label>
-            <input name="value[]" type="text" id="value[]" class="form-control" value="" />
-            <a class="btn btn-danger remove-attribute">Remove</a>
-        </div>        
-        `;
+        var html = `<div class="row py-3 form-outline">
+                        <div class="col-md-5">
+                        <label class="form-label" for="key[]">Attribute Name: <span class="text-danger">*</span></label>
+                        <input name="key[]" type="text" id="key" class="form-control" value="" />
+                        </div>
+                        <div class="col-md-5">
+                        <label class="form-label" for="value[][]">Value: <span class="text-danger">*</span></label>
+                        <input name="value[]" type="text" id="value[]" class="form-control" value="" />
+                        </div>
+                        <div class="col-md-2">
+                        <br>
+                        <a class="btn btn-danger remove-attribute"><i class="fa-solid fa-minus"></i></a></div>
+                    </div>`;
 
         $("body .additional-fields").append(html);
 
@@ -45,13 +49,12 @@ $(document).ready(function($) {
     });
 
     //Dhara : Close alert on click 
-    var hide = $(".alertClose").click(function() {
+    $(".close").click(function() {
         $(".alert").hide();
-
     });
-    const category_form = document.getElementById('category_form');
-    if (category_form) {
-        category_form.addEventListener('submit', function(evt) {
+
+    if (document.getElementById('category_form')) {
+        document.getElementById('category_form').addEventListener('submit', function(evt) {
             evt.preventDefault();
             if (document.getElementById('category-name').value == "") {
                 document.getElementById('required').innerHTML = "Category name is required!";

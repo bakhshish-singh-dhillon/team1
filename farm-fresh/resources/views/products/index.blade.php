@@ -10,14 +10,14 @@
                 <div class="category-list capitalization">
                     <ul class="p-0">
                         <li>
-                            <a href="{{route('products', [])}}" class="my-2"><strong>All Products</strong></a>
+                            <a href="{{ route('products', []) }}" class="my-2"><strong>All Products</strong></a>
                         </li>
                         @include('products.recursive', ['categories' => $categories])
                     </ul>
                 </div>
             </div>
             <div class="col-md-9">
-                <div class="title ">{{$title}} ({{ count($products) }})
+                <div class="title ">{{ $title }} ({{ count($products) }})
                     <div class="float-right">
                         <form action="{{ route('products-by-search', []) }}" method="get" autocomplete="off" novalidate>
                             @csrf

@@ -38,7 +38,8 @@ Route::get('/products', [ProductController::class, 'index'])->name('products');
 Route::get('/products/{category}/category', [ProductController::class, 'getProductsByCategory'])->name('products-by-category');
 Route::get('/products/search', [ProductController::class, 'getProductsBySearch'])->name('products-by-search');
 Route::get('/products/show/{product}', [ProductController::class, 'show'])->name('product');
-Route::get('/reviews/create', [ReviewController::class, 'create']);
+Route::get('/products/show', [ReviewController::class, 'create']);
+Route::post('/products/show/{product}/review', [ReviewController::class, 'store'])->name('store-product-review');
 Route::get('/about', [AboutController::class, 'index'])->name('about');
 Route::get('/contact', [ContactController::class, 'index'])->name('contact');
 Route::post('/contact', [ContactController::class, 'store'])->name('contact-submit');
@@ -95,5 +96,7 @@ Route::get('/admin/users', [AdminUserController::class, 'index']);
 Route::delete('/admin/users/{user}', [AdminUserController::class, 'destroy'])->name('user-delete');
 Route::get('/admin/reviews', [AdminReviewController::class, 'index']);
 Route::delete('/admin/reviews/{review}', [AdminReviewController::class, 'destroy'])->name('review-delete');
-
+Route::get('/privacy', function () {
+    return view('privacy');
+});
 // Pulkit URL Ends

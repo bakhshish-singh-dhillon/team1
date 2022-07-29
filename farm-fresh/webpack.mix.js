@@ -11,6 +11,20 @@ const mix = require('laravel-mix');
  |
  */
 
+ mix.webpackConfig(webpack => {
+    return {
+        plugins: [
+            new webpack.ProvidePlugin({
+                $: 'jquery',
+                jQuery: 'jquery', 
+                'window.jQuery': 'jquery',
+            })
+        ]
+    };
+});
+// mix.autoload({  
+//     'jquery': ['$', 'window.jQuery', 'jQuery'],
+// });
 mix.js('resources/js/app.js', 'public/js')
     .vue()
     .sass('resources/sass/app.scss', 'public/css')

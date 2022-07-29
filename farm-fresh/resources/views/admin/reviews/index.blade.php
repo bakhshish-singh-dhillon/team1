@@ -17,21 +17,20 @@
                             <button class="btn btn-success">Search</button>
                         </div>
                     </form>
-
                 </div>
             </div>
 
             <table class="table align-middle mb-0 bg-white">
                 <thead class="bg-light ">
                     <tr>
-                        <th>ID</th>
+                        <th>#</th>
                         <th>Review</th>
                         <th>Rating</th>
                         <th>Action</th>
                     </tr>
                 </thead>
                 <tbody class="">
-                    @if(count($reviews)==0)
+                    @if (count($reviews) == 0)
                     <tr colspan="4">No results found!</tr>
                     @endif
                     @foreach ($reviews as $review)
@@ -61,6 +60,5 @@
             </div>
         </div>
     </div>
-
 </div>
 @endsection
