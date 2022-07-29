@@ -34,7 +34,6 @@ class CheckoutController extends Controller
     }
     public function thank_you(Order $order)
     {
-        dd($order->transactions()->get());
         return view('thank-you', compact('order'));
     }
 

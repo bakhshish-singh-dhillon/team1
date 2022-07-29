@@ -46,7 +46,7 @@
                                         <strong>Order Number :</strong> {{$order->id}}<br />
                                         <strong>Order Date :</strong> {{$order->created_at}}<br />
                                         <strong>Charged To Card :</strong> ${{$order->total}}<br />
-                                        <strong>Credit Card :</strong> {{$order->transactions->cc_num}}<br />
+                                        <strong>Credit Card :</strong> ************{{$order->transactions()->latest()->first()->cc_num}}<br />
                                         <strong>Status :</strong> {{$order->order_status}}<br />
                                         <strong>Auth Code :</strong> {{$order->auth_code}}<br />
                                     </p>
