@@ -1,119 +1,133 @@
 @extends('layouts/admin/app')
 
 @section('content')
-<div class="mx-auto container ">
-    <div class="row justify-content-center">
-        <div class="col-md-10">
-            <div class="card">
-                <div class="card-header">
-                    <h1 class="h1">Categories</h1>
-                </div>
-                <div class="card-body">
-                    <div class="d-flex justify-content-between mb-2">
-                        <!-- Button trigger modal -->
-                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#categoryModal" data-bs-whatever="Create">Create Category</button>
-                        <div>
-                            <form method="get" action="/admin/categories/search">
-                                <div class="btn-group">
-                                    @csrf
-                                    <input class="form-control w-96" type="search" name="search" placeholder="Search by name or id" value="{{ app('request')->input('search') }}" />
-                                    <button class="btn btn-success">Search</button>
-                                </div>
-                            </form>
-
-                        </div>
+    <div class="mx-auto container my-4">
+        <div class="row justify-content-center">
+            <div class="col-md-10">
+                <div class="card">
+                    <div class="card-header">
+                        <h1 class="h1">Categories</h1>
                     </div>
-                    <span class="title ">{{$title}} ({{ count($categories) }})</span>
-                    <table class="table align-middle mb-0 bg-white">
-                        <thead class="bg-light ">
-                            <tr>
-                                <th>ID</th>
-                                <th>Name</th>
-                                <th>Parent</th>
-                            </tr>
-                        </thead>
-                        <tbody class="">
-                            @if(count($categories)==0)
-                            <tr colspan="4">No results found!</tr>
-                            @endif
-                            @foreach ($categories as $cat)
-                            <tr>
-                                <td>{{ $cat->id }}</td>
-                                <td>{{ $cat->name }}</td>
-                                <td>{{ null == $cat->parent ? "NA" : $cat->parent->name}}</td>
-                                <td>
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between mb-2">
+                            <!-- Button trigger modal -->
+                            <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                                data-bs-target="#categoryModal" data-bs-whatever="Create">Create Category</button>
+                            <div>
+                                <form method="get" action="/admin/categories/search">
                                     <div class="btn-group">
-                                        <!-- Button trigger modal -->
-
-                                        <button type="button" class="btn btn-primary mr-4" id="edit_category" data-bs-toggle="modal" data-bs-target="#categoryModal" data-bs-whatever="Edit" data-bs-id="{{$cat->id}}" data-bs-name="{{$cat->name}}" data-bs-parent="{{null == $cat->parent ? null : $cat->parent->id}}">Edit</button>
-
-                                        <form method="post" action="{{ route('cat-delete', ['category' => $cat->id]) }}">
-                                            @csrf
-                                            @method('DELETE')
-                                            <input type="hidden" name="id" value="{{ $cat->id }}" />
-                                            <button class="btn btn-danger " onclick="return confirm('Are you sure you want to delete this category?')">Delete</button>
-                                        </form>
-
-                                    </div>
-                                </td>
-                            </tr>
-                            @endforeach
-
-                        </tbody>
-                    </table>
-                    <!-- Button trigger modal -->
-                    <div class="modal fade" id="categoryModal" tabindex="-1" aria-labelledby="categoryModalLabel" aria-hidden="true">
-                        <div class="modal-dialog modal-dialog-centered">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title" id="categoryModalLabel"></h5>
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                </div>
-                                <div class="modal-body">
-                                    <form id="category_form" action="" method="POST">
                                         @csrf
-                                        <div class="mb-3">
-                                            <label for="category-name" class="col-form-label">Category Name:
-                                                <span class="text-danger" id="required">*</span>
-                                            </label>
-                                            <input type="text" class="form-control" id="category-name" name="category-name">
-                                            @error('category-name')
-                                            <span class="text-danger"> {{ $message }}</span>
-                                            @enderror
-                                        </div>
-                                        <div class="form-outline mb-4 ">
-                                            <label class="form-label" for="category_search">Parent Category:
-                                            </label>
-                                            <select name="category_id" id="category_id" class="form-control js-example-basic-single">
-                                                <option value="">select parent</option>
-                                                @foreach ($parentCategories as $index => $name)
-                                                <option value="{{ $name->id }}">
-                                                    {{ $name->name }}
-                                                </option>
-                                                @endforeach
-                                            </select>
-                                            @error('category_id')
-                                            <span class="text-danger"> {{ $message }}</span>
-                                            @enderror
-                                        </div>
-                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                        <button type="submit" id="submit_btn" class="btn btn-primary">Create</button>
-                                    </form>
-                                </div>
+                                        <input class="form-control w-96" type="search" name="search"
+                                            placeholder="Search by name or id"
+                                            value="{{ app('request')->input('search') }}" />
+                                        <button class="btn btn-success">Search</button>
+                                    </div>
+                                </form>
 
                             </div>
                         </div>
-                    </div>
+                        <span class="title ">{{ $title }} ({{ count($categories) }})</span>
+                        <table class="table align-middle mb-0 bg-white">
+                            <thead class="bg-light ">
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Name</th>
+                                    <th>Parent</th>
+                                </tr>
+                            </thead>
+                            <tbody class="">
+                                @if (count($categories) == 0)
+                                    <tr colspan="4">No results found!</tr>
+                                @endif
+                                @foreach ($categories as $cat)
+                                    <tr>
+                                        <td>{{ $cat->id }}</td>
+                                        <td>{{ $cat->name }}</td>
+                                        <td>{{ null == $cat->parent ? 'NA' : $cat->parent->name }}</td>
+                                        <td>
+                                            <div class="btn-group">
+                                                <!-- Button trigger modal -->
 
-                    <div class="pagination content-center">
+                                                <button type="button" class="btn btn-primary mr-4" id="edit_category"
+                                                    data-bs-toggle="modal" data-bs-target="#categoryModal"
+                                                    data-bs-whatever="Edit" data-bs-id="{{ $cat->id }}"
+                                                    data-bs-name="{{ $cat->name }}"
+                                                    data-bs-parent="{{ null == $cat->parent ? null : $cat->parent->id }}">Edit</button>
 
-                        {!! $categories->links('pagination::bootstrap-5') !!}
+                                                <form method="post"
+                                                    action="{{ route('cat-delete', ['category' => $cat->id]) }}">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <input type="hidden" name="id" value="{{ $cat->id }}" />
+                                                    <button class="btn btn-danger "
+                                                        onclick="return confirm('Are you sure you want to delete this category?')">Delete</button>
+                                                </form>
 
+                                            </div>
+                                        </td>
+                                    </tr>
+                                @endforeach
+
+                            </tbody>
+                        </table>
+                        <!-- Button trigger modal -->
+                        <div class="modal fade" id="categoryModal" tabindex="-1" aria-labelledby="categoryModalLabel"
+                            aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-centered">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="categoryModalLabel"></h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                            aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <form id="category_form" action="" method="POST">
+                                            @csrf
+                                            <div class="mb-3">
+                                                <label for="category-name" class="col-form-label">Category Name:
+                                                    <span class="text-danger" id="required">*</span>
+                                                </label>
+                                                <input type="text" class="form-control" id="category-name"
+                                                    name="category-name">
+                                                @error('category-name')
+                                                    <span class="text-danger"> {{ $message }}</span>
+                                                @enderror
+                                            </div>
+                                            <div class="form-outline mb-4 ">
+                                                <label class="form-label" for="category_search">Parent Category:
+                                                </label>
+                                                <select name="category_id" id="category_id"
+                                                    class="form-control js-example-basic-single">
+                                                    <option value="">select parent</option>
+                                                    @foreach ($parentCategories as $index => $name)
+                                                        <option value="{{ $name->id }}">
+                                                            {{ $name->name }}
+                                                        </option>
+                                                    @endforeach
+                                                </select>
+                                                @error('category_id')
+                                                    <span class="text-danger"> {{ $message }}</span>
+                                                @enderror
+                                            </div>
+                                            <button type="button" class="btn btn-secondary"
+                                                data-bs-dismiss="modal">Close</button>
+                                            <button type="submit" id="submit_btn" class="btn btn-primary">Create</button>
+                                        </form>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="pagination content-center">
+
+                            {!! $categories->links('pagination::bootstrap-5') !!}
+
+                        </div>
                     </div>
                 </div>
-            </div>
 
+            </div>
         </div>
     </div>
-</div>
 @endsection
