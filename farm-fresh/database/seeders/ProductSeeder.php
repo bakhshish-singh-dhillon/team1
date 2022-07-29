@@ -195,5 +195,55 @@ class ProductSeeder extends Seeder
             'quantity' => '215'
 
         ]);
+
+        DB::table('products')->insert([
+            'sku' => 'PROD19',
+            'name' => 'Flavour Yougart 4PK',
+            'price' => '5.49',
+            'description' => 'Strawberry and Vanilla, two exquisite flavours available in one convenient 4 x 250g format.',
+            'measure_unit' => 'lbs',
+            'quantity' => '15'
+
+        ]);
+
+        DB::table('products')->insert([
+            'sku' => 'PROD20',
+            'name' => 'Milk Chocolate',
+            'price' => '1.99',
+            'description' => 'The classic, creamy taste of Milk Chocolate.100% sustainably sourced cocoa.',
+            'measure_unit' => 'lbs',
+            'quantity' => '24'
+
+        ]);
+
+        DB::table('products')->insert([
+            'sku' => 'PROD21',
+            'name' => 'Cream Cheese',
+            'price' => '2.49',
+            'description' => 'Cream cheese is the perfect spread on a bagel in the morning.',
+            'measure_unit' => 'lbs',
+            'quantity' => '95'
+
+        ]);
+
+        DB::table('products')->insert([
+            'sku' => 'PROD22',
+            'name' => 'Egg White 12 Pk',
+            'price' => '4.19',
+            'description' => 'Eggs range in size (extra-large, large, medium, etc.) and their shells are either white or brown, depending on the breed of the hen.',
+            'measure_unit' => 'lbs',
+            'quantity' => '200'
+
+        ]);
+
+        DB::table('products')->insert([
+            'sku' => 'PROD23',
+            'name' => 'Egg Brown 12 Pk',
+            'price' => '4.99',
+            'description' => 'Eggs range in size (extra-large, large, medium, etc.) and their shells are either white or brown, depending on the breed of the hen.',
+            'measure_unit' => 'lbs',
+            'quantity' => '265'
+
+        ]);
     }
 }

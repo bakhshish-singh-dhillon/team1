@@ -147,5 +147,35 @@ class ImageSeeder extends Seeder
             'url' => 'yougurt.png'
 
         ]);
+
+        DB::table('images')->insert([
+            'product_id' => '19',
+            'url' => 'flavour.png'
+
+        ]);
+
+        DB::table('images')->insert([
+            'product_id' => '20',
+            'url' => 'chocolate.png'
+
+        ]);
+
+        DB::table('images')->insert([
+            'product_id' => '21',
+            'url' => 'creame_cheese.png'
+
+        ]);
+
+        DB::table('images')->insert([
+            'product_id' => '22',
+            'url' => 'white.png'
+
+        ]);
+
+        DB::table('images')->insert([
+            'product_id' => '23',
+            'url' => 'brown.png'
+
+        ]);
     }
 }
