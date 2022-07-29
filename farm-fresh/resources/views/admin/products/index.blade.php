@@ -3,7 +3,7 @@
 @section('content')
 
 <div class="d-flex justify-content-between mb-2 my-3">
-    <div class="title black-text">Products</div>
+    <div class="title black-text">{{$title}} ({{ count($products) }})</div>
 
     <div class="d-flex">
         <form method="get" action="{{ route('admin-get-products', []) }}">

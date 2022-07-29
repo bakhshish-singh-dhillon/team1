@@ -22,18 +22,10 @@ class ProductController extends Controller
     {
         $products = Product::latest()->paginate(9);
         $categories = Category::whereNull('category_id')->get();
-        // $this->getChildRecusrion($categories);
-        // die;
-        return view('products/index', compact('products', 'categories'));
+        $title = "All Products";
+        return view('products/index', compact('products', 'categories', 'title'));
     }
 
-    public function getChildRecusrion($categories)
-    {
-        foreach ($categories as $cat) {
-            dump($cat->name);
-            $this->getChildRecusrion($cat->children()->get());
-        }
-    }
     /**
      * Display the specified product.
      *
@@ -110,7 +102,8 @@ class ProductController extends Controller
             $products = Product::where('description', 'like', '%' . $request->search . '%')
                 ->orWhere('name', 'like', '%' . $request->search . '%')->paginate(9);
             $categories = Category::whereNull('category_id')->get();
-            return view('products/index', compact('products', 'categories'));
+            $title = "Searching for '" . $request->search . "'";
+            return view('products/index', compact('products', 'categories', 'title'));
         }
 
         return redirect('/products');

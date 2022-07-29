@@ -9,7 +9,7 @@
                     <h1 class="h1">Reviews</h1>
                 </div>
                 <div class="card-body">
-
+                    <span class="title ">{{$title}} ({{ count($reviews) }})</span>
                     <form method="get" action="/admin/reviews/">
                         <div class="btn-group">
                             @csrf
@@ -62,7 +62,5 @@
         </div>
     </div>
 
-</div>
-</div>
 </div>
 @endsection

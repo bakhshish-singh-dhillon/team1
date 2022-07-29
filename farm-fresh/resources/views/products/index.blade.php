@@ -17,7 +17,7 @@
                 </div>
             </div>
             <div class="col-md-9">
-                <div class="title capitalization">All Products ({{ count($products) }})
+                <div class="title ">{{$title}} ({{ count($products) }})
                     <div class="float-right">
                         <form action="{{ route('products-by-search', []) }}" method="get" autocomplete="off" novalidate>
                             @csrf
