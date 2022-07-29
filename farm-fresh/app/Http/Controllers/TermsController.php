@@ -11,6 +11,7 @@ class TermsController extends Controller
      */
     public function index()
     {
-        return view('terms');
+        $title = 'Terms & Conditions';
+        return view('terms', compact('title'));
     }
 }

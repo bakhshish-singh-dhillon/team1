@@ -39,9 +39,7 @@
                 </div>
                 {{-- <ul id="product-gallery">
                         <li>
-                            <img src="{{ $images_path . $product->images()->first()->url }}" alt="{{ $product->name }}">
-
-                </li>
+                            <img src="{{ $images_path . $product->images()->first()->url }}" alt="{{ $product->name }}"> </li>
 
                 </ul> --}}
             </div>
