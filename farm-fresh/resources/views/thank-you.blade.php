@@ -20,8 +20,8 @@
                             <tr>
                                 <td>
                                     <p>
-                                        <strong>RvZilla International ltd.</strong><br />
-                                        All-Wheel Alliance Group<br />
+                                        <strong>Farm-Fresh International ltd.</strong><br />
+                                        Fresh Foods Alliance Group<br />
                                         111 Whitley Drive,<br />
                                         Silicon Valley, California, 98715<br />
                                         USA R2L 6J7<br />
@@ -36,19 +36,19 @@
                                 </td>
                                 <td>
                                     <p>
-                                        <?php foreach ($address as $key => $value) : ?>
-                                            <strong><?= e(ucwords(str_replace('_', ' ', $key))) ?></strong>: <?= e($value) ?> <br />
-                                        <?php endforeach; ?>
+                                        <strong>First Name</strong> {{$order->user->first_name}}<br />
+                                        <strong>Last Name</strong> {{$order->user->last_name}}<br />
+                                        <strong>Email</strong> {{$order->user->email}}<br />
                                     </p>
                                 </td>
                                 <td>
                                     <p>
-                                        <?php foreach ($order_details as $key => $value) : ?>
-                                            <?php if ($key == "id" || $key == "order_date" || $key == "ccnum" || $key == "authcode" || $key == "total") : ?>
-                                                <strong><?= e(ucwords(str_replace('_', ' ', $key == "id" ? "Order Number" : ($key == "ccnum" ? "Credit Card" : ($key == "authcode" ? "Auth Code" : ($key == "total" ? "Charged to Card" : $key)))))) ?></strong>:
-                                                <?= e($key == "ccnum" ? "************" . $value : $value) ?> <br />
-                                            <?php endif; ?>
-                                        <?php endforeach; ?>
+                                        <strong>Order Number :</strong> {{$order->id}}<br />
+                                        <strong>Order Date :</strong> {{$order->created_at}}<br />
+                                        <strong>Charged To Card :</strong> ${{$order->total}}<br />
+                                        <strong>Credit Card :</strong> ************{{$order->transactions()->latest()->first()->cc_num}}<br />
+                                        <strong>Status :</strong> {{$order->order_status}}<br />
+                                        <strong>Auth Code :</strong> {{$order->auth_code}}<br />
                                     </p>
                                     <p>
                                         Please print this invoice for reference.
@@ -68,33 +68,8 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <?php foreach ($lineItems as $key => $value) : ?>
-                                <!--Start of products table-->
 
-                                <tr>
-                                    <td><?= e(ucwords(str_replace('_', ' ', $value['title'] ?? ""))) ?></td>
-                                    <td>$<?= e($value['unit_price'] ?? "") ?>/day</td>
-                                    <td><?= e($value['days'] ?? "") ?></td>
-                                    <td>$<?= e($value['line_price'] ?? "") ?></td>
-                                </tr>
-                                <!--End of products table-->
-                            <?php endforeach; ?>
-                            <tr>
-                                <td colspan="3" class="tax_dtl">Sub total</td>
-                                <td class="tax_dtl">$<?= e($value['sub_total'] ?? "") ?></td>
-                            </tr>
-                            <tr>
-                                <td colspan="3" class="tax_dtl">GST(5%)</td>
-                                <td class="tax_dtl"> $<?= e($value['gst'] ?? "") ?></td>
-                            </tr>
-                            <tr>
-                                <td colspan="3" class="tax_dtl">PST(7%)</td>
-                                <td class="tax_dtl"> $<?= e($value['pst'] ?? "") ?></td>
-                            </tr>
-                            <tr>
-                                <td colspan="3" class="tax_dtl">TOTAL</td>
-                                <td class="tax_dtl">$<?= e($value['total'] ?? "") ?></td>
-                            </tr>
+
                         </tbody>
                     </table>
                     <div class="desk_btn" style="margin-top: 20px; width: 130px;"><a href="?p=products" style=" width: 130px;" class="btn" title="view">Continue Shopping</a></div>

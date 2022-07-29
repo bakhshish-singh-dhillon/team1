@@ -1,7 +1,7 @@
 import $ from 'jquery';
 
-$(document).ready(function ($) {
-    $("body").on("click", ".add-more", function () {
+$(document).ready(function($) {
+    $("body").on("click", ".add-more", function() {
         var html = `<div class="row py-3 form-outline">
                         <div class="col-md-5">
                         <label class="form-label" for="key[]">Attribute Name: <span class="text-danger">*</span></label>
@@ -20,7 +20,7 @@ $(document).ready(function ($) {
 
     });
 
-    $("body").on("click", ".remove-attribute", function () {
+    $("body").on("click", ".remove-attribute", function() {
         $(this).parents(".form-outline").remove();
     });
 
@@ -34,13 +34,13 @@ $(document).ready(function ($) {
     var buttonPlus = $("#plus");
     var buttonMinus = $("#minus");
 
-    var incrementPlus = buttonPlus.click(function () {
+    var incrementPlus = buttonPlus.click(function() {
         // alert("hello");
         var $n = $(".qty");
         $n.val(Number($n.val()) + 1);
     });
 
-    var decrementMinus = buttonMinus.click(function () {
+    var decrementMinus = buttonMinus.click(function() {
         var $n = $(".qty");
         var amount = Number($n.val());
         if (amount > 1) {
@@ -49,17 +49,17 @@ $(document).ready(function ($) {
     });
 
     //Dhara : Close alert on click 
-    $(".close").click(function () {
+    $(".close").click(function() {
         $(".alert").hide();
     });
 
     if (document.getElementById('category_form')) {
-        document.getElementById('category_form').addEventListener('submit', function (evt) {
+        document.getElementById('category_form').addEventListener('submit', function(evt) {
             evt.preventDefault();
             if (document.getElementById('category-name').value == "") {
                 document.getElementById('required').innerHTML = "Category name is required!";
             } else {
-                document.getElementById('category_form').submit();
+                category_form.submit();
             }
         })
     }
