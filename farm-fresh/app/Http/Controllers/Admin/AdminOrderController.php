@@ -37,4 +37,20 @@ class AdminOrderController extends Controller
         }
         return view('admin/orders/index', compact('orders', 'title'));
     }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  \App\Models\Product  $product
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy(Order $order)
+    {
+        if ($order->delete()) {
+            session()->flash('success', 'Order deleted successfully');
+            return redirect('/admin/orders');
+        }
+        session()->flash('error', 'Sorry, Unable to create new product');
+        return redirect('/admin/orders');
+    }
 }

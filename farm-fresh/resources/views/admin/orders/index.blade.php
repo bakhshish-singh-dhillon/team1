@@ -24,10 +24,11 @@
             <thead class="bg-light ">
                 <tr>
                     <th>#</th>
+                    <th>Date</th>
                     <th>Status</th>
-                    <th>Subtotal</th>
-                    <th>Billing Address</th>
-                    <th>Shipping Address</th>
+                    <th>Total</th>
+
+
                 </tr>
             </thead>
             <tbody class="">
@@ -39,10 +40,11 @@
                 @foreach ($orders as $order)
                 <tr>
                     <td>{{ $order->id }}</td>
+                    <td>{{ $order->created_at }}</td>
                     <td>{{ $order->order_status }}</td>
-                    <td>{{ $order->subtotal }}</td>
-                    <td>{{ $order->billing_address }}</td>
-                    <td>{{ $order->shipping_address }}</td>
+                    <td>{{ $order->total }}</td>
+
+
                     <td>
                         <div class="btn-group">
                             <a class="btn btn-secondary mx-2" href="{{ route('order-edit', ['order' => $order->id]) }}">Edit</a>
