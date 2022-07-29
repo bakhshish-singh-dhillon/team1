@@ -145,5 +145,55 @@ class ProductSeeder extends Seeder
             'quantity' => '23'
 
         ]);
+
+        DB::table('products')->insert([
+            'sku' => 'PROD14',
+            'name' => 'Milk',
+            'price' => '1.00',
+            'description' => 'Milk has been subjected to at least one heat treatment and has a content of fat of at least 1.5% to a maximum of 2%. With 2% milk fat, it is possible to reduce fat intake while preserving whole milk flavour.',
+            'measure_unit' => 'lt',
+            'quantity' => '105'
+
+        ]);
+
+        DB::table('products')->insert([
+            'sku' => 'PROD15',
+            'name' => 'Butter',
+            'price' => '4.99',
+            'description' => 'Butter is the solid mass resulting from churning freshly separated, pasteurized cream. Product shall be smooth textured with a solid body.',
+            'measure_unit' => 'lbs',
+            'quantity' => '43'
+
+        ]);
+
+        DB::table('products')->insert([
+            'sku' => 'PROD16',
+            'name' => 'Cheese',
+            'price' => '4.99',
+            'description' => 'This mouth-watering blend of shredded old, medium and mild Cheddar cheeses saves you much needed time in the kitchen.',
+            'measure_unit' => 'lbs',
+            'quantity' => '93'
+
+        ]);
+
+        DB::table('products')->insert([
+            'sku' => 'PROD17',
+            'name' => 'Whipped Cream',
+            'price' => '4.19',
+            'description' => 'Light and fluffy Whipped Cream, perfect for any dessert.',
+            'measure_unit' => 'lbs',
+            'quantity' => '205'
+
+        ]);
+
+        DB::table('products')->insert([
+            'sku' => 'PROD18',
+            'name' => 'Yougurt',
+            'price' => '2.77',
+            'description' => '6% M.F. traditional set style yogourt.',
+            'measure_unit' => 'lbs',
+            'quantity' => '215'
+
+        ]);
     }
 }

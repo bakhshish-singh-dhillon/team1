@@ -117,5 +117,35 @@ class ImageSeeder extends Seeder
             'url' => 'redpep.png'
 
         ]);
+
+        DB::table('images')->insert([
+            'product_id' => '14',
+            'url' => 'milk_1.89L.png'
+
+        ]);
+
+        DB::table('images')->insert([
+            'product_id' => '15',
+            'url' => 'butter.png'
+
+        ]);
+
+        DB::table('images')->insert([
+            'product_id' => '16',
+            'url' => 'cheese.png'
+
+        ]);
+
+        DB::table('images')->insert([
+            'product_id' => '17',
+            'url' => 'whipped.png'
+
+        ]);
+
+        DB::table('images')->insert([
+            'product_id' => '18',
+            'url' => 'yougurt.png'
+
+        ]);
     }
 }
