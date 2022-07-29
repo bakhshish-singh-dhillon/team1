@@ -29,7 +29,7 @@ $(document).ready(function () {
             controlNav: false,
             animationLoop: false,
             slideshow: false,
-            touch : true,
+            touch: true,
             sync: "#gallery-slides"
         });
         $('#gallery-slides').flexslider({
@@ -37,10 +37,19 @@ $(document).ready(function () {
             controlNav: false,
             animationLoop: false,
             slideshow: false,
-            touch : true,
+            touch: true,
             itemWidth: 100,
             itemMargin: 5,
             asNavFor: '#gallery'
+        });
+    }
+
+    if ($("#featured-slider").length) {
+        $('#featured-slider').flexslider({
+            animation: "slide",
+            animationLoop: false,
+            itemWidth: 210,
+            itemMargin: 5
         });
     }
 });
