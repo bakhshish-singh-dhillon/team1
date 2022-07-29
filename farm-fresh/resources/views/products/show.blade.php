@@ -2,7 +2,6 @@
 
 @section('content')
 
-<<<<<<< HEAD
     <div id="detail">
         <div class="max-container py-4">
             <div class="row">
@@ -48,16 +47,6 @@
                 </div>
                 <div class="col-md-6">
                     <div class="title product-title">{{ $product->name }}</div>
-=======
-<div id="detail">
-    <div class="max-container py-4">
-        <div class="row">
-            <div class="col-md-6">
-                <img src="{{$images_path.$product->images()->first()->url}}" alt="{{$product->images()->first()->url}}">
-            </div>
-            <div class="col-md-6">
-                <div class="title product-title">{{$product->name}}</div>
->>>>>>> 0d09585718f8171dcc6da0ebd6709fbb994d050b
 
                 <table class="detail-table">
                     <tr>
