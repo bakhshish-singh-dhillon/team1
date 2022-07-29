@@ -34,15 +34,16 @@ class CheckoutController extends Controller
     }
     public function thank_you(Order $order)
     {
+        $address = json_decode($order->shipping_address);
         $sub_total = 0;
         foreach ($order->order_line_items as $line_item) {
             $line_price = $line_item->unit_price * $line_item->quantity;
-            $sub_total .= $line_price;
+            $sub_total += $line_price;
         }
         $gst = $sub_total * 0.5;
         $pst = $sub_total * 0.7;
         $total = $sub_total + $gst + $pst;
-        return view('thank-you', compact('order', 'total', 'gst', 'pst', 'sub_total'));
+        return view('thank-you', compact('order', 'total', 'gst', 'pst', 'sub_total', 'address'));
     }
 
     public function process_payment(Request $request)
@@ -77,8 +78,8 @@ class CheckoutController extends Controller
             'order_status' => "Pending",
             'total' => $bill['total'],
             'subtotal' => $bill['subtotal'],
-            'billing_address' => json_encode(session()->get('billing_address')),
-            'shipping_address' => json_encode(session()->get('shipping_address')),
+            'billing_address' => session()->get('billing_address'),
+            'shipping_address' => session()->get('shipping_address'),
             'auth_code' => "NA",
             'transaction_status' => "incomplete",
         ]);

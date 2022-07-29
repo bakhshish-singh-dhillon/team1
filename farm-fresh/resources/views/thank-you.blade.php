@@ -36,9 +36,14 @@
                                 </td>
                                 <td class="py-0 align-top">
                                     <p class="text-left">
-                                        <strong>First Name</strong> {{$order->user->first_name}}<br />
-                                        <strong>Last Name</strong> {{$order->user->last_name}}<br />
-                                        <strong>Email</strong> {{$order->user->email}}<br />
+                                        <strong>First Name: </strong> {{$order->user->first_name}}<br />
+                                        <strong>Last Name: </strong> {{$order->user->last_name}}<br />
+                                        <strong>Email: </strong> {{$order->user->email}}<br /><br />
+                                        <strong>Shipping Address: </strong><br />
+                                        <strong>Street : </strong> {{$address->address}}<br />
+                                        <strong>City/Province : </strong> {{$address->city}},{{$address->province}}<br />
+                                        <strong>Postal Code: </strong> {{$address->postal_code}}<br />
+                                        <strong>Phone: </strong> +{{$address->phone}}<br />
                                     </p>
                                 </td>
                                 <td class="text-left align-top">
@@ -64,37 +69,37 @@
                                 <th>Product Name </th>
                                 <th>Price</th>
                                 <th>Qty</th>
-                                <th>Line Price</th>
+                                <th class="text-end">Line Price</th>
                             </tr>
                         </thead>
                         <tbody>
                             @foreach($order->order_line_items as $line_item)
                             <tr>
                                 <td>{{$line_item->product->name}}</td>
-                                <td>{{$line_item->unit_price}}</td>
+                                <td>{{$line_item->unit_price}}$</td>
                                 <td>{{$line_item->quantity}}</td>
-                                <td>{{$line_item->unit_price * $line_item->quantity}}</td>
+                                <td class="text-end">{{$line_item->unit_price * $line_item->quantity}}$</td>
                             </tr>
                             @endforeach
                             <tr>
-                                <td colspan="3" class="tax_dtl">Sub total</td>
-                                <td>${{$sub_total}}</td>
+                                <td colspan="3" class="text-end">Sub total</td>
+                                <td class="text-end">{{$sub_total}}</td>
                             </tr>
                             <tr>
-                                <td colspan="3" class="tax_dtl">GST(5%)</td>
-                                <td>${{$gst}}</td>
+                                <td colspan="3" class="text-end">GST(5%)</td>
+                                <td class="text-end">{{$gst}}$</td>
                             </tr>
                             <tr>
-                                <td colspan="3" class="tax_dtl">PST(7%)</td>
-                                <td>${{$pst}}</td>
+                                <td colspan="3" class="text-end">PST(7%)</td>
+                                <td class="text-end">{{$pst}}$</td>
                             </tr>
                             <tr>
-                                <td colspan="3" class="tax_dtl">TOTAL</td>
-                                <td>${{$total}}</td>
+                                <td colspan="3" class="text-end">TOTAL</td>
+                                <td class="text-end">{{$total}}$</td>
                             </tr>
                         </tbody>
                     </table>
-                    <div class="desk_btn" style="margin-top: 20px; width: 130px;"><a href="?p=products" style=" width: 130px;" class="btn" title="view">Continue Shopping</a></div>
+                    <div><a href="/products" class="btn" title="view">Continue Shopping</a></div>
                 </div>
             </div>
         </div>
