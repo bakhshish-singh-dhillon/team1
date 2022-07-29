@@ -10,7 +10,7 @@
             <div class="btn-group mx-2">
                 @csrf
                 <input class="form-control search-bar" type="search" name="search" placeholder="Search by id, title or price" value="{{ app('request')->input('search') }}" />
-                <button class="btn btn-success">Search</button>
+                <button class="btn btn-success"><i class="fas fa-search"></i></button>
             </div>
         </form>
         <a class="btn btn-primary" href="/admin/products/create" role="button"><i class="fa-solid fa-plus mx-1"></i>Create</a>
