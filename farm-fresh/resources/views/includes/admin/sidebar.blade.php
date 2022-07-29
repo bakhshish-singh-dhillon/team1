@@ -21,9 +21,6 @@
         <a href="/admin/reviews"><i class="fas fa-comments px-2"></i></i>Reviews</a>
     </li>
     <li class="menu-item">
-        <a href="/admin/transaction-logs"><i class="fa-solid fa-money-check-dollar px-2"></i>Transaction Logs</a>
-    </li>
-    <li class="menu-item">
         <a href="/"><i class="fa-solid fa-house-user px-2"></i>User Dashboard</a>
     </li>
     <li class="menu-item">

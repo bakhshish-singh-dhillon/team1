@@ -22,7 +22,7 @@ class ProductController extends Controller
     {
         $products = Product::latest()->paginate(9);
         $categories = Category::whereNull('category_id')->get();
-        $title = "All Products";
+        $title = "Products";
         return view('products/index', compact('products', 'categories', 'title'));
     }
 
