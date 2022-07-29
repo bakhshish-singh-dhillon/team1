@@ -8,6 +8,7 @@ import MultiImage from './components/multi-image.vue';
 import './user-addresses.js';
 window.jQuery = window.$ = $;
 import 'flexslider';
+import 'owl.carousel';
 
 /** Multi Image vue component */
 if ($("#multi-image").length) {
