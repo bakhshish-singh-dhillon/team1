@@ -31,6 +31,7 @@ class HomeController extends Controller
         $products = Product::latest()->take(4)->get();
         $reviews = Review::where('rating', '5')->latest()->take(2)->get();
         $categories = Category::whereNull('category_id')->get();
-        return view('home', compact('products', 'categories', 'reviews'));
+        $title = "Home";
+        return view('home', compact('products', 'categories', 'reviews', 'title'));
     }
 }
