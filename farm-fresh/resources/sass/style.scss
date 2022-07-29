@@ -347,6 +347,10 @@ button.btn:hover {
 
 #admin {
 
+    .custom-file-container__image-preview.custom-file-container__image-preview--active {
+        height: 188px;
+    }
+
     a.btn,
     button.btn {
         color: #fff;
@@ -363,10 +367,12 @@ button.btn:hover {
         background-color: #fff;
     }
 
+    a.btn-danger,
     button.btn-danger {
         background-color: $red;
     }
 
+    a.btn-danger:hover,
     button.btn-danger:hover {
         color: $red;
     }
@@ -454,6 +460,10 @@ button.btn:hover {
             text-decoration: none;
             display: block;
         }
+    }
+
+    .w100 {
+        width: 100px;
     }
 }
 

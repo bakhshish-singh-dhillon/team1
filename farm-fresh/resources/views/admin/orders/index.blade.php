@@ -60,7 +60,7 @@
             </tbody>
         </table>
 
-        <div class="pagination content-center">
+        <div class="pagination justify-content-center py-2">
 
             {!! $orders->links('pagination::bootstrap-5') !!}
 

@@ -41,7 +41,7 @@
                     </div>
                     @endforeach
                 </div>
-                <div class="pagination content-center justify-content-center">
+                <div class="pagination justify-content-center py-2">
 
                     {!! $products->links('pagination::bootstrap-5') !!}
 

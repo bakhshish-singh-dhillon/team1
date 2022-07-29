@@ -54,7 +54,7 @@
                 </tbody>
             </table>
 
-            <div class="pagination content-center">
+            <div class="pagination justify-content-center py-2">
 
                 {!! $reviews->links('pagination::bootstrap-5') !!}
 

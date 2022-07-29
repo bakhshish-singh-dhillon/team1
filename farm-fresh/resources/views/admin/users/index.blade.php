@@ -2,11 +2,10 @@
 
 @section('content')
 
-<div class="title black-text py-3">Users</div>
+<div class="d-flex justify-content-between mb-2 my-3">
+    <div class="title black-text">Users</div>
 
-<div class="card">
-    <div class="card-body">
-
+    <div class="d-flex">
         <form method="get" action="/admin/users/">
             <div class="btn-group mb-2 float-right">
                 @csrf
@@ -14,6 +13,11 @@
                 <button class="btn btn-success"><i class="fas fa-search"></i></button>
             </div>
         </form>
+    </div>
+</div>
+
+<div class="card">
+    <div class="card-body">
 
         <table class="table align-middle mb-0 bg-white">
             <thead class="bg-light ">

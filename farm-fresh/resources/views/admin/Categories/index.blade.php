@@ -105,7 +105,7 @@
                         </div>
                     </div>
 
-                    <div class="pagination content-center">
+                    <div class="pagination justify-content-center py-2">
 
                         {!! $categories->links('pagination::bootstrap-5') !!}
 
