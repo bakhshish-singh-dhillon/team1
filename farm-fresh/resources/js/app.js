@@ -46,11 +46,7 @@ $(document).ready(function () {
     }
 
     if ($("#featured-slider").length) {
-        $('#featured-slider').flexslider({
-            animation: "slide",
-            animationLoop: false,
-            itemWidth: 210,
-            itemMargin: 5
+        $('#featured-slider').owlCarousel()({
         });
     }
 });
