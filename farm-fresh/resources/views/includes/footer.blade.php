@@ -4,11 +4,11 @@
     <div class="text-center max-container">
         <div id="footer_nav">
             <ul>
-                <li class="<?php if ($title == 'Home') echo 'active';  ?>"><a href="/">Home</a></li>
-                <li class="<?php if ($title == 'Terms & Conditions') echo 'active';  ?>"><a href="/terms-and-conditions">Terms & Conditions</a></li>
-                <li class="<?php if ($title == 'About') echo 'active';  ?>"><a href="/about">About</a></li>
-                <li class="<?php if ($title == 'Contact') echo 'active';  ?>"><a href="/contact">Contact</a></li>
-                <li class="<?php if ($title == 'Privacy Policy') echo 'active';  ?>"><a href="/privacy-policy">Privacy Policy</a></li>
+                <li @if(isset($title)) class="<?php if ($title == 'Home') echo 'active';  ?>" @endif><a href="/">Home</a></li>
+                <li @if(isset($title)) class="<?php if ($title == 'Terms & Conditions') echo 'active';  ?>" @endif><a href="/terms-and-conditions">Terms & Conditions</a></li>
+                <li @if(isset($title)) class="<?php if ($title == 'About') echo 'active';  ?>" @endif><a href="/about">About</a></li>
+                <li @if(isset($title)) class="<?php if ($title == 'Contact') echo 'active';  ?>" @endif><a href="/contact">Contact</a></li>
+                <li @if(isset($title)) class="<?php if ($title == 'Privacy Policy') echo 'active';  ?>" @endif><a href="/privacy-policy">Privacy Policy</a></li>
             </ul>
         </div>
 

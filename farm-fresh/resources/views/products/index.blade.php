@@ -26,16 +26,16 @@
                         </form>
                     </div>
                 </div>
-                <div class="row">
+                <div class="row" id="featured">
                     @foreach ($products as $prod)
                     <div class="col-md-4 my-2">
-                        <div class="card">
+                        <div class="card product-item">
                             <img class="card-img-top" src="{{ $images_path . $prod->images()->first()->url }}" alt="{{ $prod->images()->first()->url }}">
                             <div class="card-body">
                                 <h5 class="card-title">{{ $prod->name }}</h5>
                                 <p class="card-text">$ {{ $prod->price }} / {{ $prod->measure_unit }}</p>
                                 <p class="ellipsis-text">{{ $prod->description }}</p>
-                                <a href="/products/show/{{ $prod->id }}" class="btn">View</a>
+                                <a href="/products/show/{{ $prod->id }}" class="btn hanging-btn product-item">View</a>
                             </div>
                         </div>
                     </div>
