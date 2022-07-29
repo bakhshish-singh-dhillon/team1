@@ -30,7 +30,7 @@
                                     <p class="text-left">
                                         <strong>Queries about your order</strong><br />
                                         <strong>tel-</strong> 1-111-111-1234<br />
-                                        <strong>email-</strong><a href="#"> support@rvzilla.com</a><br />
+                                        <strong>email-</strong><a href="#"> ecom.farmfresh@gmail.com</a><br />
                                         Have a great visit. Good day!<br />
                                     </p>
                                 </td>
