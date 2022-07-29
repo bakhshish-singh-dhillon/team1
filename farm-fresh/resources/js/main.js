@@ -1,22 +1,26 @@
 import $ from 'jquery';
 
-$(document).ready(function($) {
-    $("body").on("click", ".add-more", function() {
-        var html = `
-        <div class="form-outline mb-4">
-            <label class="form-label" for="key[]">Attribute Name: <span class="text-danger">*</span></label>
-            <input name="key[]" type="text" id="key" class="form-control" value="" />
-            <label class="form-label" for="value[][]">Value: <span class="text-danger">*</span></label>
-            <input name="value[]" type="text" id="value[]" class="form-control" value="" />
-            <a class="btn btn-danger remove-attribute">Remove</a>
-        </div>        
-        `;
+$(document).ready(function ($) {
+    $("body").on("click", ".add-more", function () {
+        var html = `<div class="row py-3 form-outline">
+                        <div class="col-md-5">
+                        <label class="form-label" for="key[]">Attribute Name: <span class="text-danger">*</span></label>
+                        <input name="key[]" type="text" id="key" class="form-control" value="" />
+                        </div>
+                        <div class="col-md-5">
+                        <label class="form-label" for="value[][]">Value: <span class="text-danger">*</span></label>
+                        <input name="value[]" type="text" id="value[]" class="form-control" value="" />
+                        </div>
+                        <div class="col-md-2">
+                        <br>
+                        <a class="btn btn-danger remove-attribute"><i class="fa-solid fa-minus"></i></a></div>
+                    </div>`;
 
         $("body .additional-fields").append(html);
 
     });
 
-    $("body").on("click", ".remove-attribute", function() {
+    $("body").on("click", ".remove-attribute", function () {
         $(this).parents(".form-outline").remove();
     });
 
@@ -30,13 +34,13 @@ $(document).ready(function($) {
     var buttonPlus = $("#plus");
     var buttonMinus = $("#minus");
 
-    var incrementPlus = buttonPlus.click(function() {
+    var incrementPlus = buttonPlus.click(function () {
         // alert("hello");
         var $n = $(".qty");
         $n.val(Number($n.val()) + 1);
     });
 
-    var decrementMinus = buttonMinus.click(function() {
+    var decrementMinus = buttonMinus.click(function () {
         var $n = $(".qty");
         var amount = Number($n.val());
         if (amount > 1) {
@@ -45,12 +49,13 @@ $(document).ready(function($) {
     });
 
     //Dhara : Close alert on click 
-    var hide = $(".alertClose").click(function() {
+    var hide = $(".alertClose").click(function () {
         $(".alert").hide();
 
     });
 
-    document.getElementById('category_form').addEventListener('submit', function(evt) {
+    if (document.getElementById('category_form')) {
+        document.getElementById('category_form').addEventListener('submit', function (evt) {
             evt.preventDefault();
             if (document.getElementById('category-name').value == "") {
                 document.getElementById('required').innerHTML = "Category name is required!";
@@ -58,7 +63,8 @@ $(document).ready(function($) {
                 document.getElementById('category_form').submit();
             }
         })
-        // Pravindra Category Modal
+    }
+    // Pravindra Category Modal
     const categoryModal = document.getElementById('categoryModal')
 
     if (categoryModal) {
