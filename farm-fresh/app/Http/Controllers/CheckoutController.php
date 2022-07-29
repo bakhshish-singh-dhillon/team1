@@ -34,7 +34,15 @@ class CheckoutController extends Controller
     }
     public function thank_you(Order $order)
     {
-        return view('thank-you', compact('order'));
+        $sub_total = 0;
+        foreach ($order->order_line_items as $line_item) {
+            $line_price = $line_item->unit_price * $line_item->quantity;
+            $sub_total .= $line_price;
+        }
+        $gst = $sub_total * 0.5;
+        $pst = $sub_total * 0.7;
+        $total = $sub_total + $gst + $pst;
+        return view('thank-you', compact('order', 'total', 'gst', 'pst', 'sub_total'));
     }
 
     public function process_payment(Request $request)

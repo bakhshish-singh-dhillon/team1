@@ -76,6 +76,22 @@
                                 <td>{{$line_item->unit_price * $line_item->quantity}}</td>
                             </tr>
                             @endforeach
+                            <tr>
+                                <td colspan="3" class="tax_dtl">Sub total</td>
+                                <td>${{$sub_total}}</td>
+                            </tr>
+                            <tr>
+                                <td colspan="3" class="tax_dtl">GST(5%)</td>
+                                <td>${{$gst}}</td>
+                            </tr>
+                            <tr>
+                                <td colspan="3" class="tax_dtl">PST(7%)</td>
+                                <td>${{$pst}}</td>
+                            </tr>
+                            <tr>
+                                <td colspan="3" class="tax_dtl">TOTAL</td>
+                                <td>${{$total}}</td>
+                            </tr>
                         </tbody>
                     </table>
                     <div class="desk_btn" style="margin-top: 20px; width: 130px;"><a href="?p=products" style=" width: 130px;" class="btn" title="view">Continue Shopping</a></div>
