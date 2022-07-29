@@ -17,7 +17,6 @@
                             <button class="btn btn-success">Search</button>
                         </div>
                     </form>
-
                 </div>
             </div>
 
@@ -27,11 +26,11 @@
                         <th>ID</th>
                         <th>Review</th>
                         <th>Rating</th>
-                        <th>Actions</th>
+                        <th>Action</th>
                     </tr>
                 </thead>
                 <tbody class="">
-                    @if(count($reviews)==0)
+                    @if (count($reviews) == 0)
                     <tr colspan="4">No results found!</tr>
                     @endif
                     @foreach ($reviews as $review)
@@ -41,55 +40,25 @@
                         <td>{{ $review->rating }}</td>
                         <td>
                             <div class="btn-group">
-                                @csrf
-                                <input class="form-control w-96" type="search" name="search" placeholder="Search by id, name or rating" value="{{ app('request')->input('search') }}" />
-                                <button class="btn btn-success">Search</button>
+                                <form method="post" action="{{ route('review-delete', ['review' => $review->id]) }}">
+                                    @csrf
+                                    @method('DELETE')
+                                    <input type="hidden" name="id" value="{{ $review->id }}" />
+                                    <button class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this post?')">Delete</button>
+                                </form>
                             </div>
-                            </form>
+                        </td>
+                    </tr>
+                    @endforeach
+                </tbody>
+            </table>
 
+            <div class="pagination content-center">
+
+                {!! $reviews->links('pagination::bootstrap-5') !!}
+
+            </div>
         </div>
     </div>
-
-    <table class="table align-middle mb-0 bg-white">
-        <thead class="bg-light ">
-            <tr>
-                <th>ID</th>
-                <th>Review</th>
-                <th>Rating</th>
-                <th>Action</th>
-            </tr>
-        </thead>
-        <tbody class="">
-            @if (count($reviews) == 0)
-            <tr colspan="4">No results found!</tr>
-            @endif
-            @foreach ($reviews as $review)
-            <tr>
-                <td>{{ $review->id }}</td>
-                <td>{{ $review->review }}</td>
-                <td>{{ $review->rating }}</td>
-                <td>
-                    <div class="btn-group">
-                        <form method="post" action="{{ route('review-delete', ['review' => $review->id]) }}">
-                            @csrf
-                            @method('DELETE')
-                            <input type="hidden" name="id" value="{{ $review->id }}" />
-                            <button class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this post?')">Delete</button>
-                        </form>
-                    </div>
-                </td>
-            </tr>
-            @endforeach
-        </tbody>
-    </table>
-
-    <div class="pagination content-center">
-
-        {!! $reviews->links('pagination::bootstrap-5') !!}
-
-    </div>
-</div>
-</div>
-
 </div>
 @endsection
