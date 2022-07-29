@@ -49,9 +49,8 @@ $(document).ready(function ($) {
     });
 
     //Dhara : Close alert on click 
-    var hide = $(".alertClose").click(function () {
+    $(".alertClose").click(function () {
         $(".alert").hide();
-
     });
 
     if (document.getElementById('category_form')) {
