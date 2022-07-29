@@ -4,7 +4,7 @@
 
 
 <div class="d-flex justify-content-between mb-2 my-3">
-    <div class="title black-text">{{$title}} ({{ count($orders) }})</div>
+    <div class="title black-text">{{$title}} ({{ $orders->total() }})</div>
 
     <div class="d-flex">
         <form method="get" action="/admin/orders/">

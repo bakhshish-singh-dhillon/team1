@@ -112,5 +112,70 @@ class ImageSeeder extends Seeder
             'url' => 'cantaloupe.png'
 
         ]);
+        DB::table('images')->insert([
+            'product_id' => '13',
+            'url' => 'redpep.png'
+
+        ]);
+
+        DB::table('images')->insert([
+            'product_id' => '14',
+            'url' => 'milk_1.89L.png'
+
+        ]);
+
+        DB::table('images')->insert([
+            'product_id' => '15',
+            'url' => 'butter.png'
+
+        ]);
+
+        DB::table('images')->insert([
+            'product_id' => '16',
+            'url' => 'cheese.png'
+
+        ]);
+
+        DB::table('images')->insert([
+            'product_id' => '17',
+            'url' => 'whipped.png'
+
+        ]);
+
+        DB::table('images')->insert([
+            'product_id' => '18',
+            'url' => 'yougurt.png'
+
+        ]);
+
+        DB::table('images')->insert([
+            'product_id' => '19',
+            'url' => 'flavour.png'
+
+        ]);
+
+        DB::table('images')->insert([
+            'product_id' => '20',
+            'url' => 'chocolate.png'
+
+        ]);
+
+        DB::table('images')->insert([
+            'product_id' => '21',
+            'url' => 'creame_cheese.png'
+
+        ]);
+
+        DB::table('images')->insert([
+            'product_id' => '22',
+            'url' => 'white.png'
+
+        ]);
+
+        DB::table('images')->insert([
+            'product_id' => '23',
+            'url' => 'brown.png'
+
+        ]);
     }
 }

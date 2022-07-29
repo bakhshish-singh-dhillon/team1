@@ -135,5 +135,115 @@ class ProductSeeder extends Seeder
             'quantity' => '3'
 
         ]);
+
+        DB::table('products')->insert([
+            'sku' => 'PROD13',
+            'name' => 'Red Pepper',
+            'price' => '3.49',
+            'description' => 'Red bell peppers start with green skin but are left to ripen longer, giving them their bright red skin and sweet, fruity flavor.',
+            'measure_unit' => 'lbs',
+            'quantity' => '23'
+
+        ]);
+
+        DB::table('products')->insert([
+            'sku' => 'PROD14',
+            'name' => 'Milk',
+            'price' => '1.00',
+            'description' => 'Milk has been subjected to at least one heat treatment and has a content of fat of at least 1.5% to a maximum of 2%. With 2% milk fat, it is possible to reduce fat intake while preserving whole milk flavour.',
+            'measure_unit' => 'lt',
+            'quantity' => '105'
+
+        ]);
+
+        DB::table('products')->insert([
+            'sku' => 'PROD15',
+            'name' => 'Butter',
+            'price' => '4.99',
+            'description' => 'Butter is the solid mass resulting from churning freshly separated, pasteurized cream. Product shall be smooth textured with a solid body.',
+            'measure_unit' => 'lbs',
+            'quantity' => '43'
+
+        ]);
+
+        DB::table('products')->insert([
+            'sku' => 'PROD16',
+            'name' => 'Cheese',
+            'price' => '4.99',
+            'description' => 'This mouth-watering blend of shredded old, medium and mild Cheddar cheeses saves you much needed time in the kitchen.',
+            'measure_unit' => 'lbs',
+            'quantity' => '93'
+
+        ]);
+
+        DB::table('products')->insert([
+            'sku' => 'PROD17',
+            'name' => 'Whipped Cream',
+            'price' => '4.19',
+            'description' => 'Light and fluffy Whipped Cream, perfect for any dessert.',
+            'measure_unit' => 'lbs',
+            'quantity' => '205'
+
+        ]);
+
+        DB::table('products')->insert([
+            'sku' => 'PROD18',
+            'name' => 'Yougurt',
+            'price' => '2.77',
+            'description' => '6% M.F. traditional set style yogourt.',
+            'measure_unit' => 'lbs',
+            'quantity' => '215'
+
+        ]);
+
+        DB::table('products')->insert([
+            'sku' => 'PROD19',
+            'name' => 'Flavour Yougart 4PK',
+            'price' => '5.49',
+            'description' => 'Strawberry and Vanilla, two exquisite flavours available in one convenient 4 x 250g format.',
+            'measure_unit' => 'lbs',
+            'quantity' => '15'
+
+        ]);
+
+        DB::table('products')->insert([
+            'sku' => 'PROD20',
+            'name' => 'Milk Chocolate',
+            'price' => '1.99',
+            'description' => 'The classic, creamy taste of Milk Chocolate.100% sustainably sourced cocoa.',
+            'measure_unit' => 'lbs',
+            'quantity' => '24'
+
+        ]);
+
+        DB::table('products')->insert([
+            'sku' => 'PROD21',
+            'name' => 'Cream Cheese',
+            'price' => '2.49',
+            'description' => 'Cream cheese is the perfect spread on a bagel in the morning.',
+            'measure_unit' => 'lbs',
+            'quantity' => '95'
+
+        ]);
+
+        DB::table('products')->insert([
+            'sku' => 'PROD22',
+            'name' => 'Egg White 12 Pk',
+            'price' => '4.19',
+            'description' => 'Eggs range in size (extra-large, large, medium, etc.) and their shells are either white or brown, depending on the breed of the hen.',
+            'measure_unit' => 'lbs',
+            'quantity' => '200'
+
+        ]);
+
+        DB::table('products')->insert([
+            'sku' => 'PROD23',
+            'name' => 'Egg Brown 12 Pk',
+            'price' => '4.99',
+            'description' => 'Eggs range in size (extra-large, large, medium, etc.) and their shells are either white or brown, depending on the breed of the hen.',
+            'measure_unit' => 'lbs',
+            'quantity' => '265'
+
+        ]);
     }
 }
