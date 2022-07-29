@@ -3,7 +3,7 @@
 @section('content')
 
 <div class="d-flex justify-content-between mb-2 my-3">
-    <div class="title black-text">{{$title}} ({{ count($categories) }})</div>
+    <div class="title black-text">{{$title}} ({{ $categories->total() }})</div>
 
     <div class="d-flex justify-content-between mb-2">
         <!-- Button trigger modal -->

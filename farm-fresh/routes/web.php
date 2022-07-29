@@ -72,7 +72,7 @@ Route::get('choose-addresses', [AddressController::class, 'index'])->name('choos
 Route::post('choose-addresses', [AddressController::class, 'store'])->name('store-addresses');
 Route::get('checkout', [CheckoutController::class, 'index'])->name('checkout');
 Route::post('checkout', [CheckoutController::class, 'process_payment'])->name('process-payment');
-Route::get('thank-you', [CheckoutController::class, 'thank_you'])->name('thank-you');
+Route::get('thank-you/{order}', [CheckoutController::class, 'thank_you'])->name('thank-you');
 // Route::put('choose-addresses', [AddressController::class, 'update'])->name('update-addresses');
 //Checkout Steps End
 
@@ -96,7 +96,7 @@ Route::get('/admin/users', [AdminUserController::class, 'index']);
 Route::delete('/admin/users/{user}', [AdminUserController::class, 'destroy'])->name('user-delete');
 Route::get('/admin/reviews', [AdminReviewController::class, 'index']);
 Route::delete('/admin/reviews/{review}', [AdminReviewController::class, 'destroy'])->name('review-delete');
-Route::get('/privacy', function () {
+Route::get('/privacy-policy', function () {
     return view('privacy');
 });
 // Pulkit URL Ends

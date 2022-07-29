@@ -2,51 +2,51 @@
 
 @section('content')
 
-    <div id="detail">
-        <div class="max-container py-4">
-            <div class="row">
-                <div class="col-md-6">
-                    <div id="product-gallery">
-                        {{-- <ul class="slides">
+<div id="detail">
+    <div class="max-container py-4">
+        <div class="row">
+            <div class="col-md-6">
+                <div id="product-gallery">
+                    {{-- <ul class="slides">
                             @foreach ($product->images as $image)
                                 <li data-thumb="{{ $images_path . $image->url }}" alt="{{ $product->name }}">
-                                    <img src="{{ $images_path . $image->url }}" alt="{{ $product->name }}" />
-                                </li>
+                    <img src="{{ $images_path . $image->url }}" alt="{{ $product->name }}" />
+                    </li>
+                    @endforeach
+                    </ul> --}}
+
+                    <div id="gallery">
+                        <ul class="slides">
+                            @foreach ($product->images as $image)
+                            <li>
+                                <img src="{{ $images_path . $image->url }}" alt="{{ $product->name }}" />
+                            </li>
                             @endforeach
-                        </ul> --}}
-
-                        <div id="gallery" >
-                            <ul class="slides">
-                                @foreach ($product->images as $image)
-                                    <li>
-                                        <img src="{{ $images_path . $image->url }}" alt="{{ $product->name }}" />
-                                    </li>
-                                @endforeach
-                            </ul>
-
-                        </div>
-                        <div id="gallery-slides" class="flexslider">
-                            <ul class="slides">
-                                @foreach ($product->images as $image)
-                                    <li>
-                                        <img src="{{ $images_path . $image->url }}" alt="{{ $product->name }}" />
-                                    </li>
-                                @endforeach
-                            </ul>
-
-                        </div>
+                        </ul>
 
                     </div>
-                    {{-- <ul id="product-gallery">
+                    <div id="gallery-slides" class="flexslider">
+                        <ul class="slides">
+                            @foreach ($product->images as $image)
+                            <li>
+                                <img src="{{ $images_path . $image->url }}" alt="{{ $product->name }}" />
+                            </li>
+                            @endforeach
+                        </ul>
+
+                    </div>
+
+                </div>
+                {{-- <ul id="product-gallery">
                         <li>
                             <img src="{{ $images_path . $product->images()->first()->url }}" alt="{{ $product->name }}">
 
-                        </li>
+                </li>
 
-                    </ul> --}}
-                </div>
-                <div class="col-md-6">
-                    <div class="title product-title">{{ $product->name }}</div>
+                </ul> --}}
+            </div>
+            <div class="col-md-6">
+                <div class="title product-title">{{ $product->name }}</div>
 
                 <table class="detail-table">
                     <tr>
@@ -77,8 +77,11 @@
                                     <input type="text" name="quantity" class="qty" maxlength="12" value="1" class="input-text qty" />
                                     <i id="minus" class="fa-solid fa-minus"></i>
                                 </div>
-
+                                @if((int)$product->quantity == 0)
+                                <button type="submit" class="btn" disabled>Add to Cart </button>
+                                @else
                                 <button type="submit" class="btn">Add to Cart </button>
+                                @endif
 
                             </form>
 

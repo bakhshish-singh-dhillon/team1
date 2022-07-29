@@ -34,7 +34,7 @@ class ProductController extends Controller
      */
     public function show(Product $product)
     {
-        $products = Product::latest()->take(4)->get();
+        $products = Product::latest()->get();
 
         $avgRating = number_format((float)$product->reviews->avg('rating'), 2, '.', '');
 
@@ -86,8 +86,8 @@ class ProductController extends Controller
             $query->whereIn('categories.id', array_merge($category->children->pluck('id')->toArray(), [$category->id]));
         })->paginate(9);
         $categories = Category::whereNull('category_id')->get();
-
-        return view('products/index', compact('products', 'categories'));
+        $title = "Category : " . $category->name;
+        return view('products/index', compact('products', 'categories', 'title'));
     }
 
 

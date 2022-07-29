@@ -52,9 +52,9 @@ class Product extends Model
     /**
      * Get the line items of product.
      */
-    public function order_line_items()
+    public function order_line_item()
     {
-        return $this->hasMany(OrderLineItem::class);
+        return $this->belongsTo(OrderLineItem::class);
     }
 
     /**

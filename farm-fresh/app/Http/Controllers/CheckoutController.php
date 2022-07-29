@@ -34,8 +34,7 @@ class CheckoutController extends Controller
     }
     public function thank_you(Order $order)
     {
-
-        //return view('thank-you');
+        return view('thank-you', compact('order'));
     }
 
     public function process_payment(Request $request)
@@ -103,15 +102,24 @@ class CheckoutController extends Controller
             if ($response->transaction_response->response_code == '1') {
                 $order->auth_code = $response->transaction_response->auth_code;
                 $order->transaction_status = "Successful";
-                $order->save();
+
                 $order->transactions()->create([
                     "cc_num" => substr($valid['card_number'], -4),
                     "payment_transaction_id" => $response->transaction_response->trans_id,
                     "status" => $response->result_code,
                     "response" => json_encode($response)
                 ]);
-                return redirect('/thank-you')->withSuccess('Order Placed Successfully');
-            } elseif (count($response->transaction_response->errors)) {
+                $order->save();
+                session()->forget('cart');
+                session()->forget('shipping_address');
+                session()->forget('billing_address');
+                // var_dump($order->order_line_items->products);
+                // foreach ($order->order_line_items->products as $product) {
+                //     $product->quantity = $product->quantity - $cart[$product->id]['quantity'];
+                //     $product->save();
+                // }
+                return redirect('/thank-you/' . $order->id)->withSuccess('Order Placed Successfully');
+            } elseif ($response->transaction_response->errors) {
                 $order->transaction_status = "Failed";
                 $order->save();
                 $order->transactions()->create([
@@ -123,6 +131,15 @@ class CheckoutController extends Controller
                 return back()->withError('Payment Unsuccessfull');
             }
         } catch (Exception $e) {
+
+            $order->transaction_status = "Failed";
+            $order->save();
+            $order->transactions()->create([
+                "cc_num" => substr($valid['card_number'], -4),
+                "payment_transaction_id" => $response->transaction_response->trans_id,
+                "status" => $response->result_code,
+                "response" => json_encode($response)
+            ]);
             return back()->withError('Payment Unsuccessfull');
         }
 
