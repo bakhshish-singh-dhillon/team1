@@ -2,24 +2,24 @@
 
 @section('content')
 <div class="container my-4">
-    <div class="row justify-content-center text-center">
+    <div class="row justify-content-center text-left">
         <div class="col-md-8">
-            <div class="card">
+            <div class="card p-4">
 
                 <h1>Order placed successfully!</h1>
-                <div id="invoice_content">
-                    <table id="content-table" style="min-width: 100%;">
+                <div id="invoice_content p-3">
+                    <table id="content-table text-left " style="min-width: 100%;">
                         <thead>
-                            <tr>
+                            <tr class="border-bottom">
                                 <th>Company Info</th>
                                 <th>User Info</th>
                                 <th>Order Info</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
+                            <tr class="border-bottom">
                                 <td>
-                                    <p>
+                                    <p class="text-left">
                                         <strong>Farm-Fresh International ltd.</strong><br />
                                         Fresh Foods Alliance Group<br />
                                         111 Whitley Drive,<br />
@@ -27,22 +27,22 @@
                                         USA R2L 6J7<br />
                                         <br />
                                     </p>
-                                    <p>
+                                    <p class="text-left">
                                         <strong>Queries about your order</strong><br />
                                         <strong>tel-</strong> 1-111-111-1234<br />
                                         <strong>email-</strong><a href="#"> support@rvzilla.com</a><br />
                                         Have a great visit. Good day!<br />
                                     </p>
                                 </td>
-                                <td>
-                                    <p>
+                                <td class="py-0 align-top">
+                                    <p class="text-left">
                                         <strong>First Name</strong> {{$order->user->first_name}}<br />
                                         <strong>Last Name</strong> {{$order->user->last_name}}<br />
                                         <strong>Email</strong> {{$order->user->email}}<br />
                                     </p>
                                 </td>
-                                <td>
-                                    <p>
+                                <td class="text-left align-top">
+                                    <p class="text-left  py-0">
                                         <strong>Order Number :</strong> {{$order->id}}<br />
                                         <strong>Order Date :</strong> {{$order->created_at}}<br />
                                         <strong>Charged To Card :</strong> ${{$order->total}}<br />
@@ -62,14 +62,20 @@
                         <thead>
                             <tr>
                                 <th>Product Name </th>
-                                <th>Rent/Day</th>
-                                <th>Day(s)</th>
+                                <th>Price</th>
+                                <th>Qty</th>
                                 <th>Line Price</th>
                             </tr>
                         </thead>
                         <tbody>
-
-
+                            @foreach($order->order_line_items as $line_item)
+                            <tr>
+                                <td>{{$line_item->product->name}}</td>
+                                <td>{{$line_item->unit_price}}</td>
+                                <td>{{$line_item->quantity}}</td>
+                                <td>{{$line_item->unit_price * $line_item->quantity}}</td>
+                            </tr>
+                            @endforeach
                         </tbody>
                     </table>
                     <div class="desk_btn" style="margin-top: 20px; width: 130px;"><a href="?p=products" style=" width: 130px;" class="btn" title="view">Continue Shopping</a></div>
