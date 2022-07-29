@@ -49,16 +49,18 @@ $(document).ready(function($) {
         $(".alert").hide();
 
     });
-
-    document.getElementById('category_form').addEventListener('submit', function(evt) {
+    const category_form = document.getElementById('category_form');
+    if (category_form) {
+        category_form.addEventListener('submit', function(evt) {
             evt.preventDefault();
             if (document.getElementById('category-name').value == "") {
                 document.getElementById('required').innerHTML = "Category name is required!";
             } else {
-                document.getElementById('category_form').submit();
+                category_form.submit();
             }
         })
-        // Pravindra Category Modal
+    }
+    // Pravindra Category Modal
     const categoryModal = document.getElementById('categoryModal')
 
     if (categoryModal) {

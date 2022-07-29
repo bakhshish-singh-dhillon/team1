@@ -10,6 +10,12 @@ class Transaction extends Model
 {
     use HasFactory, SoftDeletes;
 
+    protected $fillable = [
+        'cc_num',
+        'payment_transaction_id',
+        'status',
+        'response',
+    ];
     /**
      * Get the order for transaction.
      */

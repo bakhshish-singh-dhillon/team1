@@ -34,8 +34,8 @@ class CheckoutController extends Controller
     }
     public function thank_you(Order $order)
     {
-
-        //return view('thank-you');
+        dd($order->transactions()->get());
+        return view('thank-you', compact('order'));
     }
 
     public function process_payment(Request $request)
@@ -103,13 +103,17 @@ class CheckoutController extends Controller
             if ($response->transaction_response->response_code == '1') {
                 $order->auth_code = $response->transaction_response->auth_code;
                 $order->transaction_status = "Successful";
-                $order->save();
+
                 $order->transactions()->create([
                     "cc_num" => substr($valid['card_number'], -4),
                     "payment_transaction_id" => $response->transaction_response->trans_id,
                     "status" => $response->result_code,
                     "response" => json_encode($response)
                 ]);
+                $order->save();
+                session()->forget('cart');
+                session()->forget('shipping_address');
+                session()->forget('billing_address');
                 return redirect('/thank-you')->withSuccess('Order Placed Successfully');
             } elseif (count($response->transaction_response->errors)) {
                 $order->transaction_status = "Failed";
@@ -123,6 +127,15 @@ class CheckoutController extends Controller
                 return back()->withError('Payment Unsuccessfull');
             }
         } catch (Exception $e) {
+
+            $order->transaction_status = "Failed";
+            $order->save();
+            $order->transactions()->create([
+                "cc_num" => substr($valid['card_number'], -4),
+                "payment_transaction_id" => $response->transaction_response->trans_id,
+                "status" => $response->result_code,
+                "response" => json_encode($response)
+            ]);
             return back()->withError('Payment Unsuccessfull');
         }
 
