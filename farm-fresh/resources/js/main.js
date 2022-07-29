@@ -49,7 +49,7 @@ $(document).ready(function ($) {
     });
 
     //Dhara : Close alert on click 
-    $("#close").click(function () {
+    $(".close").click(function () {
         $(".alert").hide();
     });
 
