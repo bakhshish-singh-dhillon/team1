@@ -288,7 +288,7 @@ class ImageSeeder extends Seeder
 
         DB::table('images')->insert([
             'product_id' => '42',
-            'url' => 'pears.png'
+            'url' => 'kiwi.png'
 
         ]);
 
