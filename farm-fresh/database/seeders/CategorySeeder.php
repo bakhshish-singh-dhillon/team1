@@ -89,7 +89,7 @@ class CategorySeeder extends Seeder
 
         DB::table('categories')->insert([
             'id' => '12',
-            'name' => 'Root', //Potato, swwet potato, yam
+            'name' => 'Root', //Potato, sweet potato, yam
             'category_id' => '2',
         ]);
 

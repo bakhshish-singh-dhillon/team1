@@ -195,5 +195,47 @@ class CategoryProductSeeder extends Seeder
 
         ]);
 
+        DB::table('category_product')->insert([
+            'category_id' => '2',
+            'product_id' => '24'
+
+        ]);
+
+        DB::table('category_product')->insert([
+            'category_id' => '2',
+            'product_id' => '25'
+
+        ]);
+
+        DB::table('category_product')->insert([
+            'category_id' => '13',
+            'product_id' => '25'
+
+        ]);
+
+        DB::table('category_product')->insert([
+            'category_id' => '3',
+            'product_id' => '26'
+
+        ]);
+
+        DB::table('category_product')->insert([
+            'category_id' => '9',
+            'product_id' => '26'
+
+        ]);
+
+        DB::table('category_product')->insert([
+            'category_id' => '9',
+            'product_id' => '27'
+
+        ]);
+
+        DB::table('category_product')->insert([
+            'category_id' => '9',
+            'product_id' => '27'
+
+        ]);
+
     }
 }
