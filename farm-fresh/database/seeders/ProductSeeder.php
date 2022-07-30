@@ -295,5 +295,55 @@ class ProductSeeder extends Seeder
             'quantity' => '11'
 
         ]);
+
+        DB::table('products')->insert([
+            'sku' => 'PROD29',
+            'name' => 'Raspberry',
+            'price' => '4.49',
+            'description' => 'Raspberries are delicate fruit with bright red drupelets that connect to each other around a hollow central core. Their flavour is sweet but can also be tart if they aren’t quite ripe.',
+            'measure_unit' => 'lbs',
+            'quantity' => '85'
+
+        ]);
+
+        DB::table('products')->insert([
+            'sku' => 'PROD30',
+            'name' => 'Cilantro',
+            'price' => '0.99',
+            'description' => 'Cilantro is the bunched leafy green from the coriander plant. It has a distinctive flavour and fragrance that some describe as “soapy”.',
+            'measure_unit' => 'lbs',
+            'quantity' => '100'
+
+        ]);
+
+        DB::table('products')->insert([
+            'sku' => 'PROD31',
+            'name' => 'Blueberry',
+            'price' => '3.99',
+            'description' => 'Blueberries range in colour from a deep purple-blue to a blue-black, both with a silvery sheen called bloom.',
+            'measure_unit' => 'lbs',
+            'quantity' => '100'
+
+        ]);
+
+        DB::table('products')->insert([
+            'sku' => 'PROD33',
+            'name' => 'Limes',
+            'price' => '2.99',
+            'description' => 'Limes are shaped like lemons but a little smaller in size. They have green skin and their green pulp produces a tart, aromatic juice that is used in everything from dressings to desserts.',
+            'measure_unit' => 'lbs',
+            'quantity' => '100'
+
+        ]);
+
+        DB::table('products')->insert([
+            'sku' => 'PROD34',
+            'name' => 'Potato',
+            'price' => '1.29',
+            'description' => 'Potatoes have a rough brown skin and a tender white flesh with a mild flavour. They are a popular variety of potato and a good choice for baking, mashing, and frying.',
+            'measure_unit' => 'lbs',
+            'quantity' => '100'
+
+        ]);
     }
 }
