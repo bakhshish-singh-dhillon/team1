@@ -495,5 +495,25 @@ class ProductSeeder extends Seeder
             'quantity' => '100'
 
         ]);
+
+        DB::table('products')->insert([
+            'sku' => 'PROD50',
+            'name' => 'Cherry',
+            'price' => '5.19',
+            'description' => 'Cherries are firm, juicy, and sweet and turn from dark red to almost black when fully ripe.',
+            'measure_unit' => 'lbs',
+            'quantity' => '100'
+
+        ]);
+
+        DB::table('products')->insert([
+            'sku' => 'PROD51',
+            'name' => 'Carrot',
+            'price' => '2.29',
+            'description' => 'Carrots are long and slender and come in a variety of colours in addition to orange. This popular vegetable is available all year and can be eaten raw or cooked in many ways.',
+            'measure_unit' => 'lbs',
+            'quantity' => '100'
+
+        ]);
     }
 }
