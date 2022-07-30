@@ -395,5 +395,55 @@ class ProductSeeder extends Seeder
             'quantity' => '100'
 
         ]);
+
+        DB::table('products')->insert([
+            'sku' => 'PROD40',
+            'name' => 'Garlic',
+            'price' => '2.49',
+            'description' => 'Garlic is the small, white, round bulb of a plant that is related to the onion plant.',
+            'measure_unit' => 'lbs',
+            'quantity' => '100'
+
+        ]);
+
+        DB::table('products')->insert([
+            'sku' => 'PROD41',
+            'name' => 'Apricots',
+            'price' => '2.49',
+            'description' => 'Apricots are related to peaches and have smooth skin that ranges in colour from bright yellow to deep orange.',
+            'measure_unit' => 'lbs',
+            'quantity' => '100'
+
+        ]);
+
+        DB::table('products')->insert([
+            'sku' => 'PROD42',
+            'name' => 'Mango',
+            'price' => '4.49',
+            'description' => 'Mangoes have a firm, fibrous orange flesh and sweet flavour.',
+            'measure_unit' => 'lbs',
+            'quantity' => '100'
+
+        ]);
+
+        DB::table('products')->insert([
+            'sku' => 'PROD43',
+            'name' => 'Kiwi',
+            'price' => '2.99',
+            'description' => 'Kiwi is a fruit of ovoid shape, of variable size and covered with a brown fuzzy thin skin.',
+            'measure_unit' => 'lbs',
+            'quantity' => '100'
+
+        ]);
+
+        DB::table('products')->insert([
+            'sku' => 'PROD44',
+            'name' => 'Jalapeno',
+            'price' => '1.99',
+            'description' => 'Jalapeno peppers are slightly rounded chilies with smooth green skin that turns red when ripe. Jalapenos are popular because of their flavour and because they are easy to seed.',
+            'measure_unit' => 'lbs',
+            'quantity' => '100'
+
+        ]);
     }
 }
