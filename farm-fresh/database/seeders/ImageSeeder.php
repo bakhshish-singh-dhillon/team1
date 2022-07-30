@@ -237,5 +237,35 @@ class ImageSeeder extends Seeder
             'url' => 'potatos.png'
 
         ]);
+
+        DB::table('images')->insert([
+            'product_id' => '34',
+            'url' => 'asparagus.png'
+
+        ]);
+
+        DB::table('images')->insert([
+            'product_id' => '35',
+            'url' => 'avacodo.png'
+
+        ]);
+
+        DB::table('images')->insert([
+            'product_id' => '36',
+            'url' => 'pineapple.png'
+
+        ]);
+
+        DB::table('images')->insert([
+            'product_id' => '37',
+            'url' => 'ginger.png'
+
+        ]);
+
+        DB::table('images')->insert([
+            'product_id' => '38',
+            'url' => 'pears.png'
+
+        ]);
     }
 }

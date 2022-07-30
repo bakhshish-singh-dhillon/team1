@@ -345,5 +345,55 @@ class ProductSeeder extends Seeder
             'quantity' => '100'
 
         ]);
+
+        DB::table('products')->insert([
+            'sku' => 'PROD35',
+            'name' => 'Asparagus',
+            'price' => '6.49',
+            'description' => 'Asparagus stalks range in colour from green to purple, with dark green or purplish tips.',
+            'measure_unit' => 'lbs',
+            'quantity' => '100'
+
+        ]);
+        
+        DB::table('products')->insert([
+            'sku' => 'PROD36',
+            'name' => 'Avocados',
+            'price' => '8.99',
+            'description' => 'Avocados have a pebbly skin that turns from dark green to near black when ripe. Cut lengthwise, twist to separate the halves, and scoop out the creamy.',
+            'measure_unit' => 'lbs',
+            'quantity' => '100'
+
+        ]);
+
+        DB::table('products')->insert([
+            'sku' => 'PROD37',
+            'name' => 'Pineapples',
+            'price' => '1.99',
+            'description' => 'Pineapples have a diamond-patterned skin that resembles a pinecone with crisp, green leaves shooting out the top.',
+            'measure_unit' => 'lbs',
+            'quantity' => '100'
+
+        ]);
+
+        DB::table('products')->insert([
+            'sku' => 'PROD38',
+            'name' => 'Ginger',
+            'price' => '0.99',
+            'description' => 'Ginger (or gingerroot) has a tough tan skin and a fresh spicy fragrance. Ginger can be grated, slivered, or ground and its peppery flavour is used in a variety of dishes.',
+            'measure_unit' => 'lbs',
+            'quantity' => '100'
+
+        ]);
+
+        DB::table('products')->insert([
+            'sku' => 'PROD39',
+            'name' => 'Pears',
+            'price' => '2.49',
+            'description' => 'Bartlett pears are bell shaped with smooth yellowish-green skin, often with a hint of red. They are sweet and juicy, the perfect choice for eating fresh as a snack.',
+            'measure_unit' => 'lbs',
+            'quantity' => '100'
+
+        ]);
     }
 }
