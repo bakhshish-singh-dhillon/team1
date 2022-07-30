@@ -393,5 +393,95 @@ class CategoryProductSeeder extends Seeder
 
         ]);
         
+        DB::table('category_product')->insert([
+            'category_id' => '3',
+            'product_id' => '41'
+
+        ]);
+
+        DB::table('category_product')->insert([
+            'category_id' => '9',
+            'product_id' => '41'
+
+        ]);
+
+        DB::table('category_product')->insert([
+            'category_id' => '3',
+            'product_id' => '42'
+
+        ]);
+
+        DB::table('category_product')->insert([
+            'category_id' => '9',
+            'product_id' => '42'
+
+        ]);
+
+        DB::table('category_product')->insert([
+            'category_id' => '2',
+            'product_id' => '43'
+
+        ]);
+
+        DB::table('category_product')->insert([
+            'category_id' => '3',
+            'product_id' => '44'
+
+        ]);
+
+        DB::table('category_product')->insert([
+            'category_id' => '9',
+            'product_id' => '44'
+
+        ]);
+
+        DB::table('category_product')->insert([
+            'category_id' => '2',
+            'product_id' => '45'
+
+        ]);
+
+        DB::table('category_product')->insert([
+            'category_id' => '11',
+            'product_id' => '45'
+
+        ]);
+
+        DB::table('category_product')->insert([
+            'category_id' => '3',
+            'product_id' => '46'
+
+        ]);
+
+        DB::table('category_product')->insert([
+            'category_id' => '9',
+            'product_id' => '46'
+
+        ]);
+
+        DB::table('category_product')->insert([
+            'category_id' => '3',
+            'product_id' => '47'
+
+        ]);
+
+        DB::table('category_product')->insert([
+            'category_id' => '9',
+            'product_id' => '47'
+
+        ]);
+
+        DB::table('category_product')->insert([
+            'category_id' => '3',
+            'product_id' => '48'
+
+        ]);
+
+        DB::table('category_product')->insert([
+            'category_id' => '9',
+            'product_id' => '48'
+
+        ]);
+        
     }
 }
