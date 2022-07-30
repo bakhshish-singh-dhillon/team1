@@ -98,5 +98,102 @@ class CategoryProductSeeder extends Seeder
             'product_id' => '14'
 
         ]);
+
+        DB::table('category_product')->insert([
+            'category_id' => '1',
+            'product_id' => '15'
+
+        ]);
+
+        DB::table('category_product')->insert([
+            'category_id' => '7',
+            'product_id' => '15'
+
+        ]);
+
+        DB::table('category_product')->insert([
+            'category_id' => '1',
+            'product_id' => '16'
+
+        ]);
+
+        DB::table('category_product')->insert([
+            'category_id' => '5',
+            'product_id' => '16'
+
+        ]);
+
+        DB::table('category_product')->insert([
+            'category_id' => '1',
+            'product_id' => '17'
+
+        ]);
+
+        DB::table('category_product')->insert([
+            'category_id' => '1',
+            'product_id' => '18'
+
+        ]);
+
+        DB::table('category_product')->insert([
+            'category_id' => '6',
+            'product_id' => '18'
+
+        ]);
+
+        DB::table('category_product')->insert([
+            'category_id' => '1',
+            'product_id' => '19'
+
+        ]);
+
+        DB::table('category_product')->insert([
+            'category_id' => '6',
+            'product_id' => '19'
+
+        ]);
+
+        DB::table('category_product')->insert([
+            'category_id' => '1',
+            'product_id' => '20'
+
+        ]);
+
+        DB::table('category_product')->insert([
+            'category_id' => '1',
+            'product_id' => '21'
+
+        ]);
+
+        DB::table('category_product')->insert([
+            'category_id' => '5',
+            'product_id' => '21'
+
+        ]);
+
+        DB::table('category_product')->insert([
+            'category_id' => '1',
+            'product_id' => '22'
+
+        ]);
+
+        DB::table('category_product')->insert([
+            'category_id' => '4',
+            'product_id' => '22'
+
+        ]);
+
+        DB::table('category_product')->insert([
+            'category_id' => '1',
+            'product_id' => '23'
+
+        ]);
+
+        DB::table('category_product')->insert([
+            'category_id' => '4',
+            'product_id' => '23'
+
+        ]);
+
     }
 }
