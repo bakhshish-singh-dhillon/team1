@@ -327,7 +327,7 @@ class ProductSeeder extends Seeder
         ]);
 
         DB::table('products')->insert([
-            'sku' => 'PROD33',
+            'sku' => 'PROD32',
             'name' => 'Limes',
             'price' => '2.99',
             'description' => 'Limes are shaped like lemons but a little smaller in size. They have green skin and their green pulp produces a tart, aromatic juice that is used in everything from dressings to desserts.',
@@ -337,7 +337,7 @@ class ProductSeeder extends Seeder
         ]);
 
         DB::table('products')->insert([
-            'sku' => 'PROD34',
+            'sku' => 'PROD33',
             'name' => 'Potato',
             'price' => '1.29',
             'description' => 'Potatoes have a rough brown skin and a tender white flesh with a mild flavour. They are a popular variety of potato and a good choice for baking, mashing, and frying.',
@@ -347,7 +347,7 @@ class ProductSeeder extends Seeder
         ]);
 
         DB::table('products')->insert([
-            'sku' => 'PROD35',
+            'sku' => 'PROD34',
             'name' => 'Asparagus',
             'price' => '6.49',
             'description' => 'Asparagus stalks range in colour from green to purple, with dark green or purplish tips.',
@@ -357,7 +357,7 @@ class ProductSeeder extends Seeder
         ]);
         
         DB::table('products')->insert([
-            'sku' => 'PROD36',
+            'sku' => 'PROD35',
             'name' => 'Avocados',
             'price' => '8.99',
             'description' => 'Avocados have a pebbly skin that turns from dark green to near black when ripe. Cut lengthwise, twist to separate the halves, and scoop out the creamy.',
@@ -367,7 +367,7 @@ class ProductSeeder extends Seeder
         ]);
 
         DB::table('products')->insert([
-            'sku' => 'PROD37',
+            'sku' => 'PROD36',
             'name' => 'Pineapples',
             'price' => '1.99',
             'description' => 'Pineapples have a diamond-patterned skin that resembles a pinecone with crisp, green leaves shooting out the top.',
@@ -377,7 +377,7 @@ class ProductSeeder extends Seeder
         ]);
 
         DB::table('products')->insert([
-            'sku' => 'PROD38',
+            'sku' => 'PROD37',
             'name' => 'Ginger',
             'price' => '0.99',
             'description' => 'Ginger (or gingerroot) has a tough tan skin and a fresh spicy fragrance. Ginger can be grated, slivered, or ground and its peppery flavour is used in a variety of dishes.',
@@ -387,7 +387,7 @@ class ProductSeeder extends Seeder
         ]);
 
         DB::table('products')->insert([
-            'sku' => 'PROD39',
+            'sku' => 'PROD38',
             'name' => 'Pears',
             'price' => '2.49',
             'description' => 'Bartlett pears are bell shaped with smooth yellowish-green skin, often with a hint of red. They are sweet and juicy, the perfect choice for eating fresh as a snack.',
@@ -397,7 +397,7 @@ class ProductSeeder extends Seeder
         ]);
 
         DB::table('products')->insert([
-            'sku' => 'PROD40',
+            'sku' => 'PROD39',
             'name' => 'Garlic',
             'price' => '2.49',
             'description' => 'Garlic is the small, white, round bulb of a plant that is related to the onion plant.',
@@ -407,7 +407,7 @@ class ProductSeeder extends Seeder
         ]);
 
         DB::table('products')->insert([
-            'sku' => 'PROD41',
+            'sku' => 'PROD40',
             'name' => 'Apricots',
             'price' => '2.49',
             'description' => 'Apricots are related to peaches and have smooth skin that ranges in colour from bright yellow to deep orange.',
@@ -417,7 +417,7 @@ class ProductSeeder extends Seeder
         ]);
 
         DB::table('products')->insert([
-            'sku' => 'PROD42',
+            'sku' => 'PROD41',
             'name' => 'Mango',
             'price' => '4.49',
             'description' => 'Mangoes have a firm, fibrous orange flesh and sweet flavour.',
@@ -427,7 +427,7 @@ class ProductSeeder extends Seeder
         ]);
 
         DB::table('products')->insert([
-            'sku' => 'PROD43',
+            'sku' => 'PROD42',
             'name' => 'Kiwi',
             'price' => '2.99',
             'description' => 'Kiwi is a fruit of ovoid shape, of variable size and covered with a brown fuzzy thin skin.',
@@ -437,7 +437,7 @@ class ProductSeeder extends Seeder
         ]);
 
         DB::table('products')->insert([
-            'sku' => 'PROD44',
+            'sku' => 'PROD43',
             'name' => 'Jalapeno',
             'price' => '1.99',
             'description' => 'Jalapeno peppers are slightly rounded chilies with smooth green skin that turns red when ripe. Jalapenos are popular because of their flavour and because they are easy to seed.',
@@ -447,7 +447,7 @@ class ProductSeeder extends Seeder
         ]);
 
         DB::table('products')->insert([
-            'sku' => 'PROD45',
+            'sku' => 'PROD44',
             'name' => 'Grapefruit',
             'price' => '3.99',
             'description' => 'Grapefruit is a juicy citrus fruit with yellow skin that sometimes has a pinkish hue. Grapefruits that feel heavy for their size will likely be the juiciest.',
@@ -457,7 +457,7 @@ class ProductSeeder extends Seeder
         ]);
 
         DB::table('products')->insert([
-            'sku' => 'PROD46',
+            'sku' => 'PROD45',
             'name' => 'Greenbeans',
             'price' => '1.39',
             'description' => 'Greenbeans hearts are the pale green, tender inner ribs of celery. Enjoy celery hearts on their own or with dip as a snack, or chop for soups, stews, or a flavourful tuna salad sandwich.',
@@ -467,7 +467,7 @@ class ProductSeeder extends Seeder
         ]);
 
         DB::table('products')->insert([
-            'sku' => 'PROD47',
+            'sku' => 'PROD46',
             'name' => 'Plum',
             'price' => '3.99',
             'description' => 'Plums are available in a wide range of colours including black, yellow, and red. Their flavour also ranges from very sweet to tart, and they can be enjoyed cooked or raw.',
@@ -477,7 +477,7 @@ class ProductSeeder extends Seeder
         ]);
 
         DB::table('products')->insert([
-            'sku' => 'PROD48',
+            'sku' => 'PROD47',
             'name' => 'Peach',
             'price' => '2.99',
             'description' => 'Peaches range in colour from pinkish-white to reddish-yellow and their flavour can be tart or sweet.',
@@ -487,7 +487,7 @@ class ProductSeeder extends Seeder
         ]);
 
         DB::table('products')->insert([
-            'sku' => 'PROD49',
+            'sku' => 'PROD48',
             'name' => 'Orange',
             'price' => '2.49',
             'description' => 'The orange is usually round or oval citrus; its rind and flesh are generally orange, except the varieties of red pulp.',
@@ -497,7 +497,7 @@ class ProductSeeder extends Seeder
         ]);
 
         DB::table('products')->insert([
-            'sku' => 'PROD50',
+            'sku' => 'PROD49',
             'name' => 'Cherry',
             'price' => '5.19',
             'description' => 'Cherries are firm, juicy, and sweet and turn from dark red to almost black when fully ripe.',
@@ -507,7 +507,7 @@ class ProductSeeder extends Seeder
         ]);
 
         DB::table('products')->insert([
-            'sku' => 'PROD51',
+            'sku' => 'PROD50',
             'name' => 'Carrot',
             'price' => '2.29',
             'description' => 'Carrots are long and slender and come in a variety of colours in addition to orange. This popular vegetable is available all year and can be eaten raw or cooked in many ways.',
