@@ -445,5 +445,55 @@ class ProductSeeder extends Seeder
             'quantity' => '100'
 
         ]);
+
+        DB::table('products')->insert([
+            'sku' => 'PROD45',
+            'name' => 'Grapefruit',
+            'price' => '3.99',
+            'description' => 'Grapefruit is a juicy citrus fruit with yellow skin that sometimes has a pinkish hue. Grapefruits that feel heavy for their size will likely be the juiciest.',
+            'measure_unit' => 'lbs',
+            'quantity' => '100'
+
+        ]);
+
+        DB::table('products')->insert([
+            'sku' => 'PROD46',
+            'name' => 'Greenbeans',
+            'price' => '1.39',
+            'description' => 'Greenbeans hearts are the pale green, tender inner ribs of celery. Enjoy celery hearts on their own or with dip as a snack, or chop for soups, stews, or a flavourful tuna salad sandwich.',
+            'measure_unit' => 'lbs',
+            'quantity' => '100'
+
+        ]);
+
+        DB::table('products')->insert([
+            'sku' => 'PROD47',
+            'name' => 'Plum',
+            'price' => '3.99',
+            'description' => 'Plums are available in a wide range of colours including black, yellow, and red. Their flavour also ranges from very sweet to tart, and they can be enjoyed cooked or raw.',
+            'measure_unit' => 'lbs',
+            'quantity' => '100'
+
+        ]);
+
+        DB::table('products')->insert([
+            'sku' => 'PROD48',
+            'name' => 'Peach',
+            'price' => '2.99',
+            'description' => 'Peaches range in colour from pinkish-white to reddish-yellow and their flavour can be tart or sweet.',
+            'measure_unit' => 'lbs',
+            'quantity' => '100'
+
+        ]);
+
+        DB::table('products')->insert([
+            'sku' => 'PROD49',
+            'name' => 'Orange',
+            'price' => '2.49',
+            'description' => 'The orange is usually round or oval citrus; its rind and flesh are generally orange, except the varieties of red pulp.',
+            'measure_unit' => 'lbs',
+            'quantity' => '100'
+
+        ]);
     }
 }
