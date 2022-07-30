@@ -245,5 +245,275 @@ class ProductSeeder extends Seeder
             'quantity' => '265'
 
         ]);
+
+        DB::table('products')->insert([
+            'sku' => 'PROD24',
+            'name' => 'Sweet Green Pepper',
+            'price' => '2.49',
+            'description' => 'Green bell peppers have a bright green skin and mild, sweet flavour. Their flesh is crisp and juicy, perfect for enjoying raw with dips or hummus.',
+            'measure_unit' => 'lbs',
+            'quantity' => '221'
+
+        ]);
+
+        DB::table('products')->insert([
+            'sku' => 'PROD25',
+            'name' => 'Zucchini',
+            'price' => '1.49',
+            'description' => 'Zucchini are summer squash with dark to light green skin, white flesh, and tiny edible seeds. They have a delicate flavour and can be eaten raw or cooked in a variety of ways.',
+            'measure_unit' => 'lbs',
+            'quantity' => '201'
+
+        ]);
+
+        DB::table('products')->insert([
+            'sku' => 'PROD26',
+            'name' => 'Green Grapes',
+            'price' => '3.99',
+            'description' => 'Green grapes range in colour from pale green to amber yellow and are considered white grape varieties.',
+            'measure_unit' => 'lbs',
+            'quantity' => '101'
+
+        ]);
+
+        DB::table('products')->insert([
+            'sku' => 'PROD27',
+            'name' => 'Red Grapes',
+            'price' => '3.99',
+            'description' => 'Red grapes, such as the popular Flame and Ruby varieties, should be plump and firmly attached to green stems.',
+            'measure_unit' => 'lbs',
+            'quantity' => '111'
+
+        ]);
+
+        DB::table('products')->insert([
+            'sku' => 'PROD28',
+            'name' => 'Sweet Potato',
+            'price' => '1.79',
+            'description' => 'Sweet potatoes have a thick dark orange skin and sweet orange flesh. Yams are similar in size and shape but are not related to the sweet potato at all.',
+            'measure_unit' => 'lbs',
+            'quantity' => '11'
+
+        ]);
+
+        DB::table('products')->insert([
+            'sku' => 'PROD29',
+            'name' => 'Raspberry',
+            'price' => '4.49',
+            'description' => 'Raspberries are delicate fruit with bright red drupelets that connect to each other around a hollow central core. Their flavour is sweet but can also be tart if they aren’t quite ripe.',
+            'measure_unit' => 'lbs',
+            'quantity' => '85'
+
+        ]);
+
+        DB::table('products')->insert([
+            'sku' => 'PROD30',
+            'name' => 'Cilantro',
+            'price' => '0.99',
+            'description' => 'Cilantro is the bunched leafy green from the coriander plant. It has a distinctive flavour and fragrance that some describe as “soapy”.',
+            'measure_unit' => 'lbs',
+            'quantity' => '100'
+
+        ]);
+
+        DB::table('products')->insert([
+            'sku' => 'PROD31',
+            'name' => 'Blueberry',
+            'price' => '3.99',
+            'description' => 'Blueberries range in colour from a deep purple-blue to a blue-black, both with a silvery sheen called bloom.',
+            'measure_unit' => 'lbs',
+            'quantity' => '100'
+
+        ]);
+
+        DB::table('products')->insert([
+            'sku' => 'PROD33',
+            'name' => 'Limes',
+            'price' => '2.99',
+            'description' => 'Limes are shaped like lemons but a little smaller in size. They have green skin and their green pulp produces a tart, aromatic juice that is used in everything from dressings to desserts.',
+            'measure_unit' => 'lbs',
+            'quantity' => '100'
+
+        ]);
+
+        DB::table('products')->insert([
+            'sku' => 'PROD34',
+            'name' => 'Potato',
+            'price' => '1.29',
+            'description' => 'Potatoes have a rough brown skin and a tender white flesh with a mild flavour. They are a popular variety of potato and a good choice for baking, mashing, and frying.',
+            'measure_unit' => 'lbs',
+            'quantity' => '100'
+
+        ]);
+
+        DB::table('products')->insert([
+            'sku' => 'PROD35',
+            'name' => 'Asparagus',
+            'price' => '6.49',
+            'description' => 'Asparagus stalks range in colour from green to purple, with dark green or purplish tips.',
+            'measure_unit' => 'lbs',
+            'quantity' => '100'
+
+        ]);
+        
+        DB::table('products')->insert([
+            'sku' => 'PROD36',
+            'name' => 'Avocados',
+            'price' => '8.99',
+            'description' => 'Avocados have a pebbly skin that turns from dark green to near black when ripe. Cut lengthwise, twist to separate the halves, and scoop out the creamy.',
+            'measure_unit' => 'lbs',
+            'quantity' => '100'
+
+        ]);
+
+        DB::table('products')->insert([
+            'sku' => 'PROD37',
+            'name' => 'Pineapples',
+            'price' => '1.99',
+            'description' => 'Pineapples have a diamond-patterned skin that resembles a pinecone with crisp, green leaves shooting out the top.',
+            'measure_unit' => 'lbs',
+            'quantity' => '100'
+
+        ]);
+
+        DB::table('products')->insert([
+            'sku' => 'PROD38',
+            'name' => 'Ginger',
+            'price' => '0.99',
+            'description' => 'Ginger (or gingerroot) has a tough tan skin and a fresh spicy fragrance. Ginger can be grated, slivered, or ground and its peppery flavour is used in a variety of dishes.',
+            'measure_unit' => 'lbs',
+            'quantity' => '100'
+
+        ]);
+
+        DB::table('products')->insert([
+            'sku' => 'PROD39',
+            'name' => 'Pears',
+            'price' => '2.49',
+            'description' => 'Bartlett pears are bell shaped with smooth yellowish-green skin, often with a hint of red. They are sweet and juicy, the perfect choice for eating fresh as a snack.',
+            'measure_unit' => 'lbs',
+            'quantity' => '100'
+
+        ]);
+
+        DB::table('products')->insert([
+            'sku' => 'PROD40',
+            'name' => 'Garlic',
+            'price' => '2.49',
+            'description' => 'Garlic is the small, white, round bulb of a plant that is related to the onion plant.',
+            'measure_unit' => 'lbs',
+            'quantity' => '100'
+
+        ]);
+
+        DB::table('products')->insert([
+            'sku' => 'PROD41',
+            'name' => 'Apricots',
+            'price' => '2.49',
+            'description' => 'Apricots are related to peaches and have smooth skin that ranges in colour from bright yellow to deep orange.',
+            'measure_unit' => 'lbs',
+            'quantity' => '100'
+
+        ]);
+
+        DB::table('products')->insert([
+            'sku' => 'PROD42',
+            'name' => 'Mango',
+            'price' => '4.49',
+            'description' => 'Mangoes have a firm, fibrous orange flesh and sweet flavour.',
+            'measure_unit' => 'lbs',
+            'quantity' => '100'
+
+        ]);
+
+        DB::table('products')->insert([
+            'sku' => 'PROD43',
+            'name' => 'Kiwi',
+            'price' => '2.99',
+            'description' => 'Kiwi is a fruit of ovoid shape, of variable size and covered with a brown fuzzy thin skin.',
+            'measure_unit' => 'lbs',
+            'quantity' => '100'
+
+        ]);
+
+        DB::table('products')->insert([
+            'sku' => 'PROD44',
+            'name' => 'Jalapeno',
+            'price' => '1.99',
+            'description' => 'Jalapeno peppers are slightly rounded chilies with smooth green skin that turns red when ripe. Jalapenos are popular because of their flavour and because they are easy to seed.',
+            'measure_unit' => 'lbs',
+            'quantity' => '100'
+
+        ]);
+
+        DB::table('products')->insert([
+            'sku' => 'PROD45',
+            'name' => 'Grapefruit',
+            'price' => '3.99',
+            'description' => 'Grapefruit is a juicy citrus fruit with yellow skin that sometimes has a pinkish hue. Grapefruits that feel heavy for their size will likely be the juiciest.',
+            'measure_unit' => 'lbs',
+            'quantity' => '100'
+
+        ]);
+
+        DB::table('products')->insert([
+            'sku' => 'PROD46',
+            'name' => 'Greenbeans',
+            'price' => '1.39',
+            'description' => 'Greenbeans hearts are the pale green, tender inner ribs of celery. Enjoy celery hearts on their own or with dip as a snack, or chop for soups, stews, or a flavourful tuna salad sandwich.',
+            'measure_unit' => 'lbs',
+            'quantity' => '100'
+
+        ]);
+
+        DB::table('products')->insert([
+            'sku' => 'PROD47',
+            'name' => 'Plum',
+            'price' => '3.99',
+            'description' => 'Plums are available in a wide range of colours including black, yellow, and red. Their flavour also ranges from very sweet to tart, and they can be enjoyed cooked or raw.',
+            'measure_unit' => 'lbs',
+            'quantity' => '100'
+
+        ]);
+
+        DB::table('products')->insert([
+            'sku' => 'PROD48',
+            'name' => 'Peach',
+            'price' => '2.99',
+            'description' => 'Peaches range in colour from pinkish-white to reddish-yellow and their flavour can be tart or sweet.',
+            'measure_unit' => 'lbs',
+            'quantity' => '100'
+
+        ]);
+
+        DB::table('products')->insert([
+            'sku' => 'PROD49',
+            'name' => 'Orange',
+            'price' => '2.49',
+            'description' => 'The orange is usually round or oval citrus; its rind and flesh are generally orange, except the varieties of red pulp.',
+            'measure_unit' => 'lbs',
+            'quantity' => '100'
+
+        ]);
+
+        DB::table('products')->insert([
+            'sku' => 'PROD50',
+            'name' => 'Cherry',
+            'price' => '5.19',
+            'description' => 'Cherries are firm, juicy, and sweet and turn from dark red to almost black when fully ripe.',
+            'measure_unit' => 'lbs',
+            'quantity' => '100'
+
+        ]);
+
+        DB::table('products')->insert([
+            'sku' => 'PROD51',
+            'name' => 'Carrot',
+            'price' => '2.29',
+            'description' => 'Carrots are long and slender and come in a variety of colours in addition to orange. This popular vegetable is available all year and can be eaten raw or cooked in many ways.',
+            'measure_unit' => 'lbs',
+            'quantity' => '100'
+
+        ]);
     }
 }

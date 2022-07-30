@@ -55,7 +55,7 @@
                             you, which either directly or indirectly in combination with other information, could allow you
                             to be identified when you visit our stores, website and/or mobile application.
                         </p>
-                        <h2>CHANGES TO THIS PRIVACY NOTICE</h2>
+                        <h2>Changes To This Privacy Notice</h2>
                         <p>
                             Our business changes constantly and our Privacy Notice will change also. We may e-mail periodic
                             reminders of our notices and conditions, unless you have instructed us not to, but you should
