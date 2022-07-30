@@ -245,5 +245,55 @@ class ProductSeeder extends Seeder
             'quantity' => '265'
 
         ]);
+
+        DB::table('products')->insert([
+            'sku' => 'PROD24',
+            'name' => 'Sweet Green Pepper',
+            'price' => '2.49',
+            'description' => 'Green bell peppers have a bright green skin and mild, sweet flavour. Their flesh is crisp and juicy, perfect for enjoying raw with dips or hummus.',
+            'measure_unit' => 'lbs',
+            'quantity' => '221'
+
+        ]);
+
+        DB::table('products')->insert([
+            'sku' => 'PROD25',
+            'name' => 'Zucchini',
+            'price' => '1.49',
+            'description' => 'Zucchini are summer squash with dark to light green skin, white flesh, and tiny edible seeds. They have a delicate flavour and can be eaten raw or cooked in a variety of ways.',
+            'measure_unit' => 'lbs',
+            'quantity' => '201'
+
+        ]);
+
+        DB::table('products')->insert([
+            'sku' => 'PROD26',
+            'name' => 'Green Grapes',
+            'price' => '3.99',
+            'description' => 'Green grapes range in colour from pale green to amber yellow and are considered white grape varieties.',
+            'measure_unit' => 'lbs',
+            'quantity' => '101'
+
+        ]);
+
+        DB::table('products')->insert([
+            'sku' => 'PROD27',
+            'name' => 'Red Grapes',
+            'price' => '3.99',
+            'description' => 'Red grapes, such as the popular Flame and Ruby varieties, should be plump and firmly attached to green stems.',
+            'measure_unit' => 'lbs',
+            'quantity' => '111'
+
+        ]);
+
+        DB::table('products')->insert([
+            'sku' => 'PROD28',
+            'name' => 'Sweet Potato',
+            'price' => '1.79',
+            'description' => 'Sweet potatoes have a thick dark orange skin and sweet orange flesh. Yams are similar in size and shape but are not related to the sweet potato at all.',
+            'measure_unit' => 'lbs',
+            'quantity' => '11'
+
+        ]);
     }
 }

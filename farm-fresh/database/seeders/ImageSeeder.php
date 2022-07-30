@@ -177,5 +177,35 @@ class ImageSeeder extends Seeder
             'url' => 'brown.png'
 
         ]);
+
+        DB::table('images')->insert([
+            'product_id' => '24',
+            'url' => 'sweetgrnpep.png'
+
+        ]);
+
+        DB::table('images')->insert([
+            'product_id' => '25',
+            'url' => 'zucchini.png'
+
+        ]);
+
+        DB::table('images')->insert([
+            'product_id' => '26',
+            'url' => 'greengr.png'
+
+        ]);
+
+        DB::table('images')->insert([
+            'product_id' => '27',
+            'url' => 'redgr.png'
+
+        ]);
+
+        DB::table('images')->insert([
+            'product_id' => '28',
+            'url' => 'sweetpt.png'
+
+        ]);
     }
 }
