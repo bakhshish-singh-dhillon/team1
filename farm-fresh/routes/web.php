@@ -7,6 +7,7 @@ use App\Http\Controllers\AboutController;
 use App\Http\Controllers\AddressController;
 use App\Http\Controllers\TermsController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\userProfileController;
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\AdminProductController;
 use App\Http\Controllers\Admin\AdminCategoryController;
@@ -43,6 +44,7 @@ Route::post('/products/show/{product}/review', [ReviewController::class, 'store'
 Route::get('/about', [AboutController::class, 'index'])->name('about');
 Route::get('/contact', [ContactController::class, 'index'])->name('contact');
 Route::post('/contact', [ContactController::class, 'store'])->name('contact-submit');
+Route::get('/profile/{user}', [userProfileController::class, 'show'])->name('user-profile');
 
 // Admin Product List
 
