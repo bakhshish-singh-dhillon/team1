@@ -54,10 +54,11 @@
                     <?php endif; ?>
 
 
-                    <a href="{{ route('cart') }}" class="text-decoration-none">
-                        <span>
+                    <a href="{{ route('cart') }}" class="text-decoration-none cart">
+                        <span class="cart-box">
                             <img src="/images/shopping-cart.png" alt="Cart" class="icon mx-2 my-4" />
-                            <span> {{ session()->has('cart') ? count(session()->get('cart')) : '' }} </span>
+                            <span class="{{session()->has('cart') && count(session()->get('cart')) ? 'cart-count' : ''}}">
+                                {{ session()->has('cart') ? count(session()->get('cart')) : '' }} </span>
                         </span>
                     </a>
 

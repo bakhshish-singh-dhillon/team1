@@ -2,6 +2,10 @@
     font-size: 16px;
 }
 
+main {
+    min-height: 60vh;
+}
+
 img {
     max-width: 100%;
     height: auto;
@@ -39,6 +43,24 @@ img {
 .large-title {
     font-size: 3em;
     font-weight: 700;
+}
+
+.cart {
+
+    .cart-box {
+        position: relative;
+
+        .cart-count {
+            position: absolute;
+            top: -17px;
+            right: 0;
+            background: #fff;
+            color: green;
+            border-radius: 50%;
+            border: 1px solid;
+            padding: 0px 6px;
+        }
+    }
 }
 
 .black-text {
@@ -160,6 +182,38 @@ button.btn:hover {
 
     .product-item:hover:after {
         opacity: 1;
+    }
+
+    #featured-slider {
+        position: relative;
+
+        .owl-prev {
+            position: absolute;
+            top: 34%;
+            left: 0;
+            background: none;
+            border: none;
+
+            span {
+                font-size: 3em;
+                background: #ccc;
+                padding: 0px 8px 8px 8px;
+            }
+        }
+
+        .owl-next {
+            position: absolute;
+            top: 34%;
+            right: 0;
+            background: none;
+            border: none;
+
+            span {
+                font-size: 3em;
+                background: #ccc;
+                padding: 0px 8px 8px 8px;
+            }
+        }
     }
 }
 

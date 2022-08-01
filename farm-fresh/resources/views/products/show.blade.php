@@ -207,7 +207,7 @@
                             <p class="my-2">{{ $review->rating }} out of 5</p>
 
                             <p>{{ $review->review }}</p>
-
+                            <hr>
                         </div>
 
                         @endforeach

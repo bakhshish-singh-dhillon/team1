@@ -6,6 +6,7 @@
         <div class="col-md-8">
             <div class="card">
 
+                <div class="title">My Cart</div>
                 <table>
                     <thead>
                         <tr>
