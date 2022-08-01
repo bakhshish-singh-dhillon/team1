@@ -62,7 +62,7 @@ class AdminOrderController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \App\Models\Product  $product
+     * @param  \App\Models\Order  $order
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, Order $order)
@@ -76,7 +76,7 @@ class AdminOrderController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Product  $product
+     * @param  \App\Models\Order  $order
      * @return \Illuminate\Http\Response
      */
     public function destroy(Order $order)
