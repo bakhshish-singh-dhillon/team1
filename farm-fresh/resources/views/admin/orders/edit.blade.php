@@ -83,6 +83,8 @@
                         </tbody>
                     </table>
                 </div>
+                <a class="btn btn-danger" href="/admin/orders" role="button">Back</a>
+                <button class="btn btn-primary">Publish</button>
             </div>
         </div>
     </div>
