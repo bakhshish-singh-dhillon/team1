@@ -5,7 +5,7 @@
         @foreach($products as $prod)
         <div class="px-2">
 
-            <div class="card product-item shadow">
+            <div class="card product-item">
 
                 <img class="card-img-top" src="{{$images_path.$prod->images()->first()->url}}" alt="{{$prod->name}}">
                 <div class="card-body">

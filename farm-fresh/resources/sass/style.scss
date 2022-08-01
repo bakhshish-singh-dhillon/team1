@@ -183,6 +183,38 @@ button.btn:hover {
     .product-item:hover:after {
         opacity: 1;
     }
+
+    #featured-slider {
+        position: relative;
+
+        .owl-prev {
+            position: absolute;
+            top: 34%;
+            left: 0;
+            background: none;
+            border: none;
+
+            span {
+                font-size: 3em;
+                background: #ccc;
+                padding: 0px 8px 8px 8px;
+            }
+        }
+
+        .owl-next {
+            position: absolute;
+            top: 34%;
+            right: 0;
+            background: none;
+            border: none;
+
+            span {
+                font-size: 3em;
+                background: #ccc;
+                padding: 0px 8px 8px 8px;
+            }
+        }
+    }
 }
 
 #get_started {
