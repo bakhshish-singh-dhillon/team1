@@ -40,17 +40,17 @@
                                         <strong>Credit Card :</strong> ************{{$order->transactions()->latest()->first()->cc_num}}<br />
                                         <strong>Auth Code :</strong> {{$order->auth_code}}<br />
                                         <strong>Status :</strong> {{$order->order_status}}
-                                    <form method="post" action="{{ route('order-update', ['order' => $order->id]) }}">
+                                    <form id="order_status_update_form" method="post" action="{{ route('order-update', ['order' => $order->id]) }}">
                                         @csrf
                                         @method('PUT')
                                         <label class="form-label" for="category_search">Update Status:
                                         </label>
-                                        <select name="category_id" id="category_id" class="form-control ">
+                                        <select name="order_status" id="order_status" class="form-control ">
                                             <option value="">Select status</option>
-                                            <option value="Pending">Pending</option>
-                                            <option value="Shipped">Shipped</option>
-                                            <option value="Delivered">Delivered</option>
-                                            <option value="Cancelled">Cancelled</option>
+                                            <option value="Pending" <?= $order->order_status == 'Pending' ? 'selected' : '' ?>>Pending</option>
+                                            <option value="Shipped" <?= $order->order_status == "Shipped" ? 'selected' : '' ?>>Shipped</option>
+                                            <option value="Delivered" <?= $order->order_status == "Delivered" ? 'selected' : '' ?>>Delivered</option>
+                                            <option value="Cancelled" <?= $order->order_status == "Cancelled" ? 'selected' : '' ?>>Cancelled</option>
                                         </select>
                                     </form><br />
 
@@ -98,7 +98,7 @@
                     </table>
                 </div>
                 <a class="btn btn-danger" href="/admin/orders" role="button">Back</a>
-                <button class="btn btn-primary">Publish</button>
+                <button class="btn btn-primary" id="order_publish">Publish</button>
             </div>
         </div>
     </div>

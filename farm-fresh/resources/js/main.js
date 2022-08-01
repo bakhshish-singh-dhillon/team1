@@ -111,7 +111,7 @@ $(document).ready(function($) {
 
     // Pravindra Order Status Start
     $("#order_publish").on("click", function() {
-        $("#target").submit();
+        $("#order_status_update_form").submit();
     });
 
     // Pravindra Order Status End

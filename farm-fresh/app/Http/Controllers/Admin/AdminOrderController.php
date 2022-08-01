@@ -58,6 +58,21 @@ class AdminOrderController extends Controller
         return view('admin/orders/edit', compact('order', 'total', 'gst', 'pst', 'sub_total', 'address'));
     }
 
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \App\Models\Product  $product
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $request, Order $order)
+    {
+        if ($request->order_status)
+            $order->update([
+                'order_status' => $request->order_status,
+            ]);
+        return redirect('/admin/orders')->withSuccess('Order status updated successfully');
+    }
     /**
      * Remove the specified resource from storage.
      *
