@@ -42,8 +42,8 @@ class CheckoutController extends Controller
             $line_price = $line_item->unit_price * $line_item->quantity;
             $sub_total += $line_price;
         }
-        $gst = $sub_total * 0.5;
-        $pst = $sub_total * 0.7;
+        $gst = $sub_total * 0.05;
+        $pst = $sub_total * 0.07;
         $total = $sub_total + $gst + $pst;
         return view('thank-you', compact('order', 'total', 'gst', 'pst', 'sub_total', 'address'));
     }
