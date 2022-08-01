@@ -6,7 +6,9 @@ use Exception;
 use Pacewdd\Bx\_5bx;
 use App\Models\Order;
 use Illuminate\Http\Request;
+use App\Mail\OrderPlacedEmail;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 
 class CheckoutController extends Controller
 {
@@ -119,6 +121,7 @@ class CheckoutController extends Controller
                     "response" => json_encode($response)
                 ]);
                 $order->save();
+                Mail::to($order->user->email)->send(new OrderPlacedEmail($order));
                 session()->forget('cart');
                 session()->forget('shipping_address');
                 session()->forget('billing_address');
