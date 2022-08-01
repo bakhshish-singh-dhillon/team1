@@ -108,4 +108,11 @@ $(document).ready(function($) {
     }
 
     // Pravindra Category Modal End
+
+    // Pravindra Order Status Start
+    $("#order_publish").on("click", function() {
+        $("#target").submit();
+    });
+
+    // Pravindra Order Status End
 });
