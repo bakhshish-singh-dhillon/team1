@@ -38,8 +38,22 @@
                                         <strong>Order Date :</strong> {{$order->created_at}}<br />
                                         <strong>Charged To Card :</strong> ${{$order->total}}<br />
                                         <strong>Credit Card :</strong> ************{{$order->transactions()->latest()->first()->cc_num}}<br />
-                                        <strong>Status :</strong> {{$order->order_status}}<br />
                                         <strong>Auth Code :</strong> {{$order->auth_code}}<br />
+                                        <strong>Status :</strong> {{$order->order_status}}
+                                    <form method="post" action="{{ route('order-update', ['order' => $order->id]) }}">
+                                        @csrf
+                                        @method('PUT')
+                                        <label class="form-label" for="category_search">Update Status:
+                                        </label>
+                                        <select name="category_id" id="category_id" class="form-control ">
+                                            <option value="">Select status</option>
+                                            <option value="Pending">Pending</option>
+                                            <option value="Shipped">Shipped</option>
+                                            <option value="Delivered">Delivered</option>
+                                            <option value="Cancelled">Cancelled</option>
+                                        </select>
+                                    </form><br />
+
                                     </p>
                                 </td>
                             </tr>
