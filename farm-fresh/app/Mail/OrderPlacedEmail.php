@@ -15,6 +15,9 @@ class OrderPlacedEmail extends Mailable
     protected $gst;
     protected $pst;
     protected $total;
+    protected $order;
+    protected $sub_total;
+
     /**
      * Create a new message instance.
      *
@@ -22,15 +25,16 @@ class OrderPlacedEmail extends Mailable
      */
     public function __construct(Order $order)
     {
+        $this->order = $order;
         $this->address = json_decode($order->shipping_address);
-        $sub_total = 0;
+        $this->sub_total = 0;
         foreach ($order->order_line_items as $line_item) {
             $line_price = $line_item->unit_price * $line_item->quantity;
-            $sub_total += $line_price;
+            $this->sub_total += $line_price;
         }
-        $this->gst = $sub_total * 0.5;
-        $this->pst = $sub_total * 0.7;
-        $this->total = $sub_total + $this->gst + $this->pst;
+        $this->gst = $this->sub_total * 0.5;
+        $this->pst = $this->sub_total * 0.7;
+        $this->total = $this->sub_total + $this->gst + $this->pst;
     }
 
     /**
@@ -40,10 +44,15 @@ class OrderPlacedEmail extends Mailable
      */
     public function build()
     {
-        return $this->subject($this->detail['category'])
-            ->view('feedbackEmail')
+        return $this->subject("Order Placed Successfully - " . $this->order->id)
+            ->view('thank-you')
             ->with([
-                'detail' => $this->detail,
+                'order' => $this->order,
+                'gst' => $this->gst,
+                'pst' => $this->pst,
+                'total' => $this->total,
+                'sub_total' => $this->sub_total,
+                'address' => $this->address,
             ]);
     }
 }

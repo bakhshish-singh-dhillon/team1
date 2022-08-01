@@ -20,7 +20,7 @@ class UsersTableSeeder extends Seeder
         DB::table('users')->insert([
             'first_name' => 'Admin',
             'last_name' => 'Team1',
-            'email' => 'admin@team1.uwpace.ca',
+            'email' => 'ecom.farmfresh@gmail.com',
             'password' => bcrypt('admin'),
             'is_admin' => true
 
