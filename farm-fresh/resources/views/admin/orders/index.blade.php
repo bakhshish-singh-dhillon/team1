@@ -14,7 +14,6 @@
                 <button class="btn btn-success"><i class="fas fa-search"></i></button>
             </div>
         </form>
-        <a class="btn btn-primary" href="/admin/orders/create" role="button"><i class="fa-solid fa-plus mx-1"></i>Create</a>
     </div>
 </div>
 <div class="card">

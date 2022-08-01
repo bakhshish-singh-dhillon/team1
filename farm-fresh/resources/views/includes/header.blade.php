@@ -43,7 +43,16 @@
                 @include('includes.nav')
 
                 <div>
-                    <span><img src="/images/user.png" alt="User" class="icon mx-2 my-4" /></span>
+                    <?php if (Auth::check() && Auth::user()) : ?>
+                        <a href="/profile" class="text-decoration-none">
+                            <span><img src="/images/user.png" alt="User" class="icon mx-2 my-4" /></span>
+                        </a>
+                    <?php else : ?>
+                        <a href="/login" class="text-decoration-none">
+                            <span><img src="/images/user.png" alt="User" class="icon mx-2 my-4" /></span>
+                        </a>
+                    <?php endif; ?>
+
 
                     <a href="{{ route('cart') }}" class="text-decoration-none cart">
                         <span class="cart-box">

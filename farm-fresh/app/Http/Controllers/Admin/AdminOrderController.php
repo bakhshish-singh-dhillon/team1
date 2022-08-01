@@ -39,9 +39,44 @@ class AdminOrderController extends Controller
     }
 
     /**
+     * Show the form for editing the specified order.
+     *
+     * @param  \App\Models\Order  $order
+     * @return \Illuminate\Http\Response
+     */
+    public function edit(Order $order)
+    {
+        $address = json_decode($order->shipping_address);
+        $sub_total = 0;
+        foreach ($order->order_line_items as $line_item) {
+            $line_price = $line_item->unit_price * $line_item->quantity;
+            $sub_total += $line_price;
+        }
+        $gst = $sub_total * 0.5;
+        $pst = $sub_total * 0.7;
+        $total = $sub_total + $gst + $pst;
+        return view('admin/orders/edit', compact('order', 'total', 'gst', 'pst', 'sub_total', 'address'));
+    }
+
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \App\Models\Order  $order
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $request, Order $order)
+    {
+        if ($request->order_status)
+            $order->update([
+                'order_status' => $request->order_status,
+            ]);
+        return redirect('/admin/orders')->withSuccess('Order status updated successfully');
+    }
+    /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Product  $product
+     * @param  \App\Models\Order  $order
      * @return \Illuminate\Http\Response
      */
     public function destroy(Order $order)
