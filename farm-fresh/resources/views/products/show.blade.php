@@ -72,7 +72,7 @@
                                 @csrf
                                 <div>
                                     <i id="plus" class="fa-solid fa-plus m-0 p-2"></i>
-                                    <input type="text" name="quantity" class="qty" maxlength="12" value="1" class="input-text qty" disabled="disabled" />
+                                    <input type="text" name="quantity" class="qty" maxlength="12" value="1" class="input-text qty" />
                                     <i id="minus" class="fa-solid fa-minus m-0 p-2"></i>
                                 </div>
                                 @if((int)$product->quantity == 0)
@@ -207,7 +207,7 @@
                             <p class="my-2">{{ $review->rating }} out of 5</p>
 
                             <p>{{ $review->review }}</p>
-
+                            <hr>
                         </div>
 
                         @endforeach

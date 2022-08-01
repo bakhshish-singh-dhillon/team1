@@ -2,6 +2,10 @@
     font-size: 16px;
 }
 
+main {
+    min-height: 60vh;
+}
+
 img {
     max-width: 100%;
     height: auto;
@@ -39,6 +43,24 @@ img {
 .large-title {
     font-size: 3em;
     font-weight: 700;
+}
+
+.cart {
+
+    .cart-box {
+        position: relative;
+
+        .cart-count {
+            position: absolute;
+            top: -17px;
+            right: 0;
+            background: #fff;
+            color: green;
+            border-radius: 50%;
+            border: 1px solid;
+            padding: 0px 6px;
+        }
+    }
 }
 
 .black-text {
