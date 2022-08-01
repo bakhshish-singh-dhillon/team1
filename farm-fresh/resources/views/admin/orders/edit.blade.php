@@ -80,7 +80,7 @@
                             @endforeach
                             <tr>
                                 <td colspan="3" class="text-end">Sub total</td>
-                                <td class="text-end">{{$sub_total}}</td>
+                                <td class="text-end">{{$sub_total}}$</td>
                             </tr>
                             <tr>
                                 <td colspan="3" class="text-end">GST(5%)</td>
