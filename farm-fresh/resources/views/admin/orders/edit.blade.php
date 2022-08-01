@@ -51,7 +51,7 @@
                             <tr>
                                 <th>Product Name </th>
                                 <th>Price</th>
-                                <th>Qty</th>
+                                <th class="text-end">Qty</th>
                                 <th class="text-end">Line Price</th>
                             </tr>
                         </thead>
@@ -60,7 +60,7 @@
                             <tr>
                                 <td>{{$line_item->product->name}}</td>
                                 <td>{{$line_item->unit_price}}$</td>
-                                <td>{{$line_item->quantity}}</td>
+                                <td class="text-end">{{$line_item->quantity}}</td>
                                 <td class="text-end">{{$line_item->unit_price * $line_item->quantity}}$</td>
                             </tr>
                             @endforeach
