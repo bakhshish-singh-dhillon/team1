@@ -45,7 +45,7 @@ class OrderPlacedEmail extends Mailable
     public function build()
     {
         return $this->subject("Order Placed Successfully - " . $this->order->id)
-            ->view('thank-you')
+            ->view('invoice/invoice')
             ->with([
                 'order' => $this->order,
                 'gst' => $this->gst,
