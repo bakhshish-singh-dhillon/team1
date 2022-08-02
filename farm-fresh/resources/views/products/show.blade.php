@@ -102,20 +102,20 @@
                 </div>
 
                 <div id="Additional Info" class="tabcontent">
-                    <div class="col-md-4 text-start">
+                    <div>
                         @if(sizeof($product->product_metas) == 0)
                         <p class="text-left">No additional information provided!</p>
                         @else
 
-                        <table id="metaTable" class="detail-table">
+                        <table id="metaTable" class=" w-100">
 
                             <tbody>
 
                                 @foreach ($product->product_metas as $meta)
                                 <tr>
-                                    <td class="font-weight-bold">{{$meta->name}}:</td>
+                                    <td class="p-2 w-25"><strong>{{$meta->name}}:</strong></td>
 
-                                    <td>{{$meta->value}}</td>
+                                    <td class="p-2">{{$meta->value}}</td>
                                 </tr>
                                 @endforeach
                             </tbody>
