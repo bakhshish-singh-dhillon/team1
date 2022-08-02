@@ -14,8 +14,8 @@
                     <button class="btn btn-success"><i class="fas fa-search"></i></button>
                 </div>
             </form>
-            <a class="btn btn-primary" href="/admin/products/create" role="button"><i
-                    class="fa-solid fa-plus mx-1"></i>Create</a>
+            <a class="btn btn-primary" href="/admin/products/create" role="button"><i class="fa-solid fa-plus mx-1"
+                    data-toggle="tooltip" data-placement="bottom" title="Create"></i>Create</a>
         </div>
     </div>
     <div class="card">

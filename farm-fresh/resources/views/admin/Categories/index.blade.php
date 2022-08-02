@@ -19,7 +19,8 @@
 
             </div>
             <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#categoryModal"
-                data-bs-whatever="Create"><i class="fa-solid fa-plus mx-1"></i>Create</button>
+                data-bs-whatever="Create"><i class="fa-solid fa-plus mx-1" data-toggle="tooltip" data-placement="bottom"
+                    title="Create"></i>Create</button>
         </div>
     </div>
 
