@@ -11,7 +11,8 @@
                     <div class="btn-group mx-2">
                         @csrf
                         <input class="form-control search-bar" type="search" name="search"
-                            placeholder="Search by id, name or rating" value="{{ app('request')->input('search') }}" />
+                            placeholder="Search by id, name or rating" value="{{ app('request')->input('search') }}"
+                            data-toggle="tooltip" data-placement="bottom" title="Search" />
                         <button class="btn btn-success"><i class="fas fa-search"></i></button>
                     </div>
                 </form>
@@ -42,13 +43,15 @@
                         <td>{{ $review->rating }}</td>
                         <td>
                             <div class="btn-group" id="review-button">
-                                <form method="post"><button class="btn btn-success"
+                                <form method="post"><button class="btn btn-success" data-toggle="tooltip"
+                                        data-placement="bottom" title="Approved"
                                         style="margin-right: 10px;">Approved</button></form>
                                 <form method="post" action="{{ route('review-delete', ['review' => $review->id]) }}">
                                     @csrf
                                     @method('DELETE')
                                     <input type="hidden" name="id" value="{{ $review->id }}" />
-                                    <button class="btn btn-danger"
+                                    <button class="btn btn-danger" data-toggle="tooltip" data-placement="bottom"
+                                        title="Decline"
                                         onclick="return confirm('Are you sure you want to delete this post?')">Decline</button>
                                 </form>
                             </div>

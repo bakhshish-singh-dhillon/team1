@@ -46,17 +46,20 @@
 
                 <div>
                     <?php if (Auth::check() && Auth::user()) : ?>
-                    <a href="/userProfile/{{ Auth::user()->id }}" class="text-decoration-none">
+                    <a href="/userProfile/{{ Auth::user()->id }}" class="text-decoration-none" data-toggle="tooltip"
+                        data-placement="bottom" title="User">
                         <span><img src="/images/user.png" alt="User" class="icon mx-2 my-4" /></span>
                     </a>
                     <?php else : ?>
-                    <a href="/login" class="text-decoration-none">
+                    <a href="/login" class="text-decoration-none" data-toggle="tooltip" data-placement="bottom"
+                        title="Login">
                         <span><img src="/images/user.png" alt="User" class="icon mx-2 my-4" /></span>
                     </a>
                     <?php endif; ?>
 
 
-                    <a href="{{ route('cart') }}" class="text-decoration-none cart">
+                    <a href="{{ route('cart') }}" class="text-decoration-none cart" data-toggle="tooltip"
+                        data-placement="bottom" title="Cart">
                         <span class="cart-box">
                             <img src="/images/shopping-cart.png" alt="Cart" class="icon mx-2 my-4" />
                             <span
@@ -67,7 +70,8 @@
                     <?php if (Auth::check() && Auth::user()) : ?>
                     <span>
                         <a href="{{ route('logout') }}"
-                            onclick="event.preventDefault();document.getElementById('logout-form').submit(); return confirm('Are you sure you want to Log-Out?')">
+                            onclick="event.preventDefault();document.getElementById('logout-form').submit(); return confirm('Are you sure you want to Log-Out?')"
+                            data-toggle="tooltip" data-placement="bottom" title="Log-Out">
                             <img src="/images/power.png" alt="Logout" class="icon mx-2 my-4" />
                         </a>
                         <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
