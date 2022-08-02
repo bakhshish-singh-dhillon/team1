@@ -6,71 +6,94 @@
         <div class="row">
             <div class="col-md-3 left-part">
                 <div class="title">User Profile</div>
-
-
             </div>
             <div class="col-md-9">
-                <div class="title ">{{ $title }}
+                <div class="title ">{{ $title }} </div>
 
-                    <ul>
-                        <li>{{$user->email}}</li>
-                        @if($user->is_subscribed == "0")
-                        <li>You are not subscribed to our newsletter. Please subscribe to know deals and much more.</li>
+                <ul>
+                    <li>Email: {{$user->email}}</li>
+                    @if($user->is_subscribed == "0")
+                    <li>You are not subscribed to our newsletter. Please subscribe to know deals and much more.</li>
+                    @else
+                    <li>Thank you for subscribing to out newsletter! We will keep you updated.</li>
+                    @endif
+                </ul>
+
+                <div class="col-md-12 my-4">
+                    <div class="card product-item">
+                        <div class="card-header">
+                            <h4 class="h4 text-center">Adresses</h4>
+                        </div>
+
+                        @if($addresses->isEmpty())
+                        <p>There are no adresses associated to this user yet!</p>
                         @else
-                        <li>Thank you for subscribing to out newsletter! We will keep you updated.</li>
-                        @endif
-                    </ul>
-
-                    <ul>
-                        @foreach ($orders as $order)
-                        <div class="col-md-4 my-2">
-                            <div class="card product-item">
-
-                                <div class="card-body">
-
-                                    <?php
-                                    $decodedBillingAdd = json_decode($order['billing_address'], true);
-                                    $decodedShippingAdd = json_decode($order['shipping_address'], true);
-                                    ?>
-
-                                    <ul class="float-left">
-
-                                        <h3>Billing Address</h3>
-                                        <li>Address type: {{$decodedBillingAdd['address_type']}}</li>
-                                        <li>{{$decodedBillingAdd['address']}}</li>
-                                        <li>{{$decodedBillingAdd['city']}}</li>
-                                        <li>{{$decodedBillingAdd['province']}}</li>
-                                        <li>{{$decodedBillingAdd['country']}}</li>
-                                        <li>{{$decodedBillingAdd['postal_code']}}</li>
-                                        <li>{{$decodedBillingAdd['phone']}}</li>
-
-                                    </ul>
-                                </div>
-                                <div class="card-body">
-
-                                    <ul class="float-right">
-                                        <h3>Shipping Address</h3>
-                                        <li>Address type: {{$decodedBillingAdd['address_type']}}</li>
-                                        <li>{{$decodedShippingAdd['address']}}</li>
-                                        <li>{{$decodedShippingAdd['city']}}</li>
-                                        <li>{{$decodedShippingAdd['province']}}</li>
-                                        <li>{{$decodedShippingAdd['country']}}</li>
-                                        <li>{{$decodedShippingAdd['postal_code']}}</li>
-                                        <li>{{$decodedShippingAdd['phone']}}</li>
-                                    </ul>
-                                </div>
-                            </div>
+                        @foreach ($addresses as $address)
+                        <div class="card-body">
+                            <ul>
+                                <li>{{$address->address_type}} adress ::
+                                    {{$address->address}},
+                                    {{$address->city}},
+                                    {{$address->province}}
+                                    {{$address->postal_code}},
+                                    {{$address->country}}<br />
+                                    Phone: {{$address->phone}}
+                                </li>
+                            </ul>
                         </div>
                         @endforeach
-                    </ul>
-
+                        @endif
+                    </div>
                 </div>
 
+                <div class="col-md-12 my-4">
+                    <div class="card product-item">
+                        <div class="card-header">
+                            <h4 class="h4 text-center">Reviews</h4>
+                        </div>
+                        @if($reviews->isEmpty())
+                        <p>There are no reviews provided by this user yet!</p>
+                        @else
+                        @foreach ($reviews as $review)
+                        <div class="card-body">
+                            <ul>
+                                <li>Date: {{$review->created_at}}<br />
+                                    Review: {{$review->review}}<br />
+                                    Rating: {{$review->rating}}
+                                </li>
+                            </ul>
+                        </div>
+                        @endforeach
+                        @endif
+                    </div>
+                </div>
 
-
+                <div class="col-md-12 my-4">
+                    <div class="card product-item">
+                        <div class="card-header">
+                            <h4 class="h4 text-center">Reviews</h4>
+                        </div>
+                        @if($orders->isEmpty())
+                        <p>There are no orders placed by this user yet!</p>
+                        @else
+                        @foreach ($orders as $order)
+                        <div class="card-body">
+                            <ul>
+                                <li>Date: {{$order->created_at}}<br />
+                                    Total: {{$order->total}}<br />
+                                    Status: {{$order->order_status}}<br />
+                                    Billing Address: {{$order->billing_address}}<br />
+                                    Shipping Adress: {{$order->shipping_address}}
+                                </li>
+                            </ul>
+                        </div>
+                        @endforeach
+                        @endif
+                    </div>
+                </div>
             </div>
-
         </div>
     </div>
 </div>
+
 @endsection
