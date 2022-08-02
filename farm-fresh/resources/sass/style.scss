@@ -214,6 +214,29 @@ button.btn:hover {
                 padding: 0px 8px 8px 8px;
             }
         }
+
+    }
+}
+
+#product-gallery {
+    .flex-direction-nav a {
+        height: 50px;
+    }
+
+    .flex-viewport {
+        background-color: #fff;
+    }
+
+    .flexslider {
+        margin: 0 0 16px;
+
+        ul.slides li {
+            background-color: #fff;
+            border: 1px solid #ccc;
+            height: 100px;
+
+        }
+
     }
 }
 
