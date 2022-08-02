@@ -71,19 +71,20 @@
                 <div class="col-md-12 my-4">
                     <div class="card product-item">
                         <div class="card-header">
-                            <h4 class="h4 text-center">Reviews</h4>
+                            <h4 class="h4 text-center">Orders</h4>
                         </div>
                         @if($orders->isEmpty())
                         <p>There are no orders placed by this user yet!</p>
                         @else
                         @foreach ($orders as $order)
+
                         <div class="card-body">
                             <ul>
                                 <li>Date: {{$order->created_at}}<br />
                                     Total: {{$order->total}}<br />
                                     Status: {{$order->order_status}}<br />
-                                    Billing Address: {{$order->billing_address}}<br />
-                                    Shipping Adress: {{$order->shipping_address}}
+                                    <a href="/thank-you/{{$order->id}}">View</a>
+
                                 </li>
                             </ul>
                         </div>
