@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Order;
 use App\Models\User;
 use Illuminate\Http\Request;
 
-class userProfileController extends Controller
+class UserProfileController extends Controller
 {
     /**
      * Instantiate a new controller instance.
@@ -18,11 +19,15 @@ class userProfileController extends Controller
     }
 
 
+
+
     public function show(User $user)
     {
-        // $users = User::latest()->get();
-        dd($user);
-        $title = "Home";
-        return view('profile', compact('user', 'title'));
+
+        $orders = Order::where('user_id', $user->id)->get();
+
+        $title = "Welcome!! " . $user->first_name . " " . $user->last_name . ".";
+        // return view('userProfile', compact('user', 'title', 'orders'));
+        return view('userProfile')->with('user', $user)->with('title', $title)->with('orders', json_decode($orders, true));
     }
 }
