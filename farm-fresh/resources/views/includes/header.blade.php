@@ -70,7 +70,8 @@
                     <?php if (Auth::check() && Auth::user()) : ?>
                     <span>
                         <a href="{{ route('logout') }}"
-                            onclick="event.preventDefault();document.getElementById('logout-form').submit(); return confirm('Are you sure you want to Log-Out?')">
+                            onclick="event.preventDefault();document.getElementById('logout-form').submit(); return confirm('Are you sure you want to Log-Out?')"
+                            data-toggle="tooltip" data-placement="bottom" title="Log-Out">
                             <img src="/images/power.png" alt="Logout" class="icon mx-2 my-4" />
                         </a>
                         <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
