@@ -41,14 +41,15 @@
                         <td>{{ $review->review }}</td>
                         <td>{{ $review->rating }}</td>
                         <td>
-                            <div class="btn-group">
+                            <div class="btn-group" id="review-button">
+                                <form method="post"><button class="btn btn-success"
+                                        style="margin-right: 10px;">Approved</button></form>
                                 <form method="post" action="{{ route('review-delete', ['review' => $review->id]) }}">
                                     @csrf
                                     @method('DELETE')
                                     <input type="hidden" name="id" value="{{ $review->id }}" />
                                     <button class="btn btn-danger"
-                                        onclick="return confirm('Are you sure you want to delete this post?')"><i
-                                            class="fa-solid fa-trash-can"></i></button>
+                                        onclick="return confirm('Are you sure you want to delete this post?')">Decline</button>
                                 </form>
                             </div>
                         </td>

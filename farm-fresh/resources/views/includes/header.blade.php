@@ -31,9 +31,11 @@
                     <a class="navbar-brand" href="{{ url('/') }}">
                         <picture>
                             <!-- Desktop logo -->
-                            <source media="(min-width: 768px)" srcset="/images/logo-100.png 1x, /images/logo-200.png 2x" />
+                            <source media="(min-width: 768px)"
+                                srcset="/images/logo-100.png 1x, /images/logo-200.png 2x" />
                             <!-- Mobile logo -->
-                            <source media="(max-width: 767px)" srcset="/images/logo-50.png 1x, /images/logo-100.png 2x, /images/logo-200.png 3x" />
+                            <source media="(max-width: 767px)"
+                                srcset="/images/logo-50.png 1x, /images/logo-100.png 2x, /images/logo-200.png 3x" />
                             <!-- Logo by default -->
                             <img src="/images/logo-100.png" width="100" height="100" alt="Farm Fresh" />
                         </picture>
@@ -44,33 +46,35 @@
 
                 <div>
                     <?php if (Auth::check() && Auth::user()) : ?>
-                        <a href="/userProfile/{{ Auth::user()->id }}" class="text-decoration-none">
-                            <span><img src="/images/user.png" alt="User" class="icon mx-2 my-4" /></span>
-                        </a>
+                    <a href="/userProfile/{{ Auth::user()->id }}" class="text-decoration-none">
+                        <span><img src="/images/user.png" alt="User" class="icon mx-2 my-4" /></span>
+                    </a>
                     <?php else : ?>
-                        <a href="/login" class="text-decoration-none">
-                            <span><img src="/images/user.png" alt="User" class="icon mx-2 my-4" /></span>
-                        </a>
+                    <a href="/login" class="text-decoration-none">
+                        <span><img src="/images/user.png" alt="User" class="icon mx-2 my-4" /></span>
+                    </a>
                     <?php endif; ?>
 
 
                     <a href="{{ route('cart') }}" class="text-decoration-none cart">
                         <span class="cart-box">
                             <img src="/images/shopping-cart.png" alt="Cart" class="icon mx-2 my-4" />
-                            <span class="{{session()->has('cart') && count(session()->get('cart')) ? 'cart-count' : ''}}">
+                            <span
+                                class="{{ session()->has('cart') && count(session()->get('cart')) ? 'cart-count' : '' }}">
                                 {{ session()->has('cart') ? count(session()->get('cart')) : '' }} </span>
                         </span>
                     </a>
                     <?php if (Auth::check() && Auth::user()) : ?>
-                        <span>
-                            <a href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">
-                                <img src="/images/power.png" alt="Logout" class="icon mx-2 my-4" />
-                            </a>
-                            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                @csrf
-                            </form>
+                    <span>
+                        <a href="{{ route('logout') }}"
+                            onclick="event.preventDefault();document.getElementById('logout-form').submit(); return confirm('Are you sure you want to Log-Out?')">
+                            <img src="/images/power.png" alt="Logout" class="icon mx-2 my-4" />
+                        </a>
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                            @csrf
+                        </form>
 
-                        </span>
+                    </span>
                     <?php endif; ?>
                 </div>
 
