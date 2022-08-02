@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\PrivicyController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\AboutController;
@@ -89,18 +90,16 @@ Route::get('admin/categories/search', [AdminCategoryController::class, 'getCateg
 //Admin Category Urls end
 
 // Pulkit URL Start
-Route::get('/about', function () {
-    return view('about');
-});
+
 Route::get('/terms-and-conditions', [TermsController::class, 'index'])->name('terms');
+Route::get('/about', [AboutController::class, 'index'])->name('about');
 Route::get('/404', function () {
     return view('404');
 });
+Route::get('/privicy', [PrivicyController::class, 'index'])->name('privicy');
 Route::get('/admin/users', [AdminUserController::class, 'index']);
 Route::delete('/admin/users/{user}', [AdminUserController::class, 'destroy'])->name('user-delete');
 Route::get('/admin/reviews', [AdminReviewController::class, 'index']);
 Route::delete('/admin/reviews/{review}', [AdminReviewController::class, 'destroy'])->name('review-delete');
-Route::get('/privacy-policy', function () {
-    return view('privacy');
-});
+
 // Pulkit URL Ends
