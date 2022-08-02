@@ -7,6 +7,7 @@ use App\Models\Order;
 use App\Models\Review;
 use App\Models\Address;
 use Illuminate\Http\Request;
+use App\Models\OrderLineItem;
 
 class UserProfileController extends Controller
 {
@@ -25,11 +26,11 @@ class UserProfileController extends Controller
 
     public function show(User $user)
     {
-
         $orders = Order::where('user_id', $user->id)->get();
         $addresses = Address::where('user_id', $user->id)->distinct()->get();
         $reviews = Review::where('user_id', $user->id)->get();
-        // dd($reviews);
+        // $lineItems = OrderLineItem::where('user_id', $user->id)->get();
+        // dd($lineItems);
         $title = "Welcome!! " . $user->first_name . " " . $user->last_name . ".";
         return view('userProfile', compact('user', 'title', 'orders', 'addresses', 'reviews'));
     }
