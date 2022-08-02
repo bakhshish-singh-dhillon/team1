@@ -39,12 +39,7 @@ class AdminController extends Controller
         // $productsCount = Product::count();
         // $usersCount = User::count();
         // $salesCount = Order::count('total');
-        // $dairyCount = OrderLineItem::with(['products, products.categories' => function ($query) {
-        //     $query->groupBy('products.categories');
-        // }])->get();
-        // dd($dairyCount);
-        // $fruitsCount = DB::table('orders')->count('total');
-        // $vegetablesCount = DB::table('orders')->count('total');
+        
         $chart_data = Order::select(
             DB::raw('year(created_at) as year'),
             DB::raw('monthname(created_at) as month'),
@@ -55,22 +50,6 @@ class AdminController extends Controller
             ->groupBy('month')
             ->get();
 
-        // $pie_data = Order::with('order_line_items')
-        // ->whereHas('order_line_items', function($query) {
-        //     $query->with('products')->select('category');
-        // })->select('sum(total) as sales')->groupBy('category')->get();
-
-        // dd(Category::whereIn('id', [2])->whereHas('children.products.order_line_items',function($query){
-        //     $query->select(
-        //         DB::raw('count(id) as orders')
-        //     );
-        // })->get());
-
-
-
-        // dd(Category::whereIn('id', [2])->with(['children.products.order_line_items' => function($query){
-        //     $query->pluck('id');
-        // }])->get()->toArray());
         $pie_data=  array();
         $pie_data["Dairy"] = $this->count_orders(Category::whereIn('id', [1])->with('children.products.order_line_items')->get()->toArray());
         $pie_data["Vegetable"] = $this->count_orders(Category::whereIn('id', [2])->with('children.products.order_line_items')->get()->toArray());
