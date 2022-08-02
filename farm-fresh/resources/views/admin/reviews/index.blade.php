@@ -41,7 +41,8 @@
                         <td>{{ $review->review }}</td>
                         <td>{{ $review->rating }}</td>
                         <td>
-                            <div class="btn-group">
+                            <div class="btn-group" id="review-button">
+                                <form method="post"><button class="btn btn-success">Approved</button></form>
                                 <form method="post" action="{{ route('review-delete', ['review' => $review->id]) }}">
                                     @csrf
                                     @method('DELETE')
