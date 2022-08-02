@@ -98,7 +98,8 @@
             <div class="max-container">
                 <div class="large-title green-text">Get Started</div>
                 <div class="title black-text pb-4">FarmFresh food tastes good</div>
-                <a href="/products" class="btn">View Products</a>
+                <a href="/products" class="btn" data-toggle="tooltip" data-placement="bottom" title="View Products">View
+                    Products</a>
             </div>
         </div>
     </div>
