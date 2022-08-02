@@ -47,7 +47,7 @@
                                     @method('DELETE')
                                     <input type="hidden" name="id" value="{{ $review->id }}" />
                                     <button class="btn btn-danger"
-                                        onclick="return confirm('Are you sure you want to delete this post?')"></button>
+                                        onclick="return confirm('Are you sure you want to delete this post?')">Decline</button>
                                 </form>
                             </div>
                         </td>
