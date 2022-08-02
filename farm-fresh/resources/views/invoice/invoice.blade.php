@@ -1,26 +1,36 @@
-@extends('layouts/admin/app')
+<div class="container my-4">
+    <div class="row justify-content-center text-left">
+        <div class="col-md-8">
+            <div class="card p-4">
 
-@section('content')
-<div class="title black-text py-3">Orders</div>
-<div class="">
-    <div class="card">
-        <div class="card-header">
-            <h4 class="h4">View Order : {{ $order->id}}</h4>
-        </div>
-        <div class="card-body">
-            <div class="mx-auto container">
-
+                <h1>Order placed successfully!</h1>
                 <div id="invoice_content p-3">
                     <table id="content-table text-left " style="min-width: 100%;">
                         <thead>
                             <tr class="border-bottom">
+                                <th>Company Info</th>
                                 <th>User Info</th>
                                 <th>Order Info</th>
-                                <th>Transaction(s)</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr class="border-bottom">
+                                <td>
+                                    <p class="text-left">
+                                        <strong>Farm-Fresh International ltd.</strong><br />
+                                        Fresh Foods Alliance Group<br />
+                                        460 Portage Ave,<br />
+                                        Winnipeg, MB <br />
+                                        CANADA R3C 0E8<br />
+                                        <br />
+                                    </p>
+                                    <p class="text-left">
+                                        <strong>Queries about your order</strong><br />
+                                        <strong>Helpline-</strong> +1 (204) 123 1234<br />
+                                        <strong>Email-</strong><a href="#"> ecom.farmfresh@gmail.com</a><br />
+                                        Have a great visit. Good day!<br />
+                                    </p>
+                                </td>
                                 <td class="py-0 align-top">
                                     <p class="text-left">
                                         <strong>First Name: </strong> {{$order->user->first_name}}<br />
@@ -38,38 +48,14 @@
                                         <strong>Order Number :</strong> {{$order->id}}<br />
                                         <strong>Order Date :</strong> {{$order->created_at}}<br />
                                         <strong>Charged To Card :</strong> ${{$order->total}}<br />
+                                        <strong>Credit Card :</strong> ************{{$order->transactions()->latest()->first()->cc_num}}<br />
+                                        <strong>Status :</strong> {{$order->order_status}}<br />
                                         <strong>Auth Code :</strong> {{$order->auth_code}}<br />
-                                        <strong>Status :</strong> {{$order->order_status}}
-                                    <form id="order_status_update_form" method="post" action="{{ route('order-update', ['order' => $order->id]) }}">
-                                        @csrf
-                                        @method('PUT')
-                                        <label class="form-label" for="category_search">Update Status:
-                                        </label>
-                                        <select name="order_status" id="order_status" class="form-control ">
-                                            <option value="">Select status</option>
-                                            <option value="Pending" <?= $order->order_status == 'Pending' ? 'selected' : '' ?>>Pending</option>
-                                            <option value="Shipped" <?= $order->order_status == "Shipped" ? 'selected' : '' ?>>Shipped</option>
-                                            <option value="Delivered" <?= $order->order_status == "Delivered" ? 'selected' : '' ?>>Delivered</option>
-                                            <option value="Cancelled" <?= $order->order_status == "Cancelled" ? 'selected' : '' ?>>Cancelled</option>
-                                        </select>
-                                    </form><br />
-
+                                    </p>
+                                    <p>
+                                        Please print this invoice for reference.
                                     </p>
                                 </td>
-                                <td class="text-left align-top">
-                                    <p class="text-left  py-0">
-                                        @foreach($order->transactions as $transaction)
-                                        <strong>Transaction ID :</strong> {{$transaction->payment_transaction_id}}<br />
-                                        <strong>Credit Card Num :</strong> {{$transaction->cc_num}}<br />
-                                        <strong>Status :</strong> {{$transaction->status}}</br>
-                                        <strong>Date :</strong> {{$transaction->created_at}}
-                                        @if(count($order->transactions) >1)
-                                    <p class="border-bottom"></p>
-                                    @endif
-                                    @endforeach
-                                    </p>
-                                </td>
-
                             </tr>
                         </tbody>
                     </table>
@@ -79,7 +65,7 @@
                             <tr>
                                 <th>Product Name </th>
                                 <th>Price</th>
-                                <th class="text-end">Qty</th>
+                                <th>Qty</th>
                                 <th class="text-end">Line Price</th>
                             </tr>
                         </thead>
@@ -88,13 +74,13 @@
                             <tr>
                                 <td>{{$line_item->product->name}}</td>
                                 <td>{{$line_item->unit_price}}$</td>
-                                <td class="text-end">{{$line_item->quantity}}</td>
+                                <td>{{$line_item->quantity}}</td>
                                 <td class="text-end">{{$line_item->unit_price * $line_item->quantity}}$</td>
                             </tr>
                             @endforeach
                             <tr>
                                 <td colspan="3" class="text-end">Sub total</td>
-                                <td class="text-end">{{$sub_total}}$</td>
+                                <td class="text-end">{{$sub_total}}</td>
                             </tr>
                             <tr>
                                 <td colspan="3" class="text-end">GST(5%)</td>
@@ -110,11 +96,8 @@
                             </tr>
                         </tbody>
                     </table>
+                    <div><a href="/products" class="btn" title="view">Continue Shopping</a></div>
                 </div>
-                <a class="btn btn-danger" href="/admin/orders" role="button">Back</a>
-                <button class="btn btn-primary" id="order_publish">Publish</button>
             </div>
         </div>
     </div>
-</div>
-@endsection

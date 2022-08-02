@@ -44,7 +44,7 @@
 
                 <div>
                     <?php if (Auth::check() && Auth::user()) : ?>
-                        <a href="/profile" class="text-decoration-none">
+                        <a href="/userProfile/{{ Auth::user()->id }}" class="text-decoration-none">
                             <span><img src="/images/user.png" alt="User" class="icon mx-2 my-4" /></span>
                         </a>
                     <?php else : ?>
@@ -61,16 +61,17 @@
                                 {{ session()->has('cart') ? count(session()->get('cart')) : '' }} </span>
                         </span>
                     </a>
+                    <?php if (Auth::check() && Auth::user()) : ?>
+                        <span>
+                            <a href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">
+                                <img src="/images/power.png" alt="Logout" class="icon mx-2 my-4" />
+                            </a>
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                @csrf
+                            </form>
 
-                    <span>
-                        <a href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">
-                            <img src="/images/power.png" alt="Logout" class="icon mx-2 my-4" />
-                        </a>
-                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                            @csrf
-                        </form>
-
-                    </span>
+                        </span>
+                    <?php endif; ?>
                 </div>
 
             </div>

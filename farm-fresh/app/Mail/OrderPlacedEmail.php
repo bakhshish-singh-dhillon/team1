@@ -32,8 +32,8 @@ class OrderPlacedEmail extends Mailable
             $line_price = $line_item->unit_price * $line_item->quantity;
             $this->sub_total += $line_price;
         }
-        $this->gst = $this->sub_total * 0.5;
-        $this->pst = $this->sub_total * 0.7;
+        $this->gst = $this->sub_total * 0.05;
+        $this->pst = $this->sub_total * 0.07;
         $this->total = $this->sub_total + $this->gst + $this->pst;
     }
 
@@ -45,7 +45,7 @@ class OrderPlacedEmail extends Mailable
     public function build()
     {
         return $this->subject("Order Placed Successfully - " . $this->order->id)
-            ->view('thank-you')
+            ->view('invoice/invoice')
             ->with([
                 'order' => $this->order,
                 'gst' => $this->gst,
