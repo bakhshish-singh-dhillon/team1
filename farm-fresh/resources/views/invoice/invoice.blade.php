@@ -19,15 +19,15 @@
                                     <p class="text-left">
                                         <strong>Farm-Fresh International ltd.</strong><br />
                                         Fresh Foods Alliance Group<br />
-                                        111 Whitley Drive,<br />
-                                        Silicon Valley, California, 98715<br />
-                                        USA R2L 6J7<br />
+                                        460 Portage Ave,<br />
+                                        Winnipeg, MB <br />
+                                        CANADA R3C 0E8<br />
                                         <br />
                                     </p>
                                     <p class="text-left">
                                         <strong>Queries about your order</strong><br />
-                                        <strong>tel-</strong> 1-111-111-1234<br />
-                                        <strong>email-</strong><a href="#"> ecom.farmfresh@gmail.com</a><br />
+                                        <strong>Helpline-</strong> +1 (204) 123 1234<br />
+                                        <strong>Email-</strong><a href="#"> ecom.farmfresh@gmail.com</a><br />
                                         Have a great visit. Good day!<br />
                                     </p>
                                 </td>

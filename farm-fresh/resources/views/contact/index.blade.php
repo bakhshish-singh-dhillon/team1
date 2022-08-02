@@ -68,7 +68,7 @@
         <div class="col-md-4 px-0">
             <div class="contact-info h-100 px-4 bg-green text-white py-4">
                 <h3>Contact Information</h3>
-                <p class="mb-5">Farm Fresh Agri foods</p>
+                <p class="mb-5">Farm-Fresh International ltd.</p>
                 <ul class="list-unstyled">
                     <li class="d-flex">
                         <i class="fa-solid fa-location-dot px-3 py-1"></i>
