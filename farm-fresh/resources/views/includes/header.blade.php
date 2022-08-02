@@ -51,13 +51,15 @@
                         <span><img src="/images/user.png" alt="User" class="icon mx-2 my-4" /></span>
                     </a>
                     <?php else : ?>
-                    <a href="/login" class="text-decoration-none">
+                    <a href="/login" class="text-decoration-none" data-toggle="tooltip" data-placement="bottom"
+                        title="Login">
                         <span><img src="/images/user.png" alt="User" class="icon mx-2 my-4" /></span>
                     </a>
                     <?php endif; ?>
 
 
-                    <a href="{{ route('cart') }}" class="text-decoration-none cart">
+                    <a href="{{ route('cart') }}" class="text-decoration-none cart" data-toggle="tooltip"
+                        data-placement="bottom" title="Cart">
                         <span class="cart-box">
                             <img src="/images/shopping-cart.png" alt="Cart" class="icon mx-2 my-4" />
                             <span
