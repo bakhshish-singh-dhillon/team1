@@ -22,16 +22,16 @@
                 <div class="col-md-12 my-4">
                     <div class="card product-item">
                         <div class="card-header">
-                            <h4 class="h4 text-center">Adresses</h4>
+                            <h4 class="h4 text-center">Address</h4>
                         </div>
 
                         @if($addresses->isEmpty())
-                        <p>There are no adresses associated to this user yet!</p>
+                        <p>There are no addresses associated to this user yet!</p>
                         @else
                         @foreach ($addresses as $address)
                         <div class="card-body">
                             <ul>
-                                <li>{{$address->address_type}} adress ::
+                                <li>{{$address->address_type}} address ::
                                     {{$address->address}},
                                     {{$address->city}},
                                     {{$address->province}}
