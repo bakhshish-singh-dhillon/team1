@@ -89,10 +89,9 @@ Route::get('admin/categories/search', [AdminCategoryController::class, 'getCateg
 //Admin Category Urls end
 
 // Pulkit URL Start
-Route::get('/about', function () {
-    return view('about');
-});
+
 Route::get('/terms-and-conditions', [TermsController::class, 'index'])->name('terms');
+Route::get('/about', [AboutController::class, 'index'])->name('about');
 Route::get('/404', function () {
     return view('404');
 });
