@@ -14,20 +14,20 @@
                 <button class="btn btn-success"><i class="fas fa-search"></i></button>
             </div>
         </form>
-        <a class="btn btn-primary" href="/admin/orders/create" role="button"><i class="fa-solid fa-plus mx-1"></i>Create</a>
     </div>
 </div>
 <div class="card">
     <div class="card-body">
 
-        <table class="table align-middle mb-0 bg-white">
+        <table class="table align-middle mb-0 bg-white w-100">
             <thead class="bg-light ">
                 <tr>
                     <th>#</th>
+                    <th>Date</th>
                     <th>Status</th>
-                    <th>Subtotal</th>
-                    <th>Billing Address</th>
-                    <th>Shipping Address</th>
+                    <th>Total</th>
+                    <th class="w100">Actions</th>
+
                 </tr>
             </thead>
             <tbody class="">
@@ -39,13 +39,14 @@
                 @foreach ($orders as $order)
                 <tr>
                     <td>{{ $order->id }}</td>
+                    <td>{{ $order->created_at }}</td>
                     <td>{{ $order->order_status }}</td>
-                    <td>{{ $order->subtotal }}</td>
-                    <td>{{ $order->billing_address }}</td>
-                    <td>{{ $order->shipping_address }}</td>
+                    <td>{{ $order->total }}</td>
+
+
                     <td>
                         <div class="btn-group">
-                            <a class="btn btn-secondary mx-2" href="{{ route('order-edit', ['order' => $order->id]) }}">Edit</a>
+                            <a class="btn btn-secondary mx-2" href="{{ route('order-edit', ['order' => $order->id]) }}"><i class="fa-solid fa-pencil"></i></a>
                             <form method="post" action="{{ route('order-delete', ['order' => $order->id]) }}">
                                 @csrf
                                 @method('DELETE')

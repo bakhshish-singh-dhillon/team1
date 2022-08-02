@@ -177,5 +177,167 @@ class ImageSeeder extends Seeder
             'url' => 'brown.png'
 
         ]);
+
+        DB::table('images')->insert([
+            'product_id' => '24',
+            'url' => 'sweetgrnpep.png'
+
+        ]);
+
+        DB::table('images')->insert([
+            'product_id' => '25',
+            'url' => 'zucchini.png'
+
+        ]);
+
+        DB::table('images')->insert([
+            'product_id' => '26',
+            'url' => 'greengr.png'
+
+        ]);
+
+        DB::table('images')->insert([
+            'product_id' => '27',
+            'url' => 'redgr.png'
+
+        ]);
+
+        DB::table('images')->insert([
+            'product_id' => '28',
+            'url' => 'sweetpt.png'
+
+        ]);
+
+        DB::table('images')->insert([
+            'product_id' => '29',
+            'url' => 'raspberry.png'
+
+        ]);
+
+        DB::table('images')->insert([
+            'product_id' => '30',
+            'url' => 'cilantro.png'
+
+        ]);
+
+        DB::table('images')->insert([
+            'product_id' => '31',
+            'url' => 'blueberry.png'
+
+        ]);
+
+        DB::table('images')->insert([
+            'product_id' => '32',
+            'url' => 'limes.png'
+
+        ]);
+
+        DB::table('images')->insert([
+            'product_id' => '33',
+            'url' => 'potatos.png'
+
+        ]);
+
+        DB::table('images')->insert([
+            'product_id' => '34',
+            'url' => 'asparagus.png'
+
+        ]);
+
+        DB::table('images')->insert([
+            'product_id' => '35',
+            'url' => 'avacodo.png'
+
+        ]);
+
+        DB::table('images')->insert([
+            'product_id' => '36',
+            'url' => 'pineapple.png'
+
+        ]);
+
+        DB::table('images')->insert([
+            'product_id' => '37',
+            'url' => 'ginger.png'
+
+        ]);
+
+        DB::table('images')->insert([
+            'product_id' => '38',
+            'url' => 'pears.png'
+
+        ]);
+
+        DB::table('images')->insert([
+            'product_id' => '39',
+            'url' => 'garlic.png'
+
+        ]);
+
+        DB::table('images')->insert([
+            'product_id' => '40',
+            'url' => 'apricot.png'
+
+        ]);
+
+        DB::table('images')->insert([
+            'product_id' => '41',
+            'url' => 'mango.png'
+
+        ]);
+
+        DB::table('images')->insert([
+            'product_id' => '42',
+            'url' => 'kiwi.png'
+
+        ]);
+
+        DB::table('images')->insert([
+            'product_id' => '43',
+            'url' => 'jalapino.png'
+
+        ]);
+
+        DB::table('images')->insert([
+            'product_id' => '44',
+            'url' => 'grapefruit.png'
+
+        ]);
+
+        DB::table('images')->insert([
+            'product_id' => '45',
+            'url' => 'greenbeans.png'
+
+        ]);
+
+        DB::table('images')->insert([
+            'product_id' => '46',
+            'url' => 'plum.png'
+
+        ]);
+
+        DB::table('images')->insert([
+            'product_id' => '47',
+            'url' => 'peach.png'
+
+        ]);
+
+        DB::table('images')->insert([
+            'product_id' => '48',
+            'url' => 'orange.png'
+
+        ]);
+
+        DB::table('images')->insert([
+            'product_id' => '49',
+            'url' => 'cherry.png'
+
+        ]);
+
+        DB::table('images')->insert([
+            'product_id' => '50',
+            'url' => 'carrot.png'
+
+        ]);
     }
 }

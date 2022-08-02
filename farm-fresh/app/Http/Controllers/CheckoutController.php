@@ -6,7 +6,9 @@ use Exception;
 use Pacewdd\Bx\_5bx;
 use App\Models\Order;
 use Illuminate\Http\Request;
+use App\Mail\OrderPlacedEmail;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 
 class CheckoutController extends Controller
 {
@@ -34,7 +36,16 @@ class CheckoutController extends Controller
     }
     public function thank_you(Order $order)
     {
-        return view('thank-you', compact('order'));
+        $address = json_decode($order->shipping_address);
+        $sub_total = 0;
+        foreach ($order->order_line_items as $line_item) {
+            $line_price = $line_item->unit_price * $line_item->quantity;
+            $sub_total += $line_price;
+        }
+        $gst = $sub_total * 0.05;
+        $pst = $sub_total * 0.07;
+        $total = $sub_total + $gst + $pst;
+        return view('thank-you', compact('order', 'total', 'gst', 'pst', 'sub_total', 'address'));
     }
 
     public function process_payment(Request $request)
@@ -69,8 +80,8 @@ class CheckoutController extends Controller
             'order_status' => "Pending",
             'total' => $bill['total'],
             'subtotal' => $bill['subtotal'],
-            'billing_address' => json_encode(session()->get('billing_address')),
-            'shipping_address' => json_encode(session()->get('shipping_address')),
+            'billing_address' => session()->get('billing_address'),
+            'shipping_address' => session()->get('shipping_address'),
             'auth_code' => "NA",
             'transaction_status' => "incomplete",
         ]);
@@ -110,6 +121,7 @@ class CheckoutController extends Controller
                     "response" => json_encode($response)
                 ]);
                 $order->save();
+                Mail::to($order->user->email)->send(new OrderPlacedEmail($order));
                 session()->forget('cart');
                 session()->forget('shipping_address');
                 session()->forget('billing_address');

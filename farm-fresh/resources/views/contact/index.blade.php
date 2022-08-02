@@ -63,26 +63,22 @@
                         </div>
                     </div>
                 </form>
-                <!-- <div id="form-message-warning mt-4"></div>
-                <div id="form-message-success">
-                    Your message was sent, thank you!
-                </div> -->
             </div>
         </div>
         <div class="col-md-4 px-0">
             <div class="contact-info h-100 px-4 bg-green text-white py-4">
                 <h3>Contact Information</h3>
-                <p class="mb-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias, magnam!</p>
+                <p class="mb-5">Farm-Fresh International ltd.</p>
                 <ul class="list-unstyled">
                     <li class="d-flex">
                         <i class="fa-solid fa-location-dot px-3 py-1"></i>
-                        <span class="text">9757 Aspen Lane South Richmond Hill, NY 11419</span>
+                        <span class="text">460 Portage Ave, Winnipeg, MB R3C 0E8</span>
                     </li>
                     <li class="d-flex">
-                        <i class="fa-solid fa-phone px-3 py-1"></i> <span class="text">+1 (291) 939 9321</span>
+                        <i class="fa-solid fa-phone px-3 py-1"></i> <span class="text">+1 (204) 123 1234</span>
                     </li>
                     <li class="d-flex">
-                        <i class="fa-solid fa-envelope px-3 py-1"></i> <span class="text"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="355c5b535a75584c425057465c41501b565a58">[email&#160;protected]</a></span>
+                        <i class="fa-solid fa-envelope px-3 py-1"></i> <span class="text">ecom.farmfresh@gmail.com</span>
                     </li>
                 </ul>
             </div>

@@ -7,6 +7,7 @@ use App\Http\Controllers\AboutController;
 use App\Http\Controllers\AddressController;
 use App\Http\Controllers\TermsController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\UserProfileController;
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\AdminProductController;
 use App\Http\Controllers\Admin\AdminCategoryController;
@@ -43,6 +44,8 @@ Route::post('/products/show/{product}/review', [ReviewController::class, 'store'
 Route::get('/about', [AboutController::class, 'index'])->name('about');
 Route::get('/contact', [ContactController::class, 'index'])->name('contact');
 Route::post('/contact', [ContactController::class, 'store'])->name('contact-submit');
+// Route::get('/profile', [UserProfileController::class, 'index'])->name('users-profile');
+Route::get('/userProfile/{user}', [UserProfileController::class, 'show'])->name('user-profile');
 
 // Admin Product List
 
@@ -54,6 +57,7 @@ Route::get('/admin/products/{product}/edit', [AdminProductController::class, 'ed
 Route::put('/admin/products/{product}', [AdminProductController::class, 'update'])->name('product-update');
 Route::delete('/admin/products/{product}', [AdminProductController::class, 'destroy'])->name('product-delete');
 
+Route::delete('/admin/orders/{order}', [AdminOrderController::class, 'destroy'])->name('order-delete');
 // Admin Order List
 
 Route::get('/admin/orders', [AdminOrderController::class, 'index']);

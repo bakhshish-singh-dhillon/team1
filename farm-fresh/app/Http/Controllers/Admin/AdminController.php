@@ -28,10 +28,10 @@ class AdminController extends Controller
      */
     public function index()
     {
-        $ordersCount = DB::table('orders')->count();
-        $productsCount = DB::table('products')->count();
-        $usersCount = DB::table('users')->count();
-        $salesCount = DB::table('orders')->count('total');
+        $ordersCount = DB::table('orders')->whereNull('deleted_at')->count();
+        $productsCount = DB::table('products')->whereNull('deleted_at')->count();
+        $usersCount = DB::table('users')->whereNull('deleted_at')->count();
+        $salesCount = DB::table('orders')->whereNull('deleted_at')->count('total');
         // $dairyCount = OrderLineItem::with(['products, products.categories' => function ($query) {
         //     $query->groupBy('products.categories');
         // }])->get();
