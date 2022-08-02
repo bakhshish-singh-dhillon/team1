@@ -16,6 +16,7 @@
                             <tr class="border-bottom">
                                 <th>User Info</th>
                                 <th>Order Info</th>
+                                <th>Transaction(s)</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -37,7 +38,6 @@
                                         <strong>Order Number :</strong> {{$order->id}}<br />
                                         <strong>Order Date :</strong> {{$order->created_at}}<br />
                                         <strong>Charged To Card :</strong> ${{$order->total}}<br />
-                                        <strong>Credit Card :</strong> ************{{$order->transactions()->latest()->first()->cc_num}}<br />
                                         <strong>Auth Code :</strong> {{$order->auth_code}}<br />
                                         <strong>Status :</strong> {{$order->order_status}}
                                     <form id="order_status_update_form" method="post" action="{{ route('order-update', ['order' => $order->id]) }}">
@@ -56,6 +56,20 @@
 
                                     </p>
                                 </td>
+                                <td class="text-left align-top">
+                                    <p class="text-left  py-0">
+                                        @foreach($order->transactions as $transaction)
+                                        <strong>Transaction ID :</strong> {{$transaction->payment_transaction_id}}<br />
+                                        <strong>Credit Card Num :</strong> {{$transaction->cc_num}}<br />
+                                        <strong>Status :</strong> {{$transaction->status}}</br>
+                                        <strong>Date :</strong> {{$transaction->created_at}}
+                                        @if(count($order->transactions) >1)
+                                    <p class="border-bottom"></p>
+                                    @endif
+                                    @endforeach
+                                    </p>
+                                </td>
+
                             </tr>
                         </tbody>
                     </table>
