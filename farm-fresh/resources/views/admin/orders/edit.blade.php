@@ -62,7 +62,7 @@
 
                                         <strong>Transaction ID :</strong> {{$transaction->payment_transaction_id}}<br />
                                         <strong>Credit Card :</strong> **** **** **** {{$transaction->cc_num}}<br />
-                                        <strong>Status :</strong> {{$transaction->status}}</br>
+                                        <strong>Status :</strong> {{$order->transaction_status}}</br>
                                         <strong>Date :</strong> {{$transaction->created_at}}
                                         @if(count($order->transactions) >1)
                                     <p class="border-bottom"></p>
