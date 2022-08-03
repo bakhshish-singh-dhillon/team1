@@ -77,7 +77,7 @@
             ]);
 
             var options = {
-                title: 'Ignore this chart for now',
+                title: 'Sales and Orders',
                 hAxis: {
                     title: 'Month',
                     titleTextStyle: {

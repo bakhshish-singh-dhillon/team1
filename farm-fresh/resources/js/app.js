@@ -6,9 +6,11 @@ import 'select2';
 import { createApp } from 'vue';
 import MultiImage from './components/multi-image.vue';
 import './user-addresses.js';
-window.jQuery = window.$ = $;
+// window.jQuery = window.$ = $;
+window.$ = window.jQuery = require('jquery');
 import 'flexslider';
 import 'owl.carousel';
+import 'jquery-bar-rating'
 
 /** Multi Image vue component */
 if ($("#multi-image").length) {
@@ -55,10 +57,30 @@ $(document).ready(function () {
         $('#featured-slider').owlCarousel({
             autoplay: true,
             autoplayTimeout: 2000,
-            items: 4,
             dots: false,
             loop: true,
             nav: false,
+            autoplayHoverPause: true,
+            responsive: {
+                0: {
+                    items: 2
+                },
+                767: {
+                    items: 2
+                },
+                768: {
+                    items: 4
+                }
+            }
+        });
+
+        $('#rating-bar').barrating({
+            theme: 'fontawesome-stars'
+        });
+
+        $('.rating-static').barrating({
+            theme: 'fontawesome-stars',
+            readonly: true
         });
     })(jQuery);
 });

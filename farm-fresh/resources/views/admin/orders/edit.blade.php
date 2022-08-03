@@ -37,7 +37,7 @@
                                     <p class="text-left  py-0">
                                         <strong>Order Number :</strong> {{$order->id}}<br />
                                         <strong>Order Date :</strong> {{$order->created_at}}<br />
-                                        <strong>Charged To Card :</strong> ${{$order->total}}<br />
+                                        <strong>Charged To Card :</strong> $ {{$order->total}}<br />
                                         <strong>Auth Code :</strong> {{$order->auth_code}}<br />
                                         <strong>Status :</strong> {{$order->order_status}}
                                     <form id="order_status_update_form" method="post" action="{{ route('order-update', ['order' => $order->id]) }}">
@@ -62,7 +62,7 @@
 
                                         <strong>Transaction ID :</strong> {{$transaction->payment_transaction_id}}<br />
                                         <strong>Credit Card :</strong> **** **** **** {{$transaction->cc_num}}<br />
-                                        <strong>Status :</strong> {{$transaction->status}}</br>
+                                        <strong>Status :</strong> {{$order->transaction_status}}</br>
                                         <strong>Date :</strong> {{$transaction->created_at}}
                                         @if(count($order->transactions) >1)
                                     <p class="border-bottom"></p>
@@ -78,36 +78,36 @@
                     <table id="content-table2" style="min-width: 100%;">
                         <thead>
                             <tr>
-                                <th>Product Name </th>
-                                <th>Price</th>
-                                <th class="text-end">Quantity</th>
-                                <th class="text-end">Line Price</th>
+                                <th class="p-1">Product Name </th>
+                                <th class="p-1">Price</th>
+                                <th class="text-end p-1">Quantity</th>
+                                <th class="text-end p-1">Line Price</th>
                             </tr>
                         </thead>
                         <tbody>
                             @foreach($order->order_line_items as $line_item)
                             <tr>
-                                <td>{{$line_item->product->name}}</td>
-                                <td>{{$line_item->unit_price}}$</td>
-                                <td class="text-end">{{$line_item->quantity}}</td>
-                                <td class="text-end">{{$line_item->unit_price * $line_item->quantity}}$</td>
+                                <td class="p-1">{{$line_item->product->name}}</td>
+                                <td class="p-1">$ {{$line_item->unit_price}}</td>
+                                <td class="text-end p-1">{{$line_item->quantity}}</td>
+                                <td class="text-end p-1">$ {{$line_item->unit_price * $line_item->quantity}}</td>
                             </tr>
                             @endforeach
                             <tr>
-                                <td colspan="3" class="text-end">Sub total</td>
-                                <td class="text-end">{{$sub_total}}$</td>
+                                <td colspan="3" class="text-end p-1">Sub total</td>
+                                <td class="text-end p-1">$ {{$sub_total}}</td>
                             </tr>
                             <tr>
-                                <td colspan="3" class="text-end">GST(5%)</td>
-                                <td class="text-end">{{$gst}}$</td>
+                                <td colspan="3" class="text-end p-1">GST (0%)</td>
+                                <td class="text-end p-1">$ {{$gst}}</td>
                             </tr>
                             <tr>
-                                <td colspan="3" class="text-end">PST(7%)</td>
-                                <td class="text-end">{{$pst}}$</td>
+                                <td colspan="3" class="text-end p-1">PST (0%)</td>
+                                <td class="text-end p-1">$ {{$pst}}</td>
                             </tr>
                             <tr>
-                                <td colspan="3" class="text-end">TOTAL</td>
-                                <td class="text-end">{{$total}}$</td>
+                                <td colspan="3" class="text-end p-1"><strong>Total</strong></td>
+                                <td class="text-end p-1"><strong>$ {{$total}}</strong></td>
                             </tr>
                         </tbody>
                     </table>

@@ -44,16 +44,16 @@
                 </div>
             </div>
             <div class="col-md-6">
-                <div class="title product-title">{{ $product->name }}</div>
+                <div class="title product-title m-3">{{ $product->name }}</div>
 
-                <table class="detail-table">
+                <table class="detail-table w-100 m-3">
                     <tr>
                         <th>Price:</th>
-                        <td>$ {{$product->price}} / {{$product->measure_unit}}</td>
+                        <td>$ {{ $product->price }} / {{ $product->measure_unit }}</td>
                     </tr>
                     <tr>
                         <th>Availability:</th>
-                        @if((int)$product->quantity == 0)
+                        @if ((int) $product->quantity == 0)
                         <td><i class="fa-solid fa-circle-xmark mx-2 text-danger"></i>
                             Out of Stock</td>
                         @else
@@ -63,7 +63,7 @@
                     </tr>
                     <tr>
                         <th>Rating:</th>
-                        <td>{{$avgRating}} out of 5</td>
+                        <td>{{ $avgRating }} out of 5</td>
                     </tr>
                     <tr>
                         <th>Quantity:</th>
@@ -75,7 +75,7 @@
                                     <input type="text" name="quantity" class="qty" maxlength="12" value="1" class="input-text qty" />
                                     <i id="minus" class="fa-solid fa-minus m-0 p-2"></i>
                                 </div>
-                                @if((int)$product->quantity == 0)
+                                @if ((int) $product->quantity == 0)
                                 <button type="submit" class="btn" disabled>Add to Cart </button>
                                 @else
                                 <button type="submit" class="btn">Add to Cart </button>
@@ -98,24 +98,23 @@
                 <!-- Tab content -->
                 <div id="Description" style="display: block;" class="tabcontent">
 
-                    <p>{{$product->description}}</p>
+                    <p>{{ $product->description }}</p>
                 </div>
 
                 <div id="Additional Info" class="tabcontent">
                     <div>
-                        @if(sizeof($product->product_metas) == 0)
+                        @if (sizeof($product->product_metas) == 0)
                         <p class="text-left">No additional information provided!</p>
                         @else
-
                         <table id="metaTable" class="w-100">
 
                             <tbody>
 
                                 @foreach ($product->product_metas as $meta)
                                 <tr>
-                                    <td class="p-2 w-25"><strong>{{$meta->name}}:</strong></td>
+                                    <td class="p-2 w-25"><strong>{{ $meta->name }}:</strong></td>
 
-                                    <td class="p-2">{{$meta->value}}</td>
+                                    <td class="p-2">{{ $meta->value }}</td>
                                 </tr>
                                 @endforeach
 
@@ -207,7 +206,14 @@
                                 {{ $review->user->last_name }}
                             </div>
                             <div><small>Posted on 17th July, 2022</small></div>
-                            <p class="my-2">{{ $review->rating }} out of 5</p>
+                            <p class="my-2"><select name="rating" class="form-control rating-static">
+                                    <option value="1" {{ $review->rating == 1 ? 'selected="selected"' : '' }}>
+                                        1</option>
+                                    <option value="2" {{ $review->rating == 2 ? 'selected="selected"' : '' }}>2</option>
+                                    <option value="3" {{ $review->rating == 3 ? 'selected="selected"' : '' }}>3</option>
+                                    <option value="4" {{ $review->rating == 4 ? 'selected="selected"' : '' }}>4</option>
+                                    <option value="5" {{ $review->rating == 5 ? 'selected="selected"' : '' }}>5</option>
+                                </select></p>
 
                             <p>{{ $review->review }}</p>
                             <hr>
@@ -231,10 +237,9 @@
 
                                     <table class="w-100">
                                         <tr>
-                                            <td class="px-2 w-25"><label for="sel1">Rate the
+                                            <td class="px-2 w-25"><label for="rating-bar">Rate the
                                                     product:</label></td>
-                                            <td class="py-2"><select name="rating" class="form-control" id="sel1">
-                                                    <option value="">Select star rating</option>
+                                            <td class="py-2"><select name="rating" class="form-control" id="rating-bar">
                                                     <option value="1">1</option>
                                                     <option value="2">2</option>
                                                     <option value="3">3</option>
