@@ -44,10 +44,12 @@ class CheckoutController extends Controller
             $line_price = $line_item->unit_price * $line_item->quantity;
             $sub_total += $line_price;
         }
-        $gst = $sub_total * 0.05;
-        $pst = $sub_total * 0.07;
-        $total = $sub_total + $gst + $pst;
-        return view('thank-you', compact('order', 'total', 'gst', 'pst', 'sub_total', 'address'));
+        $gst = $sub_total * $this->global_var['gst'];
+        $pst = $sub_total * $this->global_var['pst'];
+        $vat = $sub_total * $this->global_var['vat'];
+        $delivery_charges = $sub_total + $this->global_var['delivery_charges'];
+        $total = $sub_total + $gst + $pst + $vat + $delivery_charges;
+        return view('thank-you', compact('order', 'total', 'gst', 'pst', 'sub_total', 'address', 'delivery_charges', 'vat'));
     }
 
     public function process_payment(Request $request)
@@ -129,7 +131,7 @@ class CheckoutController extends Controller
                 session()->forget('cart');
                 session()->forget('shipping_address');
                 session()->forget('billing_address');
-                
+
                 foreach ($order->order_line_items as $line_item) {
                     $line_item->product->quantity = $line_item->product->quantity - $cart[$line_item->product->id]['quantity'];
                     $line_item->product->save();

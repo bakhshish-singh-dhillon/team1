@@ -47,6 +47,7 @@ Route::post('/contact', [ContactController::class, 'store'])->name('contact-subm
 // Route::get('/profile', [UserProfileController::class, 'index'])->name('users-profile');
 Route::get('/userProfile/{user}', [UserProfileController::class, 'show'])->name('user-profile');
 Route::get('userOrder/{order}', [UserProfileController::class, 'show_order'])->name('user-order');
+Route::put('/userProfile/{user}', [UserProfileController::class, 'update'])->name('user-detail-update');
 
 // Admin Product List
 
