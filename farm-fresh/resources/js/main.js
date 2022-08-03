@@ -125,12 +125,12 @@ $(document).ready(function($) {
 
     // Pravindra User Details Start
     if ($("#update_user").get(0)) {
-        $('#first_name').change(
+        $('#first_name').keyup(
             function() {
                 $("#update_user").show("slow");
             }
         );
-        $('#last_name').change(
+        $('#last_name').keyup(
             function() {
                 $("#update_user").show("slow");
             }
