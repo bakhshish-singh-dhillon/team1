@@ -107,7 +107,7 @@
                         <p class="text-left">No additional information provided!</p>
                         @else
 
-                        <table id="metaTable" class=" w-100">
+                        <table id="metaTable" class="w-100">
 
                             <tbody>
 
@@ -122,9 +122,8 @@
                         </table>
                         @endif
                     </div>
-                </div>
 
-                <hr>
+                </div>
             </div>
             <div id="reviews">
 
@@ -132,59 +131,58 @@
                     <div class="title py-3 text-center">Customer Reviews</div>
                     <div class="col-md-3">
 
-                        @if(count($product->reviews()->get()) == 0)
-                        <p>{{$avgRating}} out of 5
-                            <small>({{count($product->reviews()->get())}} ratings)</small>
+                        @if (count($product->reviews()->get()) == 0)
+                        <p>{{ $avgRating }} out of 5
+                            <small>({{ count($product->reviews()->get()) }} ratings)</small>
                         </p>
-
                         @else
-                        <p>{{$avgRating}} out of 5
-                            <small>({{count($product->reviews()->get())}} ratings)</small>
+                        <p>{{ $avgRating }} out of 5
+                            <small>({{ count($product->reviews()->get()) }} ratings)</small>
                         </p>
                         <div>
                             <div>
                                 <div>
-                                    @if($perFives >= 0 )
-                                    <p class="m-0 mt-1"><small>5 star ({{$perFives ?? 0}}%)</small></p>
+                                    @if ($perFives >= 0)
+                                    <p class="m-0 mt-1"><small>5 star ({{ $perFives ?? 0 }}%)</small></p>
                                     <div class="outer-box">
 
-                                        <div class="bar-5" style="width: {{$perFives ?? 0}}%;"></div>
+                                        <div class="bar-5" style="width: {{ $perFives ?? 0 }}%;"></div>
                                     </div>
                                     @endif
                                 </div>
                                 <div>
-                                    @if($perFours >= 0)
-                                    <p class="m-0 mt-1"><small>4 star ({{$perFours ?? 0}}%)</small></p>
+                                    @if ($perFours >= 0)
+                                    <p class="m-0 mt-1"><small>4 star ({{ $perFours ?? 0 }}%)</small></p>
                                     <div class="outer-box">
 
-                                        <div class="bar-5" style="width: {{$perFours ?? 0}}%;"></div>
+                                        <div class="bar-5" style="width: {{ $perFours ?? 0 }}%;"></div>
                                     </div>
                                     @endif
                                 </div>
                                 <div>
-                                    @if($perThrees >= 0)
-                                    <p class="m-0 mt-1"><small>3 star ({{$perThrees ?? 0}}%)</small></p>
+                                    @if ($perThrees >= 0)
+                                    <p class="m-0 mt-1"><small>3 star ({{ $perThrees ?? 0 }}%)</small></p>
                                     <div class="outer-box">
 
-                                        <div class="bar-5" style="width: {{$perThrees ?? 0}}%;"></div>
+                                        <div class="bar-5" style="width: {{ $perThrees ?? 0 }}%;"></div>
                                     </div>
                                     @endif
                                 </div>
                                 <div>
-                                    @if($perTwos >= 0)
-                                    <p class="m-0 mt-1"><small>2 star ({{$perTwos ?? 0}}%)</small></p>
+                                    @if ($perTwos >= 0)
+                                    <p class="m-0 mt-1"><small>2 star ({{ $perTwos ?? 0 }}%)</small></p>
                                     <div class="outer-box">
 
-                                        <div class="bar-5" style="width: {{$perTwos ?? 0}}%;"></div>
+                                        <div class="bar-5" style="width: {{ $perTwos ?? 0 }}%;"></div>
                                     </div>
                                     @endif
                                 </div>
                                 <div>
-                                    @if($perOnes >= 0)
-                                    <p class="m-0 mt-1"><small>1 star ({{$perOnes ?? 0}}%)</small></p>
+                                    @if ($perOnes >= 0)
+                                    <p class="m-0 mt-1"><small>1 star ({{ $perOnes ?? 0 }}%)</small></p>
                                     <div class="outer-box">
 
-                                        <div class="bar-5" style="width: {{$perOnes ?? 0}}%;"></div>
+                                        <div class="bar-5" style="width: {{ $perOnes ?? 0 }}%;"></div>
                                     </div>
                                     @endif
                                 </div>
@@ -194,14 +192,14 @@
                     </div>
                     <div class="col-md-9">
 
-                        @if(count($product->reviews()->get()) == 0)
+                        @if (count($product->reviews()->get()) == 0)
                         <p>We found 0 matching reviews</p>
                         <p>Be the first!</p>
-
                         @else
-                        @foreach ($reviews as $review)
+                        @foreach($reviews as $review)
                         <div>
-                            <div class="review-title">{{ $review->user->first_name }} {{ $review->user->last_name }}
+                            <div class="review-title">{{ $review->user->first_name }}
+                                {{ $review->user->last_name }}
                             </div>
                             <div><small>Posted on 17th July, 2022</small></div>
                             <p class="my-2">{{ $review->rating }} out of 5</p>
@@ -209,9 +207,7 @@
                             <p>{{ $review->review }}</p>
                             <hr>
                         </div>
-
                         @endforeach
-
                         @endif
 
 
@@ -222,12 +218,13 @@
                                 </div>
                                 <div class="card-body">
                                     <div class="">
-                                        <form action="{{route('store-product-review', ['product'=>$product->id])}}" method="POST" id="add_review_form">
+                                        <form action="{{ route('store-product-review', ['product' => $product->id]) }}" method="POST" id="add_review_form">
                                             @csrf
 
                                             <table class="w-100">
                                                 <tr>
-                                                    <td class="px-2 w-25"><label for="sel1">Rate the product:</label></td>
+                                                    <td class="px-2 w-25"><label for="sel1">Rate the
+                                                            product:</label></td>
                                                     <td class="py-2"><select name="rating" class="form-control" id="sel1">
                                                             <option value="">Select star rating</option>
                                                             <option value="1">1</option>
@@ -244,7 +241,8 @@
                                                 <tr>
                                                     <td class="px-2"> <label for="description">Review:</label>
                                                     </td>
-                                                    <td><textarea class="form-control" name="review" id="review" rows="2"></textarea>
+                                                    <td>
+                                                        <textarea class="form-control" name="review" id="review" rows="2"></textarea>
                                                         @error('review')
                                                         <span class="text-danger"> {{ $message }}</span>
                                                         @enderror
@@ -252,7 +250,7 @@
                                                 </tr>
                                             </table>
 
-                                            <button class="btn">Publish</button>
+                                            <button class="btn" data-toggle="tooltip" data-placement="bottom" title="Publish">Publish</button>
                                         </form>
                                     </div>
                                 </div>
@@ -278,7 +276,6 @@
 @endsection
 
 @section('custom-js')
-
 <script>
     function changeTab(evt, cityName) {
         var i, tabcontent, tablinks;
