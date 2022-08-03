@@ -79,7 +79,7 @@
                             <tr>
                                 <th>Product Name </th>
                                 <th>Price</th>
-                                <th class="text-end">Qty</th>
+                                <th class="text-end">Quantity</th>
                                 <th class="text-end">Line Price</th>
                             </tr>
                         </thead>

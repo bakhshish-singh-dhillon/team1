@@ -1,13 +1,13 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container my-4">
+<div class="container my-4" id="cart">
     <div class="row justify-content-center text-center">
         <div class="col-md-8">
             <div class="card p-3">
 
                 <div class="title pb-3">My Cart</div>
-                <table>
+                <table class="cart">
                     <thead>
                         <tr>
                             <th class="p-2">Product</th>
@@ -38,28 +38,28 @@
 
                         <tr>
                             <td colspan="4" class="v-title p-2 text-right">Sub total</td>
-                            <td class="p-2">${{ $bill['subtotal'] }} </td>
+                            <td class="p-2 text-right">$ {{ $bill['subtotal'] }} </td>
                         </tr>
                         <tr>
                             <td colspan="4" class="v-title p-2 text-right">GST (0%)</td>
-                            <td class="p-2">${{ $bill['gst'] }} </td>
+                            <td class="p-2 text-right">$ {{ $bill['gst'] }} </td>
                         </tr>
                         <tr>
                             <td colspan="4" class="v-title p-2 text-right">PST (0%)</td>
-                            <td class="p-2">${{ $bill['pst'] }} </td>
+                            <td class="p-2 text-right">$ {{ $bill['pst'] }} </td>
                         </tr>
                         <tr>
-                            <td colspan="4" class="v-title p-2 text-right">Total</td>
-                            <td class="p-2">${{ $bill['total'] }} </td>
+                            <td colspan="4" class="v-title p-2 text-right"><strong>Total</strong></td>
+                            <td class="p-2 text-right"><strong>$ {{ $bill['total'] }}</strong> </td>
                         </tr>
                     </tbody>
                 </table>
-                <div class="d-flex justify-content-between">
+                <div class="d-flex justify-content-between pt-3">
                     <a class="btn" href="/choose-addresses" method="post">Choose Address</a>
                     <form action="{{ route('clear-cart') }}" method="post">
                         @csrf
                         @method('DELETE')
-                        <input type="submit" class="btn btn-danger" name="submit" value="Clear Cart">
+                        <button type="submit" class="btn btn-danger">Clear cart</button>
                     </form>
                 </div>
             </div>

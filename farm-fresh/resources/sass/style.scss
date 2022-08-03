@@ -101,7 +101,8 @@ img {
 }
 
 a.btn,
-button.btn {
+button.btn,
+label.btn {
     color: #fff;
     text-decoration: none;
     background-color: $green;
@@ -109,7 +110,8 @@ button.btn {
 }
 
 a.btn:hover,
-button.btn:hover {
+button.btn:hover,
+label.btn:hover {
     color: $green;
     border: 1px solid;
     background-color: #fff;
@@ -157,6 +159,26 @@ button.btn-danger:hover {
 
 .font-md {
     font-size: 1.2em;
+}
+
+#cart {
+    table.cart {
+
+        td,
+        th {
+            border: 1px solid #eee;
+        }
+    }
+}
+
+#addresses {
+    table {
+
+        td,
+        th {
+            border: 1px solid #eee;
+        }
+    }
 }
 
 #category {
