@@ -59,6 +59,7 @@ $(document).ready(function () {
             dots: false,
             loop: true,
             nav: false,
+            autoplayHoverPause:true
         });
     })(jQuery);
 });
