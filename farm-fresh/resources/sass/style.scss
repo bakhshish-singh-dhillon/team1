@@ -12,7 +12,7 @@ img {
 }
 
 .max-container {
-    max-width: 960px;
+    max-width: 1024px;
     margin: 0 auto;
     padding-top: 1px;
 }
@@ -695,5 +695,23 @@ ul.li_size {
 
     .owl-dots {
         display: none;
+    }
+}
+
+// responsive
+
+@media screen and (max-width: 767px) {
+
+    #home #banner .content {
+        left: 0;
+    }
+
+    #products .category-list ul ul {
+        padding: 0;
+    }
+
+    .flex-direction-nav a {
+        top: auto;
+        bottom: 0;
     }
 }
