@@ -21,6 +21,14 @@ img {
     color: $green;
 }
 
+.light-bottom-border {
+    border-bottom: 1px solid #ccc;
+}
+
+.light-top-border {
+    border-top: 1px solid #ccc;
+}
+
 .bg-green {
     background-color: $green;
 }
@@ -80,6 +88,10 @@ img {
     float: right;
 }
 
+.text-right {
+    text-align: right;
+}
+
 .error-message {
     position: absolute;
     top: 10px;
@@ -101,6 +113,16 @@ button.btn:hover {
     color: $green;
     border: 1px solid;
     background-color: #fff;
+}
+
+a.btn-danger,
+button.btn-danger {
+    background-color: $red;
+}
+
+a.btn-danger:hover,
+button.btn-danger:hover {
+    color: $red;
 }
 
 .icon {
@@ -455,16 +477,6 @@ button.btn:hover {
         color: $blue;
         border: 1px solid;
         background-color: #fff;
-    }
-
-    a.btn-danger,
-    button.btn-danger {
-        background-color: $red;
-    }
-
-    a.btn-danger:hover,
-    button.btn-danger:hover {
-        color: $red;
     }
 
     .pagination {
