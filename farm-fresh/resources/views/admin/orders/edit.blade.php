@@ -5,7 +5,7 @@
 <div class="">
     <div class="card">
         <div class="card-header">
-            <h4 class="h4">View Order : {{ $order->id}}</h4>
+            <h4 class="m-0">View Order : {{ $order->id}}</h4>
         </div>
         <div class="card-body">
             <div class="mx-auto container">
@@ -14,26 +14,26 @@
                     <table id="content-table text-left " style="min-width: 100%;">
                         <thead>
                             <tr class="border-bottom">
-                                <th>User Info</th>
-                                <th>Order Info</th>
-                                <th>Transaction(s)</th>
+                                <th class="py-2">User Info</th>
+                                <th class="py-2">Order Info</th>
+                                <th class="py-2">Transaction(s)</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr class="border-bottom">
-                                <td class="py-0 align-top">
+                                <td class="pt-2 py-0 align-top">
                                     <p class="text-left">
                                         <strong>First Name: </strong> {{$order->user->first_name}}<br />
                                         <strong>Last Name: </strong> {{$order->user->last_name}}<br />
                                         <strong>Email: </strong> {{$order->user->email}}<br /><br />
                                         <strong>Shipping Address: </strong><br />
                                         <strong>Street : </strong> {{$address->address}}<br />
-                                        <strong>City/Province : </strong> {{$address->city}},{{$address->province}}<br />
+                                        <strong>City / Province : </strong> {{$address->city}},{{$address->province}}<br />
                                         <strong>Postal Code: </strong> {{$address->postal_code}}<br />
                                         <strong>Phone: </strong> +{{$address->phone}}<br />
                                     </p>
                                 </td>
-                                <td class="text-left align-top">
+                                <td class="pt-2 text-left align-top">
                                     <p class="text-left  py-0">
                                         <strong>Order Number :</strong> {{$order->id}}<br />
                                         <strong>Order Date :</strong> {{$order->created_at}}<br />
@@ -45,7 +45,7 @@
                                         @method('PUT')
                                         <label class="form-label" for="category_search">Update Status:
                                         </label>
-                                        <select name="order_status" id="order_status" class="form-control ">
+                                        <select name="order_status" id="order_status" class="form-control w-75">
                                             <option value="">Select status</option>
                                             <option value="Pending" <?= $order->order_status == 'Pending' ? 'selected' : '' ?>>Pending</option>
                                             <option value="Shipped" <?= $order->order_status == "Shipped" ? 'selected' : '' ?>>Shipped</option>
@@ -56,18 +56,19 @@
 
                                     </p>
                                 </td>
-                                <td class="text-left align-top">
+                                <td class="pt-2 text-left align-top">
+                                    @foreach($order->transactions as $transaction)
                                     <p class="text-left  py-0">
-                                        @foreach($order->transactions as $transaction)
+
                                         <strong>Transaction ID :</strong> {{$transaction->payment_transaction_id}}<br />
-                                        <strong>Credit Card Num :</strong> {{$transaction->cc_num}}<br />
+                                        <strong>Credit Card :</strong> **** **** **** {{$transaction->cc_num}}<br />
                                         <strong>Status :</strong> {{$transaction->status}}</br>
                                         <strong>Date :</strong> {{$transaction->created_at}}
                                         @if(count($order->transactions) >1)
                                     <p class="border-bottom"></p>
                                     @endif
-                                    @endforeach
                                     </p>
+                                    @endforeach
                                 </td>
 
                             </tr>

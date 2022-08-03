@@ -198,28 +198,74 @@
                 </div>
                 <div class="col-md-9">
 
-                    @if (count($product->reviews()->get()) == 0)
-                    <p>We found 0 matching reviews</p>
-                    <p>Be the first!</p>
-                    @else
-                    @foreach ($reviews as $review)
                     <div>
-                        <div class="review-title">{{ $review->user->first_name }}
-                            {{ $review->user->last_name }}
-                        </div>
-                        <div><small>Posted on 17th July, 2022</small></div>
-                        <p class="my-2">{{ $review->rating }} out of 5</p>
+                        @if (count($product->reviews()->get()) == 0)
+                        <p>We found 0 matching reviews</p>
+                        <p>Be the first!</p>
+                        @else
+                        @foreach ($reviews as $review)
+                        <div>
+                            <div class="review-title">{{ $review->user->first_name }}
+                                {{ $review->user->last_name }}
+                            </div>
+                            <div><small>Posted on 17th July, 2022</small></div>
+                            <p class="my-2">{{ $review->rating }} out of 5</p>
 
-                        <p>{{ $review->review }}</p>
-                        <hr>
+                            <p>{{ $review->review }}</p>
+                            <hr>
+                        </div>
+                        @endforeach
+                        @endif
                     </div>
-                    @endforeach
-                    @endif
+
+                    <div class="card mb-3">
+                        <div class="card-header">
+                            <h4 class="h4">Write a review</h4>
+                        </div>
+                        <div class="card-body">
+                            <div class="">
+                                <form action="{{ route('store-product-review', ['product' => $product->id]) }}" method="POST" id="add_review_form">
+                                    @csrf
+
+                                    <table class="w-100">
+                                        <tr>
+                                            <td class="px-2 w-25"><label for="sel1">Rate the
+                                                    product:</label></td>
+                                            <td class="py-2"><select name="rating" class="form-control" id="sel1">
+                                                    <option value="">Select star rating</option>
+                                                    <option value="1">1</option>
+                                                    <option value="2">2</option>
+                                                    <option value="3">3</option>
+                                                    <option value="4">4</option>
+                                                    <option value="5">5</option>
+                                                </select>
+                                                @error('rating')
+                                                <span class="text-danger"> {{ $message }}</span>
+                                                @enderror
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="px-2"> <label for="description">Review:</label>
+                                            </td>
+                                            <td>
+                                                <textarea class="form-control" name="review" id="review" rows="2"></textarea>
+                                                @error('review')
+                                                <span class="text-danger"> {{ $message }}</span>
+                                                @enderror
+                                            </td>
+                                        </tr>
+                                    </table>
+
+                                    <button class="btn" data-toggle="tooltip" data-placement="bottom" title="Publish">Publish</button>
+                                </form>
+                            </div>
+                        </div>
+
+                    </div>
 
                 </div>
+
                 <hr>
-
-
                 @include('includes.featureProd-loop')
             </div>
         </div>

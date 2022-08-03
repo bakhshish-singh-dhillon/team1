@@ -57,7 +57,7 @@
                             <div>
                                 <label for="billing_address_options">Choose from existing addresses:</label>
                                 <div class="input-group mb-3">
-                                    <select name="billing_address_options" class="form-control" id="addresses" v-model="billing_address_id">
+                                    <select name="billing_address_options" class="form-control" id="addresses" v-model="billing_address_id" placeholder="Select address">
                                         @foreach ($addresses as $key => $address)
                                         <option value="{{ $key }}" id="billing-address-{{ $key }}">{{ $address->address }}</option>
                                         @endforeach
@@ -126,7 +126,7 @@
                             <div>
                                 <label for="shipping_address_options">Choose from existing addresses:</label>
                                 <div class="input-group mb-3">
-                                    <select name="shipping_address_options" class="form-control" id="addresses" v-model="shipping_address_id">
+                                    <select name="shipping_address_options" class="form-control" id="addresses" v-model="shipping_address_id" placeholder="Select address">
                                         @foreach ($addresses as $key => $address)
                                         <option value="{{ $key }}" id="shipping-address-{{ $key }}">{{ $address->address }}</option>
                                         @endforeach

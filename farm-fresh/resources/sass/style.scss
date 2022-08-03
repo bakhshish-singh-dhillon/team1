@@ -493,6 +493,16 @@ button.btn-danger:hover {
         background-color: #fff;
     }
 
+    a.btn-danger,
+    button.btn-danger {
+        background-color: $red;
+    }
+
+    a.btn-danger:hover,
+    button.btn-danger:hover {
+        color: $red;
+    }
+
     .pagination {
         .page-item.active .page-link {
             background-color: $blue;
@@ -564,7 +574,7 @@ button.btn-danger:hover {
                 }
 
                 a:hover {
-                    font-size: 1.05em;
+                    // font-size: 1.05em;
                 }
             }
         }
