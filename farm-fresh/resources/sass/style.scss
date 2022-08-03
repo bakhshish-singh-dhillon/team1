@@ -697,3 +697,21 @@ ul.li_size {
         display: none;
     }
 }
+
+// responsive
+
+@media screen and (max-width: 767px) {
+
+    #home #banner .content {
+        left: 0;
+    }
+
+    #products .category-list ul ul {
+        padding: 0;
+    }
+
+    .flex-direction-nav a {
+        top: auto;
+        bottom: 0;
+    }
+}
