@@ -216,6 +216,10 @@
                         </div>
                         @endforeach
                         @endif
+
+                        <div class="pagination justify-content-center pb-3">
+                            {!! $reviews->links() !!}
+                        </div>
                     </div>
 
                     <div class="card mb-3">
