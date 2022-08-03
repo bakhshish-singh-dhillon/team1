@@ -35,9 +35,9 @@
                     @endif
                 </ul> -->
                 <div>
-                    <form method="POST" action="{{ route('register') }}">
+                    <form method="POST" action="{{ route('user-detail-update', ['user' => $user->id]) }}">
                         @csrf
-
+                        @method('PUT')
                         <div class="row mb-3">
                             <label for="email" class="col-md-4 col-form-label text-md-start">{{ __('Email Address') }}</label>
 

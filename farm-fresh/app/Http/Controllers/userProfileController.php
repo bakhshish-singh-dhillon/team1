@@ -58,10 +58,11 @@ class UserProfileController extends Controller
     public function update(Request $request, User $user)
     {
 
-            $user->update([
-                'first_name' => $user->first_name,
-                'last_name' => $user->last_name,
-                'is_subscribed' => $user->is_subscribed,
-            ]);
-        return redirect('/admin/orders')->withSuccess('Order status updated successfully');
+        $user->update([
+            'first_name' => $request->first_name,
+            'last_name' => $request->last_name,
+            'is_subscribed' => (isset($request->is_subscribed) ? true : false),
+        ]);
+        return redirect("/userProfile/$user->id")->withSuccess('User Details updated successfully');
+    }
 }
