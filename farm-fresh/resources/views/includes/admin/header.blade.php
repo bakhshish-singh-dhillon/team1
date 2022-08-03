@@ -19,7 +19,7 @@
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
     <!-- Styles -->
-    @yield('custom-js')
+    @yield('custom-css')
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 
 </head>
