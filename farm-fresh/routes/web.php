@@ -99,6 +99,7 @@ Route::get('/404', function () {
 });
 Route::get('/privacy-policy', [PrivacyController::class, 'index'])->name('privacy');
 Route::get('/admin/users', [AdminUserController::class, 'index']);
+Route::put('/admin/{user}/user', [AdminUserController::class, 'update'])->name('user-update');
 Route::delete('/admin/users/{user}', [AdminUserController::class, 'destroy'])->name('user-delete');
 Route::get('/admin/reviews', [AdminReviewController::class, 'index']);
 Route::delete('/admin/reviews/{review}', [AdminReviewController::class, 'destroy'])->name('review-delete');
