@@ -57,11 +57,21 @@ $(document).ready(function () {
         $('#featured-slider').owlCarousel({
             autoplay: true,
             autoplayTimeout: 2000,
-            items: 4,
             dots: false,
             loop: true,
             nav: false,
-            autoplayHoverPause: true
+            autoplayHoverPause: true,
+            responsive: {
+                0: {
+                    items: 2
+                },
+                767: {
+                    items: 2
+                },
+                768: {
+                    items: 4
+                }
+            }
         });
 
         $('#rating-bar').barrating({

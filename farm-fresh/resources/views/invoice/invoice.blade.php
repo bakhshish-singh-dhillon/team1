@@ -1,28 +1,27 @@
-<div class="container my-4">
-    <div class="row justify-content-center text-left">
-        <div class="col-md-8">
+<div class="max-container my-4">
+    <div class="">
+        <div class="">
             <div class="card p-4">
 
-                <h1>Order placed successfully!</h1>
+                <h1 class="title mb-3">Order placed successfully!</h1>
                 <div id="invoice_content p-3">
                     <table id="content-table text-left " style="min-width: 100%;">
                         <thead>
                             <tr class="border-bottom">
-                                <th>Company Info</th>
-                                <th>User Info</th>
-                                <th>Order Info</th>
+                                <th class="p-2">Company Info</th>
+                                <th class="p-2">User Info</th>
+                                <th class="p-2">Order Info</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr class="border-bottom">
-                                <td>
+                                <td class="p-2">
                                     <p class="text-left">
                                         <strong>Farm-Fresh International ltd.</strong><br />
                                         Fresh Foods Alliance Group<br />
                                         460 Portage Ave,<br />
                                         Winnipeg, MB <br />
                                         CANADA R3C 0E8<br />
-                                        <br />
                                     </p>
                                     <p class="text-left">
                                         <strong>Queries about your order</strong><br />
@@ -31,7 +30,7 @@
                                         Have a great visit. Good day!<br />
                                     </p>
                                 </td>
-                                <td class="py-0 align-top">
+                                <td class="p-2 align-top">
                                     <p class="text-left">
                                         <strong>First Name: </strong> {{$order->user->first_name}}<br />
                                         <strong>Last Name: </strong> {{$order->user->last_name}}<br />
@@ -43,12 +42,12 @@
                                         <strong>Phone: </strong> +{{$address->phone}}<br />
                                     </p>
                                 </td>
-                                <td class="text-left align-top">
-                                    <p class="text-left  py-0">
+                                <td class="p-2 text-left align-top">
+                                    <p class="py-0">
                                         <strong>Order Number :</strong> {{$order->id}}<br />
                                         <strong>Order Date :</strong> {{$order->created_at}}<br />
-                                        <strong>Charged To Card :</strong> ${{$order->total}}<br />
-                                        <strong>Credit Card :</strong> ************{{$order->transactions()->latest()->first()->cc_num}}<br />
+                                        <strong>Charged To Card :</strong> $ {{$order->total}}<br />
+                                        <strong>Credit Card :</strong> **** **** **** {{$order->transactions()->latest()->first()->cc_num}}<br />
                                         <strong>Status :</strong> {{$order->order_status}}<br />
                                         <strong>Auth Code :</strong> {{$order->auth_code}}<br />
                                     </p>
@@ -63,36 +62,36 @@
                     <table id="content-table2" style="min-width: 100%;">
                         <thead>
                             <tr>
-                                <th>Product Name </th>
-                                <th>Price</th>
-                                <th>Quantity</th>
-                                <th class="text-end">Line Price</th>
+                                <th class="p-2">Product Name </th>
+                                <th class="p-2">Price</th>
+                                <th class="p-2 text-end">Quantity</th>
+                                <th class="text-end p-2">Line Price</th>
                             </tr>
                         </thead>
                         <tbody>
                             @foreach($order->order_line_items as $line_item)
                             <tr>
-                                <td>{{$line_item->product->name}}</td>
-                                <td>{{$line_item->unit_price}}$</td>
-                                <td>{{$line_item->quantity}}</td>
-                                <td class="text-end">{{$line_item->unit_price * $line_item->quantity}}$</td>
+                                <td class="p-2">{{$line_item->product->name}}</td>
+                                <td class="p-2">$ {{$line_item->unit_price}}</td>
+                                <td class="p-2 text-end">{{$line_item->quantity}}</td>
+                                <td class="p-2 text-end">$ {{$line_item->unit_price * $line_item->quantity}}</td>
                             </tr>
                             @endforeach
                             <tr>
-                                <td colspan="3" class="text-end">Sub total</td>
-                                <td class="text-end">{{$sub_total}}</td>
+                                <td colspan="3" class="p-2 text-end">Sub total</td>
+                                <td class="p-2 text-end">$ {{$sub_total}}</td>
                             </tr>
                             <tr>
-                                <td colspan="3" class="text-end">GST(5%)</td>
-                                <td class="text-end">{{$gst}}$</td>
+                                <td colspan="3" class="p-2 text-end">GST (0%)</td>
+                                <td class="p-2 text-end">$ {{$gst}}</td>
                             </tr>
                             <tr>
-                                <td colspan="3" class="text-end">PST(7%)</td>
-                                <td class="text-end">{{$pst}}$</td>
+                                <td colspan="3" class="p-2 text-end">PST (0%)</td>
+                                <td class="p-2 text-end">$ {{$pst}}</td>
                             </tr>
                             <tr>
-                                <td colspan="3" class="text-end">TOTAL</td>
-                                <td class="text-end">{{$total}}$</td>
+                                <td colspan="3" class="p-2 text-end"><strong>Total</strong></td>
+                                <td class="p-2 text-end"><strong>$ {{$total}}</strong></td>
                             </tr>
                         </tbody>
                     </table>
