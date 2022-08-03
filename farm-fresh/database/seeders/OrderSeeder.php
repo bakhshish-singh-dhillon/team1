@@ -150,7 +150,7 @@ class OrderSeeder extends Seeder
             'pst' => '4.9',
             'vat' => '3.5',
             'order_status' => 'Shipped',
-            'total' => 's9.89',
+            'total' => '9.89',
             'subtotal' => '7.00',
             'billing_address' => '{"address_type":"Home","address":"234, 1792 Pambina Hwy","city":"WINNIPEG","province":"MB","country":"Canada","postal_code":"R3T 6G8","phone":"4313369999"}',
             'shipping_address' => '{"address_type":"Home","address":"234, 1792 Pambina Hwy","city":"WINNIPEG","province":"MB","country":"Canada","postal_code":"R3T 6G8","phone":"4313369999"}',

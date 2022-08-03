@@ -19,6 +19,7 @@ return new class extends Migration
             $table->bigInteger('product_id');
             $table->string('review');
             $table->integer('rating');
+            $table->boolean('is_approved')->default(true);
             $table->softDeletes();
             $table->timestamps();
         });

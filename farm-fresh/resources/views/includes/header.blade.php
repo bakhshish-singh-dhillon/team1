@@ -20,6 +20,7 @@
 
     <link rel="icon" href="/images/logo-50.png" />
     <!-- Styles -->
+    @yield('custom-css')
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 
