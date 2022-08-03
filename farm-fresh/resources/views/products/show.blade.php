@@ -1,5 +1,7 @@
 @extends('layouts.app')
-
+@section('custom-css')
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jquery-bar-rating@1.2.2/dist/themes/css-stars.min.css">
+@endsection
 @section('content')
 
 <div id="detail">
@@ -241,4 +243,5 @@
         evt.currentTarget.className += " active";
     }
 </script>
+<script src="https://cdn.jsdelivr.net/npm/jquery-bar-rating@1.2.2/jquery.barrating.min.js"></script>
 @endsection
