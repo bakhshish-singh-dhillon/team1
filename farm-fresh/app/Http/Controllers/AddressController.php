@@ -26,8 +26,9 @@ class AddressController extends Controller
             $bill['subtotal'] = array_sum(array_column(session()->get('cart'), 'line_price'));
             $bill['gst'] = $this->global_var['gst'] * $bill['subtotal'];
             $bill['pst'] = $this->global_var['pst'] * $bill['subtotal'];
-            $bill['pst'] = $this->global_var['vat'] * $bill['subtotal'];
-            $bill['delivery_charges'] = $this->global_var['delivery_charges'] * $bill['subtotal'];
+            $bill['vat'] = $this->global_var['vat'] * $bill['subtotal'];
+            $bill['delivery_charges'] = $this->global_var['delivery_charges'];
+            $bill['total'] = $bill['subtotal'] + $bill['pst'] + $bill['gst'] + $bill['vat'] + $bill['delivery_charges'];
             $addresses = Auth::user()->addresses;
             return view('checkout_steps.addresses', compact('bill', 'addresses'));
         }
