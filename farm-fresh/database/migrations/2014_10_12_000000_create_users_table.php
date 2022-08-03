@@ -22,6 +22,7 @@ return new class extends Migration
             $table->string('password');
             $table->boolean('is_admin')->default(false);
             $table->boolean('is_subscribed')->default(false);
+            $table->boolean('is_active')->default(true);
             $table->softDeletes();
             $table->rememberToken();
             $table->timestamps();

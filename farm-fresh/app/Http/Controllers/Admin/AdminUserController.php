@@ -45,4 +45,18 @@ class AdminUserController extends Controller
             return redirect('/admin/users');
         }
     }
+
+    /**
+     * Update User.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function update(User $user)
+    {
+        $user->is_active = !$user->is_active;
+        if ($user->save()) {
+            session()->flash('success', 'User status updated successfully');
+            return redirect('/admin/users');
+        }
+    }
 }
