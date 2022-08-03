@@ -46,6 +46,7 @@ Route::get('/contact', [ContactController::class, 'index'])->name('contact');
 Route::post('/contact', [ContactController::class, 'store'])->name('contact-submit');
 // Route::get('/profile', [UserProfileController::class, 'index'])->name('users-profile');
 Route::get('/userProfile/{user}', [UserProfileController::class, 'show'])->name('user-profile');
+Route::get('userOrder/{order}', [UserProfileController::class, 'show_order'])->name('user-order');
 
 // Admin Product List
 
