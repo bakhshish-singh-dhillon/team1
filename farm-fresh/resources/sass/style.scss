@@ -161,25 +161,17 @@ button.btn-danger:hover {
     font-size: 1.2em;
 }
 
-#cart {
-    table.cart {
+#cart table.cart,
+#addresses table,
+#checkout table {
 
-        td,
-        th {
-            border: 1px solid #eee;
-        }
+    td,
+    th {
+        border: 1px solid #eee;
     }
 }
 
-#addresses {
-    table {
 
-        td,
-        th {
-            border: 1px solid #eee;
-        }
-    }
-}
 
 #category {
     img {

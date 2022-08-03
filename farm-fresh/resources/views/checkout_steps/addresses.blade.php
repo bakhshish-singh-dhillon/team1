@@ -26,16 +26,16 @@
                 @endforeach
 
                 <tr>
-                    <td colspan="3" class="v-title p-2 text-right">Subtotal</td>
+                    <td colspan="3" class="v-title p-2 text-right">Sub total</td>
                     <td class="p-2">$ {{ $bill['subtotal'] }} </td>
                 </tr>
                 <tr>
-                    <td colspan="3" class="v-title p-2 text-right">PST</td>
-                    <td class="p-2">$ {{ $bill['pst'] }} </td>
+                    <td colspan="3" class="v-title p-2 text-right">GST (0%)</td>
+                    <td class="p-2">$ {{ $bill['gst'] }} </td>
                 </tr>
                 <tr>
-                    <td colspan="3" class="v-title p-2 text-right">GST</td>
-                    <td class="p-2">$ {{ $bill['gst'] }} </td>
+                    <td colspan="3" class="v-title p-2 text-right">PST (0%)</td>
+                    <td class="p-2">$ {{ $bill['pst'] }} </td>
                 </tr>
                 <tr>
                     <td colspan="3" class="v-title p-2 text-right"><strong>Total</strong></td>
