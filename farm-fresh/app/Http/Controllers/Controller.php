@@ -9,5 +9,11 @@ use Illuminate\Routing\Controller as BaseController;
 
 class Controller extends BaseController
 {
+    protected $global_var = [
+        'gst' => 0,
+        'pst' => 0,
+        'vat' => 0,
+        'delivery_charges' => 10,
+    ];
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 }
