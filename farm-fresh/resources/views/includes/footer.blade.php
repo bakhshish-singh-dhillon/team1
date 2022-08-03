@@ -1,6 +1,6 @@
 </main>
 
-<footer class="revert-shadow">
+<footer class="light-top-border">
     <div class="text-center max-container">
         <div id="footer_nav">
             <ul>

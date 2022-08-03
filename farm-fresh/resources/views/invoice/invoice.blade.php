@@ -65,7 +65,7 @@
                             <tr>
                                 <th>Product Name </th>
                                 <th>Price</th>
-                                <th>Qty</th>
+                                <th>Quantity</th>
                                 <th class="text-end">Line Price</th>
                             </tr>
                         </thead>

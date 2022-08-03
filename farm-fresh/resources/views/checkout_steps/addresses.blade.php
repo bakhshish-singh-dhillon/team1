@@ -1,234 +1,204 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container my-4">
-        <div class="row justify-content-center text-center">
-            <div class="col-md-8">
-                <div class="card">
-                    <h1>Order Addresses</h1>
+<div class="max-container my-4" id="addresses">
+    <div class="card p-3">
+        <div class="title text-center mb-2">Order Addresses</div>
 
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Product</th>
-                                <th>Price</th>
-                                <th>Quantity</th>
-                                <th>Line Price</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @foreach (session()->get('cart') as $index => $product)
-                                <tr>
-                                    <td><a
-                                            href="{{ route('product', ['product' => $index]) }}">{{ $product['name'] }}</a>
-                                    </td>
-                                    <td>$ {{ $product['price'] }}</td>
-                                    <td>{{ $product['quantity'] }}</td>
-                                    <td>{{ $product['line_price'] }}</td>
-                                </tr>
-                            @endforeach
+        <table class="text-center">
+            <thead>
+                <tr>
+                    <th class="p-2">Product</th>
+                    <th class="p-2">Price</th>
+                    <th class="p-2">Quantity</th>
+                    <th class="p-2">Line Price</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (session()->get('cart') as $index => $product)
+                <tr>
+                    <td class="p-2"><a href="{{ route('product', ['product' => $index]) }}">{{ $product['name'] }}</a>
+                    </td>
+                    <td class="p-2">$ {{ $product['price'] }}</td>
+                    <td class="p-2">{{ $product['quantity'] }}</td>
+                    <td class="p-2">$ {{ $product['line_price'] }}</td>
+                </tr>
+                @endforeach
 
-                            <tr>
-                                <td colspan="3" class="v-title">Subtotal</td>
-                                <td>${{ $bill['subtotal'] }} </td>
-                            </tr>
-                            <tr>
-                                <td colspan="3" class="v-title">PST</td>
-                                <td>${{ $bill['pst'] }} </td>
-                            </tr>
-                            <tr>
-                                <td colspan="3" class="v-title">GST</td>
-                                <td>${{ $bill['gst'] }} </td>
-                            </tr>
-                            <tr>
-                                <td colspan="3" class="v-title">Total</td>
-                                <td>${{ $bill['total'] }} </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                    <div id="user-addresses" data-addresses="{{ $addresses?json_encode($addresses):json_encode([]) }}" data-old_inputs="{{ Session::getOldInput()?json_encode(Session::getOldInput()):json_encode([]) }}">
-                        <form action="{{ route('store-addresses') }}" method="POST" id="address_form"
-                            enctype="multipart/form-data">
-                            @csrf
-                            <input type="hidden" name="billing_address_id" :value="user_addresses[billing_address_id].id" v-if="billing_address_id && billing_address_id !== 'add-new'"/>
-                            <input type="hidden" name="shipping_address_id" :value="user_addresses[shipping_address_id].id" v-if="shipping_address_id && shipping_address_id !== 'add-new'"/>
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <h2>Billing Address</h2>
+                <tr>
+                    <td colspan="3" class="v-title p-2 text-right">Sub total</td>
+                    <td class="p-2">$ {{ $bill['subtotal'] }} </td>
+                </tr>
+                <tr>
+                    <td colspan="3" class="v-title p-2 text-right">GST (0%)</td>
+                    <td class="p-2">$ {{ $bill['gst'] }} </td>
+                </tr>
+                <tr>
+                    <td colspan="3" class="v-title p-2 text-right">PST (0%)</td>
+                    <td class="p-2">$ {{ $bill['pst'] }} </td>
+                </tr>
+                <tr>
+                    <td colspan="3" class="v-title p-2 text-right"><strong>Total</strong></td>
+                    <td class="p-2"><strong>$ {{ $bill['total'] }}</strong> </td>
+                </tr>
+            </tbody>
+        </table>
+        <hr>
+        <div id="user-addresses" data-addresses="{{ $addresses?json_encode($addresses):json_encode([]) }}" data-old_inputs="{{ Session::getOldInput()?json_encode(Session::getOldInput()):json_encode([]) }}">
+            <form action="{{ route('store-addresses') }}" method="POST" id="address_form" enctype="multipart/form-data">
+                @csrf
+                <input type="hidden" name="billing_address_id" :value="user_addresses[billing_address_id].id" v-if="billing_address_id && billing_address_id !== 'add-new'" />
+                <input type="hidden" name="shipping_address_id" :value="user_addresses[shipping_address_id].id" v-if="shipping_address_id && shipping_address_id !== 'add-new'" />
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="sub-title mb-3">Billing Address</div>
 
-                                    <div class="radio-billing-addresses">
+                        <div class="radio-billing-addresses">
+                            <div>
+                                <label for="billing_address_options">Choose from existing addresses:</label>
+                                <div class="input-group mb-3">
+                                    <select name="billing_address_options" class="form-control" id="addresses" v-model="billing_address_id">
                                         @foreach ($addresses as $key => $address)
-                                            <input type="radio" class="btn-check" name="billing_address_options"
-                                                value="{{ $key }}" id="billing-address-{{ $key }}"
-                                                autocomplete="off" v-model="billing_address_id">
-                                            <label class="btn btn-outline-primary"
-                                                for="billing-address-{{ $key }}">{{ $address->address }}</label>
+                                        <option value="{{ $key }}" id="billing-address-{{ $key }}">{{ $address->address }}</option>
                                         @endforeach
-
-                                        <input type="radio" class="btn-check" name="billing_address_options"
-                                            value="add-new" id="billing-address-add-new" autocomplete="off"
-                                            v-model="billing_address_id" checked="checked">
-                                        <label class="btn btn-outline-primary" for="billing-address-add-new">Add New</label>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-12 form-group mb-3">
-                                            <label for="" class="col-form-label">Address Name</label>
-                                            <input type="text" class="form-control" name="billing_address_name"
-                                                id="billing_address_type" placeholder=""
-                                                v-model="billing_address.address_type" />
-                                            @error('billing_address_name')
-                                                <span class="text-danger"> {{ $message }} </span>
-                                            @enderror
-                                        </div>
-                                        <div class="col-md-12 form-group mb-3">
-                                            <label for="" class="col-form-label">Address</label>
-                                            <input type="text" class="form-control" name="billing_address"
-                                                id="billing_address" placeholder="" v-model="billing_address.address" />
-                                            @error('billing_address')
-                                                <span class="text-danger"> {{ $message }}</span>
-                                            @enderror
-                                        </div>
-                                        <div class="col-md-12 form-group mb-3">
-                                            <label for="" class="col-form-label">City</label>
-                                            <input type="text" class="form-control" name="billing_city" id="billing_city"
-                                                placeholder="Your City" v-model="billing_address.city" />
-                                            @error('billing_city')
-                                                <span class="text-danger"> {{ $message }}</span>
-                                            @enderror
-                                        </div>
-                                        <div class="col-md-12 form-group mb-3">
-                                            <label for="" class="col-form-label">Province</label>
-                                            <input type="text" class="form-control" name="billing_province"
-                                                id="billing_province" placeholder="Your Province"
-                                                v-model="billing_address.province" />
-                                            @error('billing_province')
-                                                <span class="text-danger"> {{ $message }}</span>
-                                            @enderror
-                                        </div>
-                                        <div class="col-md-12 form-group mb-3">
-                                            <label for="" class="col-form-label">Country</label>
-                                            <input type="text" class="form-control" name="billing_country"
-                                                id="billing_country" placeholder="Your Country"
-                                                v-model="billing_address.country" />
-                                            @error('billing_country')
-                                                <span class="text-danger"> {{ $message }}</span>
-                                            @enderror
-                                        </div>
-                                        <div class="col-md-12 form-group mb-3">
-                                            <label for="" class="col-form-label">Postal Code</label>
-                                            <input type="text" class="form-control" name="billing_postal_code"
-                                                id="billing_postal_code" placeholder="Your Postal Code"
-                                                v-model="billing_address.postal_code" />
-                                            @error('billing_postal_code')
-                                                <span class="text-danger"> {{ $message }}</span>
-                                            @enderror
-                                        </div>
-                                        <div class="col-md-12 form-group mb-3">
-                                            <label for="" class="col-form-label">Phone</label>
-                                            <input type="text" class="form-control" name="billing_phone"
-                                                id="billing_phone" placeholder="Your phone"
-                                                v-model="billing_address.phone" />
-                                            @error('billing_phone')
-                                                <span class="text-danger"> {{ $message }}</span>
-                                            @enderror
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <h2>Shipping Address</h2>
-
-                                    <div class="radio-shipping-addresses">
-                                        @foreach ($addresses as $key => $address)
-                                            <input type="radio" class="btn-check" name="shipping_address_options"
-                                                value="{{ $key }}" id="shipping-address-{{ $key }}"
-                                                autocomplete="off" v-model="shipping_address_id">
-                                            <label class="btn btn-outline-primary"
-                                                for="shipping-address-{{ $key }}">{{ $address->address }}</label>
-                                        @endforeach
-
-                                        <input type="radio" class="btn-check" name="shipping_address_options"
-                                            value="add-new" id="shipping-address-add-new" autocomplete="off"
-                                            v-model="shipping_address_id" checked="checked">
-                                        <label class="btn btn-outline-primary" for="shipping-address-add-new">Add
-                                            New</label>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-12 form-group mb-3">
-                                            <label for="" class="col-form-label">Address Name</label>
-                                            <input type="text" class="form-control" name="shipping_address_name"
-                                                id="shipping_address_type" placeholder=""
-                                                v-model="shipping_address.address_type" />
-                                            @error('shipping_address_name')
-                                                <span class="text-danger"> {{ $message }}</span>
-                                            @enderror
-                                        </div>
-                                        <div class="col-md-12 form-group mb-3">
-                                            <label for="" class="col-form-label">Address</label>
-                                            <input type="text" class="form-control" name="shipping_address"
-                                                id="shipping_address" placeholder=""
-                                                v-model="shipping_address.address" />
-                                            @error('shipping_address')
-                                                <span class="text-danger"> {{ $message }}</span>
-                                            @enderror
-                                        </div>
-                                        <div class="col-md-12 form-group mb-3">
-                                            <label for="" class="col-form-label">City</label>
-                                            <input type="text" class="form-control" name="shipping_city"
-                                                id="shipping_city" placeholder="Your City"
-                                                v-model="shipping_address.city" />
-                                            @error('shipping_city')
-                                                <span class="text-danger"> {{ $message }}</span>
-                                            @enderror
-                                        </div>
-                                        <div class="col-md-12 form-group mb-3">
-                                            <label for="" class="col-form-label">Province</label>
-                                            <input type="text" class="form-control" name="shipping_province"
-                                                id="shipping_province" placeholder="Your Province"
-                                                v-model="shipping_address.province" />
-                                            @error('shipping_province')
-                                                <span class="text-danger"> {{ $message }}</span>
-                                            @enderror
-                                        </div>
-                                        <div class="col-md-12 form-group mb-3">
-                                            <label for="" class="col-form-label">Country</label>
-                                            <input type="text" class="form-control" name="shipping_country"
-                                                id="shipping_country" placeholder="Your Country"
-                                                v-model="shipping_address.country" />
-                                            @error('shipping_country')
-                                                <span class="text-danger"> {{ $message }}</span>
-                                            @enderror
-                                        </div>
-                                        <div class="col-md-12 form-group mb-3">
-                                            <label for="" class="col-form-label">Postal Code</label>
-                                            <input type="text" class="form-control" name="shipping_postal_code"
-                                                id="shipping_postal_code" placeholder="Your Postal Code"
-                                                v-model="shipping_address.postal_code" />
-                                            @error('shipping_postal_code')
-                                                <span class="text-danger"> {{ $message }}</span>
-                                            @enderror
-                                        </div>
-                                        <div class="col-md-12 form-group mb-3">
-                                            <label for="" class="col-form-label">Phone</label>
-                                            <input type="text" class="form-control" name="shipping_phone"
-                                                id="shipping_phone" placeholder="Your phone"
-                                                v-model="shipping_address.phone" />
-                                            @error('shipping_phone')
-                                                <span class="text-danger"> {{ $message }}</span>
-                                            @enderror
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-12 form-group">
-                                            <input type="submit" value="Checkout"
-                                                class="btn bg-green text-white rounded-0 py-2 px-4" />
-                                            <span class="submitting"></span>
-                                        </div>
-                                    </div>
+                                    </select>
+                                    <input type="radio" class="btn-check" name="billing_address_options" value="add-new" id="billing-address-add-new" autocomplete="off" v-model="billing_address_id" checked="checked">
+                                    <label class="btn" for="billing-address-add-new">Add New</label>
                                 </div>
                             </div>
-                        </form>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12 form-group mb-1">
+                                <label for="" class="col-form-label">Address Name <span class="text-danger">*</span> </label>
+                                <input type="text" class="form-control" name="billing_address_name" id="billing_address_type" placeholder="" v-model="billing_address.address_type" />
+                                @error('billing_address_name')
+                                <span class="text-danger"> {{ $message }} </span>
+                                @enderror
+                            </div>
+                            <div class="col-md-12 form-group mb-1">
+                                <label for="" class="col-form-label">Address <span class="text-danger">*</span> </label>
+                                <input type="text" class="form-control" name="billing_address" id="billing_address" placeholder="" v-model="billing_address.address" />
+                                @error('billing_address')
+                                <span class="text-danger"> {{ $message }}</span>
+                                @enderror
+                            </div>
+                            <div class="col-md-12 form-group mb-1">
+                                <label for="" class="col-form-label">City <span class="text-danger">*</span> </label>
+                                <input type="text" class="form-control" name="billing_city" id="billing_city" placeholder="Your City" v-model="billing_address.city" />
+                                @error('billing_city')
+                                <span class="text-danger"> {{ $message }}</span>
+                                @enderror
+                            </div>
+                            <div class="col-md-12 form-group mb-1">
+                                <label for="" class="col-form-label">Province <span class="text-danger">*</span> </label>
+                                <input type="text" class="form-control" name="billing_province" id="billing_province" placeholder="Your Province" v-model="billing_address.province" />
+                                @error('billing_province')
+                                <span class="text-danger"> {{ $message }}</span>
+                                @enderror
+                            </div>
+                            <div class="col-md-12 form-group mb-1">
+                                <label for="" class="col-form-label">Country <span class="text-danger">*</span> </label>
+                                <input type="text" class="form-control" name="billing_country" id="billing_country" placeholder="Your Country" v-model="billing_address.country" />
+                                @error('billing_country')
+                                <span class="text-danger"> {{ $message }}</span>
+                                @enderror
+                            </div>
+                            <div class="col-md-12 form-group mb-1">
+                                <label for="" class="col-form-label">Postal Code <span class="text-danger">*</span> </label>
+                                <input type="text" class="form-control" name="billing_postal_code" id="billing_postal_code" placeholder="Your Postal Code" v-model="billing_address.postal_code" />
+                                @error('billing_postal_code')
+                                <span class="text-danger"> {{ $message }}</span>
+                                @enderror
+                            </div>
+                            <div class="col-md-12 form-group mb-1">
+                                <label for="" class="col-form-label">Phone <span class="text-danger">*</span> </label>
+                                <input type="text" class="form-control" name="billing_phone" id="billing_phone" placeholder="Your phone" v-model="billing_address.phone" />
+                                @error('billing_phone')
+                                <span class="text-danger"> {{ $message }}</span>
+                                @enderror
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="sub-title mb-3">Shipping Address</div>
+
+                        <div class="radio-shipping-addresses">
+                            <div>
+                                <label for="shipping_address_options">Choose from existing addresses:</label>
+                                <div class="input-group mb-3">
+                                    <select name="shipping_address_options" class="form-control" id="addresses" v-model="shipping_address_id">
+                                        @foreach ($addresses as $key => $address)
+                                        <option value="{{ $key }}" id="shipping-address-{{ $key }}">{{ $address->address }}</option>
+                                        @endforeach
+                                    </select>
+                                    <input type="radio" class="btn-check" name="shipping_address_options" value="add-new" id="shipping-address-add-new" autocomplete="off" v-model="shipping_address_id" checked="checked">
+                                    <label class="btn" for="shipping-address-add-new">Add
+                                        New</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12 form-group mb-1">
+                                <label for="" class="col-form-label">Address Name <span class="text-danger">*</span></label>
+                                <input type="text" class="form-control" name="shipping_address_name" id="shipping_address_type" placeholder="" v-model="shipping_address.address_type" />
+                                @error('shipping_address_name')
+                                <span class="text-danger"> {{ $message }}</span>
+                                @enderror
+                            </div>
+                            <div class="col-md-12 form-group mb-1">
+                                <label for="" class="col-form-label">Address <span class="text-danger">*</span></label>
+                                <input type="text" class="form-control" name="shipping_address" id="shipping_address" placeholder="" v-model="shipping_address.address" />
+                                @error('shipping_address')
+                                <span class="text-danger"> {{ $message }}</span>
+                                @enderror
+                            </div>
+                            <div class="col-md-12 form-group mb-1">
+                                <label for="" class="col-form-label">City <span class="text-danger">*</span></label>
+                                <input type="text" class="form-control" name="shipping_city" id="shipping_city" placeholder="Your City" v-model="shipping_address.city" />
+                                @error('shipping_city')
+                                <span class="text-danger"> {{ $message }}</span>
+                                @enderror
+                            </div>
+                            <div class="col-md-12 form-group mb-1">
+                                <label for="" class="col-form-label">Province <span class="text-danger">*</span></label>
+                                <input type="text" class="form-control" name="shipping_province" id="shipping_province" placeholder="Your Province" v-model="shipping_address.province" />
+                                @error('shipping_province')
+                                <span class="text-danger"> {{ $message }}</span>
+                                @enderror
+                            </div>
+                            <div class="col-md-12 form-group mb-1">
+                                <label for="" class="col-form-label">Country <span class="text-danger">*</span></label>
+                                <input type="text" class="form-control" name="shipping_country" id="shipping_country" placeholder="Your Country" v-model="shipping_address.country" />
+                                @error('shipping_country')
+                                <span class="text-danger"> {{ $message }}</span>
+                                @enderror
+                            </div>
+                            <div class="col-md-12 form-group mb-1">
+                                <label for="" class="col-form-label">Postal Code <span class="text-danger">*</span></label>
+                                <input type="text" class="form-control" name="shipping_postal_code" id="shipping_postal_code" placeholder="Your Postal Code" v-model="shipping_address.postal_code" />
+                                @error('shipping_postal_code')
+                                <span class="text-danger"> {{ $message }}</span>
+                                @enderror
+                            </div>
+                            <div class="col-md-12 form-group mb-1">
+                                <label for="" class="col-form-label">Phone <span class="text-danger">*</span></label>
+                                <input type="text" class="form-control" name="shipping_phone" id="shipping_phone" placeholder="Your phone" v-model="shipping_address.phone" />
+                                @error('shipping_phone')
+                                <span class="text-danger"> {{ $message }}</span>
+                                @enderror
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="">
+                        <div class="mt-2 form-group text-center">
+                            <button type="submit" class="btn">Checkout</button>
+                            <span class="submitting"></span>
+                        </div>
                     </div>
                 </div>
-            </div>
+            </form>
         </div>
-    @endsection
+    </div>
+</div>
+@endsection

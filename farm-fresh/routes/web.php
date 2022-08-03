@@ -1,7 +1,7 @@
 <?php
 
 use App\Http\Controllers\HomeController;
-use App\Http\Controllers\PrivicyController;
+use App\Http\Controllers\PrivacyController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\AboutController;
@@ -42,7 +42,6 @@ Route::get('/products/search', [ProductController::class, 'getProductsBySearch']
 Route::get('/products/show/{product}', [ProductController::class, 'show'])->name('product');
 Route::get('/products/show', [ReviewController::class, 'create']);
 Route::post('/products/show/{product}/review', [ReviewController::class, 'store'])->name('store-product-review');
-Route::get('/about', [AboutController::class, 'index'])->name('about');
 Route::get('/contact', [ContactController::class, 'index'])->name('contact');
 Route::post('/contact', [ContactController::class, 'store'])->name('contact-submit');
 // Route::get('/profile', [UserProfileController::class, 'index'])->name('users-profile');
@@ -96,7 +95,7 @@ Route::get('/about', [AboutController::class, 'index'])->name('about');
 Route::get('/404', function () {
     return view('404');
 });
-Route::get('/privicy', [PrivicyController::class, 'index'])->name('privicy');
+Route::get('/privacy-policy', [PrivacyController::class, 'index'])->name('privacy');
 Route::get('/admin/users', [AdminUserController::class, 'index']);
 Route::delete('/admin/users/{user}', [AdminUserController::class, 'destroy'])->name('user-delete');
 Route::get('/admin/reviews', [AdminReviewController::class, 'index']);
