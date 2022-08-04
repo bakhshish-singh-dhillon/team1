@@ -44,8 +44,9 @@
                 </div>
             </div>
             <div class="col-md-6">
-                <div class="title product-title m-3">{{ $product->name }}</div>
-
+                <div class="title product-title m-3">{{ $product->name }}
+                    <a href="/products" class="btn btn-danger float-right"><i class="fa-solid fa-arrow-left"></i></a>
+                </div>
                 <table class="detail-table w-100 m-3">
                     <tr>
                         <th>Price:</th>
@@ -68,7 +69,7 @@
                     <tr>
                         <th>Quantity:</th>
                         <td id="quantity" class="d-flex user-select-none">
-                            <form class="d-flex" action="{{ route('add-to-cart', ['product' => $product->id]) }}" method="get">
+                            <form class="d-flex gap-1" action="{{ route('add-to-cart', ['product' => $product->id]) }}" method="get">
                                 @csrf
                                 <div>
                                     <i id="plus" class="fa-solid fa-plus m-0 p-2"></i>
@@ -80,13 +81,10 @@
                                 @else
                                 <button type="submit" class="btn">Add to Cart </button>
                                 @endif
-
                             </form>
-
                         </td>
                     </tr>
                 </table>
-
             </div>
             <hr>
             <div class="more-info">
