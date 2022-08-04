@@ -32,11 +32,9 @@
                     <a class="navbar-brand" href="{{ url('/') }}">
                         <picture>
                             <!-- Desktop logo -->
-                            <source media="(min-width: 768px)"
-                                srcset="/images/logo-100.png 1x, /images/logo-200.png 2x" />
+                            <source media="(min-width: 768px)" srcset="/images/logo-100.png 1x, /images/logo-200.png 2x" />
                             <!-- Mobile logo -->
-                            <source media="(max-width: 767px)"
-                                srcset="/images/logo-50.png 1x, /images/logo-100.png 2x, /images/logo-200.png 3x" />
+                            <source media="(max-width: 767px)" srcset="/images/logo-50.png 1x, /images/logo-100.png 2x, /images/logo-200.png 3x" />
                             <!-- Logo by default -->
                             <img src="/images/logo-100.png" width="100" height="100" alt="Farm Fresh" />
                         </picture>
@@ -47,44 +45,58 @@
 
                 <div>
                     <?php if (Auth::check() && Auth::user()) : ?>
-                    <a href="/userProfile/{{ Auth::user()->id }}" class="text-decoration-none" data-toggle="tooltip"
-                        data-placement="bottom" title="User">
-                        <span><img src="/images/user.png" alt="User" class="icon mx-2 my-4" /></span>
-                    </a>
+                        <a href="/userProfile/{{ Auth::user()->id }}" class="text-decoration-none" data-toggle="tooltip" data-placement="bottom" title="User">
+                            <span><img src="/images/user.png" alt="User" class="icon mx-2 my-4" /></span>
+                        </a>
                     <?php else : ?>
-                    <a href="/login" class="text-decoration-none" data-toggle="tooltip" data-placement="bottom"
-                        title="Login">
-                        <span><img src="/images/user.png" alt="User" class="icon mx-2 my-4" /></span>
-                    </a>
+                        <a href="/login" class="text-decoration-none" data-toggle="tooltip" data-placement="bottom" title="Login">
+                            <span><img src="/images/user.png" alt="User" class="icon mx-2 my-4" /></span>
+                        </a>
                     <?php endif; ?>
 
 
-                    <a href="{{ route('cart') }}" class="text-decoration-none cart" data-toggle="tooltip"
-                        data-placement="bottom" title="Cart">
+                    <a href="{{ route('cart') }}" class="text-decoration-none cart" data-toggle="tooltip" data-placement="bottom" title="Cart">
                         <span class="cart-box">
                             <img src="/images/shopping-cart.png" alt="Cart" class="icon mx-2 my-4" />
-                            <span
-                                class="{{ session()->has('cart') && count(session()->get('cart')) ? 'cart-count' : '' }}">
+                            <span class="{{ session()->has('cart') && count(session()->get('cart')) ? 'cart-count' : '' }}">
                                 {{ session()->has('cart') ? count(session()->get('cart')) : '' }} </span>
                         </span>
                     </a>
                     <?php if (Auth::check() && Auth::user()) : ?>
-                    <span>
-                        <a href="{{ route('logout') }}"
-                            onclick="event.preventDefault();document.getElementById('logout-form').submit(); return confirm('Are you sure you want to Log-Out?')"
-                            data-toggle="tooltip" data-placement="bottom" title="Log-Out">
-                            <img src="/images/power.png" alt="Logout" class="icon mx-2 my-4" />
-                        </a>
-                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                            @csrf
-                        </form>
+                        <span>
+                            <a href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit(); return confirm('Are you sure you want to Log-Out?')" data-toggle="tooltip" data-placement="bottom" title="Log-Out">
+                                <img src="/images/power.png" alt="Logout" class="icon mx-2 my-4" />
+                            </a>
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                @csrf
+                            </form>
 
-                    </span>
+                        </span>
                     <?php endif; ?>
                 </div>
 
             </div>
         </div>
+
+        <ul class="mobile-hamburger">
+            <li @if (isset($title)) class="<?php if ($title && $title == 'Home') {
+                                                echo 'active';
+                                            } ?>" @endif><a href="/" data-toggle="tooltip" data-placement="bottom" title="Home">Home</a></li>
+            <li @if (isset($title)) class="<?php if ($title && $title == 'Products') {
+                                                echo 'active';
+                                            } ?>" @endif><a href="/products" data-toggle="tooltip" data-placement="bottom" title="Products">Products</a></li>
+            <li @if (isset($title)) class="<?php if ($title && $title == 'About') {
+                                                echo 'active';
+                                            } ?>" @endif><a href="/about" data-toggle="tooltip" data-placement="bottom" title="About">About</a></li>
+            <li @if (isset($title)) class="<?php if ($title && $title == 'Contact') {
+                                                echo 'active';
+                                            } ?>" @endif><a href="/contact" data-toggle="tooltip" data-placement="bottom" title="Contact">Contact</a></li>
+            <?php if (Auth::check() && Auth::user()->is_admin) : ?>
+                <li @if (isset($title)) class="<?php if ($title && $title == 'Admin') {
+                                                    echo 'active';
+                                                } ?>" @endif><a href="/admin" data-toggle="tooltip" data-placement="bottom" title="Admin">Admin</a></li>
+            <?php endif; ?>
+        </ul>
         @include('includes.flash')
 
         <main>

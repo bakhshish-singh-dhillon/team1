@@ -363,6 +363,7 @@ button.btn-danger:hover {
             display: block;
             text-decoration: none;
             color: #000;
+            font-size: 1.1em;
         }
     }
 
@@ -703,19 +704,14 @@ ul.li_size {
     }
 }
 
-#header_nav ul {
-    padding-left: 0px;
-
-    li {
-        display: block;
-        margin: 0px;
-    }
+.mobile-hamburger {
+    display: none;
 }
 
 // responsive
 @media screen and (max-width: 767px) {
     #home #banner .content {
-        left: 0;
+        left: 5%;
     }
 
     #products .category-list ul ul {
@@ -746,5 +742,34 @@ ul.li_size {
 
     .error-message {
         min-width: 300px;
+    }
+
+    #header_nav {
+        display: none;
+    }
+
+    ul.mobile-hamburger {
+        display: block;
+        padding: 0;
+
+        li {
+            list-style-type: none;
+
+            a {
+                text-decoration: none;
+                color: #000;
+                padding: 5px;
+                display: block;
+                text-align: center;
+                border-bottom: 1px solid #ccc;
+            }
+        }
+
+        li.active {
+            a {
+                color: $green;
+                font-weight: 700;
+            }
+        }
     }
 }
