@@ -49,11 +49,15 @@ $(document).ready(function ($) {
     });
 
     // slideout flash messages
-    $(".alert").hide(4000).animate({
-        opacity: 0
-    }, 4000);
+    $(".alert").fadeOut(4000);
 
-    // $(".alert").slideUp(3000, function () {
+    var hide = $(".close").click(function () {
+        $(".alert").hide();
+
+    });
+
+
+    // $(".alert").slideUp(2500, function () {
     //     $(".alert").hide();
     // });
 
