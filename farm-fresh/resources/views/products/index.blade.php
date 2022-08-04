@@ -20,7 +20,6 @@
                 <div class="title p-3">{{ $title }} ({{ $products->total() }})
                     <div class="float-right">
                         <form action="{{ route('products-by-search', []) }}" method="get" autocomplete="off" novalidate>
-                            @csrf
                             <input class="form-control p-1" type="text" placeholder="Search" name="search" maxlength="255" data-toggle="tooltip" data-placement="bottom" title="Search" />&nbsp;
                             <input type="submit" hidden value="search" />
                         </form>
