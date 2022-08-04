@@ -7,7 +7,6 @@
     <div class="d-flex">
         <form method="get" action="{{ route('admin-get-products', []) }}">
             <div class="btn-group mx-2">
-                @csrf
                 <input class="form-control search-bar" type="search" name="search" placeholder="Search by id, title or price" value="{{ app('request')->input('search') }}" data-toggle="tooltip" data-placement="bottom" title="Search" />
                 <button class="btn btn-success"><i class="fas fa-search"></i></button>
             </div>
