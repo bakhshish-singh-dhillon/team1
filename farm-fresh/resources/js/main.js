@@ -24,6 +24,20 @@ $(document).ready(function ($) {
         $(this).parents(".form-outline").remove();
     });
 
+    // let root = document.documentElement;
+
+    // changing mode for reading and normal mode
+    $(".theme-box").on("click", function () {
+        $(this).toggleClass('active');
+    });
+    $("#green_theme").on("click", function () {
+        // root.style.setProperty('--theme-color', '#3f6c39');
+        $("body").css('filter', 'none');
+    });
+    $("#red_theme").on("click", function () {
+        $("body").css('filter', 'grayscale(0.7)');
+    });
+
     $('.js-example-basic-single').select2();
 
     // Dhara to add products into the cart (counter for products)
