@@ -9,8 +9,7 @@
     <div class="d-flex">
         <form method="get" action="/admin/orders/">
             <div class="btn-group mx-2">
-                @csrf
-                <input class="form-control search-bar" type="search" name="search" placeholder="Search by id, status, subtotal or address" value="{{ app('request')->input('search') }}" data-toggle="tooltip" data-placement="bottom" title="Search" />
+                <input class="form-control search-bar" type="search" name="search" placeholder="Search by id, status, subtotal" value="{{ app('request')->input('search') }}" data-toggle="tooltip" data-placement="bottom" title="Search" />
                 <button class="btn btn-success"><i class="fas fa-search"></i></button>
             </div>
         </form>

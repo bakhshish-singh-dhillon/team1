@@ -29,7 +29,7 @@ class AdminReviewController extends Controller
         if ($request->search) {
             $reviews = Review::where('id', 'like', '%' . $request->search . '%')
                 ->orWhere('review', 'like', '%' . $request->search . '%')
-                ->orWhere('rating', 'like', '%' . $request->search . '%')->paginate(9);
+                ->orWhere('rating', 'like', '%' . $request->search . '%')->paginate(9)->withQueryString();
             $title = "Searching for '" . $request->search . "'";
         } else {
             $reviews = Review::latest()->paginate(10);
@@ -42,6 +42,20 @@ class AdminReviewController extends Controller
     {
         if ($review->delete()) {
             session()->flash('success', 'review deleted successfully');
+            return redirect('/admin/reviews');
+        }
+    }
+
+    /**
+     * Update review status.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Review $review)
+    {
+        $review->is_approved = !$review->is_approved;
+        if ($review->save()) {
+            session()->flash('success', 'Review status updated successfully');
             return redirect('/admin/reviews');
         }
     }

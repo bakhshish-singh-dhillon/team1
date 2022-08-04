@@ -9,7 +9,6 @@
         <div>
             <form method="get" action="/admin/reviews/">
                 <div class="btn-group mx-2">
-                    @csrf
                     <input class="form-control search-bar" type="search" name="search" placeholder="Search by id, name or rating" value="{{ app('request')->input('search') }}" data-toggle="tooltip" data-placement="bottom" title="Search" />
                     <button class="btn btn-success"><i class="fas fa-search"></i></button>
                 </div>
@@ -18,6 +17,7 @@
         </div>
     </div>
 </div>
+
 <div class="card">
     <table class="table align-middle mb-0 bg-white">
         <thead class="bg-light ">
@@ -39,12 +39,19 @@
                 <td>{{ $review->rating }}</td>
                 <td>
                     <div class="btn-group">
-                        <form method="post"><button class="btn btn-success" data-toggle="tooltip" data-placement="bottom" title="Approved" style="margin-right: 10px;">Approve</button></form>
-                        <form method="post" action="{{ route('review-delete', ['review' => $review->id]) }}">
+                        <form method="post" action="{{ route('review-update', ['review' => $review->id]) }}" onsubmit="return confirm('Are you sure you want to change review status?');">
                             @csrf
-                            @method('DELETE')
+                            @method('PUT')
                             <input type="hidden" name="id" value="{{ $review->id }}" />
-                            <button class="btn btn-danger" data-toggle="tooltip" data-placement="bottom" title="Decline" onclick="return confirm('Are you sure you want to delete this post?')">Decline</button>
+                            @if ($review->is_approved)
+                            <button class="btn btn-danger" data-toggle="tooltip" data-placement="bottom" title="Dis-approve" style="margin-right: 10px;">
+                                Dis-approve
+                            </button>
+                            @else
+                            <button class="btn btn-success" data-toggle="tooltip" data-placement="bottom" title="Approved" style="margin-right: 10px;">
+                                Approve
+                            </button>
+                            @endif
                         </form>
                     </div>
                 </td>
@@ -52,7 +59,6 @@
             @endforeach
         </tbody>
     </table>
-
 </div>
 
 <div class="pagination justify-content-center py-2">

@@ -31,7 +31,7 @@ class AdminProductController extends Controller
     {
         if ($request->search) {
             $products = Product::where('price', 'like', '%' . $request->search . '%')
-                ->orWhere('name', 'like', '%' . $request->search . '%')->paginate(9);
+                ->orWhere('name', 'like', '%' . $request->search . '%')->paginate(9)->withQueryString();
             $categories = Category::whereNull('category_id')->get();
             $title = "Searching for " . $request->search;
         } else {
