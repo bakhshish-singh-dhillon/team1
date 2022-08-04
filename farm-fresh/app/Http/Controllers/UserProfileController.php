@@ -43,6 +43,7 @@ class UserProfileController extends Controller
             $line_price = $line_item->unit_price * $line_item->quantity;
             $sub_total += $line_price;
         }
+
         $gst = $sub_total * 0.05;
         $pst = $sub_total * 0.07;
         $total = $sub_total + $gst + $pst;
