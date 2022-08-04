@@ -65,62 +65,62 @@
                             <div>
                                 <label for="billing_address_options">Choose from existing addresses:</label>
                                 <div class="d-flex gap-1 mb-3">
-                                    <select name="billing_address_options" class="form-control" id="addresses" v-model="billing_address_id">
+                                    <select name="billing_address_options" id="billing_address_options" class="form-control" v-model="billing_address_id">
                                         <option value="" disabled selected>Select address</option>
                                         @foreach ($addresses as $key => $address)
                                         <option value="{{ $key }}" id="billing-address-{{ $key }}">{{ $address->address }}</option>
                                         @endforeach
                                     </select>
-                                    <input type="radio" class="btn-check" name="billing_address_options" value="add-new" id="billing-address-add-new" autocomplete="off" v-model="billing_address_id" checked="checked">
+                                    <input type="radio" class="btn-check" name="billing_address_options" value="add-new" id="billing-address-add-new" v-model="billing_address_id" checked="checked">
                                     <label class="btn" for="billing-address-add-new">Reset</label>
                                 </div>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-md-12 form-group mb-1">
-                                <label for="" class="col-form-label">Address Name <span class="text-danger">*</span> </label>
-                                <input type="text" class="form-control" name="billing_address_name" id="billing_address_type" placeholder="" v-model="billing_address.address_type" />
+                                <label for="billing_address_type" class="col-form-label">Address Name <span class="text-danger">*</span> </label>
+                                <input type="text" class="form-control" name="billing_address_name" id="billing_address_type" v-model="billing_address.address_type" />
                                 @error('billing_address_name')
                                 <span class="text-danger"> {{ $message }} </span>
                                 @enderror
                             </div>
                             <div class="col-md-12 form-group mb-1">
-                                <label for="" class="col-form-label">Address <span class="text-danger">*</span> </label>
-                                <input type="text" class="form-control" name="billing_address" id="billing_address" placeholder="" v-model="billing_address.address" />
+                                <label for="billing_address" class="col-form-label">Address <span class="text-danger">*</span> </label>
+                                <input type="text" class="form-control" name="billing_address" id="billing_address" v-model="billing_address.address" />
                                 @error('billing_address')
                                 <span class="text-danger"> {{ $message }}</span>
                                 @enderror
                             </div>
                             <div class="col-md-12 form-group mb-1">
-                                <label for="" class="col-form-label">City <span class="text-danger">*</span> </label>
+                                <label for="billing_city" class="col-form-label">City <span class="text-danger">*</span> </label>
                                 <input type="text" class="form-control" name="billing_city" id="billing_city" placeholder="Your City" v-model="billing_address.city" />
                                 @error('billing_city')
                                 <span class="text-danger"> {{ $message }}</span>
                                 @enderror
                             </div>
                             <div class="col-md-12 form-group mb-1">
-                                <label for="" class="col-form-label">Province <span class="text-danger">*</span> </label>
+                                <label for="billing_province" class="col-form-label">Province <span class="text-danger">*</span> </label>
                                 <input type="text" class="form-control" name="billing_province" id="billing_province" placeholder="Your Province" v-model="billing_address.province" />
                                 @error('billing_province')
                                 <span class="text-danger"> {{ $message }}</span>
                                 @enderror
                             </div>
                             <div class="col-md-12 form-group mb-1">
-                                <label for="" class="col-form-label">Country <span class="text-danger">*</span> </label>
+                                <label for="billing_country" class="col-form-label">Country <span class="text-danger">*</span> </label>
                                 <input type="text" class="form-control" name="billing_country" id="billing_country" placeholder="Your Country" v-model="billing_address.country" />
                                 @error('billing_country')
                                 <span class="text-danger"> {{ $message }}</span>
                                 @enderror
                             </div>
                             <div class="col-md-12 form-group mb-1">
-                                <label for="" class="col-form-label">Postal Code <span class="text-danger">*</span> </label>
+                                <label for="billing_postal_code" class="col-form-label">Postal Code <span class="text-danger">*</span> </label>
                                 <input type="text" class="form-control" name="billing_postal_code" id="billing_postal_code" placeholder="Your Postal Code" v-model="billing_address.postal_code" />
                                 @error('billing_postal_code')
                                 <span class="text-danger"> {{ $message }}</span>
                                 @enderror
                             </div>
                             <div class="col-md-12 form-group mb-1">
-                                <label for="" class="col-form-label">Phone <span class="text-danger">*</span> </label>
+                                <label for="billing_phone" class="col-form-label">Phone <span class="text-danger">*</span> </label>
                                 <input type="text" class="form-control" name="billing_phone" id="billing_phone" placeholder="Your phone" v-model="billing_address.phone" />
                                 @error('billing_phone')
                                 <span class="text-danger"> {{ $message }}</span>
@@ -135,63 +135,63 @@
                             <div>
                                 <label for="shipping_address_options">Choose from existing addresses:</label>
                                 <div class="d-flex gap-1 mb-3">
-                                    <select name="shipping_address_options" class="form-control" id="addresses" v-model="shipping_address_id" placeholder="Select address">
+                                    <select name="shipping_address_options" id="shipping_address_options" class="form-control" v-model="shipping_address_id">
                                         <option value="" disabled selected>Select address</option>
 
                                         @foreach ($addresses as $key => $address)
                                         <option value="{{ $key }}" id="shipping-address-{{ $key }}">{{ $address->address }}</option>
                                         @endforeach
                                     </select>
-                                    <input type="radio" class="btn-check" name="shipping_address_options" value="add-new" id="shipping-address-add-new" autocomplete="off" v-model="shipping_address_id" checked="checked">
+                                    <input type="radio" class="btn-check" name="shipping_address_options" value="add-new" id="shipping-address-add-new" v-model="shipping_address_id" checked="checked">
                                     <label class="btn" for="shipping-address-add-new">Reset</label>
                                 </div>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-md-12 form-group mb-1">
-                                <label for="" class="col-form-label">Address Name <span class="text-danger">*</span></label>
-                                <input type="text" class="form-control" name="shipping_address_name" id="shipping_address_type" placeholder="" v-model="shipping_address.address_type" />
+                                <label for="shipping_address_type" class="col-form-label">Address Name <span class="text-danger">*</span></label>
+                                <input type="text" class="form-control" name="shipping_address_name" id="shipping_address_type" v-model="shipping_address.address_type" />
                                 @error('shipping_address_name')
                                 <span class="text-danger"> {{ $message }}</span>
                                 @enderror
                             </div>
                             <div class="col-md-12 form-group mb-1">
-                                <label for="" class="col-form-label">Address <span class="text-danger">*</span></label>
-                                <input type="text" class="form-control" name="shipping_address" id="shipping_address" placeholder="" v-model="shipping_address.address" />
+                                <label for="shipping_address" class="col-form-label">Address <span class="text-danger">*</span></label>
+                                <input type="text" class="form-control" name="shipping_address" id="shipping_address" v-model="shipping_address.address" />
                                 @error('shipping_address')
                                 <span class="text-danger"> {{ $message }}</span>
                                 @enderror
                             </div>
                             <div class="col-md-12 form-group mb-1">
-                                <label for="" class="col-form-label">City <span class="text-danger">*</span></label>
+                                <label for="shipping_city" class="col-form-label">City <span class="text-danger">*</span></label>
                                 <input type="text" class="form-control" name="shipping_city" id="shipping_city" placeholder="Your City" v-model="shipping_address.city" />
                                 @error('shipping_city')
                                 <span class="text-danger"> {{ $message }}</span>
                                 @enderror
                             </div>
                             <div class="col-md-12 form-group mb-1">
-                                <label for="" class="col-form-label">Province <span class="text-danger">*</span></label>
+                                <label for="shipping_province" class="col-form-label">Province <span class="text-danger">*</span></label>
                                 <input type="text" class="form-control" name="shipping_province" id="shipping_province" placeholder="Your Province" v-model="shipping_address.province" />
                                 @error('shipping_province')
                                 <span class="text-danger"> {{ $message }}</span>
                                 @enderror
                             </div>
                             <div class="col-md-12 form-group mb-1">
-                                <label for="" class="col-form-label">Country <span class="text-danger">*</span></label>
+                                <label for="shipping_country" class="col-form-label">Country <span class="text-danger">*</span></label>
                                 <input type="text" class="form-control" name="shipping_country" id="shipping_country" placeholder="Your Country" v-model="shipping_address.country" />
                                 @error('shipping_country')
                                 <span class="text-danger"> {{ $message }}</span>
                                 @enderror
                             </div>
                             <div class="col-md-12 form-group mb-1">
-                                <label for="" class="col-form-label">Postal Code <span class="text-danger">*</span></label>
+                                <label for="shipping_postal_code" class="col-form-label">Postal Code <span class="text-danger">*</span></label>
                                 <input type="text" class="form-control" name="shipping_postal_code" id="shipping_postal_code" placeholder="Your Postal Code" v-model="shipping_address.postal_code" />
                                 @error('shipping_postal_code')
                                 <span class="text-danger"> {{ $message }}</span>
                                 @enderror
                             </div>
                             <div class="col-md-12 form-group mb-1">
-                                <label for="" class="col-form-label">Phone <span class="text-danger">*</span></label>
+                                <label for="shipping_phone" class="col-form-label">Phone <span class="text-danger">*</span></label>
                                 <input type="text" class="form-control" name="shipping_phone" id="shipping_phone" placeholder="Your phone" v-model="shipping_address.phone" />
                                 @error('shipping_phone')
                                 <span class="text-danger"> {{ $message }}</span>

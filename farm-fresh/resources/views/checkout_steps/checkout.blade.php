@@ -65,8 +65,8 @@
                                 <label class="form-check-label" for="credit">Visa</label>
                             </div>
                             <div class="">
-                                <input id="debit" name="card_type" type="radio" value="mastercard" class="form-check-input" required="">
-                                <label class="form-check-label" for="debit">Master Card</label>
+                                <input id="master" name="card_type" type="radio" value="mastercard" class="form-check-input" required="">
+                                <label class="form-check-label" for="master">Master Card</label>
                             </div>
                             <div class="">
                                 <input id="debit" name="card_type" type="radio" value="amex" class="form-check-input" required="">

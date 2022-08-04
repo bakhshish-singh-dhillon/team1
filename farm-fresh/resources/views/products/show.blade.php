@@ -72,7 +72,7 @@
                                 @csrf
                                 <div>
                                     <i id="plus" class="fa-solid fa-plus m-0 p-2"></i>
-                                    <input type="text" name="quantity" class="qty" maxlength="12" value="1" class="input-text qty" />
+                                    <input type="text" name="quantity" maxlength="12" value="1" class="input-text qty" />
                                     <i id="minus" class="fa-solid fa-minus m-0 p-2"></i>
                                 </div>
                                 @if ((int) $product->quantity == 0)
@@ -92,7 +92,7 @@
             <div class="more-info">
                 <div class="tab">
                     <button class="tablinks active" onclick="changeTab(event, 'Description')">Description</button>
-                    <button class="tablinks" onclick="changeTab(event, 'Additional Info')">Additional Info</button>
+                    <button class="tablinks" onclick="changeTab(event, 'Additional-Info')">Additional Info</button>
                 </div>
 
                 <!-- Tab content -->
@@ -101,7 +101,7 @@
                     <p>{{ $product->description }}</p>
                 </div>
 
-                <div id="Additional Info" class="tabcontent">
+                <div id="Additional-Info" class="tabcontent">
                     <div>
                         @if (sizeof($product->product_metas) == 0)
                         <p class="text-left">No additional information provided!</p>
@@ -207,12 +207,12 @@
                             </div>
                             <div><small>Posted on 17th July, 2022</small></div>
                             <p class="my-2"><select name="rating" class="form-control rating-static">
-                                    <option value="1" {{ $review->rating == 1 ? 'selected="selected"' : '' }}>
+                                    <option value="1" {{ $review->rating == 1 ? 'selected' : '' }}>
                                         1</option>
-                                    <option value="2" {{ $review->rating == 2 ? 'selected="selected"' : '' }}>2</option>
-                                    <option value="3" {{ $review->rating == 3 ? 'selected="selected"' : '' }}>3</option>
-                                    <option value="4" {{ $review->rating == 4 ? 'selected="selected"' : '' }}>4</option>
-                                    <option value="5" {{ $review->rating == 5 ? 'selected="selected"' : '' }}>5</option>
+                                    <option value="2" {{ $review->rating == 2 ? 'selected' : '' }}>2</option>
+                                    <option value="3" {{ $review->rating == 3 ? 'selected' : '' }}>3</option>
+                                    <option value="4" {{ $review->rating == 4 ? 'selected' : '' }}>4</option>
+                                    <option value="5" {{ $review->rating == 5 ? 'selected' : '' }}>5</option>
                                 </select></p>
 
                             <p>{{ $review->review }}</p>
@@ -252,7 +252,7 @@
                                             </td>
                                         </tr>
                                         <tr>
-                                            <td class="px-2"> <label for="description">Review:</label>
+                                            <td class="px-2"> <label for="review">Review:</label>
                                             </td>
                                             <td>
                                                 <textarea class="form-control" name="review" id="review" rows="2"></textarea>
