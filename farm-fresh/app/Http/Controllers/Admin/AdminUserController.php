@@ -29,7 +29,7 @@ class AdminUserController extends Controller
             $users = User::where('first_name', 'like', '%' . $request->search . '%')
                 ->orWhere('last_name', 'like', '%' . $request->search . '%')
                 ->orWhere('id', 'like', '%' . $request->search . '%')
-                ->orWhere('email', 'like', '%' . $request->search . '%')->paginate(9);
+                ->orWhere('email', 'like', '%' . $request->search . '%')->paginate(9)->withQueryString();
             $title = "Searching for " . $request->search;
         } else {
             $users = User::latest()->paginate(10);

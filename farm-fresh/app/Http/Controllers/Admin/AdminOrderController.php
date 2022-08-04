@@ -27,9 +27,8 @@ class AdminOrderController extends Controller
     {
         if ($request->search) {
             $orders = Order::where('id', 'like', '%' . $request->search . '%')
-                ->orWhere('billing_address', 'like', '%' . $request->search . '%')
-                ->orWhere('shipping_address', 'like', '%' . $request->search . '%')
-                ->orWhere('subtotal', 'like', '%' . $request->search . '%')->paginate(9);
+                ->orWhere('order_status', 'like', '%' . $request->search . '%')
+                ->orWhere('subtotal', 'like', '%' . $request->search . '%')->paginate(9)->withQueryString();
             $title = "Searching for " . $request->search;
         } else {
             $orders = Order::latest()->paginate(10);

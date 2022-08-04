@@ -100,7 +100,7 @@ class ProductController extends Controller
     {
         if ($request->search) {
             $products = Product::where('description', 'like', '%' . $request->search . '%')
-                ->orWhere('name', 'like', '%' . $request->search . '%')->paginate(9)->withQueryString();;
+                ->orWhere('name', 'like', '%' . $request->search . '%')->paginate(9)->withQueryString();
             $categories = Category::whereNull('category_id')->get();
             $title = "Searching for '" . $request->search . "'";
             return view('products/index', compact('products', 'categories', 'title'));
