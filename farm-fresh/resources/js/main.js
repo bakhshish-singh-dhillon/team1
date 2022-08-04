@@ -1,7 +1,7 @@
 import $ from 'jquery';
 
-$(document).ready(function($) {
-    $("body").on("click", ".add-more", function() {
+$(document).ready(function ($) {
+    $("body").on("click", ".add-more", function () {
         var html = `<div class="row py-3 form-outline">
                         <div class="col-md-5">
                         <label class="form-label" for="key[]">Attribute Name: <span class="text-danger">*</span></label>
@@ -20,7 +20,7 @@ $(document).ready(function($) {
 
     });
 
-    $("body").on("click", ".remove-attribute", function() {
+    $("body").on("click", ".remove-attribute", function () {
         $(this).parents(".form-outline").remove();
     });
 
@@ -34,13 +34,13 @@ $(document).ready(function($) {
     var buttonPlus = $("#plus");
     var buttonMinus = $("#minus");
 
-    var incrementPlus = buttonPlus.click(function() {
+    var incrementPlus = buttonPlus.click(function () {
         // alert("hello");
         var $n = $(".qty");
         $n.val(Number($n.val()) + 1);
     });
 
-    var decrementMinus = buttonMinus.click(function() {
+    var decrementMinus = buttonMinus.click(function () {
         var $n = $(".qty");
         var amount = Number($n.val());
         if (amount > 1) {
@@ -48,13 +48,14 @@ $(document).ready(function($) {
         }
     });
 
-    //Dhara : Close alert on click 
-    $(".close").click(function() {
-        $(".alert").hide();
-    });
+    // slideout flash messages
+    $(".alert").animate({
+        left: "+=500",
+        opacity: 0
+    }, 5000);
 
     if (document.getElementById('category_form')) {
-        document.getElementById('category_form').addEventListener('submit', function(evt) {
+        document.getElementById('category_form').addEventListener('submit', function (evt) {
             evt.preventDefault();
             if (document.getElementById('category-name').value == "") {
                 document.getElementById('required').innerHTML = "Category name is required!";
@@ -111,13 +112,13 @@ $(document).ready(function($) {
     if ($("#order_publish").get(0)) {
         $("#order_publish").prop('disabled', true);
         $('#order_status').change(
-            function() {
+            function () {
                 $("#order_publish").prop('disabled', false);
             }
         );
     }
     // Pravindra Order Status Start
-    $("#order_publish").on("click", function() {
+    $("#order_publish").on("click", function () {
         $("#order_status_update_form").submit();
     });
 
@@ -126,17 +127,17 @@ $(document).ready(function($) {
     // Pravindra User Details Start
     if ($("#update_user").get(0)) {
         $('#first_name').keyup(
-            function() {
+            function () {
                 $("#update_user").show("slow");
             }
         );
         $('#last_name').keyup(
-            function() {
+            function () {
                 $("#update_user").show("slow");
             }
         );
         $('#is_subscribed').change(
-            function() {
+            function () {
                 $("#update_user").show("slow");
             }
         );
