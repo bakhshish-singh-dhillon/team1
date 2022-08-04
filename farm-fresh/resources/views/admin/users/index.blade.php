@@ -41,7 +41,7 @@
                     <td>{{ $user->email }}</td>
                     <td>
                         <div class="">
-                            <form method="post" action="{{ route('user-update', ['user' => $user->id]) }}" onsubmit="return confirm('Are you sure you want to change user active state?');">
+                            <form method="post" action="{{ route('user-update', ['user' => $user->id]) }}" onsubmit="return confirm('Are you sure you want to <?= $user->is_active ? 'Deactivate' : 'Activate'; ?> user?');">
                                 @csrf
                                 @method('PUT')
                                 <input type="hidden" name="id" value="{{ $user->id }}" />

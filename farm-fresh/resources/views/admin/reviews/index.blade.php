@@ -39,7 +39,7 @@
                 <td>{{ $review->rating }}</td>
                 <td>
                     <div class="btn-group">
-                        <form method="post" action="{{ route('review-update', ['review' => $review->id]) }}" onsubmit="return confirm('Are you sure you want to change review status?');">
+                        <form method="post" action="{{ route('review-update', ['review' => $review->id]) }}" onsubmit="return confirm('Are you sure you want to <?= $review->is_approved ? 'Dis-approve' : 'Approve'; ?> review?');">
                             @csrf
                             @method('PUT')
                             <input type="hidden" name="id" value="{{ $review->id }}" />
