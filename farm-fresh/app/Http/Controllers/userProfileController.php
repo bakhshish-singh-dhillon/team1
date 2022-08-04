@@ -32,7 +32,7 @@ class UserProfileController extends Controller
         // $lineItems = OrderLineItem::where('user_id', $user->id)->get();
         // dd($lineItems);
         $title = "Welcome!! " . $user->first_name . " " . $user->last_name . ".";
-        return view('userProfile', compact('user', 'title', 'orders', 'addresses', 'reviews'));
+        return view('user-profile', compact('user', 'title', 'orders', 'addresses', 'reviews'));
     }
 
     public function show_order(Order $order)
@@ -46,7 +46,7 @@ class UserProfileController extends Controller
         $gst = $sub_total * 0.05;
         $pst = $sub_total * 0.07;
         $total = $sub_total + $gst + $pst;
-        return view('userOrder', compact('order', 'total', 'gst', 'pst', 'sub_total', 'address'));
+        return view('user-order', compact('order', 'total', 'gst', 'pst', 'sub_total', 'address'));
     }
 
     /**
@@ -63,6 +63,6 @@ class UserProfileController extends Controller
             'last_name' => $request->last_name,
             'is_subscribed' => (isset($request->is_subscribed) ? true : false),
         ]);
-        return redirect("/userProfile/$user->id")->withSuccess('User Details updated successfully');
+        return redirect("/user-profile/$user->id")->withSuccess('User Details updated successfully');
     }
 }

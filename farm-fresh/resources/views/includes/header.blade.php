@@ -45,7 +45,7 @@
 
                 <div>
                     <?php if (Auth::check() && Auth::user()) : ?>
-                        <a href="/userProfile/{{ Auth::user()->id }}" class="text-decoration-none" data-toggle="tooltip" data-placement="bottom" title="User">
+                        <a href="/user-profile/{{ Auth::user()->id }}" class="text-decoration-none" data-toggle="tooltip" data-placement="bottom" title="User">
                             <span><img src="/images/user.png" alt="User" class="icon mx-2 my-4" /></span>
                         </a>
                     <?php else : ?>
