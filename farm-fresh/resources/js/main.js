@@ -63,10 +63,17 @@ $(document).ready(function ($) {
     });
 
     // slideout flash messages
-    $(".alert").animate({
-        left: "+=500",
-        opacity: 0
-    }, 5000);
+    $(".alert").fadeOut(4000);
+
+    var hide = $(".close").click(function () {
+        $(".alert").hide();
+
+    });
+
+
+    // $(".alert").slideUp(2500, function () {
+    //     $(".alert").hide();
+    // });
 
     if (document.getElementById('category_form')) {
         document.getElementById('category_form').addEventListener('submit', function (evt) {

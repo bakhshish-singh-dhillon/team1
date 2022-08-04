@@ -79,27 +79,27 @@
                             @endforeach
                             <tr>
                                 <td colspan="3" class="p-2 text-end">Sub total</td>
-                                <td class="p-2 text-end">$ {{$sub_total}}</td>
+                                <td class="p-2 text-end">$ {{$order->subtotal}}</td>
                             </tr>
                             <tr>
                                 <td colspan="3" class="p-2 text-end">GST (0%)</td>
-                                <td class="p-2 text-end">$ {{$gst}}</td>
+                                <td class="p-2 text-end">$ {{$order->gst}}</td>
                             </tr>
                             <tr>
                                 <td colspan="3" class="p-2 text-end">PST (0%)</td>
-                                <td class="p-2 text-end">$ {{$pst}}</td>
+                                <td class="p-2 text-end">$ {{$order->pst}}</td>
                             </tr>
                             <tr>
                                 <td colspan="3" class="p-2 text-end">VAT (0%)</td>
-                                <td class="p-2 text-end">$ {{$vat}}</td>
+                                <td class="p-2 text-end">$ {{$order->vat}}</td>
                             </tr>
                             <tr>
                                 <td colspan="3" class="p-2 text-end">Delivery Charges</td>
-                                <td class="p-2 text-end">$ {{$delivery_charges}}</td>
+                                <td class="p-2 text-end">$ {{$order->delivery_charges}}</td>
                             </tr>
                             <tr>
                                 <td colspan="3" class="p-2 text-end"><strong>Total</strong></td>
-                                <td class="p-2 text-end"><strong>$ {{$total}}</strong></td>
+                                <td class="p-2 text-end"><strong>$ {{$order->total}}</strong></td>
                             </tr>
                         </tbody>
                     </table>

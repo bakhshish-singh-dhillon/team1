@@ -31,13 +31,27 @@ class StoreProductRequest extends FormRequest
             'sku' => 'required',
             'name' => 'required',
             'price' => 'required|numeric',
+            'image_upload' => 'required|image',
             'image_upload.*' => 'required|image',
             'description' => 'required',
             'measure_unit' => 'required',
             'category_id' => 'required',
-            'quantity' => 'required',
+            'quantity' => 'required|numeric',
             'value.*' => 'required',
             'key.*' => 'required'
+        ];
+    }
+
+    /**
+     * Get the validation messages that apply to the request.
+     *
+     * @return array<string, mixed>
+     */
+    public function messages()
+    {
+        return [
+            'key.*.required' => 'Attribute field is required',
+            'value.*.required' => 'Value field is required',
         ];
     }
 }

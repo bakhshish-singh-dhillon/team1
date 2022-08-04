@@ -29,7 +29,7 @@ class AdminReviewController extends Controller
         if ($request->search) {
             $reviews = Review::where('id', 'like', '%' . $request->search . '%')
                 ->orWhere('review', 'like', '%' . $request->search . '%')
-                ->orWhere('rating', 'like', '%' . $request->search . '%')->paginate(9);
+                ->orWhere('rating', 'like', '%' . $request->search . '%')->paginate(9)->withQueryString();
             $title = "Searching for '" . $request->search . "'";
         } else {
             $reviews = Review::latest()->paginate(10);

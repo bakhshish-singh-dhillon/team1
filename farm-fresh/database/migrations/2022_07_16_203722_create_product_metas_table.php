@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->bigInteger('product_id');
             $table->string('name');
-            $table->string('value');
+            $table->longText('value');
             $table->softDeletes();
             $table->timestamps();
         });
