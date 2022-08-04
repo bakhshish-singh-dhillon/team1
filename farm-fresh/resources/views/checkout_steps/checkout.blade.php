@@ -76,28 +76,28 @@
                         <div class="row">
                             <div class="col-md-12 form-group mb-3">
                                 <label for="name-on-card" class="col-form-label">Name on card</label>
-                                <input type="text" class="form-control" name="name_on_card" id="name-on-card" placeholder="" />
+                                <input type="text" class="form-control" name="name_on_card" id="name-on-card" placeholder="Name on Card" />
                                 @error('name_on_card')
                                 <span class="text-danger"> {{ $message }} </span>
                                 @enderror
                             </div>
                             <div class="col-md-12 form-group mb-3">
                                 <label for="card-number" class="col-form-label">Card Number</label>
-                                <input type="text" class="form-control" name="card_number" id="card-number" placeholder="" />
+                                <input type="text" class="form-control" name="card_number" id="card-number" placeholder="xxxxxxxxxxxxxxxx" />
                                 @error('card_number')
                                 <span class="text-danger"> {{ $message }} </span>
                                 @enderror
                             </div>
                             <div class="col-md-6 form-group mb-3">
                                 <label for="card-exp" class="col-form-label">Expiration</label>
-                                <input type="text" class="form-control" name="card_exp" id="card-exp" placeholder="" />
+                                <input type="text" class="form-control" name="card_exp" id="card-exp" placeholder="mmyy" />
                                 @error('card_exp')
                                 <span class="text-danger"> {{ $message }} </span>
                                 @enderror
                             </div>
                             <div class="col-md-6 form-group mb-3">
                                 <label for="card-cvv" class="col-form-label">CVV</label>
-                                <input type="text" class="form-control" name="card_cvv" id="card-cvv" placeholder="" />
+                                <input type="text" class="form-control" name="card_cvv" id="card-cvv" placeholder="xxx" />
                                 @error('card_cvv')
                                 <span class="text-danger"> {{ $message }} </span>
                                 @enderror
