@@ -190,7 +190,7 @@
                                             <td>{{$order->created_at}}</td>
                                             <td>$ {{$order->total}}</td>
                                             <td>{{$order->order_status}}</td>
-                                            <td><a href="/userOrder/{{$order->id}}" class="btn">View</a> </td>
+                                            <td><a href="/user-order/{{$order->id}}" class="btn">View</a> </td>
                                         </tr>
                                         @endforeach
                                     </tbody>
