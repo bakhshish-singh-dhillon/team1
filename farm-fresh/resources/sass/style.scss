@@ -769,15 +769,13 @@ ul.li_size {
         bottom: 0;
     }
 
-    #detail {
-
-        .product-title,
-        .detail-table,
-        .more-info,
-        #reviews .col-md-3,
-        #reviews .col-md-9 {
-            margin: 1rem;
-        }
+    #detail .product-title,
+    #detail .detail-table,
+    #detail .more-info,
+    #detail #reviews .col-md-3,
+    #detail #reviews .col-md-9,
+    #profile .welcome {
+        margin: 1rem;
     }
 
     #addresses {

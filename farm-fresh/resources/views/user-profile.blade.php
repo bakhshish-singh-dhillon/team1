@@ -21,7 +21,7 @@
                 </div>
 
             </div>
-            <div class="col-md-9">
+            <div class="col-md-9 welcome">
                 <div class="title mb-3">{{ $title }} </div>
 
                 <!-- <ul>
