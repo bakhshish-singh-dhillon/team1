@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('sku');
             $table->string('name');
             $table->decimal('price',8,2);
-            $table->string('description');
+            $table->longText('description');
             $table->string('measure_unit');
             $table->string('quantity');
             $table->softDeletes();
