@@ -31,6 +31,7 @@ class StoreProductRequest extends FormRequest
             'sku' => 'required',
             'name' => 'required',
             'price' => 'required|numeric',
+            'image_upload' => 'required|image',
             'image_upload.*' => 'required|image',
             'description' => 'required',
             'measure_unit' => 'required',

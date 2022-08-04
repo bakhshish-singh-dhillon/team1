@@ -99,6 +99,9 @@
                         <div class="col-md-6">
                             <div id="multi-image">
                                 <multi-image images="{{ $images }}" images_path="{{ $images_path }}"></multi-image>
+                                @error('image_upload')
+                                <span class="text-danger"> {{ $message }}</span>
+                                @enderror
                             </div>
                         </div>
                     </div>

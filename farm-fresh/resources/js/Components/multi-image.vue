@@ -24,7 +24,7 @@
         class="custom-file-container__custom-file__custom-file-control"
       ></span>
     </label>
-    <div class="custom-file-container__image-preview"></div>
+    <div class="custom-file-container__image-preview mb-0"></div>
   </div>
 </template>
 <script>
@@ -54,7 +54,7 @@ export default {
     },
   },
   mounted() {
-    var vue=this;
+    var vue = this;
     if (this.images) {
       var images = JSON.parse(this.images);
       images.forEach((item, index, arr) => {
@@ -65,10 +65,10 @@ export default {
       showDeleteButtonOnImages: false,
       presetFiles: images,
     });
-    $("#custom_image_uploader").click(function(){
-        vue.upload.clearPreviewPanel();
-        console.log('clicked');
-    })
+    $("#custom_image_uploader").click(function () {
+      vue.upload.clearPreviewPanel();
+      console.log("clicked");
+    });
   },
 };
 </script>
