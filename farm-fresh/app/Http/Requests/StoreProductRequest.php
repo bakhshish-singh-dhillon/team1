@@ -35,7 +35,7 @@ class StoreProductRequest extends FormRequest
             'description' => 'required',
             'measure_unit' => 'required',
             'category_id' => 'required',
-            'quantity' => 'required',
+            'quantity' => 'required|numeric',
             'value.*' => 'required',
             'key.*' => 'required'
         ];
