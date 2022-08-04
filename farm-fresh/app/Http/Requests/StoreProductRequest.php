@@ -41,4 +41,17 @@ class StoreProductRequest extends FormRequest
             'key.*' => 'required'
         ];
     }
+
+    /**
+     * Get the validation messages that apply to the request.
+     *
+     * @return array<string, mixed>
+     */
+    public function messages()
+    {
+        return [
+            'key.*.required' => 'Attribute field is required',
+            'value.*.required' => 'Value field is required',
+        ];
+    }
 }
