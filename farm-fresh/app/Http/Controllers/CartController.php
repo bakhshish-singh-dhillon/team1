@@ -10,12 +10,12 @@ class CartController extends Controller
     public function index()
     {
         if (session()->has('cart') && count(session()->get('cart')) !== 0) {
-            $bill['subtotal'] = array_sum(array_column(session()->get('cart'), 'line_price'));
-            $bill['gst'] = $this->global_var['gst'] * $bill['subtotal'];
-            $bill['pst'] = $this->global_var['pst'] * $bill['subtotal'];
-            $bill['vat'] = $this->global_var['vat'] * $bill['subtotal'];
-            $bill['delivery_charges'] = $this->global_var['delivery_charges'] ;
-            $bill['total'] = $bill['subtotal'] + $bill['pst'] + $bill['gst'] + $bill['vat'] + $bill['delivery_charges'];
+            $bill['subtotal'] =  number_format((float)array_sum(array_column(session()->get('cart'), 'line_price')), 2, '.', '');
+            $bill['gst'] = number_format((float)$this->global_var['gst'] * $bill['subtotal'], 2, '.', '');
+            $bill['pst'] = number_format((float)$this->global_var['pst'] * $bill['subtotal'], 2, '.', '');
+            $bill['vat'] = number_format((float)$this->global_var['vat'] * $bill['subtotal'], 2, '.', '');
+            $bill['delivery_charges'] = number_format((float)$this->global_var['delivery_charges'], 2, '.', '');
+            $bill['total'] = number_format((float)$bill['subtotal'] + $bill['pst'] + $bill['gst'] + $bill['vat'] + $bill['delivery_charges'], 2, '.', '');
             return view('checkout_steps.cart', compact('bill'));
         }
         return back()->withError('Cart is empty');
