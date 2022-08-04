@@ -17,7 +17,7 @@
             <tbody>
                 @foreach (session()->get('cart') as $index => $product)
                 <tr>
-                    <td class="p-2"><a href="{{ route('product', ['product' => $index]) }}">{{ $product['name'] }}</a>
+                    <td class="p-2"><a class="text-decoration-none" href="{{ route('product', ['product' => $index]) }}">{{ $product['name'] }}</a>
                     </td>
                     <td class="p-2">$ {{ $product['price'] }}</td>
                     <td class="p-2">{{ $product['quantity'] }}</td>
