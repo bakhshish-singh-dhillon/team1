@@ -38,7 +38,7 @@
                 <td>{{ $review->review }}</td>
                 <td>{{ $review->rating }}</td>
                 <td>
-                    <div class="btn-group" id="review-button">
+                    <div class="btn-group">
                         <form method="post"><button class="btn btn-success" data-toggle="tooltip" data-placement="bottom" title="Approved" style="margin-right: 10px;">Approve</button></form>
                         <form method="post" action="{{ route('review-delete', ['review' => $review->id]) }}">
                             @csrf
