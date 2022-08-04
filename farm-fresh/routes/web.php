@@ -94,9 +94,6 @@ Route::get('admin/categories/search', [AdminCategoryController::class, 'getCateg
 
 Route::get('/terms-and-conditions', [TermsController::class, 'index'])->name('terms');
 Route::get('/about', [AboutController::class, 'index'])->name('about');
-Route::get('/404', function () {
-    return view('404');
-});
 Route::get('/privacy-policy', [PrivacyController::class, 'index'])->name('privacy');
 Route::get('/admin/users', [AdminUserController::class, 'index']);
 Route::put('/admin/{user}/user', [AdminUserController::class, 'update'])->name('user-update');
@@ -104,5 +101,6 @@ Route::delete('/admin/users/{user}', [AdminUserController::class, 'destroy'])->n
 Route::get('/admin/reviews', [AdminReviewController::class, 'index']);
 Route::delete('/admin/reviews/{review}', [AdminReviewController::class, 'destroy'])->name('review-delete');
 Route::put('/admin/{review}/review', [AdminReviewController::class, 'update'])->name('review-update');
+Route::fallback([App\Http\Controllers\PageNotFoundController::class, 'notfound']);
 
 // Pulkit URL Ends
