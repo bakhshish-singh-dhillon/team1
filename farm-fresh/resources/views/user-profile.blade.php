@@ -96,7 +96,7 @@
                         </div>
                     </form>
                 </div>
-                <div class="col-md-12 my-4 ">
+                <div class="col-md-12 my-2 ">
                     <div class="card product-item">
                         <div class="card-header">
                             <div class="sub-title m-0">Address</div>
@@ -133,7 +133,7 @@
                     </div>
                 </div>
 
-                <div class="col-md-12 my-4">
+                <div class="col-md-12 my-2">
                     <div class="card product-item">
                         <div class="card-header">
                             <div class="sub-title m-0">Reviews</div>
@@ -164,7 +164,7 @@
                     </div>
                 </div>
 
-                <div class="col-md-12 my-4">
+                <div class="col-md-12 my-2">
                     <div class="card product-item">
                         <div class="card-header">
                             <div class="sub-title m-0">Orders</div>
