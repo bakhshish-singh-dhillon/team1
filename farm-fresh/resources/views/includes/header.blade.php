@@ -63,7 +63,7 @@
                             <!-- <img src="/images/shopping-cart.png" alt="Cart" class="icon mx-2 my-4" /> -->
                             <i class="fa-solid fa-cart-shopping rounded-circle mx-2 my-4 p-2 text-white bg-green"></i>
                             <span class="{{ session()->has('cart') && count(session()->get('cart')) ? 'cart-count' : '' }}">
-                                {{ session()->has('cart') ? count(session()->get('cart')) : '' }} </span>
+                                {{ session()->has('cart') && count(session()->get('cart')) > 0 ? count(session()->get('cart')) : '' }} </span>
                         </span>
                     </a>
                     <?php if (Auth::check() && Auth::user()) : ?>
