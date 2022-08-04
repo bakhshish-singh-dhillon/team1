@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->bigInteger('user_id');
             $table->string('address_type');
-            $table->lontText('address');
+            $table->longText('address');
             $table->string('city');
             $table->string('province');
             $table->string('country');
