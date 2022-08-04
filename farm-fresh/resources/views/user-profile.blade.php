@@ -165,7 +165,7 @@
                                     <li>Date: {{$order->created_at}}<br />
                                         Total: {{$order->total}}<br />
                                         Status: {{$order->order_status}}<br />
-                                        Click <a href="/userOrder/{{$order->id}}">Here</a> to view more details about this order!
+                                        Click <a href="/user-order/{{$order->id}}">Here</a> to view more details about this order!
                                     </li>
                                 </ul>
                             </div>
