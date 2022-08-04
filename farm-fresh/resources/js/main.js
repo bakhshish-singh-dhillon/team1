@@ -49,10 +49,13 @@ $(document).ready(function ($) {
     });
 
     // slideout flash messages
-    $(".alert").animate({
-        left: "+=500",
+    $(".alert").hide(4000).animate({
         opacity: 0
-    }, 5000);
+    }, 4000);
+
+    // $(".alert").slideUp(3000, function () {
+    //     $(".alert").hide();
+    // });
 
     if (document.getElementById('category_form')) {
         document.getElementById('category_form').addEventListener('submit', function (evt) {
