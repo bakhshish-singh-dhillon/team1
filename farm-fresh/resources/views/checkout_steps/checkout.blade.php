@@ -39,6 +39,14 @@
                         <td class="p-2">$ {{ $bill['pst'] }} </td>
                     </tr>
                     <tr>
+                        <td colspan="3" class="v-title p-2 text-right">VAT (0%)</td>
+                        <td class="p-2">$ {{ $bill['vat'] }} </td>
+                    </tr>
+                    <tr>
+                        <td colspan="3" class="v-title p-2 text-right">Delivery Charges </td>
+                        <td class="p-2">$ {{ $bill['delivery_charges'] }} </td>
+                    </tr>
+                    <tr>
                         <td colspan="3" class="v-title p-2 text-right"><strong>Total</strong></td>
                         <td class="p-2"><strong>$ {{ $bill['total'] }}</strong> </td>
                     </tr>

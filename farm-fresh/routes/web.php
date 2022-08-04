@@ -46,6 +46,8 @@ Route::get('/contact', [ContactController::class, 'index'])->name('contact');
 Route::post('/contact', [ContactController::class, 'store'])->name('contact-submit');
 // Route::get('/profile', [UserProfileController::class, 'index'])->name('users-profile');
 Route::get('/userProfile/{user}', [UserProfileController::class, 'show'])->name('user-profile');
+Route::get('userOrder/{order}', [UserProfileController::class, 'show_order'])->name('user-order');
+Route::put('/userProfile/{user}', [UserProfileController::class, 'update'])->name('user-detail-update');
 
 // Admin Product List
 
@@ -97,6 +99,7 @@ Route::get('/404', function () {
 });
 Route::get('/privacy-policy', [PrivacyController::class, 'index'])->name('privacy');
 Route::get('/admin/users', [AdminUserController::class, 'index']);
+Route::put('/admin/{user}/user', [AdminUserController::class, 'update'])->name('user-update');
 Route::delete('/admin/users/{user}', [AdminUserController::class, 'destroy'])->name('user-delete');
 Route::get('/admin/reviews', [AdminReviewController::class, 'index']);
 Route::delete('/admin/reviews/{review}', [AdminReviewController::class, 'destroy'])->name('review-delete');

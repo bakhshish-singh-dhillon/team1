@@ -122,4 +122,24 @@ $(document).ready(function($) {
     });
 
     // Pravindra Order Status End
+
+    // Pravindra User Details Start
+    if ($("#update_user").get(0)) {
+        $('#first_name').keyup(
+            function() {
+                $("#update_user").show("slow");
+            }
+        );
+        $('#last_name').keyup(
+            function() {
+                $("#update_user").show("slow");
+            }
+        );
+        $('#is_subscribed').change(
+            function() {
+                $("#update_user").show("slow");
+            }
+        );
+    }
+    // Pravindra User Details End
 });
