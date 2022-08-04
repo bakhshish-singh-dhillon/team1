@@ -45,7 +45,7 @@
 
                 <div>
                     <?php if (Auth::check() && Auth::user()) : ?>
-                        <a href="/userProfile/{{ Auth::user()->id }}" class="text-decoration-none d-inline-block my-2" data-toggle="tooltip" data-placement="bottom" title="User">
+                        <a href="/user-profile/{{ Auth::user()->id }}" class="text-decoration-none d-inline-block my-2" data-toggle="tooltip" data-placement="bottom" title="User">
                             <i class="fa-solid fa-user-large rounded-circle mx-2 my-4 p-2 text-white bg-green"></i>
                         </a>
                     <?php else : ?>
