@@ -45,26 +45,32 @@
 
                 <div>
                     <?php if (Auth::check() && Auth::user()) : ?>
-                        <a href="/userProfile/{{ Auth::user()->id }}" class="text-decoration-none" data-toggle="tooltip" data-placement="bottom" title="User">
-                            <span><img src="/images/user.png" alt="User" class="icon mx-2 my-4" /></span>
+                        <a href="/userProfile/{{ Auth::user()->id }}" class="text-decoration-none d-inline-block my-2" data-toggle="tooltip" data-placement="bottom" title="User">
+                            <i class="fa-solid fa-user-large rounded-circle mx-2 my-4 p-2 text-white bg-green"></i>
                         </a>
                     <?php else : ?>
                         <a href="/login" class="text-decoration-none" data-toggle="tooltip" data-placement="bottom" title="Login">
-                            <span><img src="/images/user.png" alt="User" class="icon mx-2 my-4" /></span>
+                            <!-- <span><img src="/images/user.png" alt="User" class="icon mx-2 my-4" /></span> -->
+                            <!-- <i class="fa-solid fa-user"></i> -->
+                            <i class="fa-solid fa-user rounded-circle mx-2 my-4 p-2 text-white bg-green"></i>
+
                         </a>
                     <?php endif; ?>
 
 
                     <a href="{{ route('cart') }}" class="text-decoration-none cart" data-toggle="tooltip" data-placement="bottom" title="Cart">
                         <span class="cart-box">
-                            <img src="/images/shopping-cart.png" alt="Cart" class="icon mx-2 my-4" />
+                            <!-- <img src="/images/shopping-cart.png" alt="Cart" class="icon mx-2 my-4" /> -->
+                            <i class="fa-solid fa-cart-shopping rounded-circle mx-2 my-4 p-2 text-white bg-green"></i>
                             <span class="{{ session()->has('cart') && count(session()->get('cart')) ? 'cart-count' : '' }}">
                                 {{ session()->has('cart') ? count(session()->get('cart')) : '' }} </span>
                         </span>
                     </a>
                     <?php if (Auth::check() && Auth::user()) : ?>
                         <a href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit(); return confirm('Are you sure you want to Log-Out?')" data-toggle="tooltip" data-placement="bottom" title="Log-Out">
-                            <img src="/images/power.png" alt="Logout" class="icon mx-2 my-4" />
+                            <!-- <img src="/images/power.png" alt="Logout" class="icon mx-2 my-4" /> -->
+                            <i class="fa-solid fa-power-off rounded-circle mx-2 my-4 p-2 text-white bg-green"></i>
+
                         </a>
                         <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                             @csrf
@@ -97,3 +103,4 @@
         @include('includes.flash')
 
         <main>
+            @include('includes.theme-box')
