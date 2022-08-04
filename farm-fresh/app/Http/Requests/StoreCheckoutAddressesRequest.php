@@ -33,16 +33,29 @@ class StoreCheckoutAddressesRequest extends FormRequest
             "billing_city" => "required",
             "billing_province" => "required",
             "billing_country" => "required",
-            "billing_postal_code" => "required",
-            "billing_phone" => "required",
+            "billing_postal_code" => "required|regex:/[a-zA-Z]\d[a-zA-Z][\s]\d[a-zA-Z]\d/",
+            "billing_phone" => "required|integer",
             "shipping_address_name" => "required",
             "shipping_address" => "required",
             "shipping_city" => "required",
             "shipping_province" => "required",
             "shipping_country" => "required",
-            "shipping_postal_code" => "required",
-            "shipping_phone" => "required",
+            "shipping_postal_code" => "required|regex:/[a-zA-Z]\d[a-zA-Z][\s]\d[a-zA-Z]\d/",
+            "shipping_phone" => "required|integer",
 
+        ];
+    }
+
+    /**
+     * Get the validation messages that apply to the request.
+     *
+     * @return array<string, mixed>
+     */
+    public function messages()
+    {
+        return [
+            'shipping_postal_code.regex' => 'Invalid postal code! hint: A1A 1B1',
+            'billing_postal_code.regex' => 'Invalid postal code! hint: A1A 1B1',
         ];
     }
 }
