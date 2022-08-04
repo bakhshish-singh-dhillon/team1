@@ -12,11 +12,7 @@ class OrderPlacedEmail extends Mailable
 {
     use Queueable, SerializesModels;
     protected $address;
-    protected $gst;
-    protected $pst;
-    protected $total;
     protected $order;
-    protected $sub_total;
 
     /**
      * Create a new message instance.
@@ -27,14 +23,6 @@ class OrderPlacedEmail extends Mailable
     {
         $this->order = $order;
         $this->address = json_decode($order->shipping_address);
-        $this->sub_total = 0;
-        foreach ($order->order_line_items as $line_item) {
-            $line_price = $line_item->unit_price * $line_item->quantity;
-            $this->sub_total += $line_price;
-        }
-        $this->gst = $this->sub_total * 0.05;
-        $this->pst = $this->sub_total * 0.07;
-        $this->total = $this->sub_total + $this->gst + $this->pst;
     }
 
     /**
@@ -48,10 +36,6 @@ class OrderPlacedEmail extends Mailable
             ->view('invoice/invoice')
             ->with([
                 'order' => $this->order,
-                'gst' => $this->gst,
-                'pst' => $this->pst,
-                'total' => $this->total,
-                'sub_total' => $this->sub_total,
                 'address' => $this->address,
             ]);
     }
