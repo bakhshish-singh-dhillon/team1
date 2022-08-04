@@ -63,7 +63,7 @@
                     </tbody>
                 </table>
                 <div class="d-flex justify-content-between pt-3">
-                    <a class="btn" href="/choose-addresses" method="post">Choose Address</a>
+                    <a class="btn" href="/choose-addresses">Choose Address</a>
                     <form action="{{ route('clear-cart') }}" method="post">
                         @csrf
                         @method('DELETE')
@@ -73,4 +73,5 @@
             </div>
         </div>
     </div>
-    @endsection
+</div>
+@endsection

@@ -4,7 +4,7 @@
 <div id="products">
     <div class="max-container py-4">
         <div class="row">
-            <div class="col-md-3 left-part text-center">
+            <div class="col-md-3 left-part">
                 <div class="title">Categories</div>
 
                 <div class="category-list capitalization">

@@ -59,16 +59,16 @@
                 <div class="row justify-content-center">
                     <div class="col-md-6 ">
                         <div class="sub-title my-4 text-center">Payment Details</div>
-                        <div class="my-3 d-flex">
-                            <div class="col-md-4">
+                        <div class="my-3 d-flex justify-content-between">
+                            <div class="">
                                 <input id="credit" name="card_type" type="radio" class="form-check-input" value="visa" checked="" required="">
                                 <label class="form-check-label" for="credit">Visa</label>
                             </div>
-                            <div class="col-md-4">
-                                <input id="debit" name="card_type" type="radio" value="mastercard" class="form-check-input" required="">
-                                <label class="form-check-label" for="debit">Master Card</label>
+                            <div class="">
+                                <input id="master" name="card_type" type="radio" value="mastercard" class="form-check-input" required="">
+                                <label class="form-check-label" for="master">Master Card</label>
                             </div>
-                            <div class="col-md-4">
+                            <div class="">
                                 <input id="debit" name="card_type" type="radio" value="amex" class="form-check-input" required="">
                                 <label class="form-check-label" for="debit">American Express</label>
                             </div>
