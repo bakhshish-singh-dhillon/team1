@@ -103,5 +103,6 @@ Route::put('/admin/{user}/user', [AdminUserController::class, 'update'])->name('
 Route::delete('/admin/users/{user}', [AdminUserController::class, 'destroy'])->name('user-delete');
 Route::get('/admin/reviews', [AdminReviewController::class, 'index']);
 Route::delete('/admin/reviews/{review}', [AdminReviewController::class, 'destroy'])->name('review-delete');
+Route::put('/admin/{review}/review', [AdminReviewController::class, 'update'])->name('review-update');
 
 // Pulkit URL Ends

@@ -45,4 +45,18 @@ class AdminReviewController extends Controller
             return redirect('/admin/reviews');
         }
     }
+
+    /**
+     * Update review status.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Review $review)
+    {
+        $review->is_approved = !$review->is_approved;
+        if ($review->save()) {
+            session()->flash('success', 'Review status updated successfully');
+            return redirect('/admin/reviews');
+        }
+    }
 }
