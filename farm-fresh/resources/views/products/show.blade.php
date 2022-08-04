@@ -44,9 +44,7 @@
                 </div>
             </div>
             <div class="col-md-6">
-                <div class="title product-title m-3">{{ $product->name }}
-                    <a href="/products" class="btn btn-danger float-right"><i class="fa-solid fa-arrow-left"></i></a>
-                </div>
+                <div class="title product-title m-3">{{ $product->name }}</div>
                 <table class="detail-table w-100 m-3">
                     <tr>
                         <th>Price:</th>

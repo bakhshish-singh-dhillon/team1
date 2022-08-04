@@ -31,7 +31,6 @@ class StoreProductRequest extends FormRequest
             'sku' => 'required',
             'name' => 'required',
             'price' => 'required|numeric',
-            'image_upload' => 'required|image',
             'image_upload.*' => 'required|image',
             'description' => 'required',
             'measure_unit' => 'required',
@@ -51,6 +50,8 @@ class StoreProductRequest extends FormRequest
     {
         return [
             'key.*.required' => 'Attribute field is required',
+            'image_upload.*.required' => 'Image field is required',
+            'image_upload.*.image' => 'Must be an image',
             'value.*.required' => 'Value field is required',
         ];
     }

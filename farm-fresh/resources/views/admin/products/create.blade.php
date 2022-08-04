@@ -87,7 +87,7 @@
                         <div class="col-md-6">
                             <div id="multi-image">
                                 <multi-image></multi-image>
-                                @error('image_upload')
+                                @error('image_upload.*')
                                 <span class="text-danger"> {{ $message }}</span>
                                 @enderror
                             </div>

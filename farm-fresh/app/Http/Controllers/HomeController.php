@@ -29,7 +29,7 @@ class HomeController extends Controller
     public function index()
     {
         $products = Product::latest()->get();
-        $reviews = Review::where('rating', '5')->latest()->take(2)->get();
+        $reviews = Review::where('rating', '5')->where('is_approved', '1')->latest()->take(2)->get();
         $categories = Category::whereNull('category_id')->get();
         $title = "Home";
         return view('home', compact('products', 'categories', 'reviews', 'title'));

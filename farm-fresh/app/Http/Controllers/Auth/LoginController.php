@@ -42,6 +42,12 @@ class LoginController extends Controller
     protected function authenticated(Request $request, $user)
     {
         $request->session()->flash('success', 'You are logged in!');
+        if ($user->is_admin) {
+            return redirect()->intended('/admin'); // it will be according to your routes.
+
+        } else {
+            return redirect()->intended("/user-profile/$user->id"); // it also be according to your need and routes
+        }
     }
 
 
