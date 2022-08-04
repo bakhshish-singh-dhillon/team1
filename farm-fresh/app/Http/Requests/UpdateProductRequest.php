@@ -31,7 +31,6 @@ class UpdateProductRequest extends FormRequest
             'sku' => 'required',
             'name' => 'required',
             'price' => 'required|numeric',
-            'image_upload' => 'required|image',
             'image_upload.*' => 'required|image',
             'description' => 'required',
             'measure_unit' => 'required',
@@ -39,6 +38,20 @@ class UpdateProductRequest extends FormRequest
             'quantity' => 'required',
             'value.*' => 'required',
             'key.*' => 'required'
+        ];
+    }
+    /**
+     * Get the validation messages that apply to the request.
+     *
+     * @return array<string, mixed>
+     */
+    public function messages()
+    {
+        return [
+            'key.*.required' => 'Attribute field is required',
+            'image_upload.*.required' => 'Image field is required',
+            'image_upload.*.image' => 'Must be an image',
+            'value.*.required' => 'Value field is required',
         ];
     }
 }
