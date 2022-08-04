@@ -44,7 +44,7 @@
                         <div class="d-flex">
                             <!-- Button trigger modal -->
 
-                            <button type="button" class="btn btn-primary mx-2" id="edit_category" data-bs-toggle="modal" data-bs-target="#categoryModal" data-bs-whatever="Edit" data-bs-id="{{ $cat->id }}" data-bs-name="{{ $cat->name }}" data-bs-parent="{{ null == $cat->parent ? null : $cat->parent->id }}"><i class="fa-solid fa-pencil" data-toggle="tooltip" data-placement="bottom" title="Edit"></i></button>
+                            <button type="button" class="btn btn-primary mx-2" data-bs-toggle="modal" data-bs-target="#categoryModal" data-bs-whatever="Edit" data-bs-id="{{ $cat->id }}" data-bs-name="{{ $cat->name }}" data-bs-parent="{{ null == $cat->parent ? null : $cat->parent->id }}"><i class="fa-solid fa-pencil" data-toggle="tooltip" data-placement="bottom" title="Edit"></i></button>
 
                             <form method="post" action="{{ route('cat-delete', ['category' => $cat->id]) }}">
                                 @csrf
@@ -65,11 +65,11 @@
             <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content">
                     <div class="modal-header blue-bg">
-                        <h5 class="modal-title" id="categoryModalLabel"></h5>
+                        <h5 class="modal-title" id="categoryModalLabel">Create Category</h5>
                         <button type="button" class="no-style white-text" data-bs-dismiss="modal"><i class="fa-solid fa-xmark"></i></button>
                     </div>
                     <div class="modal-body">
-                        <form id="category_form" action="" method="POST">
+                        <form id="category_form" method="POST">
                             @csrf
                             <div class="mb-3">
                                 <label for="category-name" class="col-form-label">Category Name:
@@ -83,7 +83,7 @@
                             <div class="form-outline mb-4">
                                 <label class="form-label" for="category_search">Parent Category:
                                 </label>
-                                <select name="category_id" id="category_id" class="form-control ">
+                                <select name="category_id" id="category_search" class="form-control ">
                                     <option value="">Select parent</option>
                                     @foreach ($parentCategories as $index => $name)
                                     <option value="{{ $name->id }}">

@@ -44,16 +44,6 @@
                             <td>{{ $user->email }}</td>
                             <td>
                                 <div class="">
-                                    <form method="post" action="{{ route('user-delete', ['user' => $user->id]) }}"
-                                        onsubmit="return confirm('Are you sure you want to delete this user?');">
-                                        @csrf
-                                        @method('DELETE')
-                                        <input type="hidden" name="id" value="{{ $user->id }}" />
-                                        <button class="btn btn-danger">
-                                            <i class="fa-solid fa-trash-can" data-toggle="tooltip" data-placement="bottom"
-                                                title="Delete"></i>
-                                        </button>
-                                    </form>
                                     <form method="post" action="{{ route('user-update', ['user' => $user->id]) }}"
                                         onsubmit="return confirm('Are you sure you want to change user active state?');">
                                         @csrf
@@ -62,7 +52,7 @@
                                         @if ($user->is_active)
                                             <button class="btn btn-danger">
                                                 <i class="fa-solid fa-ban" data-toggle="tooltip" data-placement="bottom"
-                                                    title="Delete"></i>
+                                                    title="Deactivate"></i>
                                             </button>
                                         @else
                                             <button class="btn btn-success">

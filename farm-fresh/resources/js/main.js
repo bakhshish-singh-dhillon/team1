@@ -80,6 +80,7 @@ $(document).ready(function ($) {
             if (recipient == "Edit") {
                 document.getElementById("category_form").action = "/admin/categories/" + id;
                 document.getElementById("submit_btn").innerHTML = "Update";
+                document.getElementById("categoryModalLabel").innerHTML = "Edit Category";
                 var put_method = document.createElement('input');
                 put_method.type = 'hidden';
                 put_method.id = '_method';
@@ -87,6 +88,7 @@ $(document).ready(function ($) {
                 put_method.name = '_method';
                 document.getElementById("category_form").appendChild(put_method);
             } else {
+                document.getElementById("categoryModalLabel").innerHTML = "Create Category";
                 document.getElementById("submit_btn").innerHTML = "Create";
                 document.getElementById("category_form").action = "/admin/categories";
                 if (null != document.getElementById("_method")) {
