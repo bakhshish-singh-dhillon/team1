@@ -121,7 +121,7 @@
                         </div>
                     </div>
                     <div class="col-md-6">
-                        <div class="sub-title mb-3">Shipping Address</div>
+                        <div class="sub-title mb-3 shipping-title">Shipping Address</div>
 
                         <div class="radio-shipping-addresses">
                             <div>

@@ -714,4 +714,25 @@ ul.li_size {
         top: auto;
         bottom: 0;
     }
+
+    #detail {
+
+        .product-title,
+        .detail-table,
+        .more-info,
+        #reviews .col-md-3,
+        #reviews .col-md-9 {
+            margin: 1rem;
+        }
+    }
+
+    #addresses {
+        .shipping-title {
+            margin: 1rem;
+        }
+    }
+
+    .error-message {
+        min-width: 300px;
+    }
 }

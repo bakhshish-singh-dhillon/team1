@@ -89,7 +89,7 @@
 
             </div>
             <hr>
-            <div>
+            <div class="more-info">
                 <div class="tab">
                     <button class="tablinks active" onclick="changeTab(event, 'Description')">Description</button>
                     <button class="tablinks" onclick="changeTab(event, 'Additional Info')">Additional Info</button>
