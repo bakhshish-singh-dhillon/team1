@@ -32,10 +32,10 @@ $(document).ready(function ($) {
     });
     $("#green_theme").on("click", function () {
         // root.style.setProperty('--theme-color', '#3f6c39');
-        $("div#app").css('filter', 'none');
+        $("body").removeClass('grey-filter');
     });
     $("#red_theme").on("click", function () {
-        $("div#app").css('filter', 'grayscale(0.7)');
+        $("body").addClass('grey-filter');
     });
 
     $('.js-example-basic-single').select2();
