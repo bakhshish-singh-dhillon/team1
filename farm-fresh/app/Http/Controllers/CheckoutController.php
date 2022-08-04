@@ -146,7 +146,7 @@ class CheckoutController extends Controller
                     "status" => $response->result_code,
                     "response" => json_encode($response)
                 ]);
-                return back()->withError('Payment Unsuccessfull');
+                return back()->withError('Payment Unsuccessful!');
             }
         } catch (Exception $e) {
 
@@ -158,9 +158,9 @@ class CheckoutController extends Controller
                 "status" => $response->result_code,
                 "response" => json_encode($response)
             ]);
-            return back()->withError('Payment Unsuccessfull');
+            return back()->withError('Payment Unsuccessful!');
         }
 
-        return back()->withError('Payment Unsuccessfull');
+        return back()->withError('Payment Unsuccessful!');
     }
 }
