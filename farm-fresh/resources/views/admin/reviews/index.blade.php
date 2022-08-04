@@ -20,6 +20,7 @@
             </div>
         </div>
     </div>
+
     <div class="card">
         <table class="table align-middle mb-0 bg-white">
             <thead class="bg-light ">
@@ -40,9 +41,7 @@
                         <td>{{ $review->review }}</td>
                         <td>{{ $review->rating }}</td>
                         <td>
-                            <div class="btn-group" id="review-button">
-
-
+                            <div class="btn-group">
                                 <form method="post" action="{{ route('review-update', ['review' => $review->id]) }}"
                                     onsubmit="return confirm('Are you sure you want to change review status?');">
                                     @csrf
@@ -60,14 +59,12 @@
                                         </button>
                                     @endif
                                 </form>
-
                             </div>
                         </td>
                     </tr>
                 @endforeach
             </tbody>
         </table>
-
     </div>
 
     <div class="pagination justify-content-center py-2">

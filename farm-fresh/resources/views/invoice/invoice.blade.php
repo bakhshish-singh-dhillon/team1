@@ -5,7 +5,7 @@
 
                 <h1 class="title mb-3">Order placed successfully!</h1>
                 <div id="invoice_content p-3">
-                    <table id="content-table text-left " style="min-width: 100%;">
+                    <table class="content-table text-left " style="min-width: 100%;">
                         <thead>
                             <tr class="border-bottom">
                                 <th class="p-2">Company Info</th>
@@ -88,6 +88,14 @@
                             <tr>
                                 <td colspan="3" class="p-2 text-end">PST (0%)</td>
                                 <td class="p-2 text-end">$ {{$pst}}</td>
+                            </tr>
+                            <tr>
+                                <td colspan="3" class="p-2 text-end">VAT (0%)</td>
+                                <td class="p-2 text-end">$ {{$vat}}</td>
+                            </tr>
+                            <tr>
+                                <td colspan="3" class="p-2 text-end">Delivery Charges</td>
+                                <td class="p-2 text-end">$ {{$delivery_charges}}</td>
                             </tr>
                             <tr>
                                 <td colspan="3" class="p-2 text-end"><strong>Total</strong></td>

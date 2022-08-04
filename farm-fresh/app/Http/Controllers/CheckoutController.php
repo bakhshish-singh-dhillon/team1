@@ -26,12 +26,12 @@ class CheckoutController extends Controller
     public function index()
     {
         if (session()->has('cart') && count(session()->get('cart')) !== 0) {
-            $bill['subtotal'] = array_sum(array_column(session()->get('cart'), 'line_price'));
-            $bill['gst'] = $this->global_var['gst'] * $bill['subtotal'];
-            $bill['pst'] = $this->global_var['pst'] * $bill['subtotal'];
-            $bill['vat'] = $this->global_var['vat'] * $bill['subtotal'];
-            $bill['delivery_charges'] = $this->global_var['delivery_charges'];
-            $bill['total'] = $bill['subtotal'] + $bill['pst'] + $bill['gst'] + $bill['vat'] + $bill['delivery_charges'];
+            $bill['subtotal'] = number_format((float)array_sum(array_column(session()->get('cart'), 'line_price')), 2, '.', '');
+            $bill['gst'] = number_format((float)$this->global_var['gst'] * $bill['subtotal'], 2, '.', '');
+            $bill['pst'] = number_format((float)$this->global_var['pst'] * $bill['subtotal'], 2, '.', '');
+            $bill['vat'] = number_format((float)$this->global_var['vat'] * $bill['subtotal'], 2, '.', '');
+            $bill['delivery_charges'] = number_format((float)$this->global_var['delivery_charges'], 2, '.', '');
+            $bill['total'] = number_format((float)$bill['subtotal'] + $bill['pst'] + $bill['gst'] + $bill['vat'] + $bill['delivery_charges'], 2, '.', '');
             return view('checkout_steps.checkout', compact('bill'));
         }
         return back()->withError('Cart is empty');
@@ -41,13 +41,15 @@ class CheckoutController extends Controller
         $address = json_decode($order->shipping_address);
         $sub_total = 0;
         foreach ($order->order_line_items as $line_item) {
-            $line_price = $line_item->unit_price * $line_item->quantity;
-            $sub_total += $line_price;
+            $line_price = number_format((float)$line_item->unit_price * $line_item->quantity, 2, '.', '');
+            $sub_total += number_format((float)$line_price, 2, '.', '');
         }
-        $gst = $sub_total * 0.05;
-        $pst = $sub_total * 0.07;
-        $total = $sub_total + $gst + $pst;
-        return view('thank-you', compact('order', 'total', 'gst', 'pst', 'sub_total', 'address'));
+        $gst = number_format((float)$sub_total * $this->global_var['gst'], 2, '.', '');
+        $pst = number_format((float)$sub_total * $this->global_var['pst'], 2, '.', '');
+        $vat = number_format((float)$sub_total * $this->global_var['vat'], 2, '.', '');
+        $delivery_charges = number_format((float)$sub_total + $this->global_var['delivery_charges'], 2, '.', '');
+        $total = number_format((float)$sub_total + $gst + $pst + $vat + $delivery_charges, 2, '.', '');
+        return view('thank-you', compact('order', 'total', 'gst', 'pst', 'sub_total', 'address', 'delivery_charges', 'vat'));
     }
 
     public function process_payment(Request $request)
@@ -67,12 +69,12 @@ class CheckoutController extends Controller
         $cart = session()->get('cart');
 
 
-        $bill['subtotal'] = array_sum(array_column($cart, 'line_price'));
-        $bill['gst'] = $this->global_var['gst'] * $bill['subtotal'];
-        $bill['pst'] = $this->global_var['pst'] * $bill['subtotal'];
-        $bill['vat'] = $this->global_var['vat'] * $bill['subtotal'];
-        $bill['delivery_charges'] = $this->global_var['delivery_charges'];
-        $bill['total'] = $bill['subtotal'] + $bill['pst'] + $bill['gst'] + $bill['vat'] + $bill['delivery_charges'];
+        $bill['subtotal'] = number_format((float)array_sum(array_column($cart, 'line_price')), 2, '.', '');
+        $bill['gst'] = number_format((float)$this->global_var['gst'] * $bill['subtotal'], 2, '.', '');
+        $bill['pst'] = number_format((float)$this->global_var['pst'] * $bill['subtotal'], 2, '.', '');
+        $bill['vat'] = number_format((float)$this->global_var['vat'] * $bill['subtotal'], 2, '.', '');
+        $bill['delivery_charges'] = number_format((float)$this->global_var['delivery_charges'], 2, '.', '');
+        $bill['total'] = number_format((float)$bill['subtotal'] + $bill['pst'] + $bill['gst'] + $bill['vat'] + $bill['delivery_charges'], 2, '.', '');
 
 
 
@@ -129,7 +131,7 @@ class CheckoutController extends Controller
                 session()->forget('cart');
                 session()->forget('shipping_address');
                 session()->forget('billing_address');
-                
+
                 foreach ($order->order_line_items as $line_item) {
                     $line_item->product->quantity = $line_item->product->quantity - $cart[$line_item->product->id]['quantity'];
                     $line_item->product->save();

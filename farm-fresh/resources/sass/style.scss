@@ -54,7 +54,6 @@ img {
 }
 
 .cart {
-
     .cart-box {
         position: relative;
 
@@ -171,8 +170,6 @@ button.btn-danger:hover {
     }
 }
 
-
-
 #category {
     img {
         background: #fff;
@@ -250,7 +247,6 @@ button.btn-danger:hover {
                 padding: 0px 8px 8px 8px;
             }
         }
-
     }
 }
 
@@ -270,9 +266,7 @@ button.btn-danger:hover {
             background-color: #fff;
             border: 1px solid #ccc;
             height: 100px;
-
         }
-
     }
 }
 
@@ -343,7 +337,6 @@ button.btn-danger:hover {
 
 #metaTable {
     width: 50%;
-
     margin: 0 auto;
 }
 
@@ -370,6 +363,7 @@ button.btn-danger:hover {
             display: block;
             text-decoration: none;
             color: #000;
+            font-size: 1.1em;
         }
     }
 
@@ -377,6 +371,14 @@ button.btn-danger:hover {
     li.active {
         border-bottom: 2px solid #000;
     }
+}
+
+nav a.btn:hover,
+button.btn:hover {
+    color: $green;
+    border: 1px solid $green;
+    background-color: #72986d;
+    ;
 }
 
 .termslist {
@@ -472,7 +474,6 @@ button.btn-danger:hover {
 }
 
 #admin {
-
     .custom-file-container__image-preview {
         height: 188px;
     }
@@ -629,7 +630,6 @@ button.btn-danger:hover {
     }
 }
 
-
 .select2-container {
     z-index: 1200;
     width: 20px;
@@ -648,7 +648,9 @@ button.btn-danger:hover {
     border: 1px solid #ccc;
 }
 
+
 /* Style the buttons that are used to open the tab content */
+
 .tab button {
     box-shadow: inset 0 -5px 7px #c4c4c4;
     float: left;
@@ -659,14 +661,18 @@ button.btn-danger:hover {
     color: #777;
 }
 
+
 /* Create an active/current tablink class */
+
 .tab button.active {
     background-color: inherit;
     box-shadow: none;
     color: #000;
 }
 
+
 /* Style the tab content */
+
 .tabcontent {
     display: none;
     padding: 6px 12px;
@@ -698,12 +704,18 @@ ul.li_size {
     }
 }
 
+.mobile-hamburger {
+    display: none;
+}
+
 // responsive
-
 @media screen and (max-width: 767px) {
-
     #home #banner .content {
-        left: 0;
+        left: 5%;
+    }
+
+    .left-part {
+        text-align: center;
     }
 
     #products .category-list ul ul {
@@ -713,5 +725,55 @@ ul.li_size {
     .flex-direction-nav a {
         top: auto;
         bottom: 0;
+    }
+
+    #detail {
+
+        .product-title,
+        .detail-table,
+        .more-info,
+        #reviews .col-md-3,
+        #reviews .col-md-9 {
+            margin: 1rem;
+        }
+    }
+
+    #addresses {
+        .shipping-title {
+            margin: 1rem;
+        }
+    }
+
+    .error-message {
+        min-width: 300px;
+    }
+
+    #header_nav {
+        display: none;
+    }
+
+    ul.mobile-hamburger {
+        display: block;
+        padding: 0;
+
+        li {
+            list-style-type: none;
+
+            a {
+                text-decoration: none;
+                color: #000;
+                padding: 5px;
+                display: block;
+                text-align: center;
+                border-bottom: 1px solid #ccc;
+            }
+        }
+
+        li.active {
+            a {
+                color: $green;
+                font-weight: 700;
+            }
+        }
     }
 }

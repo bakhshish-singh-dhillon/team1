@@ -48,4 +48,21 @@ class UserProfileController extends Controller
         $total = $sub_total + $gst + $pst;
         return view('userOrder', compact('order', 'total', 'gst', 'pst', 'sub_total', 'address'));
     }
+
+    /**
+     * Update the specified User in storage.
+     *
+     * @param  \App\Models\User  $user
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $request, User $user)
+    {
+
+        $user->update([
+            'first_name' => $request->first_name,
+            'last_name' => $request->last_name,
+            'is_subscribed' => (isset($request->is_subscribed) ? true : false),
+        ]);
+        return redirect("/userProfile/$user->id")->withSuccess('User Details updated successfully');
+    }
 }

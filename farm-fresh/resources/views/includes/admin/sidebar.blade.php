@@ -18,14 +18,14 @@
         <a href="/admin/categories"><i class="fa-solid fa-folder-tree px-2"></i>Categories</a>
     </li>
     <li class="menu-item">
-        <a href="/admin/reviews"><i class="fas fa-comments px-2"></i></i>Reviews</a>
+        <a href="/admin/reviews"><i class="fas fa-comments px-2"></i>Reviews</a>
     </li>
     <li class="menu-item">
         <a href="/"><i class="fa-solid fa-house-user px-2"></i>User Dashboard</a>
     </li>
     <li class="menu-item">
         <a href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">
-            <i class="fa-solid fa-power-off px-2"></i></i>Log Out
+            <i class="fa-solid fa-power-off px-2"></i>Log Out
         </a>
         <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
             @csrf

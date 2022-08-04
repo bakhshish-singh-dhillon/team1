@@ -53,7 +53,7 @@
                             <td class="p-2 text-right">$ {{ $bill['vat'] }} </td>
                         </tr>
                         <tr>
-                            <td colspan="4" class="v-title p-2 text-right">Delivery Charges (0%)</td>
+                            <td colspan="4" class="v-title p-2 text-right">Delivery Charges</td>
                             <td class="p-2 text-right">$ {{ $bill['delivery_charges'] }} </td>
                         </tr>
                         <tr>
@@ -63,7 +63,7 @@
                     </tbody>
                 </table>
                 <div class="d-flex justify-content-between pt-3">
-                    <a class="btn" href="/choose-addresses" method="post">Choose Address</a>
+                    <a class="btn" href="/choose-addresses">Choose Address</a>
                     <form action="{{ route('clear-cart') }}" method="post">
                         @csrf
                         @method('DELETE')
@@ -73,4 +73,5 @@
             </div>
         </div>
     </div>
-    @endsection
+</div>
+@endsection

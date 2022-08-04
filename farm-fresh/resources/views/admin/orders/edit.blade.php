@@ -10,8 +10,8 @@
         <div class="card-body">
             <div class="mx-auto container">
 
-                <div id="invoice_content p-3">
-                    <table id="content-table text-left " style="min-width: 100%;">
+                <div class="invoice_content p-3">
+                    <table class="content-table text-left" style="min-width: 100%;">
                         <thead>
                             <tr class="border-bottom">
                                 <th class="py-2">User Info</th>
@@ -34,40 +34,40 @@
                                     </p>
                                 </td>
                                 <td class="pt-2 text-left align-top">
-                                    <p class="text-left  py-0">
+                                    <div class="text-left  py-0">
                                         <strong>Order Number :</strong> {{$order->id}}<br />
                                         <strong>Order Date :</strong> {{$order->created_at}}<br />
                                         <strong>Charged To Card :</strong> $ {{$order->total}}<br />
                                         <strong>Auth Code :</strong> {{$order->auth_code}}<br />
                                         <strong>Status :</strong> {{$order->order_status}}
-                                    <form id="order_status_update_form" method="post" action="{{ route('order-update', ['order' => $order->id]) }}">
-                                        @csrf
-                                        @method('PUT')
-                                        <label class="form-label" for="category_search">Update Status:
-                                        </label>
-                                        <select name="order_status" id="order_status" class="form-control w-75">
-                                            <option value="">Select status</option>
-                                            <option value="Pending" <?= $order->order_status == 'Pending' ? 'selected' : '' ?>>Pending</option>
-                                            <option value="Shipped" <?= $order->order_status == "Shipped" ? 'selected' : '' ?>>Shipped</option>
-                                            <option value="Delivered" <?= $order->order_status == "Delivered" ? 'selected' : '' ?>>Delivered</option>
-                                            <option value="Cancelled" <?= $order->order_status == "Cancelled" ? 'selected' : '' ?>>Cancelled</option>
-                                        </select>
-                                    </form><br />
+                                        <form id="order_status_update_form" method="post" action="{{ route('order-update', ['order' => $order->id]) }}">
+                                            @csrf
+                                            @method('PUT')
+                                            <label class="form-label" for="order_status">Update Status:
+                                            </label>
+                                            <select name="order_status" id="order_status" class="form-control w-75">
+                                                <option value="">Select status</option>
+                                                <option value="Pending" <?= $order->order_status == 'Pending' ? 'selected' : '' ?>>Pending</option>
+                                                <option value="Shipped" <?= $order->order_status == "Shipped" ? 'selected' : '' ?>>Shipped</option>
+                                                <option value="Delivered" <?= $order->order_status == "Delivered" ? 'selected' : '' ?>>Delivered</option>
+                                                <option value="Cancelled" <?= $order->order_status == "Cancelled" ? 'selected' : '' ?>>Cancelled</option>
+                                            </select>
+                                        </form><br />
 
-                                    </p>
+                                    </div>
                                 </td>
                                 <td class="pt-2 text-left align-top">
                                     @foreach($order->transactions as $transaction)
-                                    <p class="text-left  py-0">
+                                    <div class="text-left  py-0">
 
                                         <strong>Transaction ID :</strong> {{$transaction->payment_transaction_id}}<br />
                                         <strong>Credit Card :</strong> **** **** **** {{$transaction->cc_num}}<br />
-                                        <strong>Status :</strong> {{$order->transaction_status}}</br>
+                                        <strong>Status :</strong> {{$order->transaction_status}}<br />
                                         <strong>Date :</strong> {{$transaction->created_at}}
                                         @if(count($order->transactions) >1)
-                                    <p class="border-bottom"></p>
-                                    @endif
-                                    </p>
+                                        <p class="border-bottom"></p>
+                                        @endif
+                                    </div>
                                     @endforeach
                                 </td>
 

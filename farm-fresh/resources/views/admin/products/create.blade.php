@@ -127,10 +127,9 @@
                     </div>
                     <a class="btn btn-danger" href="/admin/products" role="button">Back</a>
                     <button class="btn btn-primary">Publish</button>
+                </form>
             </div>
-            </form>
         </div>
     </div>
-</div>
 </div>
 @endsection
