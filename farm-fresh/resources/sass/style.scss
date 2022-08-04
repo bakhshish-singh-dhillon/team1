@@ -306,10 +306,29 @@ button.btn-danger:hover {
             }
         }
     }
+}
 
-    .left-part {
-        border-right: 1px solid #ccc;
+#profile {
+    .profile-menu ul li {
+        list-style-type: none;
+
+        a {
+            text-decoration: none;
+            padding: 5px 20px;
+            display: block;
+            border: 1px solid #666;
+            color: #000;
+        }
+
+        a:hover {
+            color: #fff;
+            background-color: $green;
+        }
     }
+}
+
+.left-part {
+    border-right: 1px solid #ccc;
 }
 
 #detail {
@@ -817,11 +836,11 @@ ul.li_size {
     }
 
     .theme-tag {
-        color: var(--theme);
+        color: var(--theme-color);
         cursor: pointer;
         background-color: #fff;
         border-radius: 2px 0 0 2px;
-        box-shadow: 0 2px 9px rgba(177, 177, 177, 0.2);
+        box-shadow: 0 2px 9px rgba(37, 37, 37, 0.3);
         width: 40px;
         height: 34px;
         line-height: 37px;
