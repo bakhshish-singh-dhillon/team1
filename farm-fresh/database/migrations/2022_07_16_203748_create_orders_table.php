@@ -23,8 +23,8 @@ return new class extends Migration
             $table->string('order_status');
             $table->decimal('total',8,2);
             $table->decimal('subtotal',8,2);
-            $table->string('billing_address');
-            $table->string('shipping_address');
+            $table->longText('billing_address');
+            $table->longText('shipping_address');
             $table->string('auth_code');
             $table->string('transaction_status');
             $table->softDeletes();

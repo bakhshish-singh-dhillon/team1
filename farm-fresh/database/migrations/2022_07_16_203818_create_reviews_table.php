@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->bigInteger('user_id');
             $table->bigInteger('product_id');
-            $table->string('review');
+            $table->longText('review');
             $table->integer('rating');
             $table->boolean('is_approved')->default(true);
             $table->softDeletes();

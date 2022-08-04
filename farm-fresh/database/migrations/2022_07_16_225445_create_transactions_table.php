@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('cc_num');
             $table->string('payment_transaction_id');
             $table->string('status');
-            $table->string('response');
+            $table->longText('response');
             $table->softDeletes();
             $table->timestamps();
         });
