@@ -80,9 +80,9 @@
                                 @enderror
                             </div>
                             <div class="form-outline mb-4">
-                                <label class="form-label" for="category_search">Parent Category:
+                                <label class="form-label" for="category_id">Parent Category:
                                 </label>
-                                <select name="category_id" id="category_search" class="form-control ">
+                                <select name="category_id" id="category_id" class="form-control ">
                                     <option value="">Select parent</option>
                                     @foreach ($parentCategories as $index => $name)
                                     <option value="{{ $name->id }}">
