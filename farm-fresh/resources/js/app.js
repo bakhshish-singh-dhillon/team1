@@ -34,6 +34,7 @@ $(document).ready(function () {
             animationLoop: false,
             slideshow: false,
             touch: true,
+            directionNav: false,
             sync: "#gallery-slides"
         });
         $('#gallery-slides').flexslider({
@@ -43,6 +44,7 @@ $(document).ready(function () {
             slideshow: false,
             touch: true,
             itemWidth: 100,
+            directionNav: false,
             itemMargin: 5,
             asNavFor: '#gallery'
         });
