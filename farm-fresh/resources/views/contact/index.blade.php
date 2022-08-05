@@ -30,7 +30,7 @@
                         </div>
                         <div class="row">
                             <div class="col-md-12 form-group mb-3">
-                                <label for=phone" class="col-form-label">Phone *</label>
+                                <label for="phone" class="col-form-label">Phone *</label>
                                 <input type="text" class="form-control" name="phone" id="phone"
                                     value="{{ old('phone') }}" placeholder="Phone #" data-toggle="tooltip"
                                     data-placement="bottom" title="Phone">
@@ -39,7 +39,7 @@
                                 @enderror
                             </div>
                             <div class="col-md-12 form-group mb-3">
-                                <label for="category" class="col-form-label">How can we help you?</label></br>
+                                <label for="category" class="col-form-label">How can we help you?</label><br />
                                 <!--<input type="text" class="form-control" name="company" id="company" placeholder="Company  name"> -->
                                 <select class="form-select" id="category" name="category" required="required">
                                     <option value="" selected="selected" disabled>Select below *</option>
