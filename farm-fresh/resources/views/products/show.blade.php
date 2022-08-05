@@ -201,7 +201,7 @@
                             <div class="review-title">{{ $review->user->first_name }}
                                 {{ $review->user->last_name }}
                             </div>
-                            <div><small>Posted on 17th July, 2022</small></div>
+                            <div><small>Posted on {{date('d-m-Y', strtotime($review->created_at))}}</small></div>
                             <p class="my-2"><select name="rating" class="form-control rating-static">
                                     <option value="1" {{ $review->rating == 1 ? 'selected' : '' }}>
                                         1</option>
