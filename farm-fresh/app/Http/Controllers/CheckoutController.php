@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 use App\Mail\OrderPlacedEmail;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\URL;
 
 class CheckoutController extends Controller
 {
@@ -36,8 +37,11 @@ class CheckoutController extends Controller
         }
         return back()->withError('Cart is empty');
     }
-    public function thank_you(Order $order)
+    public function thank_you(Order $order, Request $request)
     {
+        if (!$request->hasValidSignature()) {
+            abort(404);
+        }
         $address = json_decode($order->shipping_address);
         $sub_total = 0;
         foreach ($order->order_line_items as $line_item) {
@@ -136,7 +140,12 @@ class CheckoutController extends Controller
                     $line_item->product->quantity = $line_item->product->quantity - $cart[$line_item->product->id]['quantity'];
                     $line_item->product->save();
                 }
-                return redirect('/thank-you/' . $order->id)->withSuccess('Order Placed Successfully');
+                return redirect(URL::temporarySignedRoute(
+                    'thank-you',
+                    now()->addMinutes(1),
+                    ['order' => $order->id]
+                ))->withSuccess('Order Placed Successfully');
+                //return redirect('/thank-you/' . $order->id)->withSuccess('Order Placed Successfully');
             } elseif ($response->transaction_response->errors) {
                 $order->transaction_status = "Failed";
                 $order->save();
