@@ -39,7 +39,7 @@ class AdminController extends Controller
         // $productsCount = Product::count();
         // $usersCount = User::count();
         // $salesCount = Order::count('total');
-        
+
         $chart_data = Order::select(
             DB::raw('year(created_at) as year'),
             DB::raw('monthname(created_at) as month'),
@@ -50,17 +50,24 @@ class AdminController extends Controller
             ->groupBy('month')
             ->get();
 
-        $pie_data=  array();
+        $pie_data =  array();
         $pie_data["Dairy"] = $this->count_orders(Category::whereIn('id', [1])->with('children.products.order_line_items')->get()->toArray());
         $pie_data["Vegetable"] = $this->count_orders(Category::whereIn('id', [2])->with('children.products.order_line_items')->get()->toArray());
         $pie_data["Fruits"] = $this->count_orders(Category::whereIn('id', [3])->with('children.products.order_line_items')->get()->toArray());
         return view('admin.index', compact('ordersCount', 'productsCount', 'usersCount', 'salesCount', 'chart_data', 'pie_data'));
     }
 
-    private function count_orders($array){
+    /**
+     * A function to increment count of orders
+     *
+     * @param [type] $array
+     * @return void
+     */
+    private function count_orders($array)
+    {
         $count = 0;
-        array_walk_recursive($array, function ($item, $key) use (&$count){
-            if($key == 'order_id'){
+        array_walk_recursive($array, function ($item, $key) use (&$count) {
+            if ($key == 'order_id') {
                 $count++;
             }
         });

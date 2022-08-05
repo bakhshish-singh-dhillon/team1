@@ -22,9 +22,12 @@ class UserProfileController extends Controller
         $this->middleware(['auth']);
     }
 
-
-
-
+    /**
+     * A function to show user profile
+     *
+     * @param User $user
+     * @return void
+     */
     public function show(User $user)
     {
         $orders = Order::where('user_id', $user->id)->get();
@@ -36,6 +39,12 @@ class UserProfileController extends Controller
         return view('user-profile', compact('user', 'title', 'orders', 'addresses', 'reviews'));
     }
 
+    /**
+     * A funciton to show orders
+     *
+     * @param Order $order
+     * @return void
+     */
     public function show_order(Order $order)
     {
         $address = json_decode($order->shipping_address);
@@ -117,6 +126,6 @@ class UserProfileController extends Controller
 
         session()->put('address', json_encode($address));
 
-        return redirect('/user-profile/'.$user->id)->withSuccess('Addresses Updated Successfully');
+        return redirect('/user-profile/' . $user->id)->withSuccess('Addresses Updated Successfully');
     }
 }

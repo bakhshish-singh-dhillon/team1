@@ -38,6 +38,12 @@ class AdminUserController extends Controller
         return view('admin/users/index', compact('users', 'title'));
     }
 
+    /**
+     * Remove the specified user from storage
+     *
+     * @param User $user
+     * @return void
+     */
     public function destroy(User $user)
     {
         if ($user->delete()) {

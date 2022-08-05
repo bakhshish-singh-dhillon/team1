@@ -60,7 +60,8 @@ class LoginController extends Controller
     {
         $request['is_active'] = 1;
         return $this->guard()->attempt(
-            $this->credentials($request), $request->boolean('remember')
+            $this->credentials($request),
+            $request->boolean('remember')
         );
     }
 
@@ -75,7 +76,12 @@ class LoginController extends Controller
         return $request->only($this->username(), 'password', 'is_active');
     }
 
-
+    /**
+     * A function to logout from the website
+     *
+     * @param Request $request
+     * @return void
+     */
     public function logout(Request $request)
     {
         $this->guard()->logout();

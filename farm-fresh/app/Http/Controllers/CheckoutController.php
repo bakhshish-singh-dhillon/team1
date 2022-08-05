@@ -24,6 +24,11 @@ class CheckoutController extends Controller
         $this->middleware(['auth']);
     }
 
+    /**
+     * A function to show checkout pages
+     *
+     * @return void
+     */
     public function index()
     {
         if (session()->has('cart') && count(session()->get('cart')) !== 0) {
@@ -37,6 +42,14 @@ class CheckoutController extends Controller
         }
         return back()->withError('Cart is empty');
     }
+
+    /**
+     * A function to show thank you page
+     *
+     * @param Order $order
+     * @param Request $request
+     * @return void
+     */
     public function thank_you(Order $order, Request $request)
     {
         if (!$request->hasValidSignature()) {
@@ -56,6 +69,12 @@ class CheckoutController extends Controller
         return view('thank-you', compact('order', 'total', 'gst', 'pst', 'sub_total', 'address', 'delivery_charges', 'vat'));
     }
 
+    /**
+     * A function to process payment
+     *
+     * @param Request $request
+     * @return void
+     */
     public function process_payment(Request $request)
     {
         $valid = $request->validate([
@@ -72,15 +91,12 @@ class CheckoutController extends Controller
 
         $cart = session()->get('cart');
 
-
         $bill['subtotal'] = number_format((float)array_sum(array_column($cart, 'line_price')), 2, '.', '');
         $bill['gst'] = number_format((float)$this->global_var['gst'] * $bill['subtotal'], 2, '.', '');
         $bill['pst'] = number_format((float)$this->global_var['pst'] * $bill['subtotal'], 2, '.', '');
         $bill['vat'] = number_format((float)$this->global_var['vat'] * $bill['subtotal'], 2, '.', '');
         $bill['delivery_charges'] = number_format((float)$this->global_var['delivery_charges'], 2, '.', '');
         $bill['total'] = number_format((float)$bill['subtotal'] + $bill['pst'] + $bill['gst'] + $bill['vat'] + $bill['delivery_charges'], 2, '.', '');
-
-
 
         $order = Auth::user()->orders()->create([
             'delivery_charges' => $bill['delivery_charges'],
@@ -106,7 +122,6 @@ class CheckoutController extends Controller
         }
 
         try {
-
             // You need your login and API key to begin
             // login_id:  2021081  
             // api_key: a88c8843898e4daad5646322ca06f14d

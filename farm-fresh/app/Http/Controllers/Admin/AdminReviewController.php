@@ -38,6 +38,12 @@ class AdminReviewController extends Controller
         return view('admin/reviews/index', compact('reviews', 'title'));
     }
 
+    /**
+     * Remove the specified review from storage
+     *
+     * @param Review $review
+     * @return void
+     */
     public function destroy(Review $review)
     {
         if ($review->delete()) {
