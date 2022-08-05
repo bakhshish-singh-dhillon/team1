@@ -35,7 +35,7 @@ class AdminProductController extends Controller
             $categories = Category::whereNull('category_id')->get();
             $title = "Searching for " . $request->search;
         } else {
-            $products = Product::latest()->paginate(10);
+            $products = Product::latest()->orderBy('id', 'asc')->paginate(10);
             $categories = Category::pluck('name', 'id');
             $title = "Products";
         }
