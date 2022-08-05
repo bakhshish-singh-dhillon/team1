@@ -41,13 +41,13 @@ class UserProfileController extends Controller
         $address = json_decode($order->shipping_address);
         $sub_total = 0;
         foreach ($order->order_line_items as $line_item) {
-            $line_price = $line_item->unit_price * $line_item->quantity;
-            $sub_total += $line_price;
+            $line_price = number_format((float)$line_item->unit_price * $line_item->quantity, 2, '.', '');
+            $sub_total += number_format((float)$line_price, 2, '.', '');
         }
 
-        $gst = $sub_total * 0.05;
-        $pst = $sub_total * 0.07;
-        $total = $sub_total + $gst + $pst;
+        $gst = number_format((float)$sub_total * 0.05, 2, '.', '');
+        $pst = number_format((float)$sub_total * 0.07, 2, '.', '');
+        $total = number_format((float)$sub_total + $gst + $pst, 2, '.', '');
         return view('user-order', compact('order', 'total', 'gst', 'pst', 'sub_total', 'address'));
     }
 
@@ -117,6 +117,6 @@ class UserProfileController extends Controller
 
         session()->put('address', json_encode($address));
 
-        return redirect('/user-profile/'.$user->id)->withSuccess('Addresses Updated Successfully');
+        return redirect('/user-profile/' . $user->id)->withSuccess('Addresses Updated Successfully');
     }
 }
