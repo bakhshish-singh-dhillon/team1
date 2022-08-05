@@ -65,14 +65,13 @@
                             <div>
                                 <label for="billing_address_options">Choose from existing addresses:</label>
                                 <div class="d-flex gap-1 mb-3">
-                                    <select name="billing_address_options" id="billing_address_options" class="form-control" v-model="billing_address_id">
+                                    <select name="billing_address_options" id="billing_address_options" class="form-select" v-model="billing_address_id">
                                         <option value="" disabled selected>Select address</option>
+                                        <option value="add-new" id="billing-address-add-new" >Add New</option>
                                         @foreach ($addresses as $key => $address)
                                         <option value="{{ $key }}" id="billing-address-{{ $key }}">{{ $address->address }}</option>
                                         @endforeach
                                     </select>
-                                    <input type="radio" class="btn-check" name="billing_address_options" value="add-new" id="billing-address-add-new" v-model="billing_address_id" checked="checked">
-                                    <label class="btn" for="billing-address-add-new">Reset</label>
                                 </div>
                             </div>
                         </div>
@@ -135,15 +134,13 @@
                             <div>
                                 <label for="shipping_address_options">Choose from existing addresses:</label>
                                 <div class="d-flex gap-1 mb-3">
-                                    <select name="shipping_address_options" id="shipping_address_options" class="form-control" v-model="shipping_address_id">
+                                    <select name="shipping_address_options" id="shipping_address_options" class="form-select" v-model="shipping_address_id">
                                         <option value="" disabled selected>Select address</option>
-
+                                        <option value="add-new" id="shipping-address-add-new" >Add New</option>
                                         @foreach ($addresses as $key => $address)
                                         <option value="{{ $key }}" id="shipping-address-{{ $key }}">{{ $address->address }}</option>
                                         @endforeach
-                                    </select>
-                                    <input type="radio" class="btn-check" name="shipping_address_options" value="add-new" id="shipping-address-add-new" v-model="shipping_address_id" checked="checked">
-                                    <label class="btn" for="shipping-address-add-new">Reset</label>
+                                </select>
                                 </div>
                             </div>
                         </div>

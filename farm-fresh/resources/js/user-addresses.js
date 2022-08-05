@@ -43,6 +43,10 @@ if ($("#user-addresses").length) {
         },
         watch: {
             billing_address_id(newAddress, oldAddress) {
+                if(!$.isEmptyObject(this.form_old_inputs) && this.form_old_inputs.billing_address_options){
+                    this.form_old_inputs.billing_address_options = false;
+                    return;
+                }
                 if (newAddress == "add-new") {
                     this.billing_address = {
                         address_type: '',
@@ -67,6 +71,10 @@ if ($("#user-addresses").length) {
                 }
             },
             shipping_address_id(newAddress, oldAddress) {
+                if(!$.isEmptyObject(this.form_old_inputs) && this.form_old_inputs.shipping_address_options){
+                    this.form_old_inputs.shipping_address_options = false;
+                    return;
+                }
                 if (newAddress == "add-new") {
                     this.shipping_address = {
                         address_type: '',
@@ -97,17 +105,17 @@ if ($("#user-addresses").length) {
             }
             if (!$.isEmptyObject(JSON.parse(this.old_inputs))) {
                 this.form_old_inputs = JSON.parse(this.old_inputs);
-                this.billing_address_id = this.form_old_inputs.billing_address_options,
-                    this.shipping_address_id = this.form_old_inputs.shipping_address_options,
-                    this.shipping_address = {
-                        address_type: this.form_old_inputs.shipping_address_name,
-                        address: this.form_old_inputs.shipping_address,
-                        city: this.form_old_inputs.shipping_city,
-                        province: this.form_old_inputs.shipping_province,
-                        country: this.form_old_inputs.shipping_country,
-                        postal_code: this.form_old_inputs.shipping_postal_code,
-                        phone: this.form_old_inputs.shipping_phone
-                    }
+                this.billing_address_id = this.form_old_inputs.billing_address_options;
+                this.shipping_address_id = this.form_old_inputs.shipping_address_options;
+                this.shipping_address = {
+                    address_type: this.form_old_inputs.shipping_address_name,
+                    address: this.form_old_inputs.shipping_address,
+                    city: this.form_old_inputs.shipping_city,
+                    province: this.form_old_inputs.shipping_province,
+                    country: this.form_old_inputs.shipping_country,
+                    postal_code: this.form_old_inputs.shipping_postal_code,
+                    phone: this.form_old_inputs.shipping_phone
+                }
                 this.billing_address = {
                     address_type: this.form_old_inputs.billing_address_name,
                     address: this.form_old_inputs.billing_address,
