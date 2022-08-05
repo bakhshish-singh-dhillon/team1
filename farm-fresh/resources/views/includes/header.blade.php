@@ -67,7 +67,7 @@
                         </span>
                     </a>
                     <?php if (Auth::check() && Auth::user()) : ?>
-                        <a href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit(); return confirm('Are you sure you want to Log-Out?')" data-toggle="tooltip" data-placement="bottom" title="Log-Out">
+                        <a href="{{ route('logout') }}" data-toggle="tooltip" data-placement="bottom" title="Log-Out" onclick="event.preventDefault();return confirm('Are you sure you want to Log-Out?')?document.getElementById('logout-form').submit():false;">
                             <!-- <img src="/images/power.png" alt="Logout" class="icon mx-2 my-4" /> -->
                             <i class="fa-solid fa-power-off rounded-circle mx-2 my-4 p-2 text-white bg-green"></i>
 
