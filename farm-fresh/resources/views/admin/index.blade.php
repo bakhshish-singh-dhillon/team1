@@ -29,7 +29,7 @@
             <div class="card p-3 m-2 green-bg">
                 <div class="d-flex justify-content-between">
                     <div class="content">
-                        <p class="sub-title">{{ $salesCount }} <small><i class="fa-solid fa-dollar-sign"></i></small></p>
+                        <p class="sub-title"><small><i class="fa-solid fa-dollar-sign"></i></small>{{ $salesCount }} </p>
                         <p>Total Sales</p>
                     </div>
                     <i class="fa-solid fa-sack-dollar symbol p-4"></i>

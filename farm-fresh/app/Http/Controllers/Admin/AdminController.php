@@ -34,7 +34,7 @@ class AdminController extends Controller
         $ordersCount = DB::table('orders')->whereNull('deleted_at')->count();
         $productsCount = DB::table('products')->whereNull('deleted_at')->count();
         $usersCount = DB::table('users')->whereNull('deleted_at')->count();
-        $salesCount = DB::table('orders')->whereNull('deleted_at')->count('total');
+        $salesCount = DB::table('orders')->whereNull('deleted_at')->sum('total');
         // $ordersCount = Category::count();
         // $productsCount = Product::count();
         // $usersCount = User::count();
