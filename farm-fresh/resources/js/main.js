@@ -127,20 +127,24 @@ $(document).ready(function ($) {
                 put_method.id = '_method';
                 put_method.value = 'PUT';
                 put_method.name = '_method';
-                document.getElementById("category_form").appendChild(put_method);
+                if (!document.getElementById("_method")) {
+                    document.getElementById("category_form").appendChild(put_method);
+                }
             } else {
                 document.getElementById("categoryModalLabel").innerHTML = "Create Category";
                 document.getElementById("submit_btn").innerHTML = "Create";
                 document.getElementById("category_form").action = "/admin/categories";
-                if (null != document.getElementById("_method")) {
+                if (document.getElementById("_method")) {
                     document.getElementById("_method").remove();
                 }
             }
-            const name = button.getAttribute('data-bs-name')
+            const name = button.getAttribute('data-bs-name');
 
-            const modalBodyInput = categoryModal.querySelector('.modal-body #category-name')
-            modalBodyInput.value = name
-            document.getElementById('category_id').getElementsByTagName('option')[parentId].selected = 'selected';
+            const modalBodyInput = categoryModal.querySelector('.modal-body #category-name');
+            modalBodyInput.value = name;
+            if (document.getElementById('category_id')) {
+                document.getElementById('category_id').getElementsByTagName('option')[parentId].selected = 'selected';
+            }
             $('.js-example-basic-single').select2();
 
             const modalTitle = categoryModal.querySelector('#categoryModalLabel');
