@@ -136,7 +136,7 @@
                                 <a class="btn btn-danger remove-attribute" id="remove"><i class="fa-solid fa-minus"></i></a>
                             </div>
                         </div>
-                        <a class="btn btn-danger remove-attribute">Remove</a>
+                        <!-- <a class="btn btn-danger remove-attribute">Remove</a> -->
                         @endforeach
                         @endif
                     </div>
