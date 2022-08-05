@@ -39,13 +39,13 @@
                 <td>{{ $review->rating }}</td>
                 <td>
                     <div class="btn-group">
-                        <form method="post" action="{{ route('review-update', ['review' => $review->id]) }}" onsubmit="return confirm('Are you sure you want to <?= $review->is_approved ? 'Dis-approve' : 'Approve'; ?> review?');">
+                        <form method="post" action="{{ route('review-update', ['review' => $review->id]) }}" onsubmit="return confirm('Are you sure you want to <?= $review->is_approved ? 'Disapprove' : 'Approve'; ?> review?');">
                             @csrf
                             @method('PUT')
                             <input type="hidden" name="id" value="{{ $review->id }}" />
                             @if ($review->is_approved)
                             <button class="btn btn-danger" data-toggle="tooltip" data-placement="bottom" title="Dis-approve" style="margin-right: 10px;">
-                                Dis-approve
+                                Disapprove
                             </button>
                             @else
                             <button class="btn btn-success" data-toggle="tooltip" data-placement="bottom" title="Approved" style="margin-right: 10px;">
