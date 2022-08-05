@@ -901,3 +901,18 @@ ul.li_size {
         }
     }
 }
+
+.static-page-head {
+    position: relative;
+    text-align: center;
+    color: white;
+
+    h1 {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background: #b6b6b690;
+        padding: 30px;
+    }
+}

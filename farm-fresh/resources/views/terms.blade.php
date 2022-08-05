@@ -1,14 +1,18 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container my-4">
-        <div class="row justify-content-center text-center">
-            <div class="col-md-8">
-                <div class="card">
+<div class="max-container my-4">
+    <div class="row justify-content-center">
+        <div class="">
+            <div class="card">
 
-                    <div class="card-body">
-                        {{-- About Page Content Complete --}}
+                <div class="card-body">
+                    {{-- About Page Content Complete --}}
+                    <div class="static-page-head">
+                        <img src="images/TermsAndConditions.png" alt="">
                         <h1>Terms and Conditions</h1>
+                    </div>
+                    <div class="m-4">
                         <p>
                             Welcome to farmfresh.com. Farm Fresh and its affiliates provide access to the farmfresh.com
                             website the “website” to you subject to the conditions set out on this page.
@@ -32,7 +36,7 @@
                             or digital signatures.
                         </p>
 
-                        <ul class="termslist">
+                        <ul>
                             <li>
                                 Conditions Relating to Your Use of farmfresh.com
                             </li>
@@ -43,7 +47,7 @@
                                 Notice and Procedure for Notifying farmfresh.com of Objectionable Content
                             </li>
                         </ul>
-                        <h3>Conditions Relating to Your Use of farmfresh.com</h3>
+                        <h3 class="mt-4">Conditions Relating to Your Use of farmfresh.com</h3>
                         <p>
                             If you use the website, you are responsible for maintaining the confidentiality of your account
                             and password and for restricting access to your computer to prevent unauthorised access to your
@@ -58,16 +62,18 @@
                             purchase products only for your personal use and not for business purposes. Should you wish to
                             order products for business purposes, please create a vendor account on farmfresh.com.
                         </p>
+                        <h4 class="mt-4">Privacy</h4>
+                        <p>
+                            Please review our Privacy Notice, which also governs your visit to farmfresh.com, to understand our
+                            practices. The personal information / data provided to us by you during the course of usage of
+                            farmfresh.com will be treated as strictly confidential and in accordance with the Privacy Notice and
+                            applicable laws and regulations. If you object to your information being transferred or used, please
+                            do not use the website.
+                        </p>
                     </div>
-                    <h4>Privacy</h4>
-                    <p>
-                        Please review our Privacy Notice, which also governs your visit to farmfresh.com, to understand our
-                        practices. The personal information / data provided to us by you during the course of usage of
-                        farmfresh.com will be treated as strictly confidential and in accordance with the Privacy Notice and
-                        applicable laws and regulations. If you object to your information being transferred or used, please
-                        do not use the website.
-                    </p>
                 </div>
             </div>
         </div>
-    @endsection
+    </div>
+</div>
+@endsection
