@@ -55,7 +55,7 @@ class LoginController extends Controller
     {
         $this->guard()->logout();
         $request->session()->invalidate();
-        $request->session()->flash('error', 'You are logged out!');
+        $request->session()->flash('success', 'You are logged out!');
         return redirect('/');
     }
 }
