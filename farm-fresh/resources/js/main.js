@@ -30,12 +30,26 @@ $(document).ready(function ($) {
     $(".theme-box").on("click", function () {
         $(this).toggleClass('active');
     });
+
+    // getting mode from cookie and setting respected mode
+    if (getCookie("mode") == "reading") {
+        $("body").addClass('grey-filter');
+    }
+    function getCookie(name) {
+        const value = `; ${document.cookie}`;
+        const parts = value.split(`; ${name}=`);
+        if (parts.length === 2) return parts.pop().split(';').shift();
+    }
+
+    // storing view mode as a cookie
     $("#green_theme").on("click", function () {
         // root.style.setProperty('--theme-color', '#3f6c39');
         $("body").removeClass('grey-filter');
+        document.cookie = "mode=normal";
     });
     $("#red_theme").on("click", function () {
         $("body").addClass('grey-filter');
+        document.cookie = "mode=reading";
     });
 
     $('.js-example-basic-single').select2();
