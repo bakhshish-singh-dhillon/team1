@@ -57,7 +57,6 @@ class ReviewController extends Controller
 
         ]);
 
-
         return back()->withSuccess('review added successfully');
     }
 }

@@ -7,7 +7,7 @@
             <div class="card p-4">
 
                 <h1>Order Details</h1>
-                <div id="invoice_content p-3">
+                <div class="invoice_content p-3">
                     <table class="content-table text-left " style="min-width: 100%;">
                         <thead>
                             <tr class="border-bottom">
@@ -87,4 +87,5 @@
             </div>
         </div>
     </div>
-    @endsection
+</div>
+@endsection

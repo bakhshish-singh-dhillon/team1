@@ -7,6 +7,11 @@ use App\Models\Product;
 
 class CartController extends Controller
 {
+    /**
+     * A function to show checkout steps
+     *
+     * @return void
+     */
     public function index()
     {
         if (session()->has('cart') && count(session()->get('cart')) !== 0) {
@@ -21,7 +26,13 @@ class CartController extends Controller
         return back()->withError('Cart is empty');
     }
 
-
+    /**
+     * A function to add product into the cart
+     *
+     * @param Product $product
+     * @param Request $request
+     * @return void
+     */
     public function add(Product $product, Request $request)
     {
 
@@ -42,6 +53,12 @@ class CartController extends Controller
         return back()->withSuccess('Product added to cart successfully!');
     }
 
+    /**
+     * A function to remove product from the cart
+     *
+     * @param Product $product
+     * @return void
+     */
     public function remove(Product $product)
     {
         if ($product->id) {
@@ -57,7 +74,11 @@ class CartController extends Controller
         }
     }
 
-
+    /**
+     * A fucntion to clear the cart
+     *
+     * @return void
+     */
     public function clear()
     {
         session()->forget('cart');
