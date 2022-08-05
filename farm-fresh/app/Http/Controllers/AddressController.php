@@ -20,6 +20,11 @@ class AddressController extends Controller
         $this->middleware(['auth']);
     }
 
+    /**
+     * A function to show checkout steps
+     *
+     * @return void
+     */
     public function index()
     {
         if (session()->has('cart') && count(session()->get('cart')) !== 0) {

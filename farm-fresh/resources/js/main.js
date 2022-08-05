@@ -1,7 +1,9 @@
 import $ from 'jquery';
 
-$(document).ready(function($) {
-    $("body").on("click", ".add-more", function() {
+$(document).ready(function ($) {
+
+    // Admin edit / add product:  adding or removing meta attribute
+    $("body").on("click", ".add-more", function () {
         var html = `<div class="row py-3 form-outline">
                         <div class="col-md-5">
                         <label class="form-label" for="key[]">Attribute Name: <span class="text-danger">*</span></label>
@@ -17,17 +19,18 @@ $(document).ready(function($) {
                     </div>`;
 
         $("body .additional-fields").append(html);
-
     });
 
-    $("body").on("click", ".remove-attribute", function() {
+    $("body").on("click", ".remove-attribute", function () {
         $(this).parents(".form-outline").remove();
     });
+
+    // Inappropriate variable name reason: (Were trying to provide dark and light mode, but chose to provide reading mode instead)
 
     // let root = document.documentElement;
 
     // changing mode for reading and normal mode
-    $(".theme-box").on("click", function() {
+    $(".theme-box").on("click", function () {
         $(this).toggleClass('active');
     });
 
@@ -36,6 +39,7 @@ $(document).ready(function($) {
         $("body").addClass('grey-filter');
     }
 
+    // a function to get cookie from the storage
     function getCookie(name) {
         const value = `; ${document.cookie}`;
         const parts = value.split(`; ${name}=`);
@@ -43,12 +47,12 @@ $(document).ready(function($) {
     }
 
     // storing view mode as a cookie
-    $("#green_theme").on("click", function() {
+    $("#green_theme").on("click", function () {
         // root.style.setProperty('--theme-color', '#3f6c39');
         $("body").removeClass('grey-filter');
         document.cookie = "mode=normal";
     });
-    $("#red_theme").on("click", function() {
+    $("#red_theme").on("click", function () {
         $("body").addClass('grey-filter');
         document.cookie = "mode=reading";
     });
@@ -63,13 +67,13 @@ $(document).ready(function($) {
     var buttonPlus = $("#plus");
     var buttonMinus = $("#minus");
 
-    var incrementPlus = buttonPlus.click(function() {
+    var incrementPlus = buttonPlus.click(function () {
         // alert("hello");
         var $n = $(".qty");
         $n.val(Number($n.val()) + 1);
     });
 
-    var decrementMinus = buttonMinus.click(function() {
+    var decrementMinus = buttonMinus.click(function () {
         var $n = $(".qty");
         var amount = Number($n.val());
         if (amount > 1) {
@@ -80,7 +84,7 @@ $(document).ready(function($) {
     // slideout flash messages
     $(".alert").fadeOut(4000);
 
-    var hide = $(".close").click(function() {
+    var hide = $(".close").click(function () {
         $(".alert").hide();
 
     });
@@ -90,8 +94,9 @@ $(document).ready(function($) {
     //     $(".alert").hide();
     // });
 
+    // saving category form
     if (document.getElementById('category_form')) {
-        document.getElementById('category_form').addEventListener('submit', function(evt) {
+        document.getElementById('category_form').addEventListener('submit', function (evt) {
             evt.preventDefault();
             if (document.getElementById('category-name').value == "") {
                 document.getElementById('required').innerHTML = "Category name is required!";
@@ -154,32 +159,32 @@ $(document).ready(function($) {
     if ($("#order_publish").get(0)) {
         $("#order_publish").prop('disabled', true);
         $('#order_status').change(
-            function() {
+            function () {
                 $("#order_publish").prop('disabled', false);
             }
         );
     }
+
     // Pravindra Order Status Start
-    $("#order_publish").on("click", function() {
+    $("#order_publish").on("click", function () {
         $("#order_status_update_form").submit();
     });
-
     // Pravindra Order Status End
 
     // Pravindra User Details Start
     if ($("#update_user").get(0)) {
         $('#first_name').keyup(
-            function() {
+            function () {
                 $("#update_user").show("slow");
             }
         );
         $('#last_name').keyup(
-            function() {
+            function () {
                 $("#update_user").show("slow");
             }
         );
         $('#is_subscribed').change(
-            function() {
+            function () {
                 $("#update_user").show("slow");
             }
         );

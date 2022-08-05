@@ -20,6 +20,7 @@ if ($("#multi-image").length) {
     multi_image.mount('#multi-image');
 }
 
+// lightbox for showing product images on detail page
 $(document).ready(function () {
     if ($("#product-gallery").length) {
         // $('#product-gallery').flexslider({
@@ -55,6 +56,8 @@ $(document).ready(function () {
     //     });
     // }
 });
+
+// Showing slider for featured products
 $(document).ready(function () {
     (function ($) {
         $('#featured-slider').owlCarousel({

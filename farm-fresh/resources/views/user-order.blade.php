@@ -7,7 +7,7 @@
             <div class="card p-4">
 
                 <h1>Order Details</h1>
-                <div id="invoice_content p-3">
+                <div class="invoice_content p-3">
                     <table class="content-table text-left " style="min-width: 100%;">
                         <thead>
                             <tr class="border-bottom">
@@ -36,7 +36,7 @@
                                         <strong>Order Number :</strong> {{$order->id}}<br />
                                         <strong>Order Date :</strong> {{$order->created_at}}<br />
                                         <strong>Charged To Card :</strong> ${{$order->total}}<br />
-                                        <strong>Credit Card :</strong> ************{{$order->transactions()->latest()->first()->cc_num}}<br />
+                                        <strong>Credit Card :</strong> {{$order->transactions()->latest()->first()->cc_num}}<br />
                                         <strong>Status :</strong> {{$order->order_status}}<br />
                                         <strong>Auth Code :</strong> {{$order->auth_code}}<br />
                                     </p>
@@ -87,4 +87,5 @@
             </div>
         </div>
     </div>
-    @endsection
+</div>
+@endsection

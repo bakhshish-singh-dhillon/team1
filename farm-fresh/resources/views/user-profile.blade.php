@@ -103,7 +103,9 @@
                                     </thead>
                                     <tbody>
                                         @if (count($addresses) == 0)
-                                        <tr colspan="4">You have not reviewed anything yet!</tr>
+                                        <tr>
+                                            <td colspan="4">You have not reviewed anything yet!</td>
+                                        </tr>
                                         @else
                                         @foreach ($addresses as $address)
                                         <tr>
@@ -145,7 +147,9 @@
                                     </thead>
                                     <tbody>
                                         @if (count($reviews) == 0)
-                                        <tr colspan="4">You have not reviewed anything yet!</tr>
+                                        <tr>
+                                            <td colspan="4">You have not reviewed anything yet!</td>
+                                        </tr>
                                         @else
                                         @foreach ($reviews as $review)
                                         <tr>
@@ -180,7 +184,9 @@
                                     </thead>
                                     <tbody>
                                         @if (count($orders) == 0)
-                                        <tr colspan="4">You have not purchased anything yet!</tr>
+                                        <tr>
+                                            <td colspan="4">You have not purchased anything yet!</td>
+                                        </tr>
                                         @else
                                         @foreach ($orders as $order)
                                         <tr>
