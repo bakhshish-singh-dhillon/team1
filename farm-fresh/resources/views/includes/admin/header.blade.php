@@ -18,6 +18,7 @@
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
+    <link rel="icon" href="/images/logo-50.png" />
     <!-- Styles -->
     @yield('custom-css')
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
