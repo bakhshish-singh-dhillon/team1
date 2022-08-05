@@ -6,6 +6,7 @@ import 'select2';
 import { createApp } from 'vue';
 import MultiImage from './components/multi-image.vue';
 import './user-addresses.js';
+import './profile-user-addresses.js';
 // window.jQuery = window.$ = $;
 window.$ = window.jQuery = require('jquery');
 import 'flexslider';
