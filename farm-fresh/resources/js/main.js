@@ -1,7 +1,7 @@
 import $ from 'jquery';
 
-$(document).ready(function ($) {
-    $("body").on("click", ".add-more", function () {
+$(document).ready(function($) {
+    $("body").on("click", ".add-more", function() {
         var html = `<div class="row py-3 form-outline">
                         <div class="col-md-5">
                         <label class="form-label" for="key[]">Attribute Name: <span class="text-danger">*</span></label>
@@ -20,14 +20,14 @@ $(document).ready(function ($) {
 
     });
 
-    $("body").on("click", ".remove-attribute", function () {
+    $("body").on("click", ".remove-attribute", function() {
         $(this).parents(".form-outline").remove();
     });
 
     // let root = document.documentElement;
 
     // changing mode for reading and normal mode
-    $(".theme-box").on("click", function () {
+    $(".theme-box").on("click", function() {
         $(this).toggleClass('active');
     });
 
@@ -35,6 +35,7 @@ $(document).ready(function ($) {
     if (getCookie("mode") == "reading") {
         $("body").addClass('grey-filter');
     }
+
     function getCookie(name) {
         const value = `; ${document.cookie}`;
         const parts = value.split(`; ${name}=`);
@@ -42,12 +43,12 @@ $(document).ready(function ($) {
     }
 
     // storing view mode as a cookie
-    $("#green_theme").on("click", function () {
+    $("#green_theme").on("click", function() {
         // root.style.setProperty('--theme-color', '#3f6c39');
         $("body").removeClass('grey-filter');
         document.cookie = "mode=normal";
     });
-    $("#red_theme").on("click", function () {
+    $("#red_theme").on("click", function() {
         $("body").addClass('grey-filter');
         document.cookie = "mode=reading";
     });
@@ -62,13 +63,13 @@ $(document).ready(function ($) {
     var buttonPlus = $("#plus");
     var buttonMinus = $("#minus");
 
-    var incrementPlus = buttonPlus.click(function () {
+    var incrementPlus = buttonPlus.click(function() {
         // alert("hello");
         var $n = $(".qty");
         $n.val(Number($n.val()) + 1);
     });
 
-    var decrementMinus = buttonMinus.click(function () {
+    var decrementMinus = buttonMinus.click(function() {
         var $n = $(".qty");
         var amount = Number($n.val());
         if (amount > 1) {
@@ -79,7 +80,7 @@ $(document).ready(function ($) {
     // slideout flash messages
     $(".alert").fadeOut(4000);
 
-    var hide = $(".close").click(function () {
+    var hide = $(".close").click(function() {
         $(".alert").hide();
 
     });
@@ -90,7 +91,7 @@ $(document).ready(function ($) {
     // });
 
     if (document.getElementById('category_form')) {
-        document.getElementById('category_form').addEventListener('submit', function (evt) {
+        document.getElementById('category_form').addEventListener('submit', function(evt) {
             evt.preventDefault();
             if (document.getElementById('category-name').value == "") {
                 document.getElementById('required').innerHTML = "Category name is required!";
@@ -121,20 +122,24 @@ $(document).ready(function ($) {
                 put_method.id = '_method';
                 put_method.value = 'PUT';
                 put_method.name = '_method';
-                document.getElementById("category_form").appendChild(put_method);
+                if (!document.getElementById("_method")) {
+                    document.getElementById("category_form").appendChild(put_method);
+                }
             } else {
                 document.getElementById("categoryModalLabel").innerHTML = "Create Category";
                 document.getElementById("submit_btn").innerHTML = "Create";
                 document.getElementById("category_form").action = "/admin/categories";
-                if (null != document.getElementById("_method")) {
+                if (document.getElementById("_method")) {
                     document.getElementById("_method").remove();
                 }
             }
-            const name = button.getAttribute('data-bs-name')
+            const name = button.getAttribute('data-bs-name');
 
-            const modalBodyInput = categoryModal.querySelector('.modal-body #category-name')
-            modalBodyInput.value = name
-            document.getElementById('category_id').getElementsByTagName('option')[parentId].selected = 'selected';
+            const modalBodyInput = categoryModal.querySelector('.modal-body #category-name');
+            modalBodyInput.value = name;
+            if (document.getElementById('category_id')) {
+                document.getElementById('category_id').getElementsByTagName('option')[parentId].selected = 'selected';
+            }
             $('.js-example-basic-single').select2();
 
             const modalTitle = categoryModal.querySelector('#categoryModalLabel');
@@ -149,13 +154,13 @@ $(document).ready(function ($) {
     if ($("#order_publish").get(0)) {
         $("#order_publish").prop('disabled', true);
         $('#order_status').change(
-            function () {
+            function() {
                 $("#order_publish").prop('disabled', false);
             }
         );
     }
     // Pravindra Order Status Start
-    $("#order_publish").on("click", function () {
+    $("#order_publish").on("click", function() {
         $("#order_status_update_form").submit();
     });
 
@@ -164,17 +169,17 @@ $(document).ready(function ($) {
     // Pravindra User Details Start
     if ($("#update_user").get(0)) {
         $('#first_name').keyup(
-            function () {
+            function() {
                 $("#update_user").show("slow");
             }
         );
         $('#last_name').keyup(
-            function () {
+            function() {
                 $("#update_user").show("slow");
             }
         );
         $('#is_subscribed').change(
-            function () {
+            function() {
                 $("#update_user").show("slow");
             }
         );
