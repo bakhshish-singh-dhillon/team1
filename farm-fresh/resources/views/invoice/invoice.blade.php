@@ -4,7 +4,7 @@
             <div class="card p-4">
 
                 <h1 class="title mb-3">Order placed successfully!</h1>
-                <div id="invoice_content p-3">
+                <div class="invoice_content p-3">
                     <table class="content-table text-left " style="min-width: 100%;">
                         <thead>
                             <tr class="border-bottom">
@@ -108,3 +108,4 @@
             </div>
         </div>
     </div>
+</div>
