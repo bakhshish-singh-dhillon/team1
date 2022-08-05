@@ -8,6 +8,7 @@ use App\Models\Review;
 use App\Models\Address;
 use Illuminate\Http\Request;
 use App\Models\OrderLineItem;
+use Illuminate\Support\Facades\Auth;
 
 class UserProfileController extends Controller
 {
@@ -65,5 +66,57 @@ class UserProfileController extends Controller
             'is_subscribed' => (isset($request->is_subscribed) ? true : false),
         ]);
         return redirect("/user-profile/$user->id")->withSuccess('User Details updated successfully');
+    }
+
+    /**
+     * Show User Addresses to edit
+     *
+     * @param  \App\Models\User  $user
+     * @return \Illuminate\Http\Response
+     */
+    public function addresses(User $user)
+    {
+        $addresses = Auth::user()->addresses;
+        $title = "Welcome!! " . $user->first_name . " " . $user->last_name . ".";
+        return view('user-profile-addresses', compact('addresses', 'user', 'title'));
+    }
+
+    /**
+     * Store a checkout addresses.
+     *
+     * @param  \App\Http\Requests\StoreCheckoutAddressesRequest  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(Request $request, User $user)
+    {
+        // Retrieve the validated input data...
+        $valid = $request->validate([
+            "address_name" => "required",
+            "address" => "required",
+            "city" => "required",
+            "province" => "required",
+            "country" => "required",
+            "postal_code" => "required",
+            "phone" => "required",
+        ]);
+        // dd($valid);
+        $address = [
+            'address_type' => $valid["address_name"],
+            'address' => $valid["address"],
+            'city' => $valid["city"],
+            'province' => $valid["province"],
+            'country' => $valid["country"],
+            'postal_code' => $valid["postal_code"],
+            'phone' => $valid["phone"]
+        ];
+
+        Auth::user()->addresses()->updateOrCreate(
+            ['id' => $request->get("address_id") ?? null],
+            $address
+        );
+
+        session()->put('address', json_encode($address));
+
+        return redirect('/user-profile/'.$user->id)->withSuccess('Addresses Updated Successfully');
     }
 }
